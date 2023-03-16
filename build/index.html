@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/output.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <title>Cinemet</title>
+</head>
+<body class="bg-main-dark">
+
+<nav class="text-main-light bg-main-default">
+<div id="nav-contain" class="flex p-4 gap-4  w-full h-20 ">
+    <img src="img/popcorn.png" class="basis-auto" alt="logo">
+    <form action="" method="get" class="grow flex relative">
+        <input type="search" name="search" class="bg-main-dark placeholder:italic pl-4 border-main-light border-solid border-2 basis-full" placeholder="Cherchez un film!" >
+        <button type="submit"><i class="fa fa-search absolute top-3 right-3 text-2xl"></i></button>
+    </form>
+    <div class="items-center flex basis-auto text-4xl gap-6">
+        <button class="rounded-lg hover:bg-main-hover"><i class="fa fa-user w-full h-full p-2"></i></button>
+        <button class="rounded-lg hover:bg-main-hover" onclick="toggleMobileMenu(burgermenu)"><i class="fa fa-bars w-full h-full p-2"></i></button>
+    </div>
+</div>
+<div id="burgermenu" class=" text-white h-56 flex p-4 text-3xl gap-8  font-bold">
+<div id="leftmenu" class="basis-auto flex-col flex justify-between underline">
+    <a href="">Accueil</a>
+    <a href="">Catalogue</a>
+    <a href="">Acteurs</a>
+</div>
+    <ul class="text-lg grow font-normal text-main-light flex-wrap flex flex-col w-6">
+        <a href="" class="underline text-3xl text-white">Genres</a>
+            <a href="" class="border-b-2 border-solid borderma"><li class=""> Action </li></a>
+            <a href="" class="border-b-2 border-main-light border-solid"><li class=""> Amateur </li></a>
+            <a href="" class="border-b-2 border-main-light border-solid"><li class=""> Animation </li></a>
+            <a href="" class="border-b-2 border-main-light border-solid"><li class=""> Aventure </li></a>
+            <a href="" class="border-b-2 border-main-light border-solid"><li class=""> Catastrophe </li></a>
+            <a href="" class="border-b-2 border-main-light border-solid"><li class=""> Chevaliers </li></a>
+            <a href="" class="border-b-2 border-main-light border-solid"><li class=""> Comédie </li></a>
+            <a href="" class="border-b-2 border-main-light border-solid"><li class=""> Documentaires </li></a>
+            <a href="" class="border-b-2 border-main-light border-solid"><li class=""> Drame </li></a>
+            <a href="" class="border-b-2 border-main-light border-solid"><li class=""> Fantastique </li></a>
+            <a href="" class="border-b-2 border-main-light border-solid"><li class=""> Guerre/histoire </li></a>
+            <a href="" class="border-b-2 border-main-light border-solid"><li class=""> Horreur </li></a>
+            <a href="" class="border-b-2 border-main-light border-solid"><li class=""> Héros </li></a>
+            <a href="" class="border-b-2 border-main-light border-solid"><li class=""> Musical </li></a>
+            <a href="" class="border-b-2 border-main-light border-solid"><li class=""> Opéra </li></a>
+            <a href="" class="border-b-2 border-main-light border-solid"><li class=""> Policier </li></a>
+            <a href="" class="border-b-2 border-main-light border-solid"><li class=""> Sciences-fiction </li></a>
+            <a href="" class="border-b-2 border-main-light border-solid"><li class=""> Sketch </li></a>
+            <a href="" class="border-b-2 border-main-light border-solid"><li class=""> Sport </li></a>
+            <a href="" class="border-b-2 border-main-light border-solid"><li class=""> Western </li></a>
+    </ul>
+
+<div id="rightmenu" class="">
+    <a href="" class="underline">Profil</a>
+    <ul class="text-lg font-normal text-main-light">
+        <a href=""><li>Favoris</li></a>
+        <a href=""><li>Informations</li></a>
+        <a href=""><li>Se déconnecter</li></a>
+    </ul>
+</div>
+</div>
+</nav>
+
+
+
+<!-- <script>
+    function toggleMobileMenu(menu) {
+    menu.classList.toggle('hidden')
+    }
+</script> -->
+</body>
+</html>
