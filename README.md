@@ -1,2 +1,2 @@
 ﻿# AlloSimplon
-salutations voyageurs
+salutation voyageus
