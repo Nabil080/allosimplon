@@ -4,18 +4,22 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/output.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.4/flowbite.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <link rel="stylesheet" href="css/output.css">
+
+
     <title>Cinemet</title>
 </head>
-<body class="bg-main-dark">
+<body class="bg-main-dark text-white">
 
-<nav class="text-main-light bg-main-default">
-<div id="nav-contain" class="flex p-4 gap-4  w-full h-20 ">
+<nav id="navbar" class="text-main-light bg-main-default sticky z-50 ease-out duration-300">
+<div id="nav-contain" class="flex p-4 gap-4  w-full h-20 px-[15%]">
     <img src="img/popcorn.png" class="basis-auto" alt="logo">
+    <span class="text-white uppercase self-center text-xl ">SimplonFilm</span>
     <form action="" method="get" class="grow flex relative">
         <input type="search" name="search" class="bg-main-dark placeholder:italic pl-4 border-main-light border-solid border-2 basis-full" placeholder="Cherchez un film!" >
-        <button type="submit"><i class="fa fa-search absolute top-3 right-3 text-2xl"></i></button>
+        <button type="submit"><i class="fa fa-search absolute top-2 right-3 text-2xl"></i></button>
     </form>
     <div class="items-center flex basis-auto text-4xl gap-6">
         <button class="rounded-lg hover:bg-main-hover"><i class="fa fa-user w-full h-full p-2"></i></button>
@@ -30,26 +34,26 @@
 </div>
     <ul class="text-lg grow font-normal text-main-light flex-wrap flex flex-col w-6">
         <a href="" class="underline text-3xl text-white font-bold">Genres</a>
-            <a href="" class="border-b-2 border-solid borderma"><li class=""> Action </li></a>
-            <a href="" class="border-b-2 border-main-light border-solid"><li class=""> Amateur </li></a>
-            <a href="" class="border-b-2 border-main-light border-solid"><li class=""> Animation </li></a>
-            <a href="" class="border-b-2 border-main-light border-solid"><li class=""> Aventure </li></a>
-            <a href="" class="border-b-2 border-main-light border-solid"><li class=""> Catastrophe </li></a>
-            <a href="" class="border-b-2 border-main-light border-solid"><li class=""> Chevaliers </li></a>
-            <a href="" class="border-b-2 border-main-light border-solid"><li class=""> Comédie </li></a>
-            <a href="" class="border-b-2 border-main-light border-solid"><li class=""> Documentaires </li></a>
-            <a href="" class="border-b-2 border-main-light border-solid"><li class=""> Drame </li></a>
-            <a href="" class="border-b-2 border-main-light border-solid"><li class=""> Fantastique </li></a>
-            <a href="" class="border-b-2 border-main-light border-solid"><li class=""> Guerre/histoire </li></a>
-            <a href="" class="border-b-2 border-main-light border-solid"><li class=""> Horreur </li></a>
-            <a href="" class="border-b-2 border-main-light border-solid"><li class=""> Héros </li></a>
-            <a href="" class="border-b-2 border-main-light border-solid"><li class=""> Musical </li></a>
-            <a href="" class="border-b-2 border-main-light border-solid"><li class=""> Opéra </li></a>
-            <a href="" class="border-b-2 border-main-light border-solid"><li class=""> Policier </li></a>
-            <a href="" class="border-b-2 border-main-light border-solid"><li class=""> Sciences-fiction </li></a>
-            <a href="" class="border-b-2 border-main-light border-solid"><li class=""> Sketch </li></a>
-            <a href="" class="border-b-2 border-main-light border-solid"><li class=""> Sport </li></a>
-            <a href="" class="border-b-2 border-main-light border-solid"><li class=""> Western </li></a>
+            <a href="" class=""><li class="hover:underline decoration-main-light"> Action </li></a>
+            <a href="" class=""><li class="hover:underline decoration-main-light"> Amateur </li></a>
+            <a href="" class=""><li class="hover:underline decoration-main-light"> Animation </li></a>
+            <a href="" class=""><li class="hover:underline decoration-main-light"> Aventure </li></a>
+            <a href="" class=""><li class="hover:underline decoration-main-light"> Catastrophe </li></a>
+            <a href="" class=""><li class="hover:underline decoration-main-light"> Chevaliers </li></a>
+            <a href="" class=""><li class="hover:underline decoration-main-light"> Comédie </li></a>
+            <a href="" class=""><li class="hover:underline decoration-main-light"> Documentaires </li></a>
+            <a href="" class=""><li class="hover:underline decoration-main-light"> Drame </li></a>
+            <a href="" class=""><li class="hover:underline decoration-main-light"> Fantastique </li></a>
+            <a href="" class=""><li class="hover:underline decoration-main-light"> Guerre/histoire </li></a>
+            <a href="" class=""><li class="hover:underline decoration-main-light"> Horreur </li></a>
+            <a href="" class=""><li class="hover:underline decoration-main-light"> Héros </li></a>
+            <a href="" class=""><li class="hover:underline decoration-main-light"> Musical </li></a>
+            <a href="" class=""><li class="hover:underline decoration-main-light"> Opéra </li></a>
+            <a href="" class=""><li class="hover:underline decoration-main-light"> Policier </li></a>
+            <a href="" class=""><li class="hover:underline decoration-main-light"> Sciences-fiction </li></a>
+            <a href="" class=""><li class="hover:underline decoration-main-light"> Sketch </li></a>
+            <a href="" class=""><li class="hover:underline decoration-main-light"> Sport </li></a>
+            <a href="" class=""><li class="hover:underline decoration-main-light"> Western </li></a>
     </ul>
 
 <div id="rightmenu" class="">
@@ -62,13 +66,251 @@
 </div>
 </div>
 </nav>
-
-
-
 <script>
     function toggleMobileMenu(menu) {
     menu.classList.toggle('hidden')
     }
+    /* When the user scrolls down, hide the navbar. When the user scrolls up, show the navbar */
+    var prevScrollpos = window.pageYOffset;
+    window.onscroll = function() {
+    var currentScrollPos = window.pageYOffset;
+    if (prevScrollpos > currentScrollPos){
+        document.getElementById("navbar").style.top = "0";
+    } else {
+        document.getElementById("navbar").style.top = "-80px";
+    }
+    prevScrollpos = currentScrollPos;
+    } 
 </script>
+
+
+<div class="flex justify-center mt-12 mb-6">
+<h1 class="font-bold text-4xl">Films populaires</h1>
+</div>
+
+<section>
+    <div id="default-carousel" class="relative" data-carousel="static">
+        <!-- Carousel wrapper -->
+        <div class="relative h-[40vh] w-[60%] mx-auto overflow-hidden rounded-lg right-0 md:h-96">
+            <!-- Slider controls -->
+<button type="button" class="absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
+    <span class="inline-flex items-center justify-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-sand group-hover:bg-sand dark:group-hover:bg-sand group-focus:ring-sand dark:group-focus:ring-sand">
+        <svg aria-hidden="true" class="w-5 h-5 text-main-light sm:w-64 sm:h-64" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M15 19l-7-7 7-7"></path></svg>
+        <span class="sr-only">Previous</span>
+    </span>
+</button>
+<button type="button" class="absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-next>
+    <span class="inline-flex items-center justify-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-sand group-hover:bg-sand dark:group-hover:bg-sand group-focus:ring-sand dark:group-focus:ring-sand">
+        <svg aria-hidden="true" class="w-5 h-5 text-main-light sm:w-64 sm:h-64" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="4" stroke-height="20" d="M9 5l7 7-7 7"></path></svg>
+        <span class="sr-only">Next</span>
+    </span>
+</button>
+             <!-- Item 1 -->
+            <div class="hidden duration-3000 ease-in-out h-full" data-carousel-item>
+                    <div class="absolute block md:gap-2 md:grid md:grid-cols-2  xl:grid-cols-3 justify-items-center  h-full w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
+                        <img src="img/yes.jpg" class="h-full mx-auto">
+                        <img src="img/gladiator.jpg" class="hidden md:block h-full">
+                        <img src="img/joker.jpg" class="hidden xl:block h-full">
+                    </div>
+            </div>
+            <!-- Item 2 -->
+            <div class="hidden duration-3000 ease-in-out" data-carousel-item>
+                <div class="absolute block md:gap-2 md:grid md:grid-cols-2 justify-items-center xl:grid-cols-3  h-full w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
+                    <img src="img/yes.jpg" class="h-full mx-auto">
+                    <img src="img/joker.jpg" class="hidden xl:block h-full">
+                    <img src="img/gladiator.jpg" class="hidden md:block h-full">
+                </div>
+            </div>
+            <!-- Item 3 -->
+            <div class="hidden duration-3000 ease-in-out" data-carousel-item>
+                <div class="absolute block md:gap-2 md:grid md:grid-cols-2 xl:grid-cols-3 justify-items-center  h-full w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
+                    <img src="img/gladiator.jpg" class="h-full mx-auto">
+                    <img src="img/yes.jpg" class="hidden md:block h-full">
+                    <img src="img/joker.jpg" class="hidden xl:block h-full">
+                </div>
+            </div>
+            <!-- Item 4 -->
+            <div class="hidden duration-3000 ease-in-out" data-carousel-item>
+                <div class="absolute block md:gap-2 md:grid md:grid-cols-2 xl:grid-cols-3 justify-items-center  h-full w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
+                    <img src="img/joker.jpg" class="h-full mx-auto">
+                    <img src="img/joker.jpg" class="hidden md:block h-full">
+                    <img src="img/joker.jpg" class="hidden xl:block h-full">
+                </div>
+            </div>
+            <!-- Item 5 -->
+            <div class="hidden duration-3000 ease-in-out" data-carousel-item>
+                <div class="absolute block md:gap-2 md:grid md:grid-cols-2 xl:grid-cols-3 justify-items-center  h-full w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
+                    <img src="img/yes.jpg" class="h-full mx-auto">
+                    <img src="img/yes.jpg" class="hidden md:block h-full">
+                    <img src="img/yes.jpg" class="hidden xl:block h-full">
+                </div>
+            </div>
+        </div>
+<!-- Slider indicators -->
+<div class="absolute z-30 flex space-x-3 -translate-x-1/2 bottom-5 left-1/2">
+    <button type="button" class="w-3 h-3 rounded-full" aria-current="true" aria-label="Slide 1" data-carousel-slide-to="5"></button>
+    <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 2" data-carousel-slide-to="6"></button>
+    <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 3" data-carousel-slide-to="7"></button>
+    <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 4" data-carousel-slide-to="8"></button>
+    <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 5" data-carousel-slide-to="9"></button>
+</div>
+
+</div>
+</section>
+
+<div class="flex justify-center mt-12 mb-6">
+    <h1 class="font-bold text-4xl">Dernières sorties</h1>
+</div>
+
+
+<section>
+    <div id="default-carousel" class="relative" data-carousel="static">
+        <!-- Carousel wrapper -->
+        <div class="relative h-[40vh] w-[60%] mx-auto overflow-hidden rounded-lg right-0 md:h-96">
+            <!-- Slider controls -->
+<button type="button" class="absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
+    <span class="inline-flex items-center justify-center w-8 h-8 rounded-full sm:w-10 sm:h-10 group-hover:bg-sand dark:group-hover:bg-sand group-focus:ring-sand dark:group-focus:ring-sand">
+        <svg aria-hidden="true" class="w-5 h-5 text-main-light sm:w-64 sm:h-64" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M15 19l-7-7 7-7"></path></svg>
+        <span class="sr-only">Previous</span>
+    </span>
+</button>
+<button type="button" class="absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-next>
+    <span class="inline-flex items-center justify-center w-8 h-8 rounded-full sm:w-10 sm:h-10 group-hover:bg-sand dark:group-hover:bg-sand group-focus:ring-sand dark:group-focus:ring-sand">
+        <svg aria-hidden="true" class="w-5 h-5 text-main-light sm:w-64 sm:h-64" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M9 5l7 7-7 7"></path></svg>
+        <span class="sr-only">Next</span>
+    </span>
+</button>
+             <!-- Item 1 -->
+            <div class="hidden duration-3000 ease-in-out h-full" data-carousel-item>
+                    <div class="absolute block md:gap-2 md:grid md:grid-cols-2  xl:grid-cols-3 justify-items-center  h-full w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
+                        <img src="img/yes.jpg" class="h-full">
+                        <img src="img/gladiator.jpg" class="hidden md:block h-full">
+                        <img src="img/joker.jpg" class="hidden xl:block h-full">
+
+                    </div>
+            </div>
+            <!-- Item 2 -->
+            <div class="hidden duration-3000 ease-in-out" data-carousel-item>
+                <div class="absolute block md:gap-2 md:grid md:grid-cols-2 justify-items-center xl:grid-cols-3  h-full w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
+                    <img src="img/yes.jpg" class="h-full">
+                    <img src="img/joker.jpg" class="hidden xl:block h-full">
+                    <img src="img/gladiator.jpg" class="hidden md:block h-full">
+                </div>
+            </div>
+            <!-- Item 3 -->
+            <div class="hidden duration-3000 ease-in-out" data-carousel-item>
+                <div class="absolute block md:gap-2 md:grid md:grid-cols-2 xl:grid-cols-3 justify-items-center  h-full w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
+                    <img src="img/gladiator.jpg" class="h-full mx-auto">
+                    <img src="img/yes.jpg" class="hidden md:block h-full">
+                    <img src="img/joker.jpg" class="hidden xl:block h-full">
+                </div>
+            </div>
+            <!-- Item 4 -->
+            <div class="hidden duration-3000 ease-in-out" data-carousel-item>
+                <div class="absolute block md:gap-2 md:grid md:grid-cols-2 xl:grid-cols-3 justify-items-center  h-full w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
+                    <img src="img/joker.jpg" class="h-full mx-auto">
+                    <img src="img/joker.jpg" class="hidden md:block h-full">
+                    <img src="img/joker.jpg" class="hidden xl:block h-full">
+                </div>
+            </div>
+            <!-- Item 5 -->
+            <div class="hidden duration-3000 ease-in-out" data-carousel-item>
+                <div class="absolute block md:gap-2 md:grid md:grid-cols-2 xl:grid-cols-3 justify-items-center  h-full w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
+                    <img src="img/yes.jpg" class="h-full mx-auto">
+                    <img src="img/yes.jpg" class="hidden md:block h-full">
+                    <img src="img/yes.jpg" class="hidden xl:block h-full">
+                </div>
+            </div>
+        </div>
+<!-- Slider indicators -->
+<div class="absolute z-30 flex space-x-3 -translate-x-1/2 bottom-5 left-1/2">
+    <button type="button" class="w-3 h-3 rounded-full" aria-current="true" aria-label="Slide 1" data-carousel-slide-to="5"></button>
+    <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 2" data-carousel-slide-to="6"></button>
+    <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 3" data-carousel-slide-to="7"></button>
+    <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 4" data-carousel-slide-to="8"></button>
+    <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 5" data-carousel-slide-to="9"></button>
+</div>
+
+</div>
+</section>
+
+<div class="flex justify-center mt-12 mb-6">
+    <h1 class="font-bold text-4xl">Films Aléatoires</h1>
+</div>
+
+
+<section>
+    <div id="default-carousel" class="relative" data-carousel="static">
+        <!-- Carousel wrapper -->
+        <div class="relative h-[40vh] w-[60%] mx-auto overflow-hidden rounded-lg right-0 md:h-96">
+            <!-- Slider controls -->
+<button type="button" class="absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
+    <span class="inline-flex items-center justify-center w-8 h-8 rounded-full sm:w-10 sm:h-10 group-hover:bg-sand dark:group-hover:bg-sand group-focus:ring-sand dark:group-focus:ring-sand">
+        <svg aria-hidden="true" class="w-5 h-5 text-main-light sm:w-64 sm:h-64" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M15 19l-7-7 7-7"></path></svg>
+        <span class="sr-only">Previous</span>
+    </span>
+</button>
+<button type="button" class="absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-next>
+    <span class="inline-flex items-center justify-center w-8 h-8 rounded-full sm:w-10 sm:h-10 group-hover:bg-sand dark:group-hover:bg-sand group-focus:ring-sand dark:group-focus:ring-sand">
+        <svg aria-hidden="true" class="w-5 h-5 text-main-light sm:w-64 sm:h-64" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M9 5l7 7-7 7"></path></svg>
+        <span class="sr-only">Next</span>
+    </span>
+</button>
+             <!-- Item 1 -->
+            <div class="hidden duration-3000 ease-in-out h-full" data-carousel-item>
+                    <div class="absolute block md:gap-2 md:grid md:grid-cols-2  xl:grid-cols-3 justify-items-center  h-full w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
+                        <img src="img/yes.jpg" class="h-full">
+                        <img src="img/gladiator.jpg" class="hidden md:block h-full">
+                        <img src="img/joker.jpg" class="hidden xl:block h-full">
+
+                    </div>
+            </div>
+            <!-- Item 2 -->
+            <div class="hidden duration-3000 ease-in-out" data-carousel-item>
+                <div class="absolute block md:gap-2 md:grid md:grid-cols-2 justify-items-center xl:grid-cols-3  h-full w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
+                    <img src="img/yes.jpg" class="h-full">
+                    <img src="img/joker.jpg" class="hidden xl:block h-full">
+                    <img src="img/gladiator.jpg" class="hidden md:block h-full">
+                </div>
+            </div>
+            <!-- Item 3 -->
+            <div class="hidden duration-3000 ease-in-out" data-carousel-item>
+                <div class="absolute block md:gap-2 md:grid md:grid-cols-2 xl:grid-cols-3 justify-items-center  h-full w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
+                    <img src="img/gladiator.jpg" class="h-full mx-auto">
+                    <img src="img/yes.jpg" class="hidden md:block h-full">
+                    <img src="img/joker.jpg" class="hidden xl:block h-full">
+                </div>
+            </div>
+            <!-- Item 4 -->
+            <div class="hidden duration-3000 ease-in-out" data-carousel-item>
+                <div class="absolute block md:gap-2 md:grid md:grid-cols-2 xl:grid-cols-3 justify-items-center  h-full w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
+                    <img src="img/joker.jpg" class="h-full mx-auto">
+                    <img src="img/joker.jpg" class="hidden md:block h-full">
+                    <img src="img/joker.jpg" class="hidden xl:block h-full">
+                </div>
+            </div>
+            <!-- Item 5 -->
+            <div class="hidden duration-3000 ease-in-out" data-carousel-item>
+                <div class="absolute block md:gap-2 md:grid md:grid-cols-2 xl:grid-cols-3 justify-items-center  h-full w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
+                    <img src="img/yes.jpg" class="h-full mx-auto">
+                    <img src="img/yes.jpg" class="hidden md:block h-full">
+                    <img src="img/yes.jpg" class="hidden xl:block h-full">
+                </div>
+            </div>
+        </div>
+<!-- Slider indicators -->
+<div class="absolute z-30 flex space-x-3 -translate-x-1/2 bottom-5 left-1/2">
+    <button type="button" class="w-3 h-3 rounded-full" aria-current="true" aria-label="Slide 1" data-carousel-slide-to="5"></button>
+    <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 2" data-carousel-slide-to="6"></button>
+    <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 3" data-carousel-slide-to="7"></button>
+    <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 4" data-carousel-slide-to="8"></button>
+    <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 5" data-carousel-slide-to="9"></button>
+</div>
+
+</div>
+</section>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.4/flowbite.min.js"></script>
 </body>
 </html>

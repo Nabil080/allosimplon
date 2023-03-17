@@ -9,3 +9,8 @@
 .salu{
     transform: translateX(-2.5rem);
 }
+
+#carousel img{
+    width: 360px;
+    height: 533px;
+}
