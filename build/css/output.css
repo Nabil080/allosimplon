@@ -589,6 +589,14 @@ video {
   top: 0.75rem;
 }
 
+.bottom-8 {
+  bottom: 2rem;
+}
+
+.right-8 {
+  right: 2rem;
+}
+
 .z-30 {
   z-index: 30;
 }
@@ -599,6 +607,10 @@ video {
 
 .z-50 {
   z-index: 50;
+}
+
+.z-10 {
+  z-index: 10;
 }
 
 .mx-4 {
@@ -722,6 +734,10 @@ video {
 
 .w-full {
   width: 100%;
+}
+
+.w-4 {
+  width: 1rem;
 }
 
 .max-w-md {
@@ -933,6 +949,10 @@ video {
 
 .pl-4 {
   padding-left: 1rem;
+}
+
+.pl-1 {
+  padding-left: 0.25rem;
 }
 
 .text-center {
