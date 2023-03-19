@@ -13,7 +13,7 @@
 </head>
 <body class="bg-main-dark text-white">
 
-<nav id="navbar" class="text-main-light bg-main-default sticky z-40 ease-out duration-300">
+<nav id="navbar" class="text-main-light bg-main-default fixed w-full z-40 top-0 ease-out duration-300">
 <div id="nav-contain" class="flex p-4 gap-4  w-full h-20 px-[15%]">
     <img src="img/popcorn.png" class="basis-auto" alt="logo">
     <span class="text-white uppercase self-center text-xl ">SimplonFilm</span>
@@ -29,8 +29,8 @@
 </div>
 <div id="burgermenu" class="hidden text-white h-56 flex p-4 text-3xl gap-8  font-bold px-[15%]">
 <div id="leftmenu" class="basis-auto flex-col flex justify-between underline">
-    <a href="">Accueil</a>
-    <a href="">Catalogue</a>
+    <a href="index.html">Accueil</a>
+    <a href="catalogue.html">Catalogue</a>
     <a href="">Acteurs</a>
 </div>
     <ul class="text-lg grow font-normal text-main-light flex-wrap flex flex-col w-6">
@@ -254,9 +254,57 @@ function switchDiv() {
 </script>
 
 
-<div class="flex justify-center mt-12 mb-6">
+<div class="flex justify-center mt-28 mb-6">
 <h1 class="font-bold text-4xl">Tous les films</h1>
 </div>
+
+
+<section class="flex justify-center">
+<div class="w-[1400px] mx-12 flex gap-4">
+    <!-- FILTRES -->
+    <div class="grow w-full border-2 hidden md:block">
+        <div class="font-bold text-xl w-fit notewe">Note IMDb</div>
+        <div class=" my-4 grade text-main-light z-50 text-2xl">
+            <i class="fa-solid fa-star cursor-pointer"></i>
+            <i class="fa-solid fa-star cursor-pointer"></i>
+            <i class="fa-solid fa-star cursor-pointer"></i>
+            <i class="fa-regular fa-star cursor-pointer relative group/star"><i class="fa-solid fa-star cursor-pointer absolute top-0 left-0 hidden group-hover/star:block"></i></i>
+            <i class="fa-regular fa-star cursor-pointer relative group/star"><i class="fa-solid fa-star cursor-pointer absolute top-0 left-0 hidden group-hover/star:block"></i></i>
+        </div>
+        <div class="font-bold text-xl w-fit notewe">Trier par</div>
+        <div class="my-4 flex flex-wrap gap-1">
+            <button class="border-main-light border-2 p-2 rounded-md"><i class="fa-solid fa-plus"></i> A-Z</button>
+            <button class="border-main-light border-2 p-2 rounded-md"><i class="fa-solid fa-plus"></i>Z-A</button>
+            <button class="border-main-light border-2 p-2 rounded-md"><i class="fa-solid fa-plus"></i>Aléatoire</button>
+        </div>
+        <div class="font-bold text-xl w-fit notewe">Catégories</div>
+        <div class="my-4">
+            slt
+        </div>
+    </div>
+
+    <!-- PAGE -->
+    <div >
+        <div class="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:-grid-cols-5 [&>*]:w-full [&>*]:h-full [&>*]:object-cover ">
+            <img src="img/1.jpg" alt="">
+            <img src="img/2.jpg" alt="">
+            <img src="img/3.jpg" alt="">
+            <img src="img/4.jpg" alt="">
+            <img src="img/5.jpg" alt="">
+            <img src="img/6.jpg" alt="">
+            <img src="img/7.jpg" alt="">
+            <img src="img/8.jpg" alt="">
+            <img src="img/9.jpg" alt="">
+            <img src="img/10.jpg" alt="">
+            <img src="img/1.jpg" alt="">
+            <img src="img/2.jpg" alt="">
+            <img src="img/3.jpg" alt="">
+            <img src="img/4.jpg" alt="">
+        </div>
+    </div>
+
+</div>
+</section>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.4/flowbite.min.js"></script>
 </body>
