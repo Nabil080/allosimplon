@@ -541,6 +541,14 @@ video {
   position: relative;
 }
 
+.-top-12 {
+  top: -3rem;
+}
+
+.bottom-0 {
+  bottom: 0px;
+}
+
 .bottom-8 {
   bottom: 2rem;
 }
@@ -569,6 +577,10 @@ video {
   right: 0.75rem;
 }
 
+.right-4 {
+  right: 1rem;
+}
+
 .right-8 {
   right: 2rem;
 }
@@ -587,6 +599,10 @@ video {
 
 .top-3 {
   top: 0.75rem;
+}
+
+.-z-30 {
+  z-index: -30;
 }
 
 .z-10 {
@@ -771,6 +787,10 @@ video {
   width: 1500px;
 }
 
+.w-\[60\%\] {
+  width: 60%;
+}
+
 .w-\[80\%\] {
   width: 80%;
 }
@@ -782,6 +802,10 @@ video {
 
 .w-full {
   width: 100%;
+}
+
+.w-screen {
+  width: 100vw;
 }
 
 .max-w-md {
@@ -810,20 +834,12 @@ video {
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
-.cursor-default {
-  cursor: default;
-}
-
 .cursor-pointer {
   cursor: pointer;
 }
 
 .grid-cols-1 {
   grid-template-columns: repeat(1, minmax(0, 1fr));
-}
-
-.grid-cols-2 {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .flex-col {
@@ -862,6 +878,10 @@ video {
   gap: 0.25rem;
 }
 
+.gap-2 {
+  gap: 0.5rem;
+}
+
 .gap-4 {
   gap: 1rem;
 }
@@ -872,6 +892,15 @@ video {
 
 .gap-8 {
   gap: 2rem;
+}
+
+.gap-x-2 {
+  -moz-column-gap: 0.5rem;
+       column-gap: 0.5rem;
+}
+
+.gap-y-4 {
+  row-gap: 1rem;
 }
 
 .-space-x-px > :not([hidden]) ~ :not([hidden]) {
@@ -956,11 +985,6 @@ video {
   background-color: rgb(9 35 39 / var(--tw-bg-opacity));
 }
 
-.bg-main-default {
-  --tw-bg-opacity: 1;
-  background-color: rgb(11 83 81 / var(--tw-bg-opacity));
-}
-
 .bg-main-light {
   --tw-bg-opacity: 1;
   background-color: rgb(0 169 165 / var(--tw-bg-opacity));
@@ -976,6 +1000,10 @@ video {
 
 .bg-opacity-80 {
   --tw-bg-opacity: 0.8;
+}
+
+.bg-cover {
+  background-size: cover;
 }
 
 .object-cover {
@@ -1001,6 +1029,10 @@ video {
 
 .p-4 {
   padding: 1rem;
+}
+
+.p-8 {
+  padding: 2rem;
 }
 
 .px-3 {
@@ -1150,6 +1182,11 @@ video {
   --tw-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.blur {
+  --tw-blur: blur(8px);
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 
 .duration-300 {
@@ -1308,6 +1345,10 @@ video {
 }
 
 .group\/star:hover .group-hover\/star\:block {
+  display: block;
+}
+
+.group:hover .group-hover\:block {
   display: block;
 }
 
@@ -1497,7 +1538,4 @@ video {
   width: 100%;
 }
 
-.\[\&\>\*\]\:object-cover>* {
-  -o-object-fit: cover;
-     object-fit: cover;
-}
+
