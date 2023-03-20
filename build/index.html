@@ -14,11 +14,11 @@
 <body class="bg-main-dark text-white">
 
 <nav id="navbar" class="text-main-light bg-main-dark fixed top-0 w-full z-40 ease-out duration-300">
-<div id="nav-contain" class="flex p-4 gap-4  w-full h-20 px-[10%]">
+<div id="nav-contain" class="flex p-4 gap-4  w-full h-20 md:px-[10%]">
     <img src="img/popcorn.png" class="basis-auto" alt="logo"><a class="self-center" href="index.html">
         <span class="text-white uppercase self-center text-xl ">SimplonFilm</span></a>
     <form action="" method="get" class="grow flex relative">
-        <input type="search" name="search" class="bg-main-dark placeholder:italic pl-4 border border-solid border-2 basis-full text-white  focus:ring-0" placeholder="Cherchez un film!" >
+        <input type="search" name="search" class="bg-main-dark placeholder:italic pl-4 hidden md:block border border-solid  basis-full text-white  focus:ring-0" placeholder="Cherchez un film!" >
         <button type="submit"><i class="fa fa-search absolute top-2 right-3 text-2xl"></i></button>
     </form>
     <div class="items-center flex basis-auto text-4xl gap-6">
@@ -27,7 +27,7 @@
         <button class="rounded-lg hover:bg-main-hover" onclick="toggleMobileMenu(burgermenu)"><i class="fa fa-bars w-full h-full p-2"></i></button>
     </div>
 </div>
-<div id="burgermenu" class="hidden text-white h-56 flex p-4 text-3xl gap-8  font-bold px-[15%]">
+<div id="burgermenu" class="hidden text-white h-screen md:h-96 lg:h-56 flex p-4 text-3xl gap-8  font-bold px-[15%]">
 <div id="leftmenu" class="basis-auto flex-col flex justify-between underline">
     <a href="index.html">Accueil</a>
     <a href="catalogue.html">Catalogue</a>
@@ -35,33 +35,33 @@
 </div>
     <ul class="text-lg grow font-normal text-main-light flex-wrap flex flex-col w-6">
             <a href="" class="underline text-3xl text-white font-bold">Genres</a>
-            <a href="" class=""><li class="hover:underline decoration-main-light"> Action </li></a>
-            <a href="" class=""><li class="hover:underline decoration-main-light"> Amateur </li></a>
-            <a href="" class=""><li class="hover:underline decoration-main-light"> Animation </li></a>
-            <a href="" class=""><li class="hover:underline decoration-main-light"> Aventure </li></a>
-            <a href="" class=""><li class="hover:underline decoration-main-light"> Catastrophe </li></a>
-            <a href="" class=""><li class="hover:underline decoration-main-light"> Chevaliers </li></a>
-            <a href="" class=""><li class="hover:underline decoration-main-light"> Comédie </li></a>
-            <a href="" class=""><li class="hover:underline decoration-main-light"> Documentaires </li></a>
-            <a href="" class=""><li class="hover:underline decoration-main-light"> Drame </li></a>
-            <a href="" class=""><li class="hover:underline decoration-main-light"> Fantastique </li></a>
-            <a href="" class=""><li class="hover:underline decoration-main-light"> Guerre/histoire </li></a>
-            <a href="" class=""><li class="hover:underline decoration-main-light"> Horreur </li></a>
-            <a href="" class=""><li class="hover:underline decoration-main-light"> Héros </li></a>
-            <a href="" class=""><li class="hover:underline decoration-main-light"> Musical </li></a>
-            <a href="" class=""><li class="hover:underline decoration-main-light"> Opéra </li></a>
-            <a href="" class=""><li class="hover:underline decoration-main-light"> Policier </li></a>
-            <a href="" class=""><li class="hover:underline decoration-main-light"> Sciences-fiction </li></a>
-            <a href="" class=""><li class="hover:underline decoration-main-light"> Sketch </li></a>
-            <a href="" class=""><li class="hover:underline decoration-main-light"> Sport </li></a>
-            <a href="" class=""><li class="hover:underline decoration-main-light"> Western </li></a>
+            <a href="" class=""><li class="hover:underline decoration-main-light "> Action </li></a>
+            <a href="" class=""><li class="hover:underline decoration-main-light "> Amateur </li></a>
+            <a href="" class=""><li class="hover:underline decoration-main-light "> Animation </li></a>
+            <a href="" class=""><li class="hover:underline decoration-main-light "> Aventure </li></a>
+            <a href="" class=""><li class="hover:underline decoration-main-light "> Catastrophe </li></a>
+            <a href="" class=""><li class="hover:underline decoration-main-light "> Chevaliers </li></a>
+            <a href="" class=""><li class="hover:underline decoration-main-light "> Comédie </li></a>
+            <a href="" class=""><li class="hover:underline decoration-main-light "> Documentaires </li></a>
+            <a href="" class=""><li class="hover:underline decoration-main-light "> Drame </li></a>
+            <a href="" class=""><li class="hover:underline decoration-main-light "> Fantastique </li></a>
+            <a href="" class=""><li class="hover:underline decoration-main-light "> Guerre/histoire </li></a>
+            <a href="" class=""><li class="hover:underline decoration-main-light "> Horreur </li></a>
+            <a href="" class=""><li class="hover:underline decoration-main-light "> Héros </li></a>
+            <a href="" class=""><li class="hover:underline decoration-main-light "> Musical </li></a>
+            <a href="" class=""><li class="hover:underline decoration-main-light "> Opéra </li></a>
+            <a href="" class=""><li class="hover:underline decoration-main-light "> Policier </li></a>
+            <a href="" class=""><li class="hover:underline decoration-main-light "> Sciences-fiction </li></a>
+            <a href="" class=""><li class="hover:underline decoration-main-light "> Sketch </li></a>
+            <a href="" class=""><li class="hover:underline decoration-main-light "> Sport </li></a>
+            <a href="" class=""><li class="hover:underline decoration-main-light "> Western </li></a>
     </ul>
 
 <div id="rightmenu" class="">
     <a href="" class="underline">Profil</a>
     <ul class="text-lg font-normal text-main-light">
-        <a href=""><li>Favoris</li></a>
-        <a href=""><li>Informations</li></a>
+        <a href="favoris.html"><li>Favoris</li></a>
+        <a data-modal-target="login" data-modal-toggle="login"><li>Informations</li></a>
         <a href=""><li>Se déconnecter</li></a>
     </ul>
 </div>
@@ -177,7 +177,7 @@ function switchDiv() {
                     <a class="text-main-light cursor-pointer" onclick="switchPass()">Modifier le mot de passe</a>
                 </div>
                 <div class="flex justify-center">
-                    <button type="button" class=" text-white bg-main-light hover:bg-main-hover focus:ring-main-light focus:ring-offset-main-light font-medium rounded-lg  px-5 py-2.5 mr-2 mb-2 focus:outline-none">Voir vos favoris</button>
+                    <button type="button" class=" text-white bg-main-light hover:bg-main-hover focus:ring-main-light focus:ring-offset-main-light font-medium rounded-lg  px-5 py-2.5 mr-2 mb-2 focus:outline-none"><a href="favoris.html">Voir vos favoris</a></button>
                 </div>
             </div>
             <!-- CONTENU MODIFIER EMAIL -->
@@ -2791,6 +2791,12 @@ function switchDiv() {
 
 </section>
 
+<footer class="w-full h-8 bg-main-default flex justify-evenly italic text-gray-300">
+<a>contact</a>
+<a>mentions légales</a>
+<a>plus d'infos</a>
+
+</footer>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.4/flowbite.min.js"></script>
 </body>
