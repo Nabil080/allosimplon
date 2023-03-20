@@ -13,12 +13,12 @@
 </head>
 <body class="bg-main-dark text-white">
 
-<nav id="navbar" class="text-main-light bg-main-default sticky z-40 ease-out duration-300">
+<nav id="navbar" class="text-main-light bg-main-dark fixed top-0 w-full z-40 ease-out duration-300">
 <div id="nav-contain" class="flex p-4 gap-4  w-full h-20 px-[10%]">
-    <img src="img/popcorn.png" class="basis-auto" alt="logo">
-    <span class="text-white uppercase self-center text-xl ">SimplonFilm</span>
+    <img src="img/popcorn.png" class="basis-auto" alt="logo"><a class="self-center" href="index.html">
+        <span class="text-white uppercase self-center text-xl ">SimplonFilm</span></a>
     <form action="" method="get" class="grow flex relative">
-        <input type="search" name="search" class="bg-main-dark placeholder:italic pl-4 border-main-light border-solid border-2 basis-full" placeholder="Cherchez un film!" >
+        <input type="search" name="search" class="bg-main-dark placeholder:italic pl-4 border border-solid border-2 basis-full text-white  focus:ring-0" placeholder="Cherchez un film!" >
         <button type="submit"><i class="fa fa-search absolute top-2 right-3 text-2xl"></i></button>
     </form>
     <div class="items-center flex basis-auto text-4xl gap-6">
@@ -29,8 +29,8 @@
 </div>
 <div id="burgermenu" class="hidden text-white h-56 flex p-4 text-3xl gap-8  font-bold px-[15%]">
 <div id="leftmenu" class="basis-auto flex-col flex justify-between underline">
-    <a href="">Accueil</a>
-    <a href="">Catalogue</a>
+    <a href="index.html">Accueil</a>
+    <a href="catalogue.html">Catalogue</a>
     <a href="">Acteurs</a>
 </div>
     <ul class="text-lg grow font-normal text-main-light flex-wrap flex flex-col w-6">
@@ -113,7 +113,7 @@
                     </div>
                     <button type="submit" class="w-full text-white bg-main-light hover:bg-main-hover focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center "> Se connecter </button>
                     <div class="text-sm font-bold text-gray-500 dark:text-gray-300">
-                        Déjà inscrit ? <a onclick="switchDiv()" class="hover:underline text-main-light cursor-pointer"> S'inscrire </a>
+                        Déjà inscrit ? <a onclick="switchDiv()" class="hover:underline text-main-light cursor-pointer"> Se connecter </a>
                     </div>
                 </form>
             </div>
@@ -254,13 +254,13 @@ function switchDiv() {
 </script>
 
 
-<div class="flex justify-center mt-12 mb-6">
+<div class="flex justify-center mt-28 mb-6">
 <h1 class="font-bold text-4xl">Films populaires</h1>
 </div>
 
 <!-- CAROUSEL -->
 <section id="five car" class="">
-    <div id="default-carousel" class="relative flex" data-carousel="static">
+    <div id="dark-carousel" class="relative flex" data-carousel="static">
 
         <!-- BOUTON PREV -->
         <div class="grow flex justify-end">
@@ -280,18 +280,19 @@ function switchDiv() {
                     <div class="absolute block md:gap-2 md:grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 justify-items-center  h-full w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
                         <div class="h-full relative group">
                             <!-- OVERLAY!!! -->
+                            <a href="" class="cursor-pointer">
                             <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
                                 <div class="relative w-full h-full flex flex-col justify-between">
-                                    <p class="font-bold text-xl cursor-default">2022</p>
+                                    <p class="font-bold text-xl cursor-dark">2022</p>
                                     <i class="fa-regular fa-heart cursor-pointer absolute text-main-light right-0 top-0 text-2xl group/fav">
                                         <i class="fa-solid fa-heart cursor-pointer absolute right-0 top-0 text-2xl text-main-light hidden group-hover/fav:block "></i>
                                     </i>
                                     <div>
                                         <div class="flex justify-start">
-                                            <a href="" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
+                                            <h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2>
                                         </div>
                                         <div class="flex justify-start">
-                                            <p class="font-normal cursor-default">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
+                                            <p class="font-normal">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
                                             </p>
                                         </div>
                                         <div class="flex justify-center mt-6 mb-2">
@@ -306,6 +307,7 @@ function switchDiv() {
                                     </div>
                                 </div>
                             </div>
+                            </a>
                                 <!-- IMAGE -->
                             <img src="img/1.jpg" class="h-full mx-auto">
                         </div>
@@ -313,16 +315,16 @@ function switchDiv() {
                             <!-- OVERLAY!!! -->
                             <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
                                 <div class="relative w-full h-full flex flex-col justify-between">
-                                    <p class="font-bold text-xl cursor-default">2022</p>
+                                    <p class="font-bold text-xl cursor-dark">2022</p>
                                     <i class="fa-regular fa-heart cursor-pointer absolute text-main-light right-0 top-0 text-2xl group/fav">
                                         <i class="fa-solid fa-heart cursor-pointer absolute right-0 top-0 text-2xl text-main-light hidden group-hover/fav:block "></i>
                                     </i>
                                     <div>
                                         <div class="flex justify-start">
-                                            <a href="" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
+                                            <a href="film.html" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
                                         </div>
                                         <div class="flex justify-start">
-                                            <p class="font-normal cursor-default">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
+                                            <p class="font-normal cursor-dark">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
                                             </p>
                                         </div>
                                         <div class="flex justify-center mt-6 mb-2">
@@ -344,16 +346,16 @@ function switchDiv() {
                             <!-- OVERLAY!!! -->
                             <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
                                 <div class="relative w-full h-full flex flex-col justify-between">
-                                    <p class="font-bold text-xl cursor-default">2022</p>
+                                    <p class="font-bold text-xl cursor-dark">2022</p>
                                     <i class="fa-regular fa-heart cursor-pointer absolute text-main-light right-0 top-0 text-2xl group/fav">
                                         <i class="fa-solid fa-heart cursor-pointer absolute right-0 top-0 text-2xl text-main-light hidden group-hover/fav:block "></i>
                                     </i>
                                     <div>
                                         <div class="flex justify-start">
-                                            <a href="" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
+                                            <a href="film.html" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
                                         </div>
                                         <div class="flex justify-start">
-                                            <p class="font-normal cursor-default">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
+                                            <p class="font-normal cursor-dark">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
                                             </p>
                                         </div>
                                         <div class="flex justify-center mt-6 mb-2">
@@ -376,16 +378,16 @@ function switchDiv() {
                                                             <!-- OVERLAY!!! -->
                             <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
                                 <div class="relative w-full h-full flex flex-col justify-between">
-                                    <p class="font-bold text-xl cursor-default">2022</p>
+                                    <p class="font-bold text-xl cursor-dark">2022</p>
                                     <i class="fa-regular fa-heart cursor-pointer absolute text-main-light right-0 top-0 text-2xl group/fav">
                                         <i class="fa-solid fa-heart cursor-pointer absolute right-0 top-0 text-2xl text-main-light hidden group-hover/fav:block "></i>
                                     </i>
                                     <div>
                                         <div class="flex justify-start">
-                                            <a href="" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
+                                            <a href="film.html" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
                                         </div>
                                         <div class="flex justify-start">
-                                            <p class="font-normal cursor-default">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
+                                            <p class="font-normal cursor-dark">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
                                             </p>
                                         </div>
                                         <div class="flex justify-center mt-6 mb-2">
@@ -407,16 +409,16 @@ function switchDiv() {
                                                             <!-- OVERLAY!!! -->
                             <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
                                 <div class="relative w-full h-full flex flex-col justify-between">
-                                    <p class="font-bold text-xl cursor-default">2022</p>
+                                    <p class="font-bold text-xl cursor-dark">2022</p>
                                     <i class="fa-regular fa-heart cursor-pointer absolute text-main-light right-0 top-0 text-2xl group/fav">
                                         <i class="fa-solid fa-heart cursor-pointer absolute right-0 top-0 text-2xl text-main-light hidden group-hover/fav:block "></i>
                                     </i>
                                     <div>
                                         <div class="flex justify-start">
-                                            <a href="" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
+                                            <a href="film.html" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
                                         </div>
                                         <div class="flex justify-start">
-                                            <p class="font-normal cursor-default">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
+                                            <p class="font-normal cursor-dark">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
                                             </p>
                                         </div>
                                         <div class="flex justify-center mt-6 mb-2">
@@ -442,16 +444,16 @@ function switchDiv() {
                             <!-- OVERLAY!!! -->
                             <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
                                 <div class="relative w-full h-full flex flex-col justify-between">
-                                    <p class="font-bold text-xl cursor-default">2022</p>
+                                    <p class="font-bold text-xl cursor-dark">2022</p>
                                     <i class="fa-regular fa-heart cursor-pointer absolute text-main-light right-0 top-0 text-2xl group/fav">
                                         <i class="fa-solid fa-heart cursor-pointer absolute right-0 top-0 text-2xl text-main-light hidden group-hover/fav:block "></i>
                                     </i>
                                     <div>
                                         <div class="flex justify-start">
-                                            <a href="" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
+                                            <a href="film.html" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
                                         </div>
                                         <div class="flex justify-start">
-                                            <p class="font-normal cursor-default">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
+                                            <p class="font-normal cursor-dark">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
                                             </p>
                                         </div>
                                         <div class="flex justify-center mt-6 mb-2">
@@ -473,16 +475,16 @@ function switchDiv() {
                             <!-- OVERLAY!!! -->
                             <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
                                 <div class="relative w-full h-full flex flex-col justify-between">
-                                    <p class="font-bold text-xl cursor-default">2022</p>
+                                    <p class="font-bold text-xl cursor-dark">2022</p>
                                     <i class="fa-regular fa-heart cursor-pointer absolute text-main-light right-0 top-0 text-2xl group/fav">
                                         <i class="fa-solid fa-heart cursor-pointer absolute right-0 top-0 text-2xl text-main-light hidden group-hover/fav:block "></i>
                                     </i>
                                     <div>
                                         <div class="flex justify-start">
-                                            <a href="" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
+                                            <a href="film.html" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
                                         </div>
                                         <div class="flex justify-start">
-                                            <p class="font-normal cursor-default">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
+                                            <p class="font-normal cursor-dark">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
                                             </p>
                                         </div>
                                         <div class="flex justify-center mt-6 mb-2">
@@ -504,16 +506,16 @@ function switchDiv() {
                             <!-- OVERLAY!!! -->
                             <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
                                 <div class="relative w-full h-full flex flex-col justify-between">
-                                    <p class="font-bold text-xl cursor-default">2022</p>
+                                    <p class="font-bold text-xl cursor-dark">2022</p>
                                     <i class="fa-regular fa-heart cursor-pointer absolute text-main-light right-0 top-0 text-2xl group/fav">
                                         <i class="fa-solid fa-heart cursor-pointer absolute right-0 top-0 text-2xl text-main-light hidden group-hover/fav:block "></i>
                                     </i>
                                     <div>
                                         <div class="flex justify-start">
-                                            <a href="" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
+                                            <a href="film.html" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
                                         </div>
                                         <div class="flex justify-start">
-                                            <p class="font-normal cursor-default">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
+                                            <p class="font-normal cursor-dark">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
                                             </p>
                                         </div>
                                         <div class="flex justify-center mt-6 mb-2">
@@ -536,16 +538,16 @@ function switchDiv() {
                                                             <!-- OVERLAY!!! -->
                             <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
                                 <div class="relative w-full h-full flex flex-col justify-between">
-                                    <p class="font-bold text-xl cursor-default">2022</p>
+                                    <p class="font-bold text-xl cursor-dark">2022</p>
                                     <i class="fa-regular fa-heart cursor-pointer absolute text-main-light right-0 top-0 text-2xl group/fav">
                                         <i class="fa-solid fa-heart cursor-pointer absolute right-0 top-0 text-2xl text-main-light hidden group-hover/fav:block "></i>
                                     </i>
                                     <div>
                                         <div class="flex justify-start">
-                                            <a href="" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
+                                            <a href="film.html" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
                                         </div>
                                         <div class="flex justify-start">
-                                            <p class="font-normal cursor-default">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
+                                            <p class="font-normal cursor-dark">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
                                             </p>
                                         </div>
                                         <div class="flex justify-center mt-6 mb-2">
@@ -567,16 +569,16 @@ function switchDiv() {
                                                             <!-- OVERLAY!!! -->
                             <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
                                 <div class="relative w-full h-full flex flex-col justify-between">
-                                    <p class="font-bold text-xl cursor-default">2022</p>
+                                    <p class="font-bold text-xl cursor-dark">2022</p>
                                     <i class="fa-regular fa-heart cursor-pointer absolute text-main-light right-0 top-0 text-2xl group/fav">
                                         <i class="fa-solid fa-heart cursor-pointer absolute right-0 top-0 text-2xl text-main-light hidden group-hover/fav:block "></i>
                                     </i>
                                     <div>
                                         <div class="flex justify-start">
-                                            <a href="" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
+                                            <a href="film.html" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
                                         </div>
                                         <div class="flex justify-start">
-                                            <p class="font-normal cursor-default">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
+                                            <p class="font-normal cursor-dark">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
                                             </p>
                                         </div>
                                         <div class="flex justify-center mt-6 mb-2">
@@ -602,16 +604,16 @@ function switchDiv() {
                             <!-- OVERLAY!!! -->
                             <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
                                 <div class="relative w-full h-full flex flex-col justify-between">
-                                    <p class="font-bold text-xl cursor-default">2022</p>
+                                    <p class="font-bold text-xl cursor-dark">2022</p>
                                     <i class="fa-regular fa-heart cursor-pointer absolute text-main-light right-0 top-0 text-2xl group/fav">
                                         <i class="fa-solid fa-heart cursor-pointer absolute right-0 top-0 text-2xl text-main-light hidden group-hover/fav:block "></i>
                                     </i>
                                     <div>
                                         <div class="flex justify-start">
-                                            <a href="" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
+                                            <a href="film.html" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
                                         </div>
                                         <div class="flex justify-start">
-                                            <p class="font-normal cursor-default">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
+                                            <p class="font-normal cursor-dark">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
                                             </p>
                                         </div>
                                         <div class="flex justify-center mt-6 mb-2">
@@ -633,16 +635,16 @@ function switchDiv() {
                             <!-- OVERLAY!!! -->
                             <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
                                 <div class="relative w-full h-full flex flex-col justify-between">
-                                    <p class="font-bold text-xl cursor-default">2022</p>
+                                    <p class="font-bold text-xl cursor-dark">2022</p>
                                     <i class="fa-regular fa-heart cursor-pointer absolute text-main-light right-0 top-0 text-2xl group/fav">
                                         <i class="fa-solid fa-heart cursor-pointer absolute right-0 top-0 text-2xl text-main-light hidden group-hover/fav:block "></i>
                                     </i>
                                     <div>
                                         <div class="flex justify-start">
-                                            <a href="" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
+                                            <a href="film.html" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
                                         </div>
                                         <div class="flex justify-start">
-                                            <p class="font-normal cursor-default">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
+                                            <p class="font-normal cursor-dark">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
                                             </p>
                                         </div>
                                         <div class="flex justify-center mt-6 mb-2">
@@ -664,16 +666,16 @@ function switchDiv() {
                             <!-- OVERLAY!!! -->
                             <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
                                 <div class="relative w-full h-full flex flex-col justify-between">
-                                    <p class="font-bold text-xl cursor-default">2022</p>
+                                    <p class="font-bold text-xl cursor-dark">2022</p>
                                     <i class="fa-regular fa-heart cursor-pointer absolute text-main-light right-0 top-0 text-2xl group/fav">
                                         <i class="fa-solid fa-heart cursor-pointer absolute right-0 top-0 text-2xl text-main-light hidden group-hover/fav:block "></i>
                                     </i>
                                     <div>
                                         <div class="flex justify-start">
-                                            <a href="" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
+                                            <a href="film.html" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
                                         </div>
                                         <div class="flex justify-start">
-                                            <p class="font-normal cursor-default">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
+                                            <p class="font-normal cursor-dark">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
                                             </p>
                                         </div>
                                         <div class="flex justify-center mt-6 mb-2">
@@ -696,16 +698,16 @@ function switchDiv() {
                                                             <!-- OVERLAY!!! -->
                             <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
                                 <div class="relative w-full h-full flex flex-col justify-between">
-                                    <p class="font-bold text-xl cursor-default">2022</p>
+                                    <p class="font-bold text-xl cursor-dark">2022</p>
                                     <i class="fa-regular fa-heart cursor-pointer absolute text-main-light right-0 top-0 text-2xl group/fav">
                                         <i class="fa-solid fa-heart cursor-pointer absolute right-0 top-0 text-2xl text-main-light hidden group-hover/fav:block "></i>
                                     </i>
                                     <div>
                                         <div class="flex justify-start">
-                                            <a href="" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
+                                            <a href="film.html" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
                                         </div>
                                         <div class="flex justify-start">
-                                            <p class="font-normal cursor-default">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
+                                            <p class="font-normal cursor-dark">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
                                             </p>
                                         </div>
                                         <div class="flex justify-center mt-6 mb-2">
@@ -727,16 +729,16 @@ function switchDiv() {
                                                             <!-- OVERLAY!!! -->
                             <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
                                 <div class="relative w-full h-full flex flex-col justify-between">
-                                    <p class="font-bold text-xl cursor-default">2022</p>
+                                    <p class="font-bold text-xl cursor-dark">2022</p>
                                     <i class="fa-regular fa-heart cursor-pointer absolute text-main-light right-0 top-0 text-2xl group/fav">
                                         <i class="fa-solid fa-heart cursor-pointer absolute right-0 top-0 text-2xl text-main-light hidden group-hover/fav:block "></i>
                                     </i>
                                     <div>
                                         <div class="flex justify-start">
-                                            <a href="" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
+                                            <a href="film.html" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
                                         </div>
                                         <div class="flex justify-start">
-                                            <p class="font-normal cursor-default">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
+                                            <p class="font-normal cursor-dark">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
                                             </p>
                                         </div>
                                         <div class="flex justify-center mt-6 mb-2">
@@ -762,16 +764,16 @@ function switchDiv() {
                             <!-- OVERLAY!!! -->
                             <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
                                 <div class="relative w-full h-full flex flex-col justify-between">
-                                    <p class="font-bold text-xl cursor-default">2022</p>
+                                    <p class="font-bold text-xl cursor-dark">2022</p>
                                     <i class="fa-regular fa-heart cursor-pointer absolute text-main-light right-0 top-0 text-2xl group/fav">
                                         <i class="fa-solid fa-heart cursor-pointer absolute right-0 top-0 text-2xl text-main-light hidden group-hover/fav:block "></i>
                                     </i>
                                     <div>
                                         <div class="flex justify-start">
-                                            <a href="" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
+                                            <a href="film.html" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
                                         </div>
                                         <div class="flex justify-start">
-                                            <p class="font-normal cursor-default">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
+                                            <p class="font-normal cursor-dark">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
                                             </p>
                                         </div>
                                         <div class="flex justify-center mt-6 mb-2">
@@ -793,16 +795,16 @@ function switchDiv() {
                             <!-- OVERLAY!!! -->
                             <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
                                 <div class="relative w-full h-full flex flex-col justify-between">
-                                    <p class="font-bold text-xl cursor-default">2022</p>
+                                    <p class="font-bold text-xl cursor-dark">2022</p>
                                     <i class="fa-regular fa-heart cursor-pointer absolute text-main-light right-0 top-0 text-2xl group/fav">
                                         <i class="fa-solid fa-heart cursor-pointer absolute right-0 top-0 text-2xl text-main-light hidden group-hover/fav:block "></i>
                                     </i>
                                     <div>
                                         <div class="flex justify-start">
-                                            <a href="" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
+                                            <a href="film.html" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
                                         </div>
                                         <div class="flex justify-start">
-                                            <p class="font-normal cursor-default">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
+                                            <p class="font-normal cursor-dark">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
                                             </p>
                                         </div>
                                         <div class="flex justify-center mt-6 mb-2">
@@ -824,16 +826,16 @@ function switchDiv() {
                             <!-- OVERLAY!!! -->
                             <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
                                 <div class="relative w-full h-full flex flex-col justify-between">
-                                    <p class="font-bold text-xl cursor-default">2022</p>
+                                    <p class="font-bold text-xl cursor-dark">2022</p>
                                     <i class="fa-regular fa-heart cursor-pointer absolute text-main-light right-0 top-0 text-2xl group/fav">
                                         <i class="fa-solid fa-heart cursor-pointer absolute right-0 top-0 text-2xl text-main-light hidden group-hover/fav:block "></i>
                                     </i>
                                     <div>
                                         <div class="flex justify-start">
-                                            <a href="" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
+                                            <a href="film.html" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
                                         </div>
                                         <div class="flex justify-start">
-                                            <p class="font-normal cursor-default">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
+                                            <p class="font-normal cursor-dark">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
                                             </p>
                                         </div>
                                         <div class="flex justify-center mt-6 mb-2">
@@ -856,16 +858,16 @@ function switchDiv() {
                                                             <!-- OVERLAY!!! -->
                             <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
                                 <div class="relative w-full h-full flex flex-col justify-between">
-                                    <p class="font-bold text-xl cursor-default">2022</p>
+                                    <p class="font-bold text-xl cursor-dark">2022</p>
                                     <i class="fa-regular fa-heart cursor-pointer absolute text-main-light right-0 top-0 text-2xl group/fav">
                                         <i class="fa-solid fa-heart cursor-pointer absolute right-0 top-0 text-2xl text-main-light hidden group-hover/fav:block "></i>
                                     </i>
                                     <div>
                                         <div class="flex justify-start">
-                                            <a href="" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
+                                            <a href="film.html" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
                                         </div>
                                         <div class="flex justify-start">
-                                            <p class="font-normal cursor-default">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
+                                            <p class="font-normal cursor-dark">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
                                             </p>
                                         </div>
                                         <div class="flex justify-center mt-6 mb-2">
@@ -887,16 +889,16 @@ function switchDiv() {
                                                             <!-- OVERLAY!!! -->
                             <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
                                 <div class="relative w-full h-full flex flex-col justify-between">
-                                    <p class="font-bold text-xl cursor-default">2022</p>
+                                    <p class="font-bold text-xl cursor-dark">2022</p>
                                     <i class="fa-regular fa-heart cursor-pointer absolute text-main-light right-0 top-0 text-2xl group/fav">
                                         <i class="fa-solid fa-heart cursor-pointer absolute right-0 top-0 text-2xl text-main-light hidden group-hover/fav:block "></i>
                                     </i>
                                     <div>
                                         <div class="flex justify-start">
-                                            <a href="" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
+                                            <a href="film.html" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
                                         </div>
                                         <div class="flex justify-start">
-                                            <p class="font-normal cursor-default">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
+                                            <p class="font-normal cursor-dark">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
                                             </p>
                                         </div>
                                         <div class="flex justify-center mt-6 mb-2">
@@ -922,16 +924,16 @@ function switchDiv() {
                             <!-- OVERLAY!!! -->
                             <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
                                 <div class="relative w-full h-full flex flex-col justify-between">
-                                    <p class="font-bold text-xl cursor-default">2022</p>
+                                    <p class="font-bold text-xl cursor-dark">2022</p>
                                     <i class="fa-regular fa-heart cursor-pointer absolute text-main-light right-0 top-0 text-2xl group/fav">
                                         <i class="fa-solid fa-heart cursor-pointer absolute right-0 top-0 text-2xl text-main-light hidden group-hover/fav:block "></i>
                                     </i>
                                     <div>
                                         <div class="flex justify-start">
-                                            <a href="" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
+                                            <a href="film.html" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
                                         </div>
                                         <div class="flex justify-start">
-                                            <p class="font-normal cursor-default">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
+                                            <p class="font-normal cursor-dark">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
                                             </p>
                                         </div>
                                         <div class="flex justify-center mt-6 mb-2">
@@ -953,16 +955,16 @@ function switchDiv() {
                             <!-- OVERLAY!!! -->
                             <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
                                 <div class="relative w-full h-full flex flex-col justify-between">
-                                    <p class="font-bold text-xl cursor-default">2022</p>
+                                    <p class="font-bold text-xl cursor-dark">2022</p>
                                     <i class="fa-regular fa-heart cursor-pointer absolute text-main-light right-0 top-0 text-2xl group/fav">
                                         <i class="fa-solid fa-heart cursor-pointer absolute right-0 top-0 text-2xl text-main-light hidden group-hover/fav:block "></i>
                                     </i>
                                     <div>
                                         <div class="flex justify-start">
-                                            <a href="" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
+                                            <a href="film.html" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
                                         </div>
                                         <div class="flex justify-start">
-                                            <p class="font-normal cursor-default">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
+                                            <p class="font-normal cursor-dark">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
                                             </p>
                                         </div>
                                         <div class="flex justify-center mt-6 mb-2">
@@ -984,16 +986,16 @@ function switchDiv() {
                             <!-- OVERLAY!!! -->
                             <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
                                 <div class="relative w-full h-full flex flex-col justify-between">
-                                    <p class="font-bold text-xl cursor-default">2022</p>
+                                    <p class="font-bold text-xl cursor-dark">2022</p>
                                     <i class="fa-regular fa-heart cursor-pointer absolute text-main-light right-0 top-0 text-2xl group/fav">
                                         <i class="fa-solid fa-heart cursor-pointer absolute right-0 top-0 text-2xl text-main-light hidden group-hover/fav:block "></i>
                                     </i>
                                     <div>
                                         <div class="flex justify-start">
-                                            <a href="" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
+                                            <a href="film.html" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
                                         </div>
                                         <div class="flex justify-start">
-                                            <p class="font-normal cursor-default">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
+                                            <p class="font-normal cursor-dark">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
                                             </p>
                                         </div>
                                         <div class="flex justify-center mt-6 mb-2">
@@ -1016,16 +1018,16 @@ function switchDiv() {
                                                             <!-- OVERLAY!!! -->
                             <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
                                 <div class="relative w-full h-full flex flex-col justify-between">
-                                    <p class="font-bold text-xl cursor-default">2022</p>
+                                    <p class="font-bold text-xl cursor-dark">2022</p>
                                     <i class="fa-regular fa-heart cursor-pointer absolute text-main-light right-0 top-0 text-2xl group/fav">
                                         <i class="fa-solid fa-heart cursor-pointer absolute right-0 top-0 text-2xl text-main-light hidden group-hover/fav:block "></i>
                                     </i>
                                     <div>
                                         <div class="flex justify-start">
-                                            <a href="" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
+                                            <a href="film.html" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
                                         </div>
                                         <div class="flex justify-start">
-                                            <p class="font-normal cursor-default">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
+                                            <p class="font-normal cursor-dark">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
                                             </p>
                                         </div>
                                         <div class="flex justify-center mt-6 mb-2">
@@ -1047,16 +1049,16 @@ function switchDiv() {
                                                             <!-- OVERLAY!!! -->
                             <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
                                 <div class="relative w-full h-full flex flex-col justify-between">
-                                    <p class="font-bold text-xl cursor-default">2022</p>
+                                    <p class="font-bold text-xl cursor-dark">2022</p>
                                     <i class="fa-regular fa-heart cursor-pointer absolute text-main-light right-0 top-0 text-2xl group/fav">
                                         <i class="fa-solid fa-heart cursor-pointer absolute right-0 top-0 text-2xl text-main-light hidden group-hover/fav:block "></i>
                                     </i>
                                     <div>
                                         <div class="flex justify-start">
-                                            <a href="" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
+                                            <a href="film.html" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
                                         </div>
                                         <div class="flex justify-start">
-                                            <p class="font-normal cursor-default">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
+                                            <p class="font-normal cursor-dark">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
                                             </p>
                                         </div>
                                         <div class="flex justify-center mt-6 mb-2">
@@ -1101,7 +1103,7 @@ function switchDiv() {
 
 <!-- CAROUSEL -->
 <section id="five car" class="">
-    <div id="default-carousel" class="relative flex" data-carousel="static">
+    <div id="dark-carousel" class="relative flex" data-carousel="static">
 
         <!-- BOUTON PREV -->
         <div class="grow flex justify-end">
@@ -1123,16 +1125,16 @@ function switchDiv() {
                             <!-- OVERLAY!!! -->
                             <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
                                 <div class="relative w-full h-full flex flex-col justify-between">
-                                    <p class="font-bold text-xl cursor-default">2022</p>
+                                    <p class="font-bold text-xl cursor-dark">2022</p>
                                     <i class="fa-regular fa-heart cursor-pointer absolute text-main-light right-0 top-0 text-2xl group/fav">
                                         <i class="fa-solid fa-heart cursor-pointer absolute right-0 top-0 text-2xl text-main-light hidden group-hover/fav:block "></i>
                                     </i>
                                     <div>
                                         <div class="flex justify-start">
-                                            <a href="" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
+                                            <a href="film.html" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
                                         </div>
                                         <div class="flex justify-start">
-                                            <p class="font-normal cursor-default">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
+                                            <p class="font-normal cursor-dark">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
                                             </p>
                                         </div>
                                         <div class="flex justify-center mt-6 mb-2">
@@ -1154,16 +1156,16 @@ function switchDiv() {
                             <!-- OVERLAY!!! -->
                             <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
                                 <div class="relative w-full h-full flex flex-col justify-between">
-                                    <p class="font-bold text-xl cursor-default">2022</p>
+                                    <p class="font-bold text-xl cursor-dark">2022</p>
                                     <i class="fa-regular fa-heart cursor-pointer absolute text-main-light right-0 top-0 text-2xl group/fav">
                                         <i class="fa-solid fa-heart cursor-pointer absolute right-0 top-0 text-2xl text-main-light hidden group-hover/fav:block "></i>
                                     </i>
                                     <div>
                                         <div class="flex justify-start">
-                                            <a href="" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
+                                            <a href="film.html" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
                                         </div>
                                         <div class="flex justify-start">
-                                            <p class="font-normal cursor-default">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
+                                            <p class="font-normal cursor-dark">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
                                             </p>
                                         </div>
                                         <div class="flex justify-center mt-6 mb-2">
@@ -1185,16 +1187,16 @@ function switchDiv() {
                             <!-- OVERLAY!!! -->
                             <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
                                 <div class="relative w-full h-full flex flex-col justify-between">
-                                    <p class="font-bold text-xl cursor-default">2022</p>
+                                    <p class="font-bold text-xl cursor-dark">2022</p>
                                     <i class="fa-regular fa-heart cursor-pointer absolute text-main-light right-0 top-0 text-2xl group/fav">
                                         <i class="fa-solid fa-heart cursor-pointer absolute right-0 top-0 text-2xl text-main-light hidden group-hover/fav:block "></i>
                                     </i>
                                     <div>
                                         <div class="flex justify-start">
-                                            <a href="" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
+                                            <a href="film.html" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
                                         </div>
                                         <div class="flex justify-start">
-                                            <p class="font-normal cursor-default">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
+                                            <p class="font-normal cursor-dark">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
                                             </p>
                                         </div>
                                         <div class="flex justify-center mt-6 mb-2">
@@ -1217,16 +1219,16 @@ function switchDiv() {
                                                             <!-- OVERLAY!!! -->
                             <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
                                 <div class="relative w-full h-full flex flex-col justify-between">
-                                    <p class="font-bold text-xl cursor-default">2022</p>
+                                    <p class="font-bold text-xl cursor-dark">2022</p>
                                     <i class="fa-regular fa-heart cursor-pointer absolute text-main-light right-0 top-0 text-2xl group/fav">
                                         <i class="fa-solid fa-heart cursor-pointer absolute right-0 top-0 text-2xl text-main-light hidden group-hover/fav:block "></i>
                                     </i>
                                     <div>
                                         <div class="flex justify-start">
-                                            <a href="" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
+                                            <a href="film.html" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
                                         </div>
                                         <div class="flex justify-start">
-                                            <p class="font-normal cursor-default">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
+                                            <p class="font-normal cursor-dark">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
                                             </p>
                                         </div>
                                         <div class="flex justify-center mt-6 mb-2">
@@ -1248,16 +1250,16 @@ function switchDiv() {
                                                             <!-- OVERLAY!!! -->
                             <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
                                 <div class="relative w-full h-full flex flex-col justify-between">
-                                    <p class="font-bold text-xl cursor-default">2022</p>
+                                    <p class="font-bold text-xl cursor-dark">2022</p>
                                     <i class="fa-regular fa-heart cursor-pointer absolute text-main-light right-0 top-0 text-2xl group/fav">
                                         <i class="fa-solid fa-heart cursor-pointer absolute right-0 top-0 text-2xl text-main-light hidden group-hover/fav:block "></i>
                                     </i>
                                     <div>
                                         <div class="flex justify-start">
-                                            <a href="" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
+                                            <a href="film.html" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
                                         </div>
                                         <div class="flex justify-start">
-                                            <p class="font-normal cursor-default">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
+                                            <p class="font-normal cursor-dark">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
                                             </p>
                                         </div>
                                         <div class="flex justify-center mt-6 mb-2">
@@ -1283,16 +1285,16 @@ function switchDiv() {
                             <!-- OVERLAY!!! -->
                             <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
                                 <div class="relative w-full h-full flex flex-col justify-between">
-                                    <p class="font-bold text-xl cursor-default">2022</p>
+                                    <p class="font-bold text-xl cursor-dark">2022</p>
                                     <i class="fa-regular fa-heart cursor-pointer absolute text-main-light right-0 top-0 text-2xl group/fav">
                                         <i class="fa-solid fa-heart cursor-pointer absolute right-0 top-0 text-2xl text-main-light hidden group-hover/fav:block "></i>
                                     </i>
                                     <div>
                                         <div class="flex justify-start">
-                                            <a href="" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
+                                            <a href="film.html" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
                                         </div>
                                         <div class="flex justify-start">
-                                            <p class="font-normal cursor-default">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
+                                            <p class="font-normal cursor-dark">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
                                             </p>
                                         </div>
                                         <div class="flex justify-center mt-6 mb-2">
@@ -1314,16 +1316,16 @@ function switchDiv() {
                             <!-- OVERLAY!!! -->
                             <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
                                 <div class="relative w-full h-full flex flex-col justify-between">
-                                    <p class="font-bold text-xl cursor-default">2022</p>
+                                    <p class="font-bold text-xl cursor-dark">2022</p>
                                     <i class="fa-regular fa-heart cursor-pointer absolute text-main-light right-0 top-0 text-2xl group/fav">
                                         <i class="fa-solid fa-heart cursor-pointer absolute right-0 top-0 text-2xl text-main-light hidden group-hover/fav:block "></i>
                                     </i>
                                     <div>
                                         <div class="flex justify-start">
-                                            <a href="" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
+                                            <a href="film.html" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
                                         </div>
                                         <div class="flex justify-start">
-                                            <p class="font-normal cursor-default">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
+                                            <p class="font-normal cursor-dark">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
                                             </p>
                                         </div>
                                         <div class="flex justify-center mt-6 mb-2">
@@ -1345,16 +1347,16 @@ function switchDiv() {
                             <!-- OVERLAY!!! -->
                             <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
                                 <div class="relative w-full h-full flex flex-col justify-between">
-                                    <p class="font-bold text-xl cursor-default">2022</p>
+                                    <p class="font-bold text-xl cursor-dark">2022</p>
                                     <i class="fa-regular fa-heart cursor-pointer absolute text-main-light right-0 top-0 text-2xl group/fav">
                                         <i class="fa-solid fa-heart cursor-pointer absolute right-0 top-0 text-2xl text-main-light hidden group-hover/fav:block "></i>
                                     </i>
                                     <div>
                                         <div class="flex justify-start">
-                                            <a href="" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
+                                            <a href="film.html" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
                                         </div>
                                         <div class="flex justify-start">
-                                            <p class="font-normal cursor-default">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
+                                            <p class="font-normal cursor-dark">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
                                             </p>
                                         </div>
                                         <div class="flex justify-center mt-6 mb-2">
@@ -1377,16 +1379,16 @@ function switchDiv() {
                                                             <!-- OVERLAY!!! -->
                             <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
                                 <div class="relative w-full h-full flex flex-col justify-between">
-                                    <p class="font-bold text-xl cursor-default">2022</p>
+                                    <p class="font-bold text-xl cursor-dark">2022</p>
                                     <i class="fa-regular fa-heart cursor-pointer absolute text-main-light right-0 top-0 text-2xl group/fav">
                                         <i class="fa-solid fa-heart cursor-pointer absolute right-0 top-0 text-2xl text-main-light hidden group-hover/fav:block "></i>
                                     </i>
                                     <div>
                                         <div class="flex justify-start">
-                                            <a href="" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
+                                            <a href="film.html" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
                                         </div>
                                         <div class="flex justify-start">
-                                            <p class="font-normal cursor-default">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
+                                            <p class="font-normal cursor-dark">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
                                             </p>
                                         </div>
                                         <div class="flex justify-center mt-6 mb-2">
@@ -1408,16 +1410,16 @@ function switchDiv() {
                                                             <!-- OVERLAY!!! -->
                             <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
                                 <div class="relative w-full h-full flex flex-col justify-between">
-                                    <p class="font-bold text-xl cursor-default">2022</p>
+                                    <p class="font-bold text-xl cursor-dark">2022</p>
                                     <i class="fa-regular fa-heart cursor-pointer absolute text-main-light right-0 top-0 text-2xl group/fav">
                                         <i class="fa-solid fa-heart cursor-pointer absolute right-0 top-0 text-2xl text-main-light hidden group-hover/fav:block "></i>
                                     </i>
                                     <div>
                                         <div class="flex justify-start">
-                                            <a href="" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
+                                            <a href="film.html" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
                                         </div>
                                         <div class="flex justify-start">
-                                            <p class="font-normal cursor-default">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
+                                            <p class="font-normal cursor-dark">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
                                             </p>
                                         </div>
                                         <div class="flex justify-center mt-6 mb-2">
@@ -1443,16 +1445,16 @@ function switchDiv() {
                             <!-- OVERLAY!!! -->
                             <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
                                 <div class="relative w-full h-full flex flex-col justify-between">
-                                    <p class="font-bold text-xl cursor-default">2022</p>
+                                    <p class="font-bold text-xl cursor-dark">2022</p>
                                     <i class="fa-regular fa-heart cursor-pointer absolute text-main-light right-0 top-0 text-2xl group/fav">
                                         <i class="fa-solid fa-heart cursor-pointer absolute right-0 top-0 text-2xl text-main-light hidden group-hover/fav:block "></i>
                                     </i>
                                     <div>
                                         <div class="flex justify-start">
-                                            <a href="" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
+                                            <a href="film.html" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
                                         </div>
                                         <div class="flex justify-start">
-                                            <p class="font-normal cursor-default">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
+                                            <p class="font-normal cursor-dark">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
                                             </p>
                                         </div>
                                         <div class="flex justify-center mt-6 mb-2">
@@ -1474,16 +1476,16 @@ function switchDiv() {
                             <!-- OVERLAY!!! -->
                             <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
                                 <div class="relative w-full h-full flex flex-col justify-between">
-                                    <p class="font-bold text-xl cursor-default">2022</p>
+                                    <p class="font-bold text-xl cursor-dark">2022</p>
                                     <i class="fa-regular fa-heart cursor-pointer absolute text-main-light right-0 top-0 text-2xl group/fav">
                                         <i class="fa-solid fa-heart cursor-pointer absolute right-0 top-0 text-2xl text-main-light hidden group-hover/fav:block "></i>
                                     </i>
                                     <div>
                                         <div class="flex justify-start">
-                                            <a href="" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
+                                            <a href="film.html" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
                                         </div>
                                         <div class="flex justify-start">
-                                            <p class="font-normal cursor-default">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
+                                            <p class="font-normal cursor-dark">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
                                             </p>
                                         </div>
                                         <div class="flex justify-center mt-6 mb-2">
@@ -1505,16 +1507,16 @@ function switchDiv() {
                             <!-- OVERLAY!!! -->
                             <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
                                 <div class="relative w-full h-full flex flex-col justify-between">
-                                    <p class="font-bold text-xl cursor-default">2022</p>
+                                    <p class="font-bold text-xl cursor-dark">2022</p>
                                     <i class="fa-regular fa-heart cursor-pointer absolute text-main-light right-0 top-0 text-2xl group/fav">
                                         <i class="fa-solid fa-heart cursor-pointer absolute right-0 top-0 text-2xl text-main-light hidden group-hover/fav:block "></i>
                                     </i>
                                     <div>
                                         <div class="flex justify-start">
-                                            <a href="" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
+                                            <a href="film.html" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
                                         </div>
                                         <div class="flex justify-start">
-                                            <p class="font-normal cursor-default">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
+                                            <p class="font-normal cursor-dark">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
                                             </p>
                                         </div>
                                         <div class="flex justify-center mt-6 mb-2">
@@ -1537,16 +1539,16 @@ function switchDiv() {
                                                             <!-- OVERLAY!!! -->
                             <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
                                 <div class="relative w-full h-full flex flex-col justify-between">
-                                    <p class="font-bold text-xl cursor-default">2022</p>
+                                    <p class="font-bold text-xl cursor-dark">2022</p>
                                     <i class="fa-regular fa-heart cursor-pointer absolute text-main-light right-0 top-0 text-2xl group/fav">
                                         <i class="fa-solid fa-heart cursor-pointer absolute right-0 top-0 text-2xl text-main-light hidden group-hover/fav:block "></i>
                                     </i>
                                     <div>
                                         <div class="flex justify-start">
-                                            <a href="" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
+                                            <a href="film.html" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
                                         </div>
                                         <div class="flex justify-start">
-                                            <p class="font-normal cursor-default">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
+                                            <p class="font-normal cursor-dark">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
                                             </p>
                                         </div>
                                         <div class="flex justify-center mt-6 mb-2">
@@ -1568,16 +1570,16 @@ function switchDiv() {
                                                             <!-- OVERLAY!!! -->
                             <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
                                 <div class="relative w-full h-full flex flex-col justify-between">
-                                    <p class="font-bold text-xl cursor-default">2022</p>
+                                    <p class="font-bold text-xl cursor-dark">2022</p>
                                     <i class="fa-regular fa-heart cursor-pointer absolute text-main-light right-0 top-0 text-2xl group/fav">
                                         <i class="fa-solid fa-heart cursor-pointer absolute right-0 top-0 text-2xl text-main-light hidden group-hover/fav:block "></i>
                                     </i>
                                     <div>
                                         <div class="flex justify-start">
-                                            <a href="" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
+                                            <a href="film.html" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
                                         </div>
                                         <div class="flex justify-start">
-                                            <p class="font-normal cursor-default">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
+                                            <p class="font-normal cursor-dark">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
                                             </p>
                                         </div>
                                         <div class="flex justify-center mt-6 mb-2">
@@ -1603,16 +1605,16 @@ function switchDiv() {
                             <!-- OVERLAY!!! -->
                             <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
                                 <div class="relative w-full h-full flex flex-col justify-between">
-                                    <p class="font-bold text-xl cursor-default">2022</p>
+                                    <p class="font-bold text-xl cursor-dark">2022</p>
                                     <i class="fa-regular fa-heart cursor-pointer absolute text-main-light right-0 top-0 text-2xl group/fav">
                                         <i class="fa-solid fa-heart cursor-pointer absolute right-0 top-0 text-2xl text-main-light hidden group-hover/fav:block "></i>
                                     </i>
                                     <div>
                                         <div class="flex justify-start">
-                                            <a href="" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
+                                            <a href="film.html" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
                                         </div>
                                         <div class="flex justify-start">
-                                            <p class="font-normal cursor-default">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
+                                            <p class="font-normal cursor-dark">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
                                             </p>
                                         </div>
                                         <div class="flex justify-center mt-6 mb-2">
@@ -1634,16 +1636,16 @@ function switchDiv() {
                             <!-- OVERLAY!!! -->
                             <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
                                 <div class="relative w-full h-full flex flex-col justify-between">
-                                    <p class="font-bold text-xl cursor-default">2022</p>
+                                    <p class="font-bold text-xl cursor-dark">2022</p>
                                     <i class="fa-regular fa-heart cursor-pointer absolute text-main-light right-0 top-0 text-2xl group/fav">
                                         <i class="fa-solid fa-heart cursor-pointer absolute right-0 top-0 text-2xl text-main-light hidden group-hover/fav:block "></i>
                                     </i>
                                     <div>
                                         <div class="flex justify-start">
-                                            <a href="" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
+                                            <a href="film.html" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
                                         </div>
                                         <div class="flex justify-start">
-                                            <p class="font-normal cursor-default">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
+                                            <p class="font-normal cursor-dark">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
                                             </p>
                                         </div>
                                         <div class="flex justify-center mt-6 mb-2">
@@ -1665,16 +1667,16 @@ function switchDiv() {
                             <!-- OVERLAY!!! -->
                             <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
                                 <div class="relative w-full h-full flex flex-col justify-between">
-                                    <p class="font-bold text-xl cursor-default">2022</p>
+                                    <p class="font-bold text-xl cursor-dark">2022</p>
                                     <i class="fa-regular fa-heart cursor-pointer absolute text-main-light right-0 top-0 text-2xl group/fav">
                                         <i class="fa-solid fa-heart cursor-pointer absolute right-0 top-0 text-2xl text-main-light hidden group-hover/fav:block "></i>
                                     </i>
                                     <div>
                                         <div class="flex justify-start">
-                                            <a href="" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
+                                            <a href="film.html" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
                                         </div>
                                         <div class="flex justify-start">
-                                            <p class="font-normal cursor-default">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
+                                            <p class="font-normal cursor-dark">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
                                             </p>
                                         </div>
                                         <div class="flex justify-center mt-6 mb-2">
@@ -1697,16 +1699,16 @@ function switchDiv() {
                                                             <!-- OVERLAY!!! -->
                             <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
                                 <div class="relative w-full h-full flex flex-col justify-between">
-                                    <p class="font-bold text-xl cursor-default">2022</p>
+                                    <p class="font-bold text-xl cursor-dark">2022</p>
                                     <i class="fa-regular fa-heart cursor-pointer absolute text-main-light right-0 top-0 text-2xl group/fav">
                                         <i class="fa-solid fa-heart cursor-pointer absolute right-0 top-0 text-2xl text-main-light hidden group-hover/fav:block "></i>
                                     </i>
                                     <div>
                                         <div class="flex justify-start">
-                                            <a href="" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
+                                            <a href="film.html" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
                                         </div>
                                         <div class="flex justify-start">
-                                            <p class="font-normal cursor-default">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
+                                            <p class="font-normal cursor-dark">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
                                             </p>
                                         </div>
                                         <div class="flex justify-center mt-6 mb-2">
@@ -1728,16 +1730,16 @@ function switchDiv() {
                                                             <!-- OVERLAY!!! -->
                             <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
                                 <div class="relative w-full h-full flex flex-col justify-between">
-                                    <p class="font-bold text-xl cursor-default">2022</p>
+                                    <p class="font-bold text-xl cursor-dark">2022</p>
                                     <i class="fa-regular fa-heart cursor-pointer absolute text-main-light right-0 top-0 text-2xl group/fav">
                                         <i class="fa-solid fa-heart cursor-pointer absolute right-0 top-0 text-2xl text-main-light hidden group-hover/fav:block "></i>
                                     </i>
                                     <div>
                                         <div class="flex justify-start">
-                                            <a href="" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
+                                            <a href="film.html" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
                                         </div>
                                         <div class="flex justify-start">
-                                            <p class="font-normal cursor-default">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
+                                            <p class="font-normal cursor-dark">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
                                             </p>
                                         </div>
                                         <div class="flex justify-center mt-6 mb-2">
@@ -1763,16 +1765,16 @@ function switchDiv() {
                             <!-- OVERLAY!!! -->
                             <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
                                 <div class="relative w-full h-full flex flex-col justify-between">
-                                    <p class="font-bold text-xl cursor-default">2022</p>
+                                    <p class="font-bold text-xl cursor-dark">2022</p>
                                     <i class="fa-regular fa-heart cursor-pointer absolute text-main-light right-0 top-0 text-2xl group/fav">
                                         <i class="fa-solid fa-heart cursor-pointer absolute right-0 top-0 text-2xl text-main-light hidden group-hover/fav:block "></i>
                                     </i>
                                     <div>
                                         <div class="flex justify-start">
-                                            <a href="" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
+                                            <a href="film.html" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
                                         </div>
                                         <div class="flex justify-start">
-                                            <p class="font-normal cursor-default">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
+                                            <p class="font-normal cursor-dark">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
                                             </p>
                                         </div>
                                         <div class="flex justify-center mt-6 mb-2">
@@ -1794,16 +1796,16 @@ function switchDiv() {
                             <!-- OVERLAY!!! -->
                             <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
                                 <div class="relative w-full h-full flex flex-col justify-between">
-                                    <p class="font-bold text-xl cursor-default">2022</p>
+                                    <p class="font-bold text-xl cursor-dark">2022</p>
                                     <i class="fa-regular fa-heart cursor-pointer absolute text-main-light right-0 top-0 text-2xl group/fav">
                                         <i class="fa-solid fa-heart cursor-pointer absolute right-0 top-0 text-2xl text-main-light hidden group-hover/fav:block "></i>
                                     </i>
                                     <div>
                                         <div class="flex justify-start">
-                                            <a href="" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
+                                            <a href="film.html" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
                                         </div>
                                         <div class="flex justify-start">
-                                            <p class="font-normal cursor-default">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
+                                            <p class="font-normal cursor-dark">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
                                             </p>
                                         </div>
                                         <div class="flex justify-center mt-6 mb-2">
@@ -1825,16 +1827,16 @@ function switchDiv() {
                             <!-- OVERLAY!!! -->
                             <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
                                 <div class="relative w-full h-full flex flex-col justify-between">
-                                    <p class="font-bold text-xl cursor-default">2022</p>
+                                    <p class="font-bold text-xl cursor-dark">2022</p>
                                     <i class="fa-regular fa-heart cursor-pointer absolute text-main-light right-0 top-0 text-2xl group/fav">
                                         <i class="fa-solid fa-heart cursor-pointer absolute right-0 top-0 text-2xl text-main-light hidden group-hover/fav:block "></i>
                                     </i>
                                     <div>
                                         <div class="flex justify-start">
-                                            <a href="" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
+                                            <a href="film.html" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
                                         </div>
                                         <div class="flex justify-start">
-                                            <p class="font-normal cursor-default">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
+                                            <p class="font-normal cursor-dark">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
                                             </p>
                                         </div>
                                         <div class="flex justify-center mt-6 mb-2">
@@ -1857,16 +1859,16 @@ function switchDiv() {
                                                             <!-- OVERLAY!!! -->
                             <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
                                 <div class="relative w-full h-full flex flex-col justify-between">
-                                    <p class="font-bold text-xl cursor-default">2022</p>
+                                    <p class="font-bold text-xl cursor-dark">2022</p>
                                     <i class="fa-regular fa-heart cursor-pointer absolute text-main-light right-0 top-0 text-2xl group/fav">
                                         <i class="fa-solid fa-heart cursor-pointer absolute right-0 top-0 text-2xl text-main-light hidden group-hover/fav:block "></i>
                                     </i>
                                     <div>
                                         <div class="flex justify-start">
-                                            <a href="" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
+                                            <a href="film.html" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
                                         </div>
                                         <div class="flex justify-start">
-                                            <p class="font-normal cursor-default">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
+                                            <p class="font-normal cursor-dark">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
                                             </p>
                                         </div>
                                         <div class="flex justify-center mt-6 mb-2">
@@ -1888,16 +1890,16 @@ function switchDiv() {
                                                             <!-- OVERLAY!!! -->
                             <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
                                 <div class="relative w-full h-full flex flex-col justify-between">
-                                    <p class="font-bold text-xl cursor-default">2022</p>
+                                    <p class="font-bold text-xl cursor-dark">2022</p>
                                     <i class="fa-regular fa-heart cursor-pointer absolute text-main-light right-0 top-0 text-2xl group/fav">
                                         <i class="fa-solid fa-heart cursor-pointer absolute right-0 top-0 text-2xl text-main-light hidden group-hover/fav:block "></i>
                                     </i>
                                     <div>
                                         <div class="flex justify-start">
-                                            <a href="" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
+                                            <a href="film.html" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
                                         </div>
                                         <div class="flex justify-start">
-                                            <p class="font-normal cursor-default">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
+                                            <p class="font-normal cursor-dark">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
                                             </p>
                                         </div>
                                         <div class="flex justify-center mt-6 mb-2">
@@ -1941,7 +1943,7 @@ function switchDiv() {
 
 <!-- CAROUSEL -->
 <section id="five car" class="">
-    <div id="default-carousel" class="relative flex" data-carousel="static">
+    <div id="dark-carousel" class="relative flex" data-carousel="static">
 
         <!-- BOUTON PREV -->
         <div class="grow flex justify-end">
@@ -1963,16 +1965,16 @@ function switchDiv() {
                             <!-- OVERLAY!!! -->
                             <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
                                 <div class="relative w-full h-full flex flex-col justify-between">
-                                    <p class="font-bold text-xl cursor-default">2022</p>
+                                    <p class="font-bold text-xl cursor-dark">2022</p>
                                     <i class="fa-regular fa-heart cursor-pointer absolute text-main-light right-0 top-0 text-2xl group/fav">
                                         <i class="fa-solid fa-heart cursor-pointer absolute right-0 top-0 text-2xl text-main-light hidden group-hover/fav:block "></i>
                                     </i>
                                     <div>
                                         <div class="flex justify-start">
-                                            <a href="" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
+                                            <a href="film.html" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
                                         </div>
                                         <div class="flex justify-start">
-                                            <p class="font-normal cursor-default">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
+                                            <p class="font-normal cursor-dark">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
                                             </p>
                                         </div>
                                         <div class="flex justify-center mt-6 mb-2">
@@ -1994,16 +1996,16 @@ function switchDiv() {
                             <!-- OVERLAY!!! -->
                             <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
                                 <div class="relative w-full h-full flex flex-col justify-between">
-                                    <p class="font-bold text-xl cursor-default">2022</p>
+                                    <p class="font-bold text-xl cursor-dark">2022</p>
                                     <i class="fa-regular fa-heart cursor-pointer absolute text-main-light right-0 top-0 text-2xl group/fav">
                                         <i class="fa-solid fa-heart cursor-pointer absolute right-0 top-0 text-2xl text-main-light hidden group-hover/fav:block "></i>
                                     </i>
                                     <div>
                                         <div class="flex justify-start">
-                                            <a href="" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
+                                            <a href="film.html" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
                                         </div>
                                         <div class="flex justify-start">
-                                            <p class="font-normal cursor-default">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
+                                            <p class="font-normal cursor-dark">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
                                             </p>
                                         </div>
                                         <div class="flex justify-center mt-6 mb-2">
@@ -2025,16 +2027,16 @@ function switchDiv() {
                             <!-- OVERLAY!!! -->
                             <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
                                 <div class="relative w-full h-full flex flex-col justify-between">
-                                    <p class="font-bold text-xl cursor-default">2022</p>
+                                    <p class="font-bold text-xl cursor-dark">2022</p>
                                     <i class="fa-regular fa-heart cursor-pointer absolute text-main-light right-0 top-0 text-2xl group/fav">
                                         <i class="fa-solid fa-heart cursor-pointer absolute right-0 top-0 text-2xl text-main-light hidden group-hover/fav:block "></i>
                                     </i>
                                     <div>
                                         <div class="flex justify-start">
-                                            <a href="" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
+                                            <a href="film.html" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
                                         </div>
                                         <div class="flex justify-start">
-                                            <p class="font-normal cursor-default">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
+                                            <p class="font-normal cursor-dark">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
                                             </p>
                                         </div>
                                         <div class="flex justify-center mt-6 mb-2">
@@ -2057,16 +2059,16 @@ function switchDiv() {
                                                             <!-- OVERLAY!!! -->
                             <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
                                 <div class="relative w-full h-full flex flex-col justify-between">
-                                    <p class="font-bold text-xl cursor-default">2022</p>
+                                    <p class="font-bold text-xl cursor-dark">2022</p>
                                     <i class="fa-regular fa-heart cursor-pointer absolute text-main-light right-0 top-0 text-2xl group/fav">
                                         <i class="fa-solid fa-heart cursor-pointer absolute right-0 top-0 text-2xl text-main-light hidden group-hover/fav:block "></i>
                                     </i>
                                     <div>
                                         <div class="flex justify-start">
-                                            <a href="" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
+                                            <a href="film.html" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
                                         </div>
                                         <div class="flex justify-start">
-                                            <p class="font-normal cursor-default">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
+                                            <p class="font-normal cursor-dark">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
                                             </p>
                                         </div>
                                         <div class="flex justify-center mt-6 mb-2">
@@ -2088,16 +2090,16 @@ function switchDiv() {
                                                             <!-- OVERLAY!!! -->
                             <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
                                 <div class="relative w-full h-full flex flex-col justify-between">
-                                    <p class="font-bold text-xl cursor-default">2022</p>
+                                    <p class="font-bold text-xl cursor-dark">2022</p>
                                     <i class="fa-regular fa-heart cursor-pointer absolute text-main-light right-0 top-0 text-2xl group/fav">
                                         <i class="fa-solid fa-heart cursor-pointer absolute right-0 top-0 text-2xl text-main-light hidden group-hover/fav:block "></i>
                                     </i>
                                     <div>
                                         <div class="flex justify-start">
-                                            <a href="" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
+                                            <a href="film.html" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
                                         </div>
                                         <div class="flex justify-start">
-                                            <p class="font-normal cursor-default">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
+                                            <p class="font-normal cursor-dark">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
                                             </p>
                                         </div>
                                         <div class="flex justify-center mt-6 mb-2">
@@ -2123,16 +2125,16 @@ function switchDiv() {
                             <!-- OVERLAY!!! -->
                             <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
                                 <div class="relative w-full h-full flex flex-col justify-between">
-                                    <p class="font-bold text-xl cursor-default">2022</p>
+                                    <p class="font-bold text-xl cursor-dark">2022</p>
                                     <i class="fa-regular fa-heart cursor-pointer absolute text-main-light right-0 top-0 text-2xl group/fav">
                                         <i class="fa-solid fa-heart cursor-pointer absolute right-0 top-0 text-2xl text-main-light hidden group-hover/fav:block "></i>
                                     </i>
                                     <div>
                                         <div class="flex justify-start">
-                                            <a href="" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
+                                            <a href="film.html" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
                                         </div>
                                         <div class="flex justify-start">
-                                            <p class="font-normal cursor-default">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
+                                            <p class="font-normal cursor-dark">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
                                             </p>
                                         </div>
                                         <div class="flex justify-center mt-6 mb-2">
@@ -2154,16 +2156,16 @@ function switchDiv() {
                             <!-- OVERLAY!!! -->
                             <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
                                 <div class="relative w-full h-full flex flex-col justify-between">
-                                    <p class="font-bold text-xl cursor-default">2022</p>
+                                    <p class="font-bold text-xl cursor-dark">2022</p>
                                     <i class="fa-regular fa-heart cursor-pointer absolute text-main-light right-0 top-0 text-2xl group/fav">
                                         <i class="fa-solid fa-heart cursor-pointer absolute right-0 top-0 text-2xl text-main-light hidden group-hover/fav:block "></i>
                                     </i>
                                     <div>
                                         <div class="flex justify-start">
-                                            <a href="" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
+                                            <a href="film.html" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
                                         </div>
                                         <div class="flex justify-start">
-                                            <p class="font-normal cursor-default">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
+                                            <p class="font-normal cursor-dark">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
                                             </p>
                                         </div>
                                         <div class="flex justify-center mt-6 mb-2">
@@ -2185,16 +2187,16 @@ function switchDiv() {
                             <!-- OVERLAY!!! -->
                             <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
                                 <div class="relative w-full h-full flex flex-col justify-between">
-                                    <p class="font-bold text-xl cursor-default">2022</p>
+                                    <p class="font-bold text-xl cursor-dark">2022</p>
                                     <i class="fa-regular fa-heart cursor-pointer absolute text-main-light right-0 top-0 text-2xl group/fav">
                                         <i class="fa-solid fa-heart cursor-pointer absolute right-0 top-0 text-2xl text-main-light hidden group-hover/fav:block "></i>
                                     </i>
                                     <div>
                                         <div class="flex justify-start">
-                                            <a href="" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
+                                            <a href="film.html" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
                                         </div>
                                         <div class="flex justify-start">
-                                            <p class="font-normal cursor-default">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
+                                            <p class="font-normal cursor-dark">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
                                             </p>
                                         </div>
                                         <div class="flex justify-center mt-6 mb-2">
@@ -2217,16 +2219,16 @@ function switchDiv() {
                                                             <!-- OVERLAY!!! -->
                             <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
                                 <div class="relative w-full h-full flex flex-col justify-between">
-                                    <p class="font-bold text-xl cursor-default">2022</p>
+                                    <p class="font-bold text-xl cursor-dark">2022</p>
                                     <i class="fa-regular fa-heart cursor-pointer absolute text-main-light right-0 top-0 text-2xl group/fav">
                                         <i class="fa-solid fa-heart cursor-pointer absolute right-0 top-0 text-2xl text-main-light hidden group-hover/fav:block "></i>
                                     </i>
                                     <div>
                                         <div class="flex justify-start">
-                                            <a href="" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
+                                            <a href="film.html" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
                                         </div>
                                         <div class="flex justify-start">
-                                            <p class="font-normal cursor-default">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
+                                            <p class="font-normal cursor-dark">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
                                             </p>
                                         </div>
                                         <div class="flex justify-center mt-6 mb-2">
@@ -2248,16 +2250,16 @@ function switchDiv() {
                                                             <!-- OVERLAY!!! -->
                             <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
                                 <div class="relative w-full h-full flex flex-col justify-between">
-                                    <p class="font-bold text-xl cursor-default">2022</p>
+                                    <p class="font-bold text-xl cursor-dark">2022</p>
                                     <i class="fa-regular fa-heart cursor-pointer absolute text-main-light right-0 top-0 text-2xl group/fav">
                                         <i class="fa-solid fa-heart cursor-pointer absolute right-0 top-0 text-2xl text-main-light hidden group-hover/fav:block "></i>
                                     </i>
                                     <div>
                                         <div class="flex justify-start">
-                                            <a href="" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
+                                            <a href="film.html" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
                                         </div>
                                         <div class="flex justify-start">
-                                            <p class="font-normal cursor-default">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
+                                            <p class="font-normal cursor-dark">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
                                             </p>
                                         </div>
                                         <div class="flex justify-center mt-6 mb-2">
@@ -2283,16 +2285,16 @@ function switchDiv() {
                             <!-- OVERLAY!!! -->
                             <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
                                 <div class="relative w-full h-full flex flex-col justify-between">
-                                    <p class="font-bold text-xl cursor-default">2022</p>
+                                    <p class="font-bold text-xl cursor-dark">2022</p>
                                     <i class="fa-regular fa-heart cursor-pointer absolute text-main-light right-0 top-0 text-2xl group/fav">
                                         <i class="fa-solid fa-heart cursor-pointer absolute right-0 top-0 text-2xl text-main-light hidden group-hover/fav:block "></i>
                                     </i>
                                     <div>
                                         <div class="flex justify-start">
-                                            <a href="" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
+                                            <a href="film.html" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
                                         </div>
                                         <div class="flex justify-start">
-                                            <p class="font-normal cursor-default">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
+                                            <p class="font-normal cursor-dark">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
                                             </p>
                                         </div>
                                         <div class="flex justify-center mt-6 mb-2">
@@ -2314,16 +2316,16 @@ function switchDiv() {
                             <!-- OVERLAY!!! -->
                             <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
                                 <div class="relative w-full h-full flex flex-col justify-between">
-                                    <p class="font-bold text-xl cursor-default">2022</p>
+                                    <p class="font-bold text-xl cursor-dark">2022</p>
                                     <i class="fa-regular fa-heart cursor-pointer absolute text-main-light right-0 top-0 text-2xl group/fav">
                                         <i class="fa-solid fa-heart cursor-pointer absolute right-0 top-0 text-2xl text-main-light hidden group-hover/fav:block "></i>
                                     </i>
                                     <div>
                                         <div class="flex justify-start">
-                                            <a href="" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
+                                            <a href="film.html" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
                                         </div>
                                         <div class="flex justify-start">
-                                            <p class="font-normal cursor-default">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
+                                            <p class="font-normal cursor-dark">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
                                             </p>
                                         </div>
                                         <div class="flex justify-center mt-6 mb-2">
@@ -2345,16 +2347,16 @@ function switchDiv() {
                             <!-- OVERLAY!!! -->
                             <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
                                 <div class="relative w-full h-full flex flex-col justify-between">
-                                    <p class="font-bold text-xl cursor-default">2022</p>
+                                    <p class="font-bold text-xl cursor-dark">2022</p>
                                     <i class="fa-regular fa-heart cursor-pointer absolute text-main-light right-0 top-0 text-2xl group/fav">
                                         <i class="fa-solid fa-heart cursor-pointer absolute right-0 top-0 text-2xl text-main-light hidden group-hover/fav:block "></i>
                                     </i>
                                     <div>
                                         <div class="flex justify-start">
-                                            <a href="" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
+                                            <a href="film.html" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
                                         </div>
                                         <div class="flex justify-start">
-                                            <p class="font-normal cursor-default">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
+                                            <p class="font-normal cursor-dark">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
                                             </p>
                                         </div>
                                         <div class="flex justify-center mt-6 mb-2">
@@ -2377,16 +2379,16 @@ function switchDiv() {
                                                             <!-- OVERLAY!!! -->
                             <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
                                 <div class="relative w-full h-full flex flex-col justify-between">
-                                    <p class="font-bold text-xl cursor-default">2022</p>
+                                    <p class="font-bold text-xl cursor-dark">2022</p>
                                     <i class="fa-regular fa-heart cursor-pointer absolute text-main-light right-0 top-0 text-2xl group/fav">
                                         <i class="fa-solid fa-heart cursor-pointer absolute right-0 top-0 text-2xl text-main-light hidden group-hover/fav:block "></i>
                                     </i>
                                     <div>
                                         <div class="flex justify-start">
-                                            <a href="" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
+                                            <a href="film.html" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
                                         </div>
                                         <div class="flex justify-start">
-                                            <p class="font-normal cursor-default">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
+                                            <p class="font-normal cursor-dark">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
                                             </p>
                                         </div>
                                         <div class="flex justify-center mt-6 mb-2">
@@ -2408,16 +2410,16 @@ function switchDiv() {
                                                             <!-- OVERLAY!!! -->
                             <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
                                 <div class="relative w-full h-full flex flex-col justify-between">
-                                    <p class="font-bold text-xl cursor-default">2022</p>
+                                    <p class="font-bold text-xl cursor-dark">2022</p>
                                     <i class="fa-regular fa-heart cursor-pointer absolute text-main-light right-0 top-0 text-2xl group/fav">
                                         <i class="fa-solid fa-heart cursor-pointer absolute right-0 top-0 text-2xl text-main-light hidden group-hover/fav:block "></i>
                                     </i>
                                     <div>
                                         <div class="flex justify-start">
-                                            <a href="" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
+                                            <a href="film.html" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
                                         </div>
                                         <div class="flex justify-start">
-                                            <p class="font-normal cursor-default">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
+                                            <p class="font-normal cursor-dark">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
                                             </p>
                                         </div>
                                         <div class="flex justify-center mt-6 mb-2">
@@ -2443,16 +2445,16 @@ function switchDiv() {
                             <!-- OVERLAY!!! -->
                             <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
                                 <div class="relative w-full h-full flex flex-col justify-between">
-                                    <p class="font-bold text-xl cursor-default">2022</p>
+                                    <p class="font-bold text-xl cursor-dark">2022</p>
                                     <i class="fa-regular fa-heart cursor-pointer absolute text-main-light right-0 top-0 text-2xl group/fav">
                                         <i class="fa-solid fa-heart cursor-pointer absolute right-0 top-0 text-2xl text-main-light hidden group-hover/fav:block "></i>
                                     </i>
                                     <div>
                                         <div class="flex justify-start">
-                                            <a href="" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
+                                            <a href="film.html" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
                                         </div>
                                         <div class="flex justify-start">
-                                            <p class="font-normal cursor-default">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
+                                            <p class="font-normal cursor-dark">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
                                             </p>
                                         </div>
                                         <div class="flex justify-center mt-6 mb-2">
@@ -2474,16 +2476,16 @@ function switchDiv() {
                             <!-- OVERLAY!!! -->
                             <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
                                 <div class="relative w-full h-full flex flex-col justify-between">
-                                    <p class="font-bold text-xl cursor-default">2022</p>
+                                    <p class="font-bold text-xl cursor-dark">2022</p>
                                     <i class="fa-regular fa-heart cursor-pointer absolute text-main-light right-0 top-0 text-2xl group/fav">
                                         <i class="fa-solid fa-heart cursor-pointer absolute right-0 top-0 text-2xl text-main-light hidden group-hover/fav:block "></i>
                                     </i>
                                     <div>
                                         <div class="flex justify-start">
-                                            <a href="" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
+                                            <a href="film.html" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
                                         </div>
                                         <div class="flex justify-start">
-                                            <p class="font-normal cursor-default">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
+                                            <p class="font-normal cursor-dark">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
                                             </p>
                                         </div>
                                         <div class="flex justify-center mt-6 mb-2">
@@ -2505,16 +2507,16 @@ function switchDiv() {
                             <!-- OVERLAY!!! -->
                             <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
                                 <div class="relative w-full h-full flex flex-col justify-between">
-                                    <p class="font-bold text-xl cursor-default">2022</p>
+                                    <p class="font-bold text-xl cursor-dark">2022</p>
                                     <i class="fa-regular fa-heart cursor-pointer absolute text-main-light right-0 top-0 text-2xl group/fav">
                                         <i class="fa-solid fa-heart cursor-pointer absolute right-0 top-0 text-2xl text-main-light hidden group-hover/fav:block "></i>
                                     </i>
                                     <div>
                                         <div class="flex justify-start">
-                                            <a href="" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
+                                            <a href="film.html" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
                                         </div>
                                         <div class="flex justify-start">
-                                            <p class="font-normal cursor-default">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
+                                            <p class="font-normal cursor-dark">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
                                             </p>
                                         </div>
                                         <div class="flex justify-center mt-6 mb-2">
@@ -2537,16 +2539,16 @@ function switchDiv() {
                                                             <!-- OVERLAY!!! -->
                             <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
                                 <div class="relative w-full h-full flex flex-col justify-between">
-                                    <p class="font-bold text-xl cursor-default">2022</p>
+                                    <p class="font-bold text-xl cursor-dark">2022</p>
                                     <i class="fa-regular fa-heart cursor-pointer absolute text-main-light right-0 top-0 text-2xl group/fav">
                                         <i class="fa-solid fa-heart cursor-pointer absolute right-0 top-0 text-2xl text-main-light hidden group-hover/fav:block "></i>
                                     </i>
                                     <div>
                                         <div class="flex justify-start">
-                                            <a href="" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
+                                            <a href="film.html" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
                                         </div>
                                         <div class="flex justify-start">
-                                            <p class="font-normal cursor-default">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
+                                            <p class="font-normal cursor-dark">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
                                             </p>
                                         </div>
                                         <div class="flex justify-center mt-6 mb-2">
@@ -2568,16 +2570,16 @@ function switchDiv() {
                                                             <!-- OVERLAY!!! -->
                             <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
                                 <div class="relative w-full h-full flex flex-col justify-between">
-                                    <p class="font-bold text-xl cursor-default">2022</p>
+                                    <p class="font-bold text-xl cursor-dark">2022</p>
                                     <i class="fa-regular fa-heart cursor-pointer absolute text-main-light right-0 top-0 text-2xl group/fav">
                                         <i class="fa-solid fa-heart cursor-pointer absolute right-0 top-0 text-2xl text-main-light hidden group-hover/fav:block "></i>
                                     </i>
                                     <div>
                                         <div class="flex justify-start">
-                                            <a href="" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
+                                            <a href="film.html" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
                                         </div>
                                         <div class="flex justify-start">
-                                            <p class="font-normal cursor-default">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
+                                            <p class="font-normal cursor-dark">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
                                             </p>
                                         </div>
                                         <div class="flex justify-center mt-6 mb-2">
@@ -2603,16 +2605,16 @@ function switchDiv() {
                             <!-- OVERLAY!!! -->
                             <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
                                 <div class="relative w-full h-full flex flex-col justify-between">
-                                    <p class="font-bold text-xl cursor-default">2022</p>
+                                    <p class="font-bold text-xl cursor-dark">2022</p>
                                     <i class="fa-regular fa-heart cursor-pointer absolute text-main-light right-0 top-0 text-2xl group/fav">
                                         <i class="fa-solid fa-heart cursor-pointer absolute right-0 top-0 text-2xl text-main-light hidden group-hover/fav:block "></i>
                                     </i>
                                     <div>
                                         <div class="flex justify-start">
-                                            <a href="" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
+                                            <a href="film.html" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
                                         </div>
                                         <div class="flex justify-start">
-                                            <p class="font-normal cursor-default">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
+                                            <p class="font-normal cursor-dark">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
                                             </p>
                                         </div>
                                         <div class="flex justify-center mt-6 mb-2">
@@ -2634,16 +2636,16 @@ function switchDiv() {
                             <!-- OVERLAY!!! -->
                             <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
                                 <div class="relative w-full h-full flex flex-col justify-between">
-                                    <p class="font-bold text-xl cursor-default">2022</p>
+                                    <p class="font-bold text-xl cursor-dark">2022</p>
                                     <i class="fa-regular fa-heart cursor-pointer absolute text-main-light right-0 top-0 text-2xl group/fav">
                                         <i class="fa-solid fa-heart cursor-pointer absolute right-0 top-0 text-2xl text-main-light hidden group-hover/fav:block "></i>
                                     </i>
                                     <div>
                                         <div class="flex justify-start">
-                                            <a href="" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
+                                            <a href="film.html" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
                                         </div>
                                         <div class="flex justify-start">
-                                            <p class="font-normal cursor-default">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
+                                            <p class="font-normal cursor-dark">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
                                             </p>
                                         </div>
                                         <div class="flex justify-center mt-6 mb-2">
@@ -2665,16 +2667,16 @@ function switchDiv() {
                             <!-- OVERLAY!!! -->
                             <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
                                 <div class="relative w-full h-full flex flex-col justify-between">
-                                    <p class="font-bold text-xl cursor-default">2022</p>
+                                    <p class="font-bold text-xl cursor-dark">2022</p>
                                     <i class="fa-regular fa-heart cursor-pointer absolute text-main-light right-0 top-0 text-2xl group/fav">
                                         <i class="fa-solid fa-heart cursor-pointer absolute right-0 top-0 text-2xl text-main-light hidden group-hover/fav:block "></i>
                                     </i>
                                     <div>
                                         <div class="flex justify-start">
-                                            <a href="" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
+                                            <a href="film.html" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
                                         </div>
                                         <div class="flex justify-start">
-                                            <p class="font-normal cursor-default">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
+                                            <p class="font-normal cursor-dark">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
                                             </p>
                                         </div>
                                         <div class="flex justify-center mt-6 mb-2">
@@ -2697,16 +2699,16 @@ function switchDiv() {
                                                             <!-- OVERLAY!!! -->
                             <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
                                 <div class="relative w-full h-full flex flex-col justify-between">
-                                    <p class="font-bold text-xl cursor-default">2022</p>
+                                    <p class="font-bold text-xl cursor-dark">2022</p>
                                     <i class="fa-regular fa-heart cursor-pointer absolute text-main-light right-0 top-0 text-2xl group/fav">
                                         <i class="fa-solid fa-heart cursor-pointer absolute right-0 top-0 text-2xl text-main-light hidden group-hover/fav:block "></i>
                                     </i>
                                     <div>
                                         <div class="flex justify-start">
-                                            <a href="" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
+                                            <a href="film.html" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
                                         </div>
                                         <div class="flex justify-start">
-                                            <p class="font-normal cursor-default">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
+                                            <p class="font-normal cursor-dark">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
                                             </p>
                                         </div>
                                         <div class="flex justify-center mt-6 mb-2">
@@ -2728,16 +2730,16 @@ function switchDiv() {
                                                             <!-- OVERLAY!!! -->
                             <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
                                 <div class="relative w-full h-full flex flex-col justify-between">
-                                    <p class="font-bold text-xl cursor-default">2022</p>
+                                    <p class="font-bold text-xl cursor-dark">2022</p>
                                     <i class="fa-regular fa-heart cursor-pointer absolute text-main-light right-0 top-0 text-2xl group/fav">
                                         <i class="fa-solid fa-heart cursor-pointer absolute right-0 top-0 text-2xl text-main-light hidden group-hover/fav:block "></i>
                                     </i>
                                     <div>
                                         <div class="flex justify-start">
-                                            <a href="" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
+                                            <a href="film.html" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
                                         </div>
                                         <div class="flex justify-start">
-                                            <p class="font-normal cursor-default">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
+                                            <p class="font-normal cursor-dark">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
                                             </p>
                                         </div>
                                         <div class="flex justify-center mt-6 mb-2">
@@ -2777,7 +2779,7 @@ function switchDiv() {
 
 <!-- FOOTER -->
 
-<section id="footer" class="bg-main-default h-24 mt-12 flex justify-center">
+<section id="footer" class="bg-main-dark h-24 mt-12 flex justify-center">
     <div class="flex justify-center items-center">
         <div class="mr-4 text-xl"> Rejoignez nous sur les réseaux !</div>
         <div class="  text-main-light">
