@@ -11,14 +11,18 @@
 
     <title>Cinemet</title>
 </head>
-<body class="bg-main-dark text-white">
+<body class="bg-main-dark text-white bg-cover">
+
+<div class="fixed h-full w-screen blur cover -z-30">
+    <img class="cover w-screen"src="img/4.jpg" alt="">
+</div>
 
 <nav id="navbar" class="text-main-light bg-main-dark fixed top-0 w-full z-40 ease-out duration-300">
 <div id="nav-contain" class="flex p-4 gap-4  w-full h-20 px-[10%]">
     <img src="img/popcorn.png" class="basis-auto" alt="logo"><a class="self-center" href="index.html">
         <span class="text-white uppercase self-center text-xl ">SimplonFilm</span></a>
     <form action="" method="get" class="grow flex relative">
-        <input type="search" name="search" class="bg-main-dark placeholder:italic pl-4 border-solid border-2 basis-full text-white  focus:ring-0" placeholder="Cherchez un film!" >
+        <input type="search" name="search" class="hidden md:block bg-main-dark placeholder:italic pl-4 border-solid border-2 basis-full text-white  focus:ring-0" placeholder="Cherchez un film!" >
         <button type="submit"><i class="fa fa-search absolute top-2 right-3 text-2xl"></i></button>
     </form>
     <div class="items-center flex basis-auto text-4xl gap-6">
@@ -258,18 +262,24 @@ function switchDiv() {
 <h1 class="font-bold text-4xl">Blade runner</h1>
 </div>
 
+
 <!-- PAGE FILM -->
-<section>
-    <div class="grid grid-cols-2 gap-8">
-        <img src="img/4.jpg" alt="">
-        <div class="[&>*]:my-4">
-            <div class="font-bold text-xl flex gap-4"><p class="underline">Nom d'origine : </p><span class="font-normal ">Blade runner</span></div>
-            <div class="font-bold text-xl flex gap-4"><p class="underline">Date de sortie : </p><span class="font-normal ">2019</span></div>
-            <div class="font-bold text-xl flex gap-4"><p class="underline">Genres : </p><span class="font-normal "><a href="" class="text-main-light hover:text-main-hover">Comédie</a>, <a href="" class="text-main-light hover:text-main-hover">aventure</a></span></div>
-            <div class="font-bold text-xl flex gap-4"><p class="underline">Acteurs principaux : </p><span class="font-normal "><a href="" class="text-main-light hover:text-main-hover">Jim carrey</a>, <a href="" class="text-main-light hover:text-main-hover">Zooey Deschanel</a>, <a href="" class="text-main-light hover:text-main-hover">Bradley Cooper</a>, <a href="" class="text-main-light hover:text-main-hover">John Michael Haggins</a></span></div>
-            <div class="font-bold text-xl flex gap-4"><p class="underline">Réalisateurs : </p><span class="font-normal"><a href="" class="text-main-light hover:text-main-hover">Peyton Reed</a></span></div>
-            <div class="font-bold text-xl flex gap-4"><p class="underline">Scénario : </p><span class="font-normal ">Jarrad paul, Nicholas Stoller</span></div>
-            <div class="font-bold text-xl flex gap-4"><p class="underline">Note : </p>
+<section class="mx-auto w-[60%]  border relative bg-main-dark">
+<!-- AJOUTER/RETIRER FAVORIS -->
+    <button class="absolute -top-12 right-4 text-main-light text-xl flex text-center gap-2"> Ajouter aux favoris <i class="fa-regular fa-heart relative group text-2xl"><i class="fa-solid fa-heart absolute hidden group-hover:block top-0 left-0 text-2xl"></i></i></button>
+<!-- GRILLE -->
+    <div class="block md:grid md:grid-cols-2 gap-8  ">
+        <div class="p-8 ">
+            <img src="img/4.jpg" class="" alt="">
+        </div>
+        <div class="[&>*]:my-4 my-8 relative">
+            <div class="font-bold text-xl flex flex-wrap gap-y-4 gap-x-2"><p class="underline ">Nom d'origine : </p><span class="font-normal">Blade runner</span></div>
+            <div class="font-bold text-xl flex flex-wrap gap-y-4 gap-x-2"><p class="underline ">Date de sortie : </p><span class="font-normal">2019</span></div>
+            <div class="font-bold text-xl flex flex-wrap gap-y-4 gap-x-2"><p class="underline ">Genres : </p><a href="" class="text-main-light hover:text-main-hover font-normal">Comédie</a>, <a href="" class="text-main-light hover:text-main-hover font-normal">aventure</a></div>
+            <div class="font-bold text-xl flex flex-wrap gap-y-4 gap-x-2"><p class="underline ">Acteurs principaux : </p><a href="" class="text-main-light hover:text-main-hover font-normal">Jim carrey</a>, <a href="" class="text-main-light hover:text-main-hover font-normal">Zooey Deschanel</a>, <a href="" class="text-main-light hover:text-main-hover font-normal">Bradley Cooper</a>, <a href="" class="text-main-light hover:text-main-hover font-normal">John Michael Haggins</a></div>
+            <div class="font-bold text-xl flex flex-wrap gap-y-4 gap-x-2"><p class="underline ">Réalisateurs : </p><span class="font-normal"><a href="" class="text-main-light hover:text-main-hover font-normal">Peyton Reed</a></div>
+            <div class="font-bold text-xl flex flex-wrap gap-y-4 gap-x-2"><p class="underline ">Scénario : </p> <span class="font-normal">Jarrad paul, Nicholas Stoller</span></div>
+            <div class="font-bold text-xl flex flex-wrap gap-y-4 gap-x-2 absolute bottom-0"><p class="underline ">Note : </p>
                 <span class="font-normal text-main-light">
                     <i class="fa-solid fa-star cursor-pointer"></i>
                     <i class="fa-solid fa-star cursor-pointer"></i>
@@ -278,16 +288,10 @@ function switchDiv() {
                     <i class="fa-regular fa-star cursor-pointer relative group/star"><i class="fa-solid fa-star cursor-pointer absolute top-0 left-0 hidden group-hover/star:block"></i></i>
                 </span></div>
         </div>
-
     </div>
-
-
-
-
+<div>salut <br><br></div>
 
 </section>
-
-
 
 
 <!-- FOOTER -->
@@ -304,7 +308,6 @@ function switchDiv() {
     </div>
 
 </section>
-
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.4/flowbite.min.js"></script>
 </body>
