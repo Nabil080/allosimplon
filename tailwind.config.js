@@ -11,7 +11,7 @@ module.exports = {
           hover: '#1B7673',
       },
       }
-    },
+    },  
   },
   plugins: [],
 }
