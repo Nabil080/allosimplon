@@ -5,9 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.4/flowbite.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="css/output.css">
     <link rel="stylesheet" href="../src/input.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
     <script>
         tailwind.config = {
             theme: {
@@ -20,11 +21,11 @@
           hover: '#1B7673',
       },
       }
-    },  
+    },
   },
         }
       </script>
-    <script src="https://cdn.tailwindcss.com"></script>
+
     <link rel="icon" type="image/x-icon" href="img/popcorn.png">
     <title>Cinemet</title>
 
@@ -282,7 +283,10 @@ function switchDiv() {
 <h1 class="font-bold text-4xl">Interface administrateur</h1>
 </div>
 
-
+<!-- FORMULAIRE ADD FILM -->
+<div id="addfilm" data-modal-placement="center" aria-hidden="true" tabindex="-1" class="hidden w-full h-full">
+    <div class="w-20 h-20 bg-red-500">heellloooo</div>
+    </div>
 
 <!-- burger tab -->
 <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown" class=" bg-gray-700 w-full h-8 py-2 object-center px-auto sm:hidden text-sm font-medium text-center text-gray-50 divide-x divide-gray-200 rounded-lg rounded-b-none shadow dark:divide-gray-700" type="button">Changer de tab</button>
@@ -344,7 +348,7 @@ function switchDiv() {
 
 <div id="crudtable" class="relative overflow-x-scroll shadow-md sm:rounded-lg">
     <table id="film" aria-labelledby="filmtab" class="w-[80%] mx-auto text-sm text-left text-gray-500 dark:text-gray-300">
-        <thead class="text-xs text-gray-700 uppercase  dark:bg-gray-700 dark:text-gray-300 [&_th]:text-center">
+        <thead class="text-xs text-gray-700 uppercase dark:bg-gray-700 dark:text-gray-300 [&_th]:text-center relative ">
             <tr>
                 <!-- <th scope="col" class="p-4">
                     <div class="flex items-center">
@@ -374,7 +378,7 @@ function switchDiv() {
                     Casting/Vidéo/Synopsis/Détails
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    Action
+                    <button type="button" data-modal-target="addform" data-modal-toggle="addfilm" class=""><i class="fa-solid fa-plus"></i></button>
                 </th>
             </tr>
         </thead>
@@ -407,7 +411,7 @@ function switchDiv() {
                 <td class="px-6 py-4">
                     <!-- Modal toggle -->
 <div class="flex justify-center m-5">
-    <button id="readProductButton" data-modal-toggle="readProductModal" class="block text-white bg-main-light hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800" type="button">
+    <button id="readProductButton" data-modal-toggle="readProductModal" class="block text-white bg-main-light hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center  dark:hover:bg-primary-700 dark:focus:ring-primary-800" type="button">
     Plus d'informations
     </button>
 </div>
@@ -1380,8 +1384,6 @@ function switchDiv() {
         </tbody>
     </table>
 </div>
-
-
 
 
 
