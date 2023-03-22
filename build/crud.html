@@ -295,6 +295,18 @@ function switchDiv() {
         <li class="w-full">
             <button role="tab" aria-controls="actor" id="actortab" data-tabs-target="#actor" aria-selected="false" class="inline-block w-full p-4 bg-white hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700">Acteurs</button>
         </li>
+        <li class="w-full">
+            <button role="tab" aria-controls="genre" id="genretab" data-tabs-target="#genre" aria-selected="false" class="inline-block w-full p-4 bg-white hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700">Genres</button>
+        </li>
+        <li class="w-full">
+            <button role="tab" aria-controls="user" id="usertab" data-tabs-target="#user" aria-selected="false" class="inline-block w-full p-4 bg-white hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700">Utilisateurs</button>
+        </li>
+        <li class="w-full">
+            <button role="tab" aria-controls="real" id="realtab" data-tabs-target="#real" aria-selected="false" class="inline-block w-full p-4 bg-white hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700">Réalisateurs</button>
+        </li>
+        <li class="w-full">
+            <button role="tab" aria-controls="scenario" id="scenariotab" data-tabs-target="#scenario" aria-selected="false" class="inline-block w-full p-4 bg-white hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700">Scénaristes</button>
+        </li>
     </ul>
 </div>
 
@@ -304,7 +316,19 @@ function switchDiv() {
         <button role="tab" aria-controls="film" id="filmtab" data-tabs-target="#film" aria-selected="true" class="inline-block w-full p-4 text-gray-900 bg-gray-100 rounded-tl-lg focus:ring-4 focus:ring-blue-300 active focus:outline-none dark:bg-gray-700 dark:text-white" aria-current="page">Film</button>
     </li>
     <li class="w-full">
-        <button role="tab" aria-controls="actor" id="actortab" data-tabs-target="#actor" aria-selected="false" class="inline-block w-full p-4 bg-white rounded-tr-lg hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700">Acteurs</button>
+        <button role="tab" aria-controls="actor" id="actortab" data-tabs-target="#actor" aria-selected="false" class="inline-block w-full p-4 bg-white hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700">Acteurs</button>
+    </li>
+    <li class="w-full">
+        <button role="tab" aria-controls="genre" id="genretab" data-tabs-target="#genre" aria-selected="false" class="inline-block w-full p-4 bg-white hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700">Genres</button>
+    </li>
+    <li class="w-full">
+        <button role="tab" aria-controls="user" id="usertab" data-tabs-target="#user" aria-selected="false" class="inline-block w-full p-4 bg-white hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700">Utilisateurs</button>
+    </li>
+    <li class="w-full">
+        <button role="tab" aria-controls="real" id="realtab" data-tabs-target="#real" aria-selected="false" class="inline-block w-full p-4 bg-white hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700">Réalisateurs</button>
+    </li>
+    <li class="w-full">
+        <button role="tab" aria-controls="scenario" id="scenariotab" data-tabs-target="#scenario" aria-selected="false" class="inline-block w-full p-4 bg-white hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700">Scénaristes</button>
     </li>
 </ul>
 
@@ -1154,7 +1178,109 @@ function switchDiv() {
                     Nom du Genre
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    Nom du genre
+                    ID
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Action
+                </th>
+            </tr>
+        </thead>
+        <tbody class="[&_td]:text-center">
+            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 h-fit">
+                <!-- <td class="w-4 py-4">
+                    <div class="flex items-center">
+                        <input id="checkbox-table-search-1" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                        <label for="checkbox-table-search-1" class="sr-only">checkbox</label>
+                    </div>
+                </td> -->
+                <th scope="row" class="text-center px-1 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white max-w-[8rem]">
+                    Sciences-Fiction
+                </th>
+                <td class="px-6 py-4">
+                    24
+                </td>
+                                <td class="">
+                    <div class="space-x-3 justify-center my-auto h-full flex ">
+                        <a href="#" class="font-medium p-4 border-blue-600 border rounded-lg  text-blue-600 dark:text-blue-500 hover:underline hover:bg-gray-50">Modifier</a>
+                        <a href="#" class="font-medium p-4 border-red-600 border rounded-lg text-red-600 dark:text-red-500 hover:underline hover:bg-gray-50">Remove</a>
+                    </div>
+                </td>
+            </tr>
+
+
+        </tbody>
+    </table>
+    <table id="user" aria-labelledby="usertab" class="w-[80%] mx-auto text-sm text-left text-gray-500 dark:text-gray-300 hidden">
+        <thead class="text-xs text-gray-700 uppercase  dark:bg-gray-700 dark:text-gray-300 [&_th]:text-center">
+            <tr>
+                <!-- <th scope="col" class="p-4">
+                    <div class="flex items-center">
+                        <input id="checkbox-all-search" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                        <label for="checkbox-all-search" class="sr-only">checkbox</label>
+                    </div>
+                </th> -->
+                <th scope="col" class="px-6 py-3">
+                    ID
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    E-mail utilisateur
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Role
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Films favoris
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Action
+                </th>
+            </tr>
+        </thead>
+        <tbody class="[&_td]:text-center">
+            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 h-fit">
+                <!-- <td class="w-4 py-4">
+                    <div class="flex items-center">
+                        <input id="checkbox-table-search-1" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                        <label for="checkbox-table-search-1" class="sr-only">checkbox</label>
+                    </div>
+                </td> -->
+                <th scope="row" class="text-center px-1 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white max-w-[8rem]">
+                    12
+                </th>
+                <td class="px-6 py-4">
+                    nabil@mail.com
+                </td>
+                <td class="px-6 py-4">
+                    Admin
+                </td>
+                <td class="px-6 py-4">
+                    santa marita, louurd
+                </td>
+                                <td class="">
+                    <div class="space-x-3 justify-center my-auto h-full flex ">
+                        <a href="#" class="font-medium p-4 border-blue-600 border rounded-lg  text-blue-600 dark:text-blue-500 hover:underline hover:bg-gray-50">Modifier</a>
+                        <a href="#" class="font-medium p-4 border-red-600 border rounded-lg text-red-600 dark:text-red-500 hover:underline hover:bg-gray-50">Remove</a>
+                    </div>
+                </td>
+            </tr>
+
+
+        </tbody>
+    </table>
+    <table id="real" aria-labelledby="realtab" class="w-[80%] mx-auto text-sm text-left text-gray-500 dark:text-gray-300 hidden">
+        <thead class="text-xs text-gray-700 uppercase  dark:bg-gray-700 dark:text-gray-300 [&_th]:text-center">
+            <tr>
+                <!-- <th scope="col" class="p-4">
+                    <div class="flex items-center">
+                        <input id="checkbox-all-search" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                        <label for="checkbox-all-search" class="sr-only">checkbox</label>
+                    </div>
+                </th> -->
+                <th scope="col" class="px-6 py-3">
+                    Photo
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Nom du réalisateur
                 </th>
                 <th scope="col" class="px-6 py-3">
                     ID
@@ -1176,19 +1302,17 @@ function switchDiv() {
                     </div>
                 </td> -->
                 <th scope="row" class="px-1 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white max-w-[8rem]">
-                    Sciences-Fiction
+                    <img src="img/hampton.jpg" class="w-full objet-cover" alt="">
                 </th>
-                <td class="px-6 py-4">
-                    Ryan Gosling
+                <td scope="row" class="text-center px-1 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white max-w-[8rem]">
+                    Hampton Fancher
                 </td>
                 <td class="px-6 py-4">
-                    48
+                    12
                 </td>
                 <td class="px-6 py-4">
-                    Blade runner, lame coureur..
-                    Blade runner, lame coureur..
+                    One Piece, Entre, Autres!!
                 </td>
-                
                                 <td class="">
                     <div class="space-x-3 justify-center my-auto h-full flex ">
                         <a href="#" class="font-medium p-4 border-blue-600 border rounded-lg  text-blue-600 dark:text-blue-500 hover:underline hover:bg-gray-50">Modifier</a>
@@ -1198,6 +1322,61 @@ function switchDiv() {
             </tr>
 
 
+        </tbody>
+    </table>
+    <table id="scenario" aria-labelledby="scenariotab" class="w-[80%] mx-auto text-sm text-left text-gray-500 dark:text-gray-300 hidden">
+        <thead class="text-xs text-gray-700 uppercase  dark:bg-gray-700 dark:text-gray-300 [&_th]:text-center">
+            <tr>
+                <!-- <th scope="col" class="p-4">
+                    <div class="flex items-center">
+                        <input id="checkbox-all-search" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                        <label for="checkbox-all-search" class="sr-only">checkbox</label>
+                    </div>
+                </th> -->
+                <th scope="col" class="px-6 py-3">
+                    Photo
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Nom du scénariste
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    ID
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Films
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Action
+                </th>
+            </tr>
+        </thead>
+        <tbody class="[&_td]:text-center">
+            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 h-fit">
+                <!-- <td class="w-4 py-4">
+                    <div class="flex items-center">
+                        <input id="checkbox-table-search-1" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                        <label for="checkbox-table-search-1" class="sr-only">checkbox</label>
+                    </div>
+                </td> -->
+                <th scope="row" class="px-1 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white max-w-[8rem]">
+                    <img src="img/denis.jpg" class="w-full objet-cover" alt="">
+                </th>
+                <td scope="row" class="text-center px-1 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white max-w-[8rem]">
+                    Denis Villeneuve
+                </td>
+                <td class="px-6 py-4">
+                    12
+                </td>
+                <td class="px-6 py-4">
+                    One Piece, Entre, Autres!!
+                </td>
+                                <td class="">
+                    <div class="space-x-3 justify-center my-auto h-full flex ">
+                        <a href="#" class="font-medium p-4 border-blue-600 border rounded-lg  text-blue-600 dark:text-blue-500 hover:underline hover:bg-gray-50">Modifier</a>
+                        <a href="#" class="font-medium p-4 border-red-600 border rounded-lg text-red-600 dark:text-red-500 hover:underline hover:bg-gray-50">Remove</a>
+                    </div>
+                </td>
+            </tr>
         </tbody>
     </table>
 </div>
