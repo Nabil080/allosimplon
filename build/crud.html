@@ -8,8 +8,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
     <link rel="stylesheet" href="css/output.css">
     <link rel="icon" type="image/x-icon" href="img/popcorn.png">
-
     <title>Cinemet</title>
+
 </head>
 <body class="bg-main-dark text-gray-100">
 
@@ -258,9 +258,717 @@ function switchDiv() {
 
 
 <div class="flex justify-center mt-28 mb-6">
-<h1 class="font-bold text-4xl">Films populaires</h1>
+<h1 class="font-bold text-4xl">Interface administrateur</h1>
 </div>
 
+<!-- SECTION CRUD SECTION CRUD SECTION CRUD -->
+<!-- SECTION CRUD SECTION CRUD SECTION CRUD -->
+<!-- SECTION CRUD SECTION CRUD SECTION CRUD -->
+<!-- SECTION CRUD SECTION CRUD SECTION CRUD -->
+
+
+
+
+<div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+    <table class="w-[80%] mx-auto text-sm text-left text-gray-500 dark:text-gray-300">
+        <thead class="text-xs text-gray-700 uppercase  dark:bg-gray-700 dark:text-gray-300 [&_th]:text-center">
+            <tr>
+                <!-- <th scope="col" class="p-4">
+                    <div class="flex items-center">
+                        <input id="checkbox-all-search" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                        <label for="checkbox-all-search" class="sr-only">checkbox</label>
+                    </div>
+                </th> -->
+                <th scope="col" class="px-6 py-3">
+                    Affiche
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Nom du Film
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    ID
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Durée
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Année
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Note
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Casting/Vidéo/Synopsis/Détails
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Action
+                </th>
+            </tr>
+        </thead>
+        <tbody class="[&_td]:text-center">
+            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 h-fit">
+                <!-- <td class="w-4 py-4">
+                    <div class="flex items-center">
+                        <input id="checkbox-table-search-1" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                        <label for="checkbox-table-search-1" class="sr-only">checkbox</label>
+                    </div>
+                </td> -->
+                <th scope="row" class="px-1 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white max-w-[8rem]">
+                    <img src="img/4.jpg" class="w-full objet-cover" alt="">
+                </th>
+                <td class="px-6 py-4">
+                    Blade runner
+                </td>
+                <td class="px-6 py-4">
+                    1
+                </td>
+                <td class="px-6 py-4">
+                    163m
+                </td>
+                <td class="px-6 py-4">
+                    2017
+                </td>
+                <td class="px-6 py-4">
+                    8,00
+                </td>
+                <td class="px-6 py-4">
+                    <!-- Modal toggle -->
+<div class="flex justify-center m-5">
+    <button id="readProductButton" data-modal-toggle="readProductModal" class="block text-white bg-main-light hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800" type="button">
+    Plus d'informations
+    </button>
+</div>
+
+<!-- Main modal -->
+<div id="readProductModal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-scroll overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-modal md:h-full">
+    <div class="relative p-4 w-full max-w-3xl h-full max-h-[80vh]">
+        <!-- Modal content -->
+        <div class="relative p-4 bg-white rounded-lg shadow dark:bg-gray-800 sm:p-5">
+                <!-- Modal header -->
+                <div class="flex justify-between mb-4 rounded-t sm:mb-5">
+                    <div class="text-lg text-gray-900 md:text-xl dark:text-white">
+                        <h3 class="font-semibold ">
+                            Blade runner
+                        </h3>
+
+                    </div>
+                    <div>
+                        <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 inline-flex dark:hover:bg-gray-600 dark:hover:text-white" data-modal-toggle="readProductModal">
+                            <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                            <span class="sr-only">Close modal</span>
+                        </button>
+                    </div>
+                </div>
+                <dl>
+                    <dt class="mb-2 font-semibold leading-none text-gray-900 dark:text-white w-full bg-main-default py-2 my-2">Genres</dt>
+                    <dd class="mb-4 font- text-gray-500 sm:mb-5 dark:text-gray-300">
+                        <ul>
+                            <li>Sciences-fiction</li>
+                        </ul>
+                    </dd>
+                    <dt class="mb-2 font-semibold leading-none text-gray-900 dark:text-white w-full bg-main-default py-2 my-2">Scénario</dt>
+                    <dd class="mb-4 font- text-gray-500 sm:mb-5 dark:text-gray-300">
+                        <ul>
+                            <li>Hampton Fancher</li>
+                            <li>Michael Green</li>
+                            <li>Ridley Scott</li>
+                        </ul>
+                    </dd>
+                    <dt class="mb-2 font-semibold leading-none text-gray-900 dark:text-white w-full bg-main-default py-2 my-2">Réalisateurs</dt>
+                    <dd class="mb-4 font- text-gray-500 sm:mb-5 dark:text-gray-300">
+                        <ul>
+                            <li>Denis Villeneuve</li>
+                        </ul>
+                    </dd>
+                    <dt class="mb-2 font-semibold leading-none text-gray-900 dark:text-white w-full bg-main-default py-2 my-2">Acteurs</dt>
+                    <dd class="mb-4 font- text-gray-500 sm:mb-5 dark:text-gray-300">
+                        <ul>
+                            <li>Ryan Gosling</li>
+                            <li>Harrison Ford</li>
+                            <li>Ana de Amars</li>
+                            <li>Robin Wright</li>
+                            <li>Sylvia Hoeks</li>
+                        </ul>
+                    </dd>
+                    
+                    <dt class="mb-2 font-semibold leading-none text-gray-900 dark:text-white w-full bg-main-default py-2 my-2">Image de fond</dt>
+                    <dd class="mb-4 font- text-gray-500 sm:mb-5 dark:text-gray-300">
+                        <img src="img/4-bg.jpg" alt="">
+                    </dd>
+                    <dt class="mb-2 font-semibold leading-none text-gray-900 dark:text-white w-full bg-main-default py-2 my-2">Bande annonce</dt>
+                    <dd class="mb-4 font- text-gray-500 sm:mb-5 dark:text-gray-300">
+                        <iframe class="w-full aspect-video" width="" height="" src="https://www.youtube.com/embed/FfRPKYwsFNg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    </dd>
+                    <dt class="mb-2 font-semibold leading-none text-gray-900 dark:text-white w-full bg-main-default py-2 my-2">Synopsis</dt>
+                    <dd class="mb-4 font- text-gray-500 sm:mb-5 dark:text-gray-300">Blade Runner 2049 est un film de science-fiction américain réalisé par Denis Villeneuve et sorti en 2017. Il fait suite au film Blade Runner, réalisé par Ridley Scott (producteur de cette suite), sorti en 1982 et adapté du roman Les androïdes rêvent-ils de moutons électriques ? de Philip K. Dick.
+                        L'histoire de Blade Runner 2049 se situe trente ans après les aventures de Rick Deckard et raconte les aventures d'un « blade runner » (policier chargé de traquer les réplicants, des androïdes créés à l'image de l'Homme). </dd>
+                </dl>
+                
+        </div>
+    </div>
+</div>
+                </td>
+                <td class="space-x-3 justify-center my-auto h-full">
+                    <a href="#" class="font-medium p-4 border-blue-600 border rounded-lg  text-blue-600 dark:text-blue-500 hover:underline hover:bg-gray-50">Modifier</a>
+                    <a href="#" class="font-medium p-4 border-red-600 border rounded-lg text-red-600 dark:text-red-500 hover:underline hover:bg-gray-50">Remove</a>
+                </td>
+            </tr>
+            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 h-fit">
+                <!-- <td class="w-4 py-4">
+                    <div class="flex items-center">
+                        <input id="checkbox-table-search-1" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                        <label for="checkbox-table-search-1" class="sr-only">checkbox</label>
+                    </div>
+                </td> -->
+                <th scope="row" class="px-1 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white max-w-[8rem]">
+                    <img src="img/4.jpg" class="w-full objet-cover" alt="">
+                </th>
+                <td class="px-6 py-4">
+                    Blade runner
+                </td>
+                <td class="px-6 py-4">
+                    1
+                </td>
+                <td class="px-6 py-4">
+                    163m
+                </td>
+                <td class="px-6 py-4">
+                    2017
+                </td>
+                <td class="px-6 py-4">
+                    8,00
+                </td>
+                <td class="px-6 py-4">
+                    <!-- Modal toggle -->
+<div class="flex justify-center m-5">
+    <button id="readProductButton" data-modal-toggle="readProductModal" class="block text-white bg-main-light hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800" type="button">
+    Plus d'informations
+    </button>
+</div>
+
+<!-- Main modal -->
+<div id="readProductModal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-scroll overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-modal md:h-full">
+    <div class="relative p-4 w-full max-w-3xl h-full max-h-[80vh]">
+        <!-- Modal content -->
+        <div class="relative p-4 bg-white rounded-lg shadow dark:bg-gray-800 sm:p-5">
+                <!-- Modal header -->
+                <div class="flex justify-between mb-4 rounded-t sm:mb-5">
+                    <div class="text-lg text-gray-900 md:text-xl dark:text-white">
+                        <h3 class="font-semibold ">
+                            Blade runner
+                        </h3>
+
+                    </div>
+                    <div>
+                        <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 inline-flex dark:hover:bg-gray-600 dark:hover:text-white" data-modal-toggle="readProductModal">
+                            <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                            <span class="sr-only">Close modal</span>
+                        </button>
+                    </div>
+                </div>
+                <dl>
+                    <dt class="mb-2 font-semibold leading-none text-gray-900 dark:text-white w-full bg-main-default py-2 my-2">Genres</dt>
+                    <dd class="mb-4 font- text-gray-500 sm:mb-5 dark:text-gray-300">
+                        <ul>
+                            <li>Sciences-fiction</li>
+                        </ul>
+                    </dd>
+                    <dt class="mb-2 font-semibold leading-none text-gray-900 dark:text-white w-full bg-main-default py-2 my-2">Scénario</dt>
+                    <dd class="mb-4 font- text-gray-500 sm:mb-5 dark:text-gray-300">
+                        <ul>
+                            <li>Hampton Fancher</li>
+                            <li>Michael Green</li>
+                            <li>Ridley Scott</li>
+                        </ul>
+                    </dd>
+                    <dt class="mb-2 font-semibold leading-none text-gray-900 dark:text-white w-full bg-main-default py-2 my-2">Réalisateurs</dt>
+                    <dd class="mb-4 font- text-gray-500 sm:mb-5 dark:text-gray-300">
+                        <ul>
+                            <li>Denis Villeneuve</li>
+                        </ul>
+                    </dd>
+                    <dt class="mb-2 font-semibold leading-none text-gray-900 dark:text-white w-full bg-main-default py-2 my-2">Acteurs</dt>
+                    <dd class="mb-4 font- text-gray-500 sm:mb-5 dark:text-gray-300">
+                        <ul>
+                            <li>Ryan Gosling</li>
+                            <li>Harrison Ford</li>
+                            <li>Ana de Amars</li>
+                            <li>Robin Wright</li>
+                            <li>Sylvia Hoeks</li>
+                        </ul>
+                    </dd>
+                    
+                    <dt class="mb-2 font-semibold leading-none text-gray-900 dark:text-white w-full bg-main-default py-2 my-2">Image de fond</dt>
+                    <dd class="mb-4 font- text-gray-500 sm:mb-5 dark:text-gray-300">
+                        <img src="img/4-bg.jpg" alt="">
+                    </dd>
+                    <dt class="mb-2 font-semibold leading-none text-gray-900 dark:text-white w-full bg-main-default py-2 my-2">Bande annonce</dt>
+                    <dd class="mb-4 font- text-gray-500 sm:mb-5 dark:text-gray-300">
+                        <iframe class="w-full aspect-video" width="" height="" src="https://www.youtube.com/embed/FfRPKYwsFNg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    </dd>
+                    <dt class="mb-2 font-semibold leading-none text-gray-900 dark:text-white w-full bg-main-default py-2 my-2">Synopsis</dt>
+                    <dd class="mb-4 font- text-gray-500 sm:mb-5 dark:text-gray-300">Blade Runner 2049 est un film de science-fiction américain réalisé par Denis Villeneuve et sorti en 2017. Il fait suite au film Blade Runner, réalisé par Ridley Scott (producteur de cette suite), sorti en 1982 et adapté du roman Les androïdes rêvent-ils de moutons électriques ? de Philip K. Dick.
+                        L'histoire de Blade Runner 2049 se situe trente ans après les aventures de Rick Deckard et raconte les aventures d'un « blade runner » (policier chargé de traquer les réplicants, des androïdes créés à l'image de l'Homme). </dd>
+                </dl>
+                
+        </div>
+    </div>
+</div>
+                </td>
+                <td class="space-x-3 justify-center my-auto h-full">
+                    <a href="#" class="font-medium p-4 border-blue-600 border rounded-lg  text-blue-600 dark:text-blue-500 hover:underline hover:bg-gray-50">Modifier</a>
+                    <a href="#" class="font-medium p-4 border-red-600 border rounded-lg text-red-600 dark:text-red-500 hover:underline hover:bg-gray-50">Remove</a>
+                </td>
+            </tr>
+            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 h-fit">
+                <!-- <td class="w-4 py-4">
+                    <div class="flex items-center">
+                        <input id="checkbox-table-search-1" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                        <label for="checkbox-table-search-1" class="sr-only">checkbox</label>
+                    </div>
+                </td> -->
+                <th scope="row" class="px-1 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white max-w-[8rem]">
+                    <img src="img/4.jpg" class="w-full objet-cover" alt="">
+                </th>
+                <td class="px-6 py-4">
+                    Blade runner
+                </td>
+                <td class="px-6 py-4">
+                    1
+                </td>
+                <td class="px-6 py-4">
+                    163m
+                </td>
+                <td class="px-6 py-4">
+                    2017
+                </td>
+                <td class="px-6 py-4">
+                    8,00
+                </td>
+                <td class="px-6 py-4">
+                    <!-- Modal toggle -->
+<div class="flex justify-center m-5">
+    <button id="readProductButton" data-modal-toggle="readProductModal" class="block text-white bg-main-light hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800" type="button">
+    Plus d'informations
+    </button>
+</div>
+
+<!-- Main modal -->
+<div id="readProductModal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-scroll overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-modal md:h-full">
+    <div class="relative p-4 w-full max-w-3xl h-full max-h-[80vh]">
+        <!-- Modal content -->
+        <div class="relative p-4 bg-white rounded-lg shadow dark:bg-gray-800 sm:p-5">
+                <!-- Modal header -->
+                <div class="flex justify-between mb-4 rounded-t sm:mb-5">
+                    <div class="text-lg text-gray-900 md:text-xl dark:text-white">
+                        <h3 class="font-semibold ">
+                            Blade runner
+                        </h3>
+
+                    </div>
+                    <div>
+                        <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 inline-flex dark:hover:bg-gray-600 dark:hover:text-white" data-modal-toggle="readProductModal">
+                            <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                            <span class="sr-only">Close modal</span>
+                        </button>
+                    </div>
+                </div>
+                <dl>
+                    <dt class="mb-2 font-semibold leading-none text-gray-900 dark:text-white w-full bg-main-default py-2 my-2">Genres</dt>
+                    <dd class="mb-4 font- text-gray-500 sm:mb-5 dark:text-gray-300">
+                        <ul>
+                            <li>Sciences-fiction</li>
+                        </ul>
+                    </dd>
+                    <dt class="mb-2 font-semibold leading-none text-gray-900 dark:text-white w-full bg-main-default py-2 my-2">Scénario</dt>
+                    <dd class="mb-4 font- text-gray-500 sm:mb-5 dark:text-gray-300">
+                        <ul>
+                            <li>Hampton Fancher</li>
+                            <li>Michael Green</li>
+                            <li>Ridley Scott</li>
+                        </ul>
+                    </dd>
+                    <dt class="mb-2 font-semibold leading-none text-gray-900 dark:text-white w-full bg-main-default py-2 my-2">Réalisateurs</dt>
+                    <dd class="mb-4 font- text-gray-500 sm:mb-5 dark:text-gray-300">
+                        <ul>
+                            <li>Denis Villeneuve</li>
+                        </ul>
+                    </dd>
+                    <dt class="mb-2 font-semibold leading-none text-gray-900 dark:text-white w-full bg-main-default py-2 my-2">Acteurs</dt>
+                    <dd class="mb-4 font- text-gray-500 sm:mb-5 dark:text-gray-300">
+                        <ul>
+                            <li>Ryan Gosling</li>
+                            <li>Harrison Ford</li>
+                            <li>Ana de Amars</li>
+                            <li>Robin Wright</li>
+                            <li>Sylvia Hoeks</li>
+                        </ul>
+                    </dd>
+                    
+                    <dt class="mb-2 font-semibold leading-none text-gray-900 dark:text-white w-full bg-main-default py-2 my-2">Image de fond</dt>
+                    <dd class="mb-4 font- text-gray-500 sm:mb-5 dark:text-gray-300">
+                        <img src="img/4-bg.jpg" alt="">
+                    </dd>
+                    <dt class="mb-2 font-semibold leading-none text-gray-900 dark:text-white w-full bg-main-default py-2 my-2">Bande annonce</dt>
+                    <dd class="mb-4 font- text-gray-500 sm:mb-5 dark:text-gray-300">
+                        <iframe class="w-full aspect-video" width="" height="" src="https://www.youtube.com/embed/FfRPKYwsFNg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    </dd>
+                    <dt class="mb-2 font-semibold leading-none text-gray-900 dark:text-white w-full bg-main-default py-2 my-2">Synopsis</dt>
+                    <dd class="mb-4 font- text-gray-500 sm:mb-5 dark:text-gray-300">Blade Runner 2049 est un film de science-fiction américain réalisé par Denis Villeneuve et sorti en 2017. Il fait suite au film Blade Runner, réalisé par Ridley Scott (producteur de cette suite), sorti en 1982 et adapté du roman Les androïdes rêvent-ils de moutons électriques ? de Philip K. Dick.
+                        L'histoire de Blade Runner 2049 se situe trente ans après les aventures de Rick Deckard et raconte les aventures d'un « blade runner » (policier chargé de traquer les réplicants, des androïdes créés à l'image de l'Homme). </dd>
+                </dl>
+                
+        </div>
+    </div>
+</div>
+                </td>
+                <td class="space-x-3 justify-center my-auto h-full">
+                    <a href="#" class="font-medium p-4 border-blue-600 border rounded-lg  text-blue-600 dark:text-blue-500 hover:underline hover:bg-gray-50">Modifier</a>
+                    <a href="#" class="font-medium p-4 border-red-600 border rounded-lg text-red-600 dark:text-red-500 hover:underline hover:bg-gray-50">Remove</a>
+                </td>
+            </tr>
+            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 h-fit">
+                <!-- <td class="w-4 py-4">
+                    <div class="flex items-center">
+                        <input id="checkbox-table-search-1" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                        <label for="checkbox-table-search-1" class="sr-only">checkbox</label>
+                    </div>
+                </td> -->
+                <th scope="row" class="px-1 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white max-w-[8rem]">
+                    <img src="img/4.jpg" class="w-full objet-cover" alt="">
+                </th>
+                <td class="px-6 py-4">
+                    Blade runner
+                </td>
+                <td class="px-6 py-4">
+                    1
+                </td>
+                <td class="px-6 py-4">
+                    163m
+                </td>
+                <td class="px-6 py-4">
+                    2017
+                </td>
+                <td class="px-6 py-4">
+                    8,00
+                </td>
+                <td class="px-6 py-4">
+                    <!-- Modal toggle -->
+<div class="flex justify-center m-5">
+    <button id="readProductButton" data-modal-toggle="readProductModal" class="block text-white bg-main-light hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800" type="button">
+    Plus d'informations
+    </button>
+</div>
+
+<!-- Main modal -->
+<div id="readProductModal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-scroll overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-modal md:h-full">
+    <div class="relative p-4 w-full max-w-3xl h-full max-h-[80vh]">
+        <!-- Modal content -->
+        <div class="relative p-4 bg-white rounded-lg shadow dark:bg-gray-800 sm:p-5">
+                <!-- Modal header -->
+                <div class="flex justify-between mb-4 rounded-t sm:mb-5">
+                    <div class="text-lg text-gray-900 md:text-xl dark:text-white">
+                        <h3 class="font-semibold ">
+                            Blade runner
+                        </h3>
+
+                    </div>
+                    <div>
+                        <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 inline-flex dark:hover:bg-gray-600 dark:hover:text-white" data-modal-toggle="readProductModal">
+                            <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                            <span class="sr-only">Close modal</span>
+                        </button>
+                    </div>
+                </div>
+                <dl>
+                    <dt class="mb-2 font-semibold leading-none text-gray-900 dark:text-white w-full bg-main-default py-2 my-2">Genres</dt>
+                    <dd class="mb-4 font- text-gray-500 sm:mb-5 dark:text-gray-300">
+                        <ul>
+                            <li>Sciences-fiction</li>
+                        </ul>
+                    </dd>
+                    <dt class="mb-2 font-semibold leading-none text-gray-900 dark:text-white w-full bg-main-default py-2 my-2">Scénario</dt>
+                    <dd class="mb-4 font- text-gray-500 sm:mb-5 dark:text-gray-300">
+                        <ul>
+                            <li>Hampton Fancher</li>
+                            <li>Michael Green</li>
+                            <li>Ridley Scott</li>
+                        </ul>
+                    </dd>
+                    <dt class="mb-2 font-semibold leading-none text-gray-900 dark:text-white w-full bg-main-default py-2 my-2">Réalisateurs</dt>
+                    <dd class="mb-4 font- text-gray-500 sm:mb-5 dark:text-gray-300">
+                        <ul>
+                            <li>Denis Villeneuve</li>
+                        </ul>
+                    </dd>
+                    <dt class="mb-2 font-semibold leading-none text-gray-900 dark:text-white w-full bg-main-default py-2 my-2">Acteurs</dt>
+                    <dd class="mb-4 font- text-gray-500 sm:mb-5 dark:text-gray-300">
+                        <ul>
+                            <li>Ryan Gosling</li>
+                            <li>Harrison Ford</li>
+                            <li>Ana de Amars</li>
+                            <li>Robin Wright</li>
+                            <li>Sylvia Hoeks</li>
+                        </ul>
+                    </dd>
+                    
+                    <dt class="mb-2 font-semibold leading-none text-gray-900 dark:text-white w-full bg-main-default py-2 my-2">Image de fond</dt>
+                    <dd class="mb-4 font- text-gray-500 sm:mb-5 dark:text-gray-300">
+                        <img src="img/4-bg.jpg" alt="">
+                    </dd>
+                    <dt class="mb-2 font-semibold leading-none text-gray-900 dark:text-white w-full bg-main-default py-2 my-2">Bande annonce</dt>
+                    <dd class="mb-4 font- text-gray-500 sm:mb-5 dark:text-gray-300">
+                        <iframe class="w-full aspect-video" width="" height="" src="https://www.youtube.com/embed/FfRPKYwsFNg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    </dd>
+                    <dt class="mb-2 font-semibold leading-none text-gray-900 dark:text-white w-full bg-main-default py-2 my-2">Synopsis</dt>
+                    <dd class="mb-4 font- text-gray-500 sm:mb-5 dark:text-gray-300">Blade Runner 2049 est un film de science-fiction américain réalisé par Denis Villeneuve et sorti en 2017. Il fait suite au film Blade Runner, réalisé par Ridley Scott (producteur de cette suite), sorti en 1982 et adapté du roman Les androïdes rêvent-ils de moutons électriques ? de Philip K. Dick.
+                        L'histoire de Blade Runner 2049 se situe trente ans après les aventures de Rick Deckard et raconte les aventures d'un « blade runner » (policier chargé de traquer les réplicants, des androïdes créés à l'image de l'Homme). </dd>
+                </dl>
+                
+        </div>
+    </div>
+</div>
+                </td>
+                <td class="space-x-3 justify-center my-auto h-full">
+                    <a href="#" class="font-medium p-4 border-blue-600 border rounded-lg  text-blue-600 dark:text-blue-500 hover:underline hover:bg-gray-50">Modifier</a>
+                    <a href="#" class="font-medium p-4 border-red-600 border rounded-lg text-red-600 dark:text-red-500 hover:underline hover:bg-gray-50">Remove</a>
+                </td>
+            </tr>
+            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 h-fit">
+                <!-- <td class="w-4 py-4">
+                    <div class="flex items-center">
+                        <input id="checkbox-table-search-1" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                        <label for="checkbox-table-search-1" class="sr-only">checkbox</label>
+                    </div>
+                </td> -->
+                <th scope="row" class="px-1 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white max-w-[8rem]">
+                    <img src="img/4.jpg" class="w-full objet-cover" alt="">
+                </th>
+                <td class="px-6 py-4">
+                    Blade runner
+                </td>
+                <td class="px-6 py-4">
+                    1
+                </td>
+                <td class="px-6 py-4">
+                    163m
+                </td>
+                <td class="px-6 py-4">
+                    2017
+                </td>
+                <td class="px-6 py-4">
+                    8,00
+                </td>
+                <td class="px-6 py-4">
+                    <!-- Modal toggle -->
+<div class="flex justify-center m-5">
+    <button id="readProductButton" data-modal-toggle="readProductModal" class="block text-white bg-main-light hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800" type="button">
+    Plus d'informations
+    </button>
+</div>
+
+<!-- Main modal -->
+<div id="readProductModal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-scroll overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-modal md:h-full">
+    <div class="relative p-4 w-full max-w-3xl h-full max-h-[80vh]">
+        <!-- Modal content -->
+        <div class="relative p-4 bg-white rounded-lg shadow dark:bg-gray-800 sm:p-5">
+                <!-- Modal header -->
+                <div class="flex justify-between mb-4 rounded-t sm:mb-5">
+                    <div class="text-lg text-gray-900 md:text-xl dark:text-white">
+                        <h3 class="font-semibold ">
+                            Blade runner
+                        </h3>
+
+                    </div>
+                    <div>
+                        <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 inline-flex dark:hover:bg-gray-600 dark:hover:text-white" data-modal-toggle="readProductModal">
+                            <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                            <span class="sr-only">Close modal</span>
+                        </button>
+                    </div>
+                </div>
+                <dl>
+                    <dt class="mb-2 font-semibold leading-none text-gray-900 dark:text-white w-full bg-main-default py-2 my-2">Genres</dt>
+                    <dd class="mb-4 font- text-gray-500 sm:mb-5 dark:text-gray-300">
+                        <ul>
+                            <li>Sciences-fiction</li>
+                        </ul>
+                    </dd>
+                    <dt class="mb-2 font-semibold leading-none text-gray-900 dark:text-white w-full bg-main-default py-2 my-2">Scénario</dt>
+                    <dd class="mb-4 font- text-gray-500 sm:mb-5 dark:text-gray-300">
+                        <ul>
+                            <li>Hampton Fancher</li>
+                            <li>Michael Green</li>
+                            <li>Ridley Scott</li>
+                        </ul>
+                    </dd>
+                    <dt class="mb-2 font-semibold leading-none text-gray-900 dark:text-white w-full bg-main-default py-2 my-2">Réalisateurs</dt>
+                    <dd class="mb-4 font- text-gray-500 sm:mb-5 dark:text-gray-300">
+                        <ul>
+                            <li>Denis Villeneuve</li>
+                        </ul>
+                    </dd>
+                    <dt class="mb-2 font-semibold leading-none text-gray-900 dark:text-white w-full bg-main-default py-2 my-2">Acteurs</dt>
+                    <dd class="mb-4 font- text-gray-500 sm:mb-5 dark:text-gray-300">
+                        <ul>
+                            <li>Ryan Gosling</li>
+                            <li>Harrison Ford</li>
+                            <li>Ana de Amars</li>
+                            <li>Robin Wright</li>
+                            <li>Sylvia Hoeks</li>
+                        </ul>
+                    </dd>
+                    
+                    <dt class="mb-2 font-semibold leading-none text-gray-900 dark:text-white w-full bg-main-default py-2 my-2">Image de fond</dt>
+                    <dd class="mb-4 font- text-gray-500 sm:mb-5 dark:text-gray-300">
+                        <img src="img/4-bg.jpg" alt="">
+                    </dd>
+                    <dt class="mb-2 font-semibold leading-none text-gray-900 dark:text-white w-full bg-main-default py-2 my-2">Bande annonce</dt>
+                    <dd class="mb-4 font- text-gray-500 sm:mb-5 dark:text-gray-300">
+                        <iframe class="w-full aspect-video" width="" height="" src="https://www.youtube.com/embed/FfRPKYwsFNg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    </dd>
+                    <dt class="mb-2 font-semibold leading-none text-gray-900 dark:text-white w-full bg-main-default py-2 my-2">Synopsis</dt>
+                    <dd class="mb-4 font- text-gray-500 sm:mb-5 dark:text-gray-300">Blade Runner 2049 est un film de science-fiction américain réalisé par Denis Villeneuve et sorti en 2017. Il fait suite au film Blade Runner, réalisé par Ridley Scott (producteur de cette suite), sorti en 1982 et adapté du roman Les androïdes rêvent-ils de moutons électriques ? de Philip K. Dick.
+                        L'histoire de Blade Runner 2049 se situe trente ans après les aventures de Rick Deckard et raconte les aventures d'un « blade runner » (policier chargé de traquer les réplicants, des androïdes créés à l'image de l'Homme). </dd>
+                </dl>
+                
+        </div>
+    </div>
+</div>
+                </td>
+                <td class="space-x-3 justify-center my-auto h-full">
+                    <a href="#" class="font-medium p-4 border-blue-600 border rounded-lg  text-blue-600 dark:text-blue-500 hover:underline hover:bg-gray-50">Modifier</a>
+                    <a href="#" class="font-medium p-4 border-red-600 border rounded-lg text-red-600 dark:text-red-500 hover:underline hover:bg-gray-50">Remove</a>
+                </td>
+            </tr>
+            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 h-fit">
+                <!-- <td class="w-4 py-4">
+                    <div class="flex items-center">
+                        <input id="checkbox-table-search-1" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                        <label for="checkbox-table-search-1" class="sr-only">checkbox</label>
+                    </div>
+                </td> -->
+                <th scope="row" class="px-1 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white max-w-[8rem]">
+                    <img src="img/4.jpg" class="w-full objet-cover" alt="">
+                </th>
+                <td class="px-6 py-4">
+                    Blade runner
+                </td>
+                <td class="px-6 py-4">
+                    1
+                </td>
+                <td class="px-6 py-4">
+                    163m
+                </td>
+                <td class="px-6 py-4">
+                    2017
+                </td>
+                <td class="px-6 py-4">
+                    8,00
+                </td>
+                <td class="px-6 py-4">
+                    <!-- Modal toggle -->
+<div class="flex justify-center m-5">
+    <button id="readProductButton" data-modal-toggle="readProductModal" class="block text-white bg-main-light hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800" type="button">
+    Plus d'informations
+    </button>
+</div>
+
+<!-- Main modal -->
+<div id="readProductModal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-scroll overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-modal md:h-full">
+    <div class="relative p-4 w-full max-w-3xl h-full max-h-[80vh]">
+        <!-- Modal content -->
+        <div class="relative p-4 bg-white rounded-lg shadow dark:bg-gray-800 sm:p-5">
+                <!-- Modal header -->
+                <div class="flex justify-between mb-4 rounded-t sm:mb-5">
+                    <div class="text-lg text-gray-900 md:text-xl dark:text-white">
+                        <h3 class="font-semibold ">
+                            Blade runner
+                        </h3>
+
+                    </div>
+                    <div>
+                        <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 inline-flex dark:hover:bg-gray-600 dark:hover:text-white" data-modal-toggle="readProductModal">
+                            <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                            <span class="sr-only">Close modal</span>
+                        </button>
+                    </div>
+                </div>
+                <dl>
+                    <dt class="mb-2 font-semibold leading-none text-gray-900 dark:text-white w-full bg-main-default py-2 my-2">Genres</dt>
+                    <dd class="mb-4 font- text-gray-500 sm:mb-5 dark:text-gray-300">
+                        <ul>
+                            <li>Sciences-fiction</li>
+                        </ul>
+                    </dd>
+                    <dt class="mb-2 font-semibold leading-none text-gray-900 dark:text-white w-full bg-main-default py-2 my-2">Scénario</dt>
+                    <dd class="mb-4 font- text-gray-500 sm:mb-5 dark:text-gray-300">
+                        <ul>
+                            <li>Hampton Fancher</li>
+                            <li>Michael Green</li>
+                            <li>Ridley Scott</li>
+                        </ul>
+                    </dd>
+                    <dt class="mb-2 font-semibold leading-none text-gray-900 dark:text-white w-full bg-main-default py-2 my-2">Réalisateurs</dt>
+                    <dd class="mb-4 font- text-gray-500 sm:mb-5 dark:text-gray-300">
+                        <ul>
+                            <li>Denis Villeneuve</li>
+                        </ul>
+                    </dd>
+                    <dt class="mb-2 font-semibold leading-none text-gray-900 dark:text-white w-full bg-main-default py-2 my-2">Acteurs</dt>
+                    <dd class="mb-4 font- text-gray-500 sm:mb-5 dark:text-gray-300">
+                        <ul>
+                            <li>Ryan Gosling</li>
+                            <li>Harrison Ford</li>
+                            <li>Ana de Amars</li>
+                            <li>Robin Wright</li>
+                            <li>Sylvia Hoeks</li>
+                        </ul>
+                    </dd>
+                    
+                    <dt class="mb-2 font-semibold leading-none text-gray-900 dark:text-white w-full bg-main-default py-2 my-2">Image de fond</dt>
+                    <dd class="mb-4 font- text-gray-500 sm:mb-5 dark:text-gray-300">
+                        <img src="img/4-bg.jpg" alt="">
+                    </dd>
+                    <dt class="mb-2 font-semibold leading-none text-gray-900 dark:text-white w-full bg-main-default py-2 my-2">Bande annonce</dt>
+                    <dd class="mb-4 font- text-gray-500 sm:mb-5 dark:text-gray-300">
+                        <iframe class="w-full aspect-video" width="" height="" src="https://www.youtube.com/embed/FfRPKYwsFNg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    </dd>
+                    <dt class="mb-2 font-semibold leading-none text-gray-900 dark:text-white w-full bg-main-default py-2 my-2">Synopsis</dt>
+                    <dd class="mb-4 font- text-gray-500 sm:mb-5 dark:text-gray-300">Blade Runner 2049 est un film de science-fiction américain réalisé par Denis Villeneuve et sorti en 2017. Il fait suite au film Blade Runner, réalisé par Ridley Scott (producteur de cette suite), sorti en 1982 et adapté du roman Les androïdes rêvent-ils de moutons électriques ? de Philip K. Dick.
+                        L'histoire de Blade Runner 2049 se situe trente ans après les aventures de Rick Deckard et raconte les aventures d'un « blade runner » (policier chargé de traquer les réplicants, des androïdes créés à l'image de l'Homme). </dd>
+                </dl>
+                
+        </div>
+    </div>
+</div>
+                </td>
+                <td class="space-x-3 justify-center my-auto h-full">
+                    <a href="#" class="font-medium p-4 border-blue-600 border rounded-lg  text-blue-600 dark:text-blue-500 hover:underline hover:bg-gray-50">Modifier</a>
+                    <a href="#" class="font-medium p-4 border-red-600 border rounded-lg text-red-600 dark:text-red-500 hover:underline hover:bg-gray-50">Remove</a>
+                </td>
+            </tr>
+            
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- SECTION CRUD SECTION CRUD SECTION CRUD -->
+<!-- SECTION CRUD SECTION CRUD SECTION CRUD -->
+<!-- SECTION CRUD SECTION CRUD SECTION CRUD -->
+<!-- SECTION CRUD SECTION CRUD SECTION CRUD -->
 
 
 
