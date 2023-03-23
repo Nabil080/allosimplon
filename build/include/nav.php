@@ -1,3 +1,6 @@
+<?php
+?>
+
 <nav id="navbar" class="text-main-light bg-main-dark fixed top-0 w-full z-40 ease-out duration-300">
 <div id="nav-contain" class="flex p-4 gap-4  w-full h-20 md:px-[10%]">
     <img src="/portfolio/allosimplon/build/img/popcorn.png" class="basis-auto" alt="logo"><a class="self-center" href="/portfolio/allosimplon/build/index.php">
@@ -8,7 +11,11 @@
     </form>
     <div class="items-center flex basis-auto text-4xl gap-6">
         <!-- Modal toggle -->
-        <button class="rounded-lg hover:bg-main-hover" data-modal-target="login" data-modal-toggle="login" ><i class="fa fa-user w-full h-full p-2"></i></button>
+        <?php if(isset($_SESSION['ID_user'])){ ?>
+            <h2 class="text-gray-50 text-2xl">Bonjour,<button class="pl-2 text-main-light" data-modal-target="profil" data-modal-toggle="profil"><?=$_SESSION['user_pseudo']?></button></h2>
+            <?php }else{?>
+            <button class="rounded-lg hover:bg-main-hover" data-modal-target="login" data-modal-toggle="login" ><i class="fa fa-user w-full h-full p-2"></i></button>
+        <?php }?>
         <button class="rounded-lg hover:bg-main-hover" onclick="toggleMobileMenu(burgermenu)"><i class="fa fa-bars w-full h-full p-2"></i></button>
     </div>
 </div>
@@ -47,7 +54,7 @@
     <ul class="text-lg font-normal text-main-light">
         <a href="/portfolio/allosimplon/build/content/favoris.php"><li>Favoris</li></a>
         <a data-modal-target="login" data-modal-toggle="login"><li>Informations</li></a>
-        <a href=""><li>Se déconnecter</li></a>
+        <a href="/portfolio/allosimplon/build/traitements/logout.php"><li>Se déconnecter</li></a>
     </ul>
 </div>
 </div>
@@ -64,9 +71,10 @@
                 <svg data-modal-hide="login" aria-hidden="true" class="w-5 h-5 text-main-light" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
                 <span class="sr-only">Close modal</span>
             </button>
+            <!-- CONNEXION -->
             <div id="co" class="px-6 py-6 lg:px-8">
                 <h3 class="mb-4 text-xl font-medium  dark:text-gray-100">Connectez vous</h3>
-                <form class="space-y-6" action="" method="post">
+                <form class="space-y-6" action="/portfolio/allosimplon/build/traitements/login.php" method="post">
                     <div>
                         <label for="email" class="block mb-2 text-sm font-medium  dark:text-gray-100">E-mail</label>
                         <input type="email" name="email" id="email" class="bg-gray-50 border border-gray-300  text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-gray-100" placeholder="E-mail" required>
@@ -81,9 +89,14 @@
                     </div>
                 </form>
             </div>
+            <!-- INSCRIPTION -->
             <div id="paco" class="hidden px-6 py-6 lg:px-8">
                 <h3 class="mb-4 text-xl font-medium  dark:text-gray-100">Inscrivez vous</h3>
-                <form class="space-y-6" action="" method="post">
+                <form class="space-y-6" action="/portfolio/allosimplon/build/traitements/sign.php" method="post">
+                    <div>
+                        <label for="pseudo" class="block mb-2 text-sm font-medium  dark:text-gray-100"> Pseudo </label>
+                        <input type="text" name="pseudo" maxlength="16" id="pseudo" class="bg-gray-50 border border-gray-300  text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-gray-100" placeholder="Pseudo" required>
+                    </div>
                     <div>
                         <label for="email" class="block mb-2 text-sm font-medium  dark:text-gray-100"> E-mail </label>
                         <input type="email" name="email" id="email" class="bg-gray-50 border border-gray-300  text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-gray-100" placeholder="E-mail" required>
@@ -93,8 +106,8 @@
                         <input type="password" name="password" id="password" placeholder="*********" class="bg-gray-50 border border-gray-300  text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-gray-100" required>
                     </div>
                     <div>
-                        <label for="password" class="block mb-2 text-sm font-medium  dark:text-gray-100"> Vérifiez le mot de passe </label>
-                        <input type="password" name="password_verif" id="password" placeholder="*********" class="bg-gray-50 border border-gray-300  text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-gray-100" required>
+                        <label for="password_verif" class="block mb-2 text-sm font-medium  dark:text-gray-100"> Vérifiez le mot de passe </label>
+                        <input type="password" name="password_verif" id="password_verif" placeholder="*********" class="bg-gray-50 border border-gray-300  text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-gray-100" required>
                     </div>
                     <button type="submit" class="w-full text-gray-100 bg-main-light hover:bg-main-hover focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center "> Se connecter </button>
                     <div class="text-sm font-bold text-gray-1000 dark:text-gray-300">
@@ -135,6 +148,7 @@ function switchDiv() {
     } 
 </script>
 
+<?php if(isset($_SESSION['ID_user'])){?>
 <!-- Profil modal -->
 <button class="z-10 fixed bottom-8 right-8 bg-main-light rounded-full hover:bg-main-hover" data-modal-target="profil" data-modal-toggle="profil" ><i class="fa fa-user w-full h-full p-2"></i></button>
 <section id="profil" data-modal-placement="center" tabindex="-1" aria-hidden="true" class="backdrop:brightness-50 fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] md:h-full">
@@ -149,7 +163,7 @@ function switchDiv() {
             </button>
             <!-- CONTENU PROFIL -->
             <div id="profil_card" class="px-6 py-6 lg:px-8">
-                <h3 class="mb-4 text-2xl font-medium dark:text-gray-100">Bonjour,<span class="pl-1 decoration-main-light underline font-bold">Nabil</span></h3>
+                <h3 class="mb-4 text-2xl font-medium dark:text-gray-100">Bonjour,<span class="pl-1 decoration-main-light underline font-bold"><?=$_SESSION['user_pseudo']?></span><a class="text-sm text-main-light ml-4" href="/portfolio/allosimplon/build/traitements/logout.php">Se déconnecter</a></h3>
                 <div class="flex text-main-light justify-center">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-48 h-48">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -167,6 +181,7 @@ function switchDiv() {
                     <button type="button" class=" text-gray-100 bg-main-light hover:bg-main-hover focus:ring-main-light focus:ring-offset-main-light font-medium rounded-lg  px-5 py-2.5 mr-2 mb-2 focus:outline-none"><a href="/portfolio/allosimplon/build/content/favoris.php">Voir vos favoris</a></button>
                     <button type="button" class=" text-gray-100 bg-main-light hover:bg-main-hover focus:ring-main-light focus:ring-offset-main-light font-medium rounded-lg  px-5 py-2.5 mr-2 mb-2 focus:outline-none"><a href="/portfolio/allosimplon/build/content/crud.php">Interface admin</a></button>
                 </div>
+
             </div>
             <!-- CONTENU MODIFIER EMAIL -->
             <div id="mail_form" class="px-6 py-6 lg:px-8 hidden">
@@ -215,7 +230,7 @@ function switchDiv() {
         </div>
     </div>
 </section>
-
+<?php }?>
 <script>
     function switchMail() {
         var profil = document.getElementById("profil_card");
