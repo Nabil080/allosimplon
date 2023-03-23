@@ -8,14 +8,14 @@
             <a href="https://facebook.com" target="_blank"><i class="fa-brands fa-twitter far"></i></a>
             <a href="https://facebook.com" target="_blank"><i class="fa-brands fa-facebook-f far"></i></a>
             <a href="https://facebook.com" target="_blank"><i class="fa-brands fa-youtube far"></i></a>
-            <a href="contact.html" target="_blank"><i class="fa-solid fa-envelope far"></i></a>
+            <a href="/portfolio/allosimplon/build/content/contact.php" target="_blank"><i class="fa-solid fa-envelope far"></i></a>
         </div>
     </div>
 
 </section>
 
 <footer class="w-full h-8 bg-main-default flex justify-evenly italic text-gray-300">
-<a href="contact.html">contact</a>
+<a href="/portfolio/allosimplon/build/content/contact.php">contact</a>
 <a>mentions légales</a>
 <a>plus d'infos</a>
 
