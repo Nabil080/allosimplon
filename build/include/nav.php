@@ -1,3 +1,6 @@
+<?php
+?>
+
 <nav id="navbar" class="text-main-light bg-main-dark fixed top-0 w-full z-40 ease-out duration-300">
 <div id="nav-contain" class="flex p-4 gap-4  w-full h-20 md:px-[10%]">
     <img src="/portfolio/allosimplon/build/img/popcorn.png" class="basis-auto" alt="logo"><a class="self-center" href="/portfolio/allosimplon/build/index.php">
@@ -64,9 +67,10 @@
                 <svg data-modal-hide="login" aria-hidden="true" class="w-5 h-5 text-main-light" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
                 <span class="sr-only">Close modal</span>
             </button>
+            <!-- CONNEXION -->
             <div id="co" class="px-6 py-6 lg:px-8">
                 <h3 class="mb-4 text-xl font-medium  dark:text-gray-100">Connectez vous</h3>
-                <form class="space-y-6" action="" method="post">
+                <form class="space-y-6" action="/portfolio/allosimplon/build/traitements/login.php" method="post">
                     <div>
                         <label for="email" class="block mb-2 text-sm font-medium  dark:text-gray-100">E-mail</label>
                         <input type="email" name="email" id="email" class="bg-gray-50 border border-gray-300  text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-gray-100" placeholder="E-mail" required>
@@ -81,9 +85,10 @@
                     </div>
                 </form>
             </div>
+            <!-- INSCRIPTION -->
             <div id="paco" class="hidden px-6 py-6 lg:px-8">
                 <h3 class="mb-4 text-xl font-medium  dark:text-gray-100">Inscrivez vous</h3>
-                <form class="space-y-6" action="" method="post">
+                <form class="space-y-6" action="/portfolio/allosimplon/build/traitements/sign.php" method="post">
                     <div>
                         <label for="email" class="block mb-2 text-sm font-medium  dark:text-gray-100"> E-mail </label>
                         <input type="email" name="email" id="email" class="bg-gray-50 border border-gray-300  text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-gray-100" placeholder="E-mail" required>
@@ -93,8 +98,8 @@
                         <input type="password" name="password" id="password" placeholder="*********" class="bg-gray-50 border border-gray-300  text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-gray-100" required>
                     </div>
                     <div>
-                        <label for="password" class="block mb-2 text-sm font-medium  dark:text-gray-100"> Vérifiez le mot de passe </label>
-                        <input type="password" name="password_verif" id="password" placeholder="*********" class="bg-gray-50 border border-gray-300  text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-gray-100" required>
+                        <label for="password_verif" class="block mb-2 text-sm font-medium  dark:text-gray-100"> Vérifiez le mot de passe </label>
+                        <input type="password" name="password_verif" id="password_verif" placeholder="*********" class="bg-gray-50 border border-gray-300  text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-gray-100" required>
                     </div>
                     <button type="submit" class="w-full text-gray-100 bg-main-light hover:bg-main-hover focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center "> Se connecter </button>
                     <div class="text-sm font-bold text-gray-1000 dark:text-gray-300">
