@@ -1,257 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.4/flowbite.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
-    <link rel="stylesheet" href="css/output.css">
+<?php include('../include/head.php')?>
 
-
-    <title>Catalogue</title>
-</head>
-<body class="bg-main-dark text-white">
-
-<nav id="navbar" class="text-main-light bg-main-dark fixed w-full z-40 top-0 ease-out duration-300">
-<div id="nav-contain" class="flex p-4 gap-4  w-full h-20 px-[15%]">
-    <img src="img/popcorn.png" class="basis-auto" alt="logo"><a class="self-center" href="index.html">
-    <span class="text-white uppercase self-center text-xl ">SimplonFilm</span></a>
-    <form action="" method="get" class="grow flex relative">
-        <input type="search" name="search" class="bg-main-dark placeholder:italic pl-4 text-white border-solid border-2 basis-full" placeholder="Cherchez un film!" >
-        <button type="submit"><i class="fa fa-search absolute top-2 right-3 text-2xl"></i></button>
-    </form>
-    <div class="items-center flex basis-auto text-4xl gap-6">
-        <!-- Modal toggle -->
-        <button class="rounded-lg hover:bg-main-hover" data-modal-target="login" data-modal-toggle="login" ><i class="fa fa-user w-full h-full p-2"></i></button>
-        <button class="rounded-lg hover:bg-main-hover" onclick="toggleMobileMenu(burgermenu)"><i class="fa fa-bars w-full h-full p-2"></i></button>
-    </div>
-</div>
-<div id="burgermenu" class="hidden text-white h-56 flex p-4 text-3xl gap-8  font-bold px-[15%]">
-<div id="leftmenu" class="basis-auto flex-col flex justify-between underline">
-    <a href="index.html">Accueil</a>
-    <a href="catalogue.html">Catalogue</a>
-    <a href="">Acteurs</a>
-</div>
-    <ul class="text-lg grow font-normal text-main-light flex-wrap flex flex-col w-6">
-            <a href="" class="underline text-3xl text-white font-bold">Genres</a>
-            <a href="" class=""><li class="hover:underline decoration-main-light"> Action </li></a>
-            <a href="" class=""><li class="hover:underline decoration-main-light"> Amateur </li></a>
-            <a href="" class=""><li class="hover:underline decoration-main-light"> Animation </li></a>
-            <a href="" class=""><li class="hover:underline decoration-main-light"> Aventure </li></a>
-            <a href="" class=""><li class="hover:underline decoration-main-light"> Catastrophe </li></a>
-            <a href="" class=""><li class="hover:underline decoration-main-light"> Chevaliers </li></a>
-            <a href="" class=""><li class="hover:underline decoration-main-light"> Comédie </li></a>
-            <a href="" class=""><li class="hover:underline decoration-main-light"> Documentaires </li></a>
-            <a href="" class=""><li class="hover:underline decoration-main-light"> Drame </li></a>
-            <a href="" class=""><li class="hover:underline decoration-main-light"> Fantastique </li></a>
-            <a href="" class=""><li class="hover:underline decoration-main-light"> Guerre/histoire </li></a>
-            <a href="" class=""><li class="hover:underline decoration-main-light"> Horreur </li></a>
-            <a href="" class=""><li class="hover:underline decoration-main-light"> Héros </li></a>
-            <a href="" class=""><li class="hover:underline decoration-main-light"> Musical </li></a>
-            <a href="" class=""><li class="hover:underline decoration-main-light"> Opéra </li></a>
-            <a href="" class=""><li class="hover:underline decoration-main-light"> Policier </li></a>
-            <a href="" class=""><li class="hover:underline decoration-main-light"> Sciences-fiction </li></a>
-            <a href="" class=""><li class="hover:underline decoration-main-light"> Sketch </li></a>
-            <a href="" class=""><li class="hover:underline decoration-main-light"> Sport </li></a>
-            <a href="" class=""><li class="hover:underline decoration-main-light"> Western </li></a>
-    </ul>
-
-<div id="rightmenu" class="">
-    <a href="" class="underline">Profil</a>
-    <ul class="text-lg font-normal text-main-light">
-        <a href=""><li>Favoris</li></a>
-        <a href=""><li>Informations</li></a>
-        <a href=""><li>Se déconnecter</li></a>
-    </ul>
-</div>
-</div>
-
-
-
-</nav>
-<!-- Login modal -->
-<section id="login" data-modal-placement="center" tabindex="-1" aria-hidden="true" class="backdrop:brightness-50 fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] md:h-full">
-    <div class="relative w-full h-fit max-w-md md:h-auto">
-        <!-- Modal content -->
-        <div class="relative bg-main-dark border-main-light border-2 rounded-lg shadow text-white">
-            <button type="button" class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white" data-modal-hide="authentication-modal">
-                <svg data-modal-hide="login" aria-hidden="true" class="w-5 h-5 text-main-light" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
-                <span class="sr-only">Close modal</span>
-            </button>
-            <div id="co" class="px-6 py-6 lg:px-8">
-                <h3 class="mb-4 text-xl font-medium  dark:text-white">Connectez vous</h3>
-                <form class="space-y-6" action="" method="post">
-                    <div>
-                        <label for="email" class="block mb-2 text-sm font-medium  dark:text-white">E-mail</label>
-                        <input type="email" name="email" id="email" class="bg-gray-50 border border-gray-300  text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="E-mail" required>
-                    </div>
-                    <div>
-                        <label for="password" class="block mb-2 text-sm font-medium  dark:text-white">Mot de passe</label>
-                        <input type="password" name="password" id="password" placeholder="*********" class="bg-gray-50 border border-gray-300  text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
-                    </div>
-                    <button type="submit" class="w-full text-white bg-main-light hover:bg-main-hover focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center ">Se connecter</button>
-                    <div class="text-sm font-bold text-gray-500 dark:text-gray-300">
-                        Pas encore inscrit ? <a onclick="switchDiv()" class="hover:underline text-main-light cursor-pointer">Créer un compte</a>
-                    </div>
-                </form>
-            </div>
-            <div id="paco" class="hidden px-6 py-6 lg:px-8">
-                <h3 class="mb-4 text-xl font-medium  dark:text-white">Inscrivez vous</h3>
-                <form class="space-y-6" action="" method="post">
-                    <div>
-                        <label for="email" class="block mb-2 text-sm font-medium  dark:text-white"> E-mail </label>
-                        <input type="email" name="email" id="email" class="bg-gray-50 border border-gray-300  text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="E-mail" required>
-                    </div>
-                    <div>
-                        <label for="password" class="block mb-2 text-sm font-medium  dark:text-white"> Mot de passe </label>
-                        <input type="password" name="password" id="password" placeholder="*********" class="bg-gray-50 border border-gray-300  text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
-                    </div>
-                    <div>
-                        <label for="password" class="block mb-2 text-sm font-medium  dark:text-white"> Vérifiez le mot de passe </label>
-                        <input type="password" name="password_verif" id="password" placeholder="*********" class="bg-gray-50 border border-gray-300  text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
-                    </div>
-                    <button type="submit" class="w-full text-white bg-main-light hover:bg-main-hover focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center "> Se connecter </button>
-                    <div class="text-sm font-bold text-gray-500 dark:text-gray-300">
-                        Déjà inscrit ? <a onclick="switchDiv()" class="hover:underline text-main-light cursor-pointer"> Se connecter </a>
-                    </div>
-                </form>
-            </div>
-          </div>
-      </div>
-</section>
-<script>
-function switchDiv() {
-    var div1 = document.getElementById("co");
-    var div2 = document.getElementById("paco");
-    if (div1.style.display === "none") {
-    div1.style.display = "block";
-    div2.style.display = "none";
-    } else {
-    div1.style.display = "none";
-    div2.style.display = "block";
-    }
-}
-</script>
-<script>
-    function toggleMobileMenu(menu) {
-    menu.classList.toggle('hidden')
-    }
-    /* When the user scrolls down, hide the navbar. When the user scrolls up, show the navbar */
-    var prevScrollpos = window.pageYOffset;
-    window.onscroll = function() {
-    var currentScrollPos = window.pageYOffset;
-    if (prevScrollpos > currentScrollPos){
-        document.getElementById("navbar").style.top = "0";
-    } else {
-        document.getElementById("navbar").style.top = "-80px";
-    }
-    prevScrollpos = currentScrollPos;
-    } 
-</script>
-
-<!-- Profil modal -->
-<button class="z-10 fixed bottom-8 right-8 bg-main-light rounded-full hover:bg-main-hover" data-modal-target="profil" data-modal-toggle="profil" ><i class="fa fa-user w-full h-full p-2"></i></button>
-<section id="profil" data-modal-placement="center" tabindex="-1" aria-hidden="true" class="backdrop:brightness-50 fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] md:h-full">
-    <div class="relative w-full h-fit max-w-md md:h-auto">
-        <!-- Modal content -->
-        <div class="relative bg-main-dark border-main-light border-2 rounded-lg shadow text-white">
-            <button type="button" class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white" data-modal-hide="authentication-modal">
-                <svg data-modal-hide="profil" aria-hidden="true" class="w-5 h-5 text-main-light" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
-                <span class="sr-only">Close modal</span>
-            </button>
-            <!-- CONTENU PROFIL -->
-            <div id="profil_card" class="px-6 py-6 lg:px-8">
-                <h3 class="mb-4 text-2xl font-medium dark:text-white">Bonjour,<span class="pl-1 decoration-main-light underline font-bold">Nabil</span></h3>
-                <div class="flex text-main-light justify-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-48 h-48">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z" />
-                    </svg>
-                </div>
-                <div class="mb-3">
-                    <p class="text-lg font-bold">Votre E-mail: <span class="font-normal">bellilanabil@gmail.com</span> </p>
-                    <a class="text-main-light cursor-pointer" onclick="switchMail()">Modifier l'E-mail</a>
-                </div>
-                <div class="mb-3">
-                    <p class="text-lg font-bold">Votre Mot de passe: <span class="font-normal">********</span></p>
-                    <a class="text-main-light cursor-pointer" onclick="switchPass()">Modifier le mot de passe</a>
-                </div>
-                <div class="flex justify-center">
-                    <button type="button" class=" text-white bg-main-light hover:bg-main-hover focus:ring-main-light focus:ring-offset-main-light font-medium rounded-lg  px-5 py-2.5 mr-2 mb-2 focus:outline-none">Voir vos favoris</button>
-                </div>
-            </div>
-            <!-- CONTENU MODIFIER EMAIL -->
-            <div id="mail_form" class="px-6 py-6 lg:px-8 hidden">
-                <h3 class="mb-4 text-2xl font-medium dark:text-white">Modifier votre<span class="pl-1 decoration-main-light underline font-bold">E-mail</span></h3>
-                <form class="space-y-6" action="" method="post">
-                    <div>
-                        <label for="email" class="block mb-2 text-sm font-medium  dark:text-white"> E-mail </label>
-                        <input type="email" name="email" id="email" class="bg-gray-50 border border-gray-300  text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="E-mail" required>
-                    </div>
-                    <div>
-                        <label for="email_verif" class="block mb-2 text-sm font-medium  dark:text-white"> Vérifiez l'E-mail </label>
-                        <input type="mail" name="email_verif" id="email_verif" placeholder="E-mail" class="bg-gray-50 border border-gray-300  text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
-                    </div>
-                    <div>
-                        <label for="password" class="block mb-2 text-sm font-medium  dark:text-white"> Mot de passe </label>
-                        <input type="password" name="password" id="password" placeholder="*********" class="bg-gray-50 border border-gray-300  text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
-                    </div>
-                    <button type="submit" class="w-full text-white bg-main-light hover:bg-main-hover focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center "> Se connecter </button>
-                    <div class="text-sm font-bold text-gray-500 dark:text-gray-300">
-                        Vous avez changé d'avis ? <a onclick="switchMail()" class="hover:underline text-main-light cursor-pointer"> Retour au profil </a>
-                    </div>
-                </form>
-            </div>
-            <!-- CONTENU MODIFIER PASSWORD -->
-            <div id="pass_form" class="px-6 py-6 lg:px-8 hidden">
-                <h3 class="mb-4 text-2xl font-medium dark:text-white">Modifier votre<span class="pl-1 decoration-main-light underline font-bold">mot de passe</span></h3>
-                <form class="space-y-6" action="" method="post">
-                    <div>
-                        <label for="oldpassword" class="block mb-2 text-sm font-medium  dark:text-white"> Ancien mot de passe </label>
-                        <input type="password" name="oldpassword" id="oldpassword" placeholder="*********" class="bg-gray-50 border border-gray-300  text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
-                    </div>
-                    <div>
-                        <label for="password" class="block mb-2 text-sm font-medium  dark:text-white"> Vérifiez le mot de passe </label>
-                        <input type="password" name="password" id="password" placeholder="*********" class="bg-gray-50 border border-gray-300  text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
-                    </div>
-                    <div>
-                        <label for="password_verif" class="block mb-2 text-sm font-medium  dark:text-white"> Nouveau mot de passe </label>
-                        <input type="password" name="password_verif" id="password_verif" placeholder="*********" class="bg-gray-50 border border-gray-300  text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
-                    </div>
-                    <button type="submit" class="w-full text-white bg-main-light hover:bg-main-hover focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center "> Se connecter </button>
-                    <div class="text-sm font-bold text-gray-500 dark:text-gray-300">
-                        Vous avez changé d'avis ? <a onclick="switchPass()" class="hover:underline text-main-light cursor-pointer"> Retour au profil </a>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</section>
-
-<script>
-    function switchMail() {
-        var profil = document.getElementById("profil_card");
-        var mail = document.getElementById("mail_form");
-        if (profil.style.display === "none") {
-        profil.style.display = "block";
-        mail.style.display = "none";
-        } else {
-        profil.style.display = "none";
-        mail.style.display = "block";
-        }
-    }
-    function switchPass() {
-        var profil = document.getElementById("profil_card");
-        var pass = document.getElementById("pass_form");
-        if (profil.style.display === "none") {
-        profil.style.display = "block";
-        pass.style.display = "none";
-        } else {
-        profil.style.display = "none";
-        pass.style.display = "block";
-        }
-    }
-</script>
+<?php include('../include/nav.php')?>
 
 
 <div class="flex justify-center mt-28 mb-6">
@@ -265,49 +14,7 @@ function switchDiv() {
 <section class="flex justify-center">
 <div class="w-[1500px] mx-12 flex gap-4">
     <!-- FILTRES -->
-    <div class="grow w-full hidden md:block">
-        <div class="font-bold text-3xl w-fit notewe">Note IMDb</div>
-        <div class=" my-8 grade text-main-light z-50 text-2xl">
-            <i class="fa-solid fa-star cursor-pointer"></i>
-            <i class="fa-solid fa-star cursor-pointer"></i>
-            <i class="fa-solid fa-star cursor-pointer"></i>
-            <i class="fa-regular fa-star cursor-pointer relative group/star"><i class="fa-solid fa-star cursor-pointer absolute top-0 left-0 hidden group-hover/star:block"></i></i>
-            <i class="fa-regular fa-star cursor-pointer relative group/star"><i class="fa-solid fa-star cursor-pointer absolute top-0 left-0 hidden group-hover/star:block"></i></i>
-        </div>
-        <div class="font-bold text-3xl w-fit notewe">Trier par</div>
-        <div class="my-8 flex flex-wrap gap-1">
-            <button class="border-gray-700 p-2 hover:border-main-light hover:bg-main-hover border-2 rounded-md active:text-black" ><i class="fa-solid fa-plus"></i>A-Z</button>
-            <button class="border-gray-700 p-2 hover:border-main-light hover:bg-main-hover border-2 rounded-md active:text-black" ><i class="fa-solid fa-plus"></i>Z-A</button>
-            <button class="border-gray-700 p-2 hover:border-main-light hover:bg-main-hover border-2 rounded-md active:text-black" ><i class="fa-solid fa-plus"></i>Aléatoire</button>
-            <button class="border-gray-700 p-2 hover:border-main-light hover:bg-main-hover border-2 rounded-md active:text-black" ><i class="fa-solid fa-plus"></i>Ascendant</button>
-            <button class="border-gray-700 p-2 hover:border-main-light hover:bg-main-hover border-2 rounded-md active:text-black" ><i class="fa-solid fa-plus"></i>Descendant</button>
-            <button class="border-gray-700 p-2 hover:border-main-light hover:bg-main-hover border-2 rounded-md active:text-black" ><i class="fa-solid fa-plus"></i>Notes</button>
-            <button class="border-gray-700 p-2 hover:border-main-light hover:bg-main-hover border-2 rounded-md active:text-black" ><i class="fa-solid fa-plus"></i>Vues</button>
-            <button class="border-gray-700 p-2 hover:border-main-light hover:bg-main-hover border-2 rounded-md active:text-black" ><i class="fa-solid fa-plus"></i>Publication</button>
-        </div>
-        <div class="font-bold text-3xl w-fit notewe">Genres</div>
-        <div class="my-8 flex flex-wrap gap-1">
-            <button id="slt" class="border-gray-700 p-2 hover:border-main-light hover:bg-main-hover border-2 rounded-md active:text-black" ><i class="fa-solid fa-plus"></i>Action</button>
-            <button class="border-gray-700 p-2 hover:border-main-light hover:bg-main-hover border-2 rounded-md active:text-black" ><i class="fa-solid fa-plus"></i>Amateur</button>
-            <button class="border-gray-700 p-2 hover:border-main-light hover:bg-main-hover border-2 rounded-md active:text-black" ><i class="fa-solid fa-plus"></i>Animation</button>
-            <button class="border-gray-700 p-2 hover:border-main-light hover:bg-main-hover border-2 rounded-md active:text-black" ><i class="fa-solid fa-plus"></i>Aventure</button>
-            <button class="border-gray-700 p-2 hover:border-main-light hover:bg-main-hover border-2 rounded-md active:text-black" ><i class="fa-solid fa-plus"></i>Catastrophe</button>
-            <button class="border-gray-700 p-2 hover:border-main-light hover:bg-main-hover border-2 rounded-md active:text-black" ><i class="fa-solid fa-plus"></i>Comédie</button>
-            <button class="border-gray-700 p-2 hover:border-main-light hover:bg-main-hover border-2 rounded-md active:text-black" ><i class="fa-solid fa-plus"></i>Documentaire</button>
-            <button class="border-gray-700 p-2 hover:border-main-light hover:bg-main-hover border-2 rounded-md active:text-black" ><i class="fa-solid fa-plus"></i>Drame</button>
-            <button class="border-gray-700 p-2 hover:border-main-light hover:bg-main-hover border-2 rounded-md active:text-black" ><i class="fa-solid fa-plus"></i>Fantastique</button>
-            <button class="border-gray-700 p-2 hover:border-main-light hover:bg-main-hover border-2 rounded-md active:text-black" ><i class="fa-solid fa-plus"></i>Guerre</button>
-            <button class="border-gray-700 p-2 hover:border-main-light hover:bg-main-hover border-2 rounded-md active:text-black" ><i class="fa-solid fa-plus"></i>Histoire</button>
-            <button class="border-gray-700 p-2 hover:border-main-light hover:bg-main-hover border-2 rounded-md active:text-black" ><i class="fa-solid fa-plus"></i>Médiéval</button>
-            <button class="border-gray-700 p-2 hover:border-main-light hover:bg-main-hover border-2 rounded-md active:text-black" ><i class="fa-solid fa-plus"></i>Musical</button>
-            <button class="border-gray-700 p-2 hover:border-main-light hover:bg-main-hover border-2 rounded-md active:text-black" ><i class="fa-solid fa-plus"></i>Opéra</button>
-            <button class="border-gray-700 p-2 hover:border-main-light hover:bg-main-hover border-2 rounded-md active:text-black" ><i class="fa-solid fa-plus"></i>Crime</button>
-            <button class="border-gray-700 p-2 hover:border-main-light hover:bg-main-hover border-2 rounded-md active:text-black" ><i class="fa-solid fa-plus"></i>Sciences-fiction</button>
-            <button class="border-gray-700 p-2 hover:border-main-light hover:bg-main-hover border-2 rounded-md active:text-black" ><i class="fa-solid fa-plus"></i>Sketchs</button>
-            <button class="border-gray-700 p-2 hover:border-main-light hover:bg-main-hover border-2 rounded-md active:text-black" ><i class="fa-solid fa-plus"></i>Sport</button>
-            <button class="border-gray-700 p-2 hover:border-main-light hover:bg-main-hover border-2 rounded-md active:text-black" ><i class="fa-solid fa-plus"></i>Western</button>
-        </div>
-    </div>
+    <?php include('../include/filtre.php')?>
     <!-- PAGE -->
     <div>
         <!-- pagination -->
@@ -315,28 +22,28 @@ function switchDiv() {
     <nav aria-label="Page navigation example">
         <ul class="inline-flex items-center -space-x-px">
           <li>
-            <a href="#" class="block px-3 py-2 ml-0 leading-tight text-gray-400 hover:text-main-light hover:font-bold ">
+            <a href="/portfolio/allosimplon/build/content/#" class="block px-3 py-2 ml-0 leading-tight text-gray-400 hover:text-main-light hover:font-bold ">
               <span class="sr-only">Previous</span>
               <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
             </a>
           </li>
           <li>
-            <a href="#" class="px-3 py-2 leading-tight text-gray-400 hover:text-main-light hover:font-bold ">1</a>
+            <a href="/portfolio/allosimplon/build/content/#" class="px-3 py-2 leading-tight text-gray-400 hover:text-main-light hover:font-bold ">1</a>
           </li>
           <li>
-            <a href="#" class="px-3 py-2 leading-tight text-gray-400 hover:text-main-light hover:font-bold ">2</a>
+            <a href="/portfolio/allosimplon/build/content/#" class="px-3 py-2 leading-tight text-gray-400 hover:text-main-light hover:font-bold ">2</a>
           </li>
           <li>
-            <a href="#" aria-current="page" class="z-10 px-3 py-2 leading-tight text-main-light font-bold">3</a>
+            <a href="/portfolio/allosimplon/build/content/#" aria-current="page" class="z-10 px-3 py-2 leading-tight text-main-light font-bold">3</a>
           </li>
           <li>
-            <a href="#" class="px-3 py-2 leading-tight text-gray-400 hover:text-main-light hover:font-bold ">4</a>
+            <a href="/portfolio/allosimplon/build/content/#" class="px-3 py-2 leading-tight text-gray-400 hover:text-main-light hover:font-bold ">4</a>
           </li>
           <li>
-            <a href="#" class="px-3 py-2 leading-tight text-gray-400 hover:text-main-light hover:font-bold ">5</a>
+            <a href="/portfolio/allosimplon/build/content/#" class="px-3 py-2 leading-tight text-gray-400 hover:text-main-light hover:font-bold ">5</a>
           </li>
           <li>
-            <a href="#" class="block px-3 py-2 leading-tight text-gray-400 hover:text-main-light hover:font-bold ">
+            <a href="/portfolio/allosimplon/build/content/#" class="block px-3 py-2 leading-tight text-gray-400 hover:text-main-light hover:font-bold ">
               <span class="sr-only">Next</span>
               <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg>
             </a>
@@ -355,7 +62,7 @@ function switchDiv() {
                         </i>
                         <div>
                             <div class="flex justify-start">
-                                <a href="film.html" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
+                                <a href="/portfolio/allosimplon/build/content/film.php" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
                             </div>
                             <div class="flex justify-start">
                                 <p class="font-normal cursor-dark">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
@@ -373,7 +80,7 @@ function switchDiv() {
                         </div>
                     </div>
                 </div>
-                <img class="" src="img/1.jpg" alt="">
+                <img class="" src="/portfolio/allosimplon/build/img/1.jpg" alt="">
             </div>
             <div class="group relative">
                                             <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
@@ -384,7 +91,7 @@ function switchDiv() {
                                     </i>
                                     <div>
                                         <div class="flex justify-start">
-                                            <a href="film.html" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
+                                            <a href="/portfolio/allosimplon/build/content/film.php" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
                                         </div>
                                         <div class="flex justify-start">
                                             <p class="font-normal cursor-dark">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
@@ -402,7 +109,7 @@ function switchDiv() {
                                     </div>
                                 </div>
                             </div>
-                <img class="object-cover w-full h-full" src="img/2.jpg" alt="">
+                <img class="object-cover w-full h-full" src="/portfolio/allosimplon/build/img/2.jpg" alt="">
             </div>
             <div class="group relative">
                                             <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
@@ -413,7 +120,7 @@ function switchDiv() {
                                     </i>
                                     <div>
                                         <div class="flex justify-start">
-                                            <a href="film.html" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
+                                            <a href="/portfolio/allosimplon/build/content/film.php" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
                                         </div>
                                         <div class="flex justify-start">
                                             <p class="font-normal cursor-dark">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
@@ -431,7 +138,7 @@ function switchDiv() {
                                     </div>
                                 </div>
                             </div>
-                <img class="object-cover w-full h-full" src="img/3.jpg" alt="">
+                <img class="object-cover w-full h-full" src="/portfolio/allosimplon/build/img/3.jpg" alt="">
             </div>
             <div class="group relative">
                                             <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
@@ -442,7 +149,7 @@ function switchDiv() {
                                     </i>
                                     <div>
                                         <div class="flex justify-start">
-                                            <a href="film.html" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
+                                            <a href="/portfolio/allosimplon/build/content/film.php" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
                                         </div>
                                         <div class="flex justify-start">
                                             <p class="font-normal cursor-dark">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
@@ -460,7 +167,7 @@ function switchDiv() {
                                     </div>
                                 </div>
                             </div>
-                <img class="object-cover w-full h-full" src="img/4.jpg" alt="">
+                <img class="object-cover w-full h-full" src="/portfolio/allosimplon/build/img/4.jpg" alt="">
             </div>
             <div class="group relative">
                                             <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
@@ -471,7 +178,7 @@ function switchDiv() {
                                     </i>
                                     <div>
                                         <div class="flex justify-start">
-                                            <a href="film.html" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
+                                            <a href="/portfolio/allosimplon/build/content/film.php" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
                                         </div>
                                         <div class="flex justify-start">
                                             <p class="font-normal cursor-dark">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
@@ -489,7 +196,7 @@ function switchDiv() {
                                     </div>
                                 </div>
                             </div>
-                <img class="object-cover w-full h-full" src="img/5.jpg" alt="">
+                <img class="object-cover w-full h-full" src="/portfolio/allosimplon/build/img/5.jpg" alt="">
             </div>
             <div class="group relative">
                                             <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
@@ -500,7 +207,7 @@ function switchDiv() {
                                     </i>
                                     <div>
                                         <div class="flex justify-start">
-                                            <a href="film.html" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
+                                            <a href="/portfolio/allosimplon/build/content/film.php" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
                                         </div>
                                         <div class="flex justify-start">
                                             <p class="font-normal cursor-dark">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
@@ -518,7 +225,7 @@ function switchDiv() {
                                     </div>
                                 </div>
                             </div>
-                <img class="object-cover w-full h-full" src="img/6.jpg" alt="">
+                <img class="object-cover w-full h-full" src="/portfolio/allosimplon/build/img/6.jpg" alt="">
             </div>
             <div class="group relative">
                                             <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
@@ -529,7 +236,7 @@ function switchDiv() {
                                     </i>
                                     <div>
                                         <div class="flex justify-start">
-                                            <a href="film.html" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
+                                            <a href="/portfolio/allosimplon/build/content/film.php" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
                                         </div>
                                         <div class="flex justify-start">
                                             <p class="font-normal cursor-dark">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
@@ -547,7 +254,7 @@ function switchDiv() {
                                     </div>
                                 </div>
                             </div>
-                <img class="object-cover w-full h-full" src="img/7.jpg" alt="">
+                <img class="object-cover w-full h-full" src="/portfolio/allosimplon/build/img/7.jpg" alt="">
             </div>
             <div class="group relative">
                                             <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
@@ -558,7 +265,7 @@ function switchDiv() {
                                     </i>
                                     <div>
                                         <div class="flex justify-start">
-                                            <a href="film.html" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
+                                            <a href="/portfolio/allosimplon/build/content/film.php" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
                                         </div>
                                         <div class="flex justify-start">
                                             <p class="font-normal cursor-dark">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
@@ -576,7 +283,7 @@ function switchDiv() {
                                     </div>
                                 </div>
                             </div>
-                <img class="object-cover w-full h-full" src="img/8.jpg" alt="">
+                <img class="object-cover w-full h-full" src="/portfolio/allosimplon/build/img/8.jpg" alt="">
             </div>
             <div class="group relative">
                                             <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
@@ -587,7 +294,7 @@ function switchDiv() {
                                     </i>
                                     <div>
                                         <div class="flex justify-start">
-                                            <a href="film.html" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
+                                            <a href="/portfolio/allosimplon/build/content/film.php" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
                                         </div>
                                         <div class="flex justify-start">
                                             <p class="font-normal cursor-dark">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
@@ -605,7 +312,7 @@ function switchDiv() {
                                     </div>
                                 </div>
                             </div>
-                <img class="object-cover w-full h-full" src="img/9.jpg" alt="">
+                <img class="object-cover w-full h-full" src="/portfolio/allosimplon/build/img/9.jpg" alt="">
             </div>
             <div class="group relative">
                                             <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
@@ -616,7 +323,7 @@ function switchDiv() {
                                     </i>
                                     <div>
                                         <div class="flex justify-start">
-                                            <a href="film.html" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
+                                            <a href="/portfolio/allosimplon/build/content/film.php" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
                                         </div>
                                         <div class="flex justify-start">
                                             <p class="font-normal cursor-dark">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
@@ -634,7 +341,36 @@ function switchDiv() {
                                     </div>
                                 </div>
                             </div>
-                <img class="object-cover w-full h-full" src="img/10.jpg" alt="">
+                <img class="object-cover w-full h-full" src="/portfolio/allosimplon/build/img/10.jpg" alt="">
+            </div>
+            <div class="group relative">
+                            <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
+                                <div class="relative w-full h-full flex flex-col justify-between">
+                                    <p class="font-bold text-xl cursor-dark">2022</p>
+                                    <i class="fa-regular fa-heart cursor-pointer absolute text-main-light right-0 top-0 text-2xl group/fav">
+                                        <i class="fa-solid fa-heart cursor-pointer absolute right-0 top-0 text-2xl text-main-light hidden group-hover/fav:block "></i>
+                                    </i>
+                                    <div>
+                                        <div class="flex justify-start">
+                                            <a href="/portfolio/allosimplon/build/content/film.php" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
+                                        </div>
+                                        <div class="flex justify-start">
+                                            <p class="font-normal cursor-dark">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
+                                            </p>
+                                        </div>
+                                        <div class="flex justify-center mt-6 mb-2">
+                                            <div class="grade text-main-light z-50 text-2xl">
+                                                <i class="fa-solid fa-star cursor-pointer"></i>
+                                                <i class="fa-solid fa-star cursor-pointer"></i>
+                                                <i class="fa-solid fa-star cursor-pointer"></i>
+                                                <i class="fa-regular fa-star cursor-pointer relative group/star"><i class="fa-solid fa-star cursor-pointer absolute top-0 left-0 hidden group-hover/star:block"></i></i>
+                                                <i class="fa-regular fa-star cursor-pointer relative group/star"><i class="fa-solid fa-star cursor-pointer absolute top-0 left-0 hidden group-hover/star:block"></i></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                <img class="object-cover w-full h-full" src="/portfolio/allosimplon/build/img/1.jpg" alt="">
             </div>
             <div class="group relative">
                                             <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
@@ -645,7 +381,7 @@ function switchDiv() {
                                     </i>
                                     <div>
                                         <div class="flex justify-start">
-                                            <a href="film.html" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
+                                            <a href="/portfolio/allosimplon/build/content/film.php" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
                                         </div>
                                         <div class="flex justify-start">
                                             <p class="font-normal cursor-dark">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
@@ -663,7 +399,7 @@ function switchDiv() {
                                     </div>
                                 </div>
                             </div>
-                <img class="object-cover w-full h-full" src="img/1.jpg" alt="">
+                <img class="object-cover w-full h-full" src="/portfolio/allosimplon/build/img/2.jpg" alt="">
             </div>
             <div class="group relative">
                                             <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
@@ -674,7 +410,7 @@ function switchDiv() {
                                     </i>
                                     <div>
                                         <div class="flex justify-start">
-                                            <a href="film.html" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
+                                            <a href="/portfolio/allosimplon/build/content/film.php" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
                                         </div>
                                         <div class="flex justify-start">
                                             <p class="font-normal cursor-dark">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
@@ -692,7 +428,7 @@ function switchDiv() {
                                     </div>
                                 </div>
                             </div>
-                <img class="object-cover w-full h-full" src="img/2.jpg" alt="">
+                <img class="object-cover w-full h-full" src="/portfolio/allosimplon/build/img/3.jpg" alt="">
             </div>
             <div class="group relative">
                                             <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
@@ -703,7 +439,7 @@ function switchDiv() {
                                     </i>
                                     <div>
                                         <div class="flex justify-start">
-                                            <a href="film.html" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
+                                            <a href="/portfolio/allosimplon/build/content/film.php" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
                                         </div>
                                         <div class="flex justify-start">
                                             <p class="font-normal cursor-dark">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
@@ -721,7 +457,7 @@ function switchDiv() {
                                     </div>
                                 </div>
                             </div>
-                <img class="object-cover w-full h-full" src="img/3.jpg" alt="">
+                <img class="object-cover w-full h-full" src="/portfolio/allosimplon/build/img/4.jpg" alt="">
             </div>
             <div class="group relative">
                                             <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
@@ -732,7 +468,7 @@ function switchDiv() {
                                     </i>
                                     <div>
                                         <div class="flex justify-start">
-                                            <a href="film.html" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
+                                            <a href="/portfolio/allosimplon/build/content/film.php" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
                                         </div>
                                         <div class="flex justify-start">
                                             <p class="font-normal cursor-dark">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
@@ -750,7 +486,7 @@ function switchDiv() {
                                     </div>
                                 </div>
                             </div>
-                <img class="object-cover w-full h-full" src="img/4.jpg" alt="">
+                <img class="object-cover w-full h-full" src="/portfolio/allosimplon/build/img/5.jpg" alt="">
             </div>
             <div class="group relative">
                                             <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
@@ -761,7 +497,7 @@ function switchDiv() {
                                     </i>
                                     <div>
                                         <div class="flex justify-start">
-                                            <a href="film.html" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
+                                            <a href="/portfolio/allosimplon/build/content/film.php" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
                                         </div>
                                         <div class="flex justify-start">
                                             <p class="font-normal cursor-dark">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
@@ -779,36 +515,7 @@ function switchDiv() {
                                     </div>
                                 </div>
                             </div>
-                <img class="object-cover w-full h-full" src="img/5.jpg" alt="">
-            </div>
-            <div class="group relative">
-                                            <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
-                                <div class="relative w-full h-full flex flex-col justify-between">
-                                    <p class="font-bold text-xl cursor-dark">2022</p>
-                                    <i class="fa-regular fa-heart cursor-pointer absolute text-main-light right-0 top-0 text-2xl group/fav">
-                                        <i class="fa-solid fa-heart cursor-pointer absolute right-0 top-0 text-2xl text-main-light hidden group-hover/fav:block "></i>
-                                    </i>
-                                    <div>
-                                        <div class="flex justify-start">
-                                            <a href="film.html" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
-                                        </div>
-                                        <div class="flex justify-start">
-                                            <p class="font-normal cursor-dark">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
-                                            </p>
-                                        </div>
-                                        <div class="flex justify-center mt-6 mb-2">
-                                            <div class="grade text-main-light z-50 text-2xl">
-                                                <i class="fa-solid fa-star cursor-pointer"></i>
-                                                <i class="fa-solid fa-star cursor-pointer"></i>
-                                                <i class="fa-solid fa-star cursor-pointer"></i>
-                                                <i class="fa-regular fa-star cursor-pointer relative group/star"><i class="fa-solid fa-star cursor-pointer absolute top-0 left-0 hidden group-hover/star:block"></i></i>
-                                                <i class="fa-regular fa-star cursor-pointer relative group/star"><i class="fa-solid fa-star cursor-pointer absolute top-0 left-0 hidden group-hover/star:block"></i></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                <img class="object-cover w-full h-full" src="img/6.jpg" alt="">
+                <img class="object-cover w-full h-full" src="/portfolio/allosimplon/build/img/6.jpg" alt="">
             </div>
         </div>
 <!-- pagination -->
@@ -816,28 +523,28 @@ function switchDiv() {
     <nav aria-label="Page navigation example">
         <ul class="inline-flex items-center -space-x-px">
           <li>
-            <a href="#" class="block px-3 py-2 ml-0 leading-tight text-gray-400 hover:text-main-light hover:font-bold ">
+            <a href="/portfolio/allosimplon/build/content/#" class="block px-3 py-2 ml-0 leading-tight text-gray-400 hover:text-main-light hover:font-bold ">
               <span class="sr-only">Previous</span>
               <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
             </a>
           </li>
           <li>
-            <a href="#" class="px-3 py-2 leading-tight text-gray-400 hover:text-main-light hover:font-bold ">1</a>
+            <a href="/portfolio/allosimplon/build/content/#" class="px-3 py-2 leading-tight text-gray-400 hover:text-main-light hover:font-bold ">1</a>
           </li>
           <li>
-            <a href="#" class="px-3 py-2 leading-tight text-gray-400 hover:text-main-light hover:font-bold ">2</a>
+            <a href="/portfolio/allosimplon/build/content/#" class="px-3 py-2 leading-tight text-gray-400 hover:text-main-light hover:font-bold ">2</a>
           </li>
           <li>
-            <a href="#" aria-current="page" class="z-10 px-3 py-2 leading-tight text-main-light font-bold">3</a>
+            <a href="/portfolio/allosimplon/build/content/#" aria-current="page" class="z-10 px-3 py-2 leading-tight text-main-light font-bold">3</a>
           </li>
           <li>
-            <a href="#" class="px-3 py-2 leading-tight text-gray-400 hover:text-main-light hover:font-bold ">4</a>
+            <a href="/portfolio/allosimplon/build/content/#" class="px-3 py-2 leading-tight text-gray-400 hover:text-main-light hover:font-bold ">4</a>
           </li>
           <li>
-            <a href="#" class="px-3 py-2 leading-tight text-gray-400 hover:text-main-light hover:font-bold ">5</a>
+            <a href="/portfolio/allosimplon/build/content/#" class="px-3 py-2 leading-tight text-gray-400 hover:text-main-light hover:font-bold ">5</a>
           </li>
           <li>
-            <a href="#" class="block px-3 py-2 leading-tight text-gray-400 hover:text-main-light hover:font-bold ">
+            <a href="/portfolio/allosimplon/build/content/#" class="block px-3 py-2 leading-tight text-gray-400 hover:text-main-light hover:font-bold ">
               <span class="sr-only">Next</span>
               <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg>
             </a>
@@ -849,22 +556,6 @@ function switchDiv() {
 </div>
 </section>
 
-<!-- FOOTER -->
 
-<section id="footer" class="bg-main-dark h-24 mt-12 flex justify-center">
-    <div class="flex justify-center items-center">
-        <div class="mr-4 text-xl"> Rejoignez nous sur les réseaux !</div>
-        <div class="  text-main-light">
-            <a href="https://facebook.com" target="_blank"><i class="fa-brands fa-instagram far"></i></a>
-            <a href="https://facebook.com" target="_blank"><i class="fa-brands fa-twitter far"></i></a>
-            <a href="https://facebook.com" target="_blank"><i class="fa-brands fa-facebook-f far"></i></a>
-            <a href="https://facebook.com" target="_blank"><i class="fa-brands fa-youtube far"></i></a>
-            <a href="https://facebook.com" target="_blank"><i class="fa-solid fa-envelope far"></i></a>
-        </div>
-    </div>
 
-</section>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.4/flowbite.min.js"></script>
-</body>
-</html>
+<?php include('../include/footer.php')?>
