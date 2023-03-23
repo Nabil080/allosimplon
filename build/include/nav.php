@@ -1,38 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.4/flowbite.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="/portfolio/allosimplon/build/css/output.css">
-    <link rel="stylesheet" href="/Portfolio/allosimplon/src/input.css">
-    <link rel="icon" type="image/x-icon" href="/portfolio/allosimplon/build/img/popcorn.png">
-    <script>
-        tailwind.config = {
-            theme: {
-    extend: {
-      colors:{
-        'main': {
-          light: '#00A9A5',
-          default: '#0B5351',
-          dark: '#092327',
-          hover: '#1B7673',
-      },
-      }
-    },
-  },
-        }
-      </script>
-    <title>Cinemet</title>
-</head>
-<body class="bg-main-dark text-gray-100">
-
 <nav id="navbar" class="text-main-light bg-main-dark fixed top-0 w-full z-40 ease-out duration-300">
 <div id="nav-contain" class="flex p-4 gap-4  w-full h-20 md:px-[10%]">
-    <img src="/portfolio/allosimplon/build/img/popcorn.png" class="basis-auto" alt="logo"><a class="self-center" href="index.html">
+    <img src="/portfolio/allosimplon/build/img/popcorn.png" class="basis-auto" alt="logo"><a class="self-center" href="/portfolio/allosimplon/build/index.php">
         <span class="text-gray-100 uppercase self-center text-xl ">SimplonFilm</span></a>
     <form action="" method="get" class="grow flex relative">
         <input type="search" name="search" class="bg-main-dark placeholder:italic pl-4 hidden md:block border border-solid  basis-full text-gray-100  focus:ring-0" placeholder="Cherchez un film!" >

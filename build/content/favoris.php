@@ -1,3 +1,5 @@
+<?php include('../include/head.php')?>
+
 <?php include('../include/nav.php')?>
 
 <div class="flex justify-center mt-28 mb-6">

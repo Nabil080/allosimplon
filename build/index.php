@@ -1,3 +1,5 @@
+<?php include('include/head.php')?>
+
 <?php include('include/nav.php')?>
 
 <?php include('include/top_film_slide.php')?>
