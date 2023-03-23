@@ -1,11 +1,37 @@
-<?php include('include/head.php')?>
+<div class="text-red-400 mt-24"><?php
+require('config/connexion.php');
+session_start();
 
-<?php include('include/nav.php')?>
+echo '<br> echo root server';
+echo $_SERVER['DOCUMENT_ROOT'];
+echo '<br> dump server';
+var_dump($_SERVER);
 
-<?php include('include/top_film_slide.php')?>
+$path = $_SERVER['DOCUMENT_ROOT'];
 
-<?php include('include/last_film_slide.php')?>
 
-<?php include('include/random_film_slide.php')?>
+?></div>
 
-<?php include('include/footer.php')?>
+<?php include('include/head.php')
+?>
+
+<?php
+include($path . "/portfolio/allosimplon/build/include/nav.php")
+?>
+
+<?php
+include('include/top_film_slide.php')
+?>
+
+<?php
+include('include/last_film_slide.php')
+?>
+
+<?php
+include('include/random_film_slide.php')
+?>
+
+<?php
+include('include/footer.php')
+?>
+
