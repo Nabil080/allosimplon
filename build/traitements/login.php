@@ -37,6 +37,7 @@ if($bool=="true"){
         $_SESSION['ID_user'] = $user_row['ID_user'];
         $_SESSION['user_pseudo'] = $user_row['user_pseudo'];
         $_SESSION['user_email'] = $user_row['user_email'];
+        $_SESSION['user_password'] = $user_row['user_password'];
         $_SESSION['ID_role'] = $user_row['ID_role'];
         header('Location: ../index.php');
 

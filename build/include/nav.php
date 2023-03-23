@@ -186,14 +186,14 @@ function switchDiv() {
             <!-- CONTENU MODIFIER EMAIL -->
             <div id="mail_form" class="px-6 py-6 lg:px-8 hidden">
                 <h3 class="mb-4 text-2xl font-medium dark:text-gray-100">Modifier votre<span class="pl-1 decoration-main-light underline font-bold">E-mail</span></h3>
-                <form class="space-y-6" action="" method="post">
+                <form class="space-y-6" action="/portfolio/allosimplon/build/traitements/modify_mail.php" method="post">
                     <div>
                         <label for="email" class="block mb-2 text-sm font-medium  dark:text-gray-100"> E-mail </label>
-                        <input type="email" name="email" id="email" class="bg-gray-50 border border-gray-300  text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-gray-100" placeholder="E-mail" required>
+                        <input value="<?=$_SESSION['user_email']?>" type="email" name="email" id="email" class="bg-gray-50 border border-gray-300  text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-gray-100" placeholder="E-mail" required>
                     </div>
                     <div>
                         <label for="email_verif" class="block mb-2 text-sm font-medium  dark:text-gray-100"> Vérifiez l'E-mail </label>
-                        <input type="mail" name="email_verif" id="email_verif" placeholder="E-mail" class="bg-gray-50 border border-gray-300  text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-gray-100" required>
+                        <input type="email" name="email_verif" id="email_verif" placeholder="E-mail" class="bg-gray-50 border border-gray-300  text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-gray-100" required>
                     </div>
                     <div>
                         <label for="password" class="block mb-2 text-sm font-medium  dark:text-gray-100"> Mot de passe </label>
@@ -208,18 +208,18 @@ function switchDiv() {
             <!-- CONTENU MODIFIER PASSWORD -->
             <div id="pass_form" class="px-6 py-6 lg:px-8 hidden">
                 <h3 class="mb-4 text-2xl font-medium dark:text-gray-100">Modifier votre<span class="pl-1 decoration-main-light underline font-bold">mot de passe</span></h3>
-                <form class="space-y-6" action="" method="post">
+                <form class="space-y-6" action="/portfolio/allosimplon/build/traitements/modify_password.php" method="post">
                     <div>
-                        <label for="oldpassword" class="block mb-2 text-sm font-medium  dark:text-gray-100"> Ancien mot de passe </label>
-                        <input type="password" name="oldpassword" id="oldpassword" placeholder="*********" class="bg-gray-50 border border-gray-300  text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-gray-100" required>
-                    </div>
-                    <div>
-                        <label for="password" class="block mb-2 text-sm font-medium  dark:text-gray-100"> Vérifiez le mot de passe </label>
+                        <label for="password" class="block mb-2 text-sm font-medium  dark:text-gray-100"> Ancien mot de passe </label>
                         <input type="password" name="password" id="password" placeholder="*********" class="bg-gray-50 border border-gray-300  text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-gray-100" required>
                     </div>
                     <div>
-                        <label for="password_verif" class="block mb-2 text-sm font-medium  dark:text-gray-100"> Nouveau mot de passe </label>
+                        <label for="password_verif" class="block mb-2 text-sm font-medium  dark:text-gray-100"> Vérifiez le mot de passe </label>
                         <input type="password" name="password_verif" id="password_verif" placeholder="*********" class="bg-gray-50 border border-gray-300  text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-gray-100" required>
+                    </div>
+                    <div>
+                        <label for="new_password" class="block mb-2 text-sm font-medium  dark:text-gray-100"> Nouveau mot de passe </label>
+                        <input type="password" name="new_password" id="new_password" placeholder="*********" class="bg-gray-50 border border-gray-300  text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-gray-100" required>
                     </div>
                     <button type="submit" class="w-full text-gray-100 bg-main-light hover:bg-main-hover focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center "> Se connecter </button>
                     <div class="text-sm font-bold text-gray-1000 dark:text-gray-300">
