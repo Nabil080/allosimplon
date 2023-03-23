@@ -1,4 +1,7 @@
+<body class="bg-main-dark text-gray-100 bg-cover bg-center bg-fixed bg-no-repeat " style="background-image:url(/portfolio/allosimplon/build/img/4-bg.jpg)">
 <?php include('../include/nav.php')?>
+
+
 
 <div class="flex justify-center mt-28 mb-6">
 <h1 class="font-bold text-4xl drop-shadow-lg ">Blade runner</h1>
@@ -12,15 +15,15 @@
 <!-- GRILLE -->
     <div class="block md:grid md:grid-cols-2 gap-8  ">
         <div class="p-8">
-            <img src="img/4.jpg" class="" alt="">
+            <img src="/portfolio/allosimplon/build/img/4.jpg" class="" alt="">
         </div>
         <div class="[&>*]:my-4 my-8 relative">
             <div class="font-bold text-xl flex flex-wrap gap-y-4 gap-x-2"><p class="underline ">Nom d'origine : </p><span class="font-normal">Blade runner</span></div>
             <div class="font-bold text-xl flex flex-wrap gap-y-4 gap-x-2"><p class="underline ">Date de sortie : </p><span class="font-normal">2019</span></div>
             <div class="font-bold text-xl flex flex-wrap gap-y-4 gap-x-2"><p class="underline ">Durée du film : </p><span class="font-normal">2h19</span></div>
-            <div class="font-bold text-xl flex flex-wrap gap-y-4 gap-x-2"><p class="underline ">Genres : </p><a href="" class="text-main-light hover:text-main-hover font-normal">Comédie</a>, <a href="" class="text-main-light hover:text-main-hover font-normal">aventure</a></div>
-            <div class="font-bold text-xl flex flex-wrap gap-y-4 gap-x-2"><p class="underline ">Acteurs principaux : </p><a href="" class="text-main-light hover:text-main-hover font-normal">Jim carrey</a>, <a href="" class="text-main-light hover:text-main-hover font-normal">Zooey Deschanel</a>, <a href="" class="text-main-light hover:text-main-hover font-normal">Bradley Cooper</a>, <a href="" class="text-main-light hover:text-main-hover font-normal">John Michael Haggins</a></div>
-            <div class="font-bold text-xl flex flex-wrap gap-y-4 gap-x-2"><p class="underline ">Réalisateurs : </p><span class="font-normal"><a href="" class="text-main-light hover:text-main-hover font-normal">Peyton Reed</a></div>
+            <div class="font-bold text-xl flex flex-wrap gap-y-4 gap-x-2"><p class="underline ">Genres : </p><a href="/portfolio/allosimplon/build/" class="text-main-light hover:text-main-hover font-normal">Comédie</a>, <a href="/portfolio/allosimplon/build/" class="text-main-light hover:text-main-hover font-normal">aventure</a></div>
+            <div class="font-bold text-xl flex flex-wrap gap-y-4 gap-x-2"><p class="underline ">Acteurs principaux : </p><a href="/portfolio/allosimplon/build/" class="text-main-light hover:text-main-hover font-normal">Jim carrey</a>, <a href="/portfolio/allosimplon/build/" class="text-main-light hover:text-main-hover font-normal">Zooey Deschanel</a>, <a href="/portfolio/allosimplon/build/" class="text-main-light hover:text-main-hover font-normal">Bradley Cooper</a>, <a href="/portfolio/allosimplon/build/" class="text-main-light hover:text-main-hover font-normal">John Michael Haggins</a></div>
+            <div class="font-bold text-xl flex flex-wrap gap-y-4 gap-x-2"><p class="underline ">Réalisateurs : </p><span class="font-normal"><a href="/portfolio/allosimplon/build/" class="text-main-light hover:text-main-hover font-normal">Peyton Reed</a></div>
             <div class="font-bold text-xl flex flex-wrap gap-y-4 gap-x-2"><p class="underline ">Scénario : </p> <span class="font-normal">Jarrad paul, Nicholas Stoller</span></div>
             <div class="font-bold text-xl flex flex-wrap gap-y-4 gap-x-2 absolute bottom-0"><p class="underline ">Note : </p>
                 <span class="font-normal text-main-light">
@@ -77,7 +80,7 @@
                                         </i>
                                         <div>
                                             <div class="flex justify-start">
-                                                <a href="film.html"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
+                                                <a href="/portfolio/allosimplon/build/content/film.php"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
                                             </div>
                                             <div class="flex justify-start">
                                                 <p class="font-normal">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
@@ -96,7 +99,7 @@
                                     </div>
                                 </div>
                                     <!-- IMAGE -->
-                                <img src="img/1.jpg" class="h-full mx-auto">
+                                <img src="/portfolio/allosimplon/build/img/1.jpg" class="h-full mx-auto">
                             </div>
                             <div class="h-full relative group">
                                 <!-- OVERLAY!!! -->
@@ -108,7 +111,7 @@
                                         </i>
                                         <div>
                                             <div class="flex justify-start">
-                                                <a href="film.html" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
+                                                <a href="/portfolio/allosimplon/build/content/film.php" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
                                             </div>
                                             <div class="flex justify-start">
                                                 <p class="font-normal cursor-dark">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
@@ -127,7 +130,7 @@
                                     </div>
                                 </div>
                                     <!-- IMAGE -->
-                                    <img src="img/2.jpg" class="hidden md:block h-full">
+                                    <img src="/portfolio/allosimplon/build/img/2.jpg" class="hidden md:block h-full">
                                 </div>
                             <div class="h-full relative group">
                                 <!-- OVERLAY!!! -->
@@ -139,7 +142,7 @@
                                         </i>
                                         <div>
                                             <div class="flex justify-start">
-                                                <a href="film.html" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
+                                                <a href="/portfolio/allosimplon/build/content/film.php" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
                                             </div>
                                             <div class="flex justify-start">
                                                 <p class="font-normal cursor-dark">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
@@ -158,7 +161,7 @@
                                     </div>
                                 </div>
                                     <!-- IMAGE -->
-                                    <img src="img/3.jpg" class="hidden lg:block h-full">
+                                    <img src="/portfolio/allosimplon/build/img/3.jpg" class="hidden lg:block h-full">
                                 </div>
                             <div class="h-full relative group">
                                     <!-- IMAGE -->
@@ -171,7 +174,7 @@
                                         </i>
                                         <div>
                                             <div class="flex justify-start">
-                                                <a href="film.html" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
+                                                <a href="/portfolio/allosimplon/build/content/film.php" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
                                             </div>
                                             <div class="flex justify-start">
                                                 <p class="font-normal cursor-dark">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
@@ -189,7 +192,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                    <img src="img/4.jpg" class="hidden xl:block h-full">
+                                    <img src="/portfolio/allosimplon/build/img/4.jpg" class="hidden xl:block h-full">
                                 </div>
                             <div class="h-full relative group">
                                     <!-- IMAGE -->
@@ -202,7 +205,7 @@
                                         </i>
                                         <div>
                                             <div class="flex justify-start">
-                                                <a href="film.html" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
+                                                <a href="/portfolio/allosimplon/build/content/film.php" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
                                             </div>
                                             <div class="flex justify-start">
                                                 <p class="font-normal cursor-dark">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
@@ -220,7 +223,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                    <img src="img/4.jpg" class="hidden 2xl:block h-full"
+                                    <img src="/portfolio/allosimplon/build/img/4.jpg" class="hidden 2xl:block h-full"
                                     ></div>
                         </div>
                 </div>
@@ -237,7 +240,7 @@
                                         </i>
                                         <div>
                                             <div class="flex justify-start">
-                                                <a href="film.html" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
+                                                <a href="/portfolio/allosimplon/build/content/film.php" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
                                             </div>
                                             <div class="flex justify-start">
                                                 <p class="font-normal cursor-dark">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
@@ -256,7 +259,7 @@
                                     </div>
                                 </div>
                                     <!-- IMAGE -->
-                                <img src="img/6.jpg" class="h-full mx-auto">
+                                <img src="/portfolio/allosimplon/build/img/6.jpg" class="h-full mx-auto">
                             </div>
                             <div class="h-full relative group">
                                 <!-- OVERLAY!!! -->
@@ -268,7 +271,7 @@
                                         </i>
                                         <div>
                                             <div class="flex justify-start">
-                                                <a href="film.html" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
+                                                <a href="/portfolio/allosimplon/build/content/film.php" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
                                             </div>
                                             <div class="flex justify-start">
                                                 <p class="font-normal cursor-dark">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
@@ -287,7 +290,7 @@
                                     </div>
                                 </div>
                                     <!-- IMAGE -->
-                                    <img src="img/7.jpg" class="hidden md:block h-full">
+                                    <img src="/portfolio/allosimplon/build/img/7.jpg" class="hidden md:block h-full">
                                 </div>
                             <div class="h-full relative group">
                                 <!-- OVERLAY!!! -->
@@ -299,7 +302,7 @@
                                         </i>
                                         <div>
                                             <div class="flex justify-start">
-                                                <a href="film.html" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
+                                                <a href="/portfolio/allosimplon/build/content/film.php" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
                                             </div>
                                             <div class="flex justify-start">
                                                 <p class="font-normal cursor-dark">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
@@ -318,7 +321,7 @@
                                     </div>
                                 </div>
                                     <!-- IMAGE -->
-                                    <img src="img/8.jpg" class="hidden lg:block h-full">
+                                    <img src="/portfolio/allosimplon/build/img/8.jpg" class="hidden lg:block h-full">
                                 </div>
                             <div class="h-full relative group">
                                     <!-- IMAGE -->
@@ -331,7 +334,7 @@
                                         </i>
                                         <div>
                                             <div class="flex justify-start">
-                                                <a href="film.html" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
+                                                <a href="/portfolio/allosimplon/build/content/film.php" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
                                             </div>
                                             <div class="flex justify-start">
                                                 <p class="font-normal cursor-dark">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
@@ -349,7 +352,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                    <img src="img/9.jpg" class="hidden xl:block h-full">
+                                    <img src="/portfolio/allosimplon/build/img/9.jpg" class="hidden xl:block h-full">
                                 </div>
                             <div class="h-full relative group">
                                     <!-- IMAGE -->
@@ -362,7 +365,7 @@
                                         </i>
                                         <div>
                                             <div class="flex justify-start">
-                                                <a href="film.html" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
+                                                <a href="/portfolio/allosimplon/build/content/film.php" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
                                             </div>
                                             <div class="flex justify-start">
                                                 <p class="font-normal cursor-dark">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
@@ -380,7 +383,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                    <img src="img/10.jpg" class="hidden 2xl:block h-full"
+                                    <img src="/portfolio/allosimplon/build/img/10.jpg" class="hidden 2xl:block h-full"
                                     ></div>
                         </div>
                 </div>
@@ -397,7 +400,7 @@
                                         </i>
                                         <div>
                                             <div class="flex justify-start">
-                                                <a href="film.html" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
+                                                <a href="/portfolio/allosimplon/build/content/film.php" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
                                             </div>
                                             <div class="flex justify-start">
                                                 <p class="font-normal cursor-dark">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
@@ -416,7 +419,7 @@
                                     </div>
                                 </div>
                                     <!-- IMAGE -->
-                                <img src="img/1.jpg" class="h-full mx-auto">
+                                <img src="/portfolio/allosimplon/build/img/1.jpg" class="h-full mx-auto">
                             </div>
                             <div class="h-full relative group">
                                 <!-- OVERLAY!!! -->
@@ -428,7 +431,7 @@
                                         </i>
                                         <div>
                                             <div class="flex justify-start">
-                                                <a href="film.html" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
+                                                <a href="/portfolio/allosimplon/build/content/film.php" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
                                             </div>
                                             <div class="flex justify-start">
                                                 <p class="font-normal cursor-dark">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
@@ -447,7 +450,7 @@
                                     </div>
                                 </div>
                                     <!-- IMAGE -->
-                                    <img src="img/2.jpg" class="hidden md:block h-full">
+                                    <img src="/portfolio/allosimplon/build/img/2.jpg" class="hidden md:block h-full">
                                 </div>
                             <div class="h-full relative group">
                                 <!-- OVERLAY!!! -->
@@ -459,7 +462,7 @@
                                         </i>
                                         <div>
                                             <div class="flex justify-start">
-                                                <a href="film.html" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
+                                                <a href="/portfolio/allosimplon/build/content/film.php" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
                                             </div>
                                             <div class="flex justify-start">
                                                 <p class="font-normal cursor-dark">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
@@ -478,7 +481,7 @@
                                     </div>
                                 </div>
                                     <!-- IMAGE -->
-                                    <img src="img/3.jpg" class="hidden lg:block h-full">
+                                    <img src="/portfolio/allosimplon/build/img/3.jpg" class="hidden lg:block h-full">
                                 </div>
                             <div class="h-full relative group">
                                     <!-- IMAGE -->
@@ -491,7 +494,7 @@
                                         </i>
                                         <div>
                                             <div class="flex justify-start">
-                                                <a href="film.html" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
+                                                <a href="/portfolio/allosimplon/build/content/film.php" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
                                             </div>
                                             <div class="flex justify-start">
                                                 <p class="font-normal cursor-dark">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
@@ -509,7 +512,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                    <img src="img/4.jpg" class="hidden xl:block h-full">
+                                    <img src="/portfolio/allosimplon/build/img/4.jpg" class="hidden xl:block h-full">
                                 </div>
                             <div class="h-full relative group">
                                     <!-- IMAGE -->
@@ -522,7 +525,7 @@
                                         </i>
                                         <div>
                                             <div class="flex justify-start">
-                                                <a href="film.html" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
+                                                <a href="/portfolio/allosimplon/build/content/film.php" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
                                             </div>
                                             <div class="flex justify-start">
                                                 <p class="font-normal cursor-dark">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
@@ -540,7 +543,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                    <img src="img/4.jpg" class="hidden 2xl:block h-full"
+                                    <img src="/portfolio/allosimplon/build/img/4.jpg" class="hidden 2xl:block h-full"
                                     ></div>
                         </div>
                 </div>
@@ -557,7 +560,7 @@
                                         </i>
                                         <div>
                                             <div class="flex justify-start">
-                                                <a href="film.html" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
+                                                <a href="/portfolio/allosimplon/build/content/film.php" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
                                             </div>
                                             <div class="flex justify-start">
                                                 <p class="font-normal cursor-dark">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
@@ -576,7 +579,7 @@
                                     </div>
                                 </div>
                                     <!-- IMAGE -->
-                                <img src="img/6.jpg" class="h-full mx-auto">
+                                <img src="/portfolio/allosimplon/build/img/6.jpg" class="h-full mx-auto">
                             </div>
                             <div class="h-full relative group">
                                 <!-- OVERLAY!!! -->
@@ -588,7 +591,7 @@
                                         </i>
                                         <div>
                                             <div class="flex justify-start">
-                                                <a href="film.html" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
+                                                <a href="/portfolio/allosimplon/build/content/film.php" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
                                             </div>
                                             <div class="flex justify-start">
                                                 <p class="font-normal cursor-dark">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
@@ -607,7 +610,7 @@
                                     </div>
                                 </div>
                                     <!-- IMAGE -->
-                                    <img src="img/7.jpg" class="hidden md:block h-full">
+                                    <img src="/portfolio/allosimplon/build/img/7.jpg" class="hidden md:block h-full">
                                 </div>
                             <div class="h-full relative group">
                                 <!-- OVERLAY!!! -->
@@ -619,7 +622,7 @@
                                         </i>
                                         <div>
                                             <div class="flex justify-start">
-                                                <a href="film.html" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
+                                                <a href="/portfolio/allosimplon/build/content/film.php" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
                                             </div>
                                             <div class="flex justify-start">
                                                 <p class="font-normal cursor-dark">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
@@ -638,7 +641,7 @@
                                     </div>
                                 </div>
                                     <!-- IMAGE -->
-                                    <img src="img/8.jpg" class="hidden lg:block h-full">
+                                    <img src="/portfolio/allosimplon/build/img/8.jpg" class="hidden lg:block h-full">
                                 </div>
                             <div class="h-full relative group">
                                     <!-- IMAGE -->
@@ -651,7 +654,7 @@
                                         </i>
                                         <div>
                                             <div class="flex justify-start">
-                                                <a href="film.html" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
+                                                <a href="/portfolio/allosimplon/build/content/film.php" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
                                             </div>
                                             <div class="flex justify-start">
                                                 <p class="font-normal cursor-dark">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
@@ -669,7 +672,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                    <img src="img/9.jpg" class="hidden xl:block h-full">
+                                    <img src="/portfolio/allosimplon/build/img/9.jpg" class="hidden xl:block h-full">
                                 </div>
                             <div class="h-full relative group">
                                     <!-- IMAGE -->
@@ -682,7 +685,7 @@
                                         </i>
                                         <div>
                                             <div class="flex justify-start">
-                                                <a href="film.html" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
+                                                <a href="/portfolio/allosimplon/build/content/film.php" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
                                             </div>
                                             <div class="flex justify-start">
                                                 <p class="font-normal cursor-dark">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
@@ -700,7 +703,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                    <img src="img/10.jpg" class="hidden 2xl:block h-full"
+                                    <img src="/portfolio/allosimplon/build/img/10.jpg" class="hidden 2xl:block h-full"
                                     ></div>
                         </div>
                 </div>
@@ -717,7 +720,7 @@
                                         </i>
                                         <div>
                                             <div class="flex justify-start">
-                                                <a href="film.html" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
+                                                <a href="/portfolio/allosimplon/build/content/film.php" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
                                             </div>
                                             <div class="flex justify-start">
                                                 <p class="font-normal cursor-dark">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
@@ -736,7 +739,7 @@
                                     </div>
                                 </div>
                                     <!-- IMAGE -->
-                                <img src="img/1.jpg" class="h-full mx-auto">
+                                <img src="/portfolio/allosimplon/build/img/1.jpg" class="h-full mx-auto">
                             </div>
                             <div class="h-full relative group">
                                 <!-- OVERLAY!!! -->
@@ -748,7 +751,7 @@
                                         </i>
                                         <div>
                                             <div class="flex justify-start">
-                                                <a href="film.html" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
+                                                <a href="/portfolio/allosimplon/build/content/film.php" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
                                             </div>
                                             <div class="flex justify-start">
                                                 <p class="font-normal cursor-dark">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
@@ -767,7 +770,7 @@
                                     </div>
                                 </div>
                                     <!-- IMAGE -->
-                                    <img src="img/2.jpg" class="hidden md:block h-full">
+                                    <img src="/portfolio/allosimplon/build/img/2.jpg" class="hidden md:block h-full">
                                 </div>
                             <div class="h-full relative group">
                                 <!-- OVERLAY!!! -->
@@ -779,7 +782,7 @@
                                         </i>
                                         <div>
                                             <div class="flex justify-start">
-                                                <a href="film.html" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
+                                                <a href="/portfolio/allosimplon/build/content/film.php" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
                                             </div>
                                             <div class="flex justify-start">
                                                 <p class="font-normal cursor-dark">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
@@ -798,7 +801,7 @@
                                     </div>
                                 </div>
                                     <!-- IMAGE -->
-                                    <img src="img/3.jpg" class="hidden lg:block h-full">
+                                    <img src="/portfolio/allosimplon/build/img/3.jpg" class="hidden lg:block h-full">
                                 </div>
                             <div class="h-full relative group">
                                     <!-- IMAGE -->
@@ -811,7 +814,7 @@
                                         </i>
                                         <div>
                                             <div class="flex justify-start">
-                                                <a href="film.html" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
+                                                <a href="/portfolio/allosimplon/build/content/film.php" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
                                             </div>
                                             <div class="flex justify-start">
                                                 <p class="font-normal cursor-dark">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
@@ -829,7 +832,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                    <img src="img/4.jpg" class="hidden xl:block h-full">
+                                    <img src="/portfolio/allosimplon/build/img/4.jpg" class="hidden xl:block h-full">
                                 </div>
                             <div class="h-full relative group">
                                     <!-- IMAGE -->
@@ -842,7 +845,7 @@
                                         </i>
                                         <div>
                                             <div class="flex justify-start">
-                                                <a href="film.html" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
+                                                <a href="/portfolio/allosimplon/build/content/film.php" class="cursor-pointer"><h2 class="underline font-bold text-main-light text-2xl mb-2">Le Joker</h2></a>
                                             </div>
                                             <div class="flex justify-start">
                                                 <p class="font-normal cursor-dark">Arthur  Fleck, comédien raté, rencontre des voyous violents en errant dans les  rues de Gotham City déguisé en clown. Méprisé par la société, Fleck  s'enfonce peu à peu dans la démence...
@@ -860,7 +863,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                    <img src="img/4.jpg" class="hidden 2xl:block h-full"
+                                    <img src="/portfolio/allosimplon/build/img/4.jpg" class="hidden 2xl:block h-full"
                                     ></div>
                         </div>
                 </div>
@@ -884,20 +887,4 @@
     </section>
 
 
-<!-- FOOTER -->
-<section id="footer" class="bg-main-dark h-24 mt-12 flex justify-center">
-    <div class="flex justify-center items-center">
-        <div class="mr-4 text-xl"> Rejoignez nous sur les réseaux !</div>
-        <div class="  text-main-light">
-            <a href="https://facebook.com" target="_blank"><i class="fa-brands fa-instagram far"></i></a>
-            <a href="https://facebook.com" target="_blank"><i class="fa-brands fa-twitter far"></i></a>
-            <a href="https://facebook.com" target="_blank"><i class="fa-brands fa-facebook-f far"></i></a>
-            <a href="https://facebook.com" target="_blank"><i class="fa-brands fa-youtube far"></i></a>
-            <a href="contact.html" target="_blank"><i class="fa-solid fa-envelope far"></i></a>
-        </div>
-    </div>
-</section>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.4/flowbite.min.js"></script>
-</body>
-</html>
+    <?php include('../include/footer.php')?>
