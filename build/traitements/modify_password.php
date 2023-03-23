@@ -7,10 +7,12 @@ require_once '../config/connexion.php';
 <?php
 // Variables + sécurisation
 $errors = array();
+$ID = $_SESSION['ID_user'];
+if(isset($_POST['submit'])){
 $old_password = htmlspecialchars(strip_tags($_POST['password']), ENT_QUOTES );
 $password_verif = htmlspecialchars(strip_tags($_POST['password_verif']), ENT_QUOTES );
 $new_password = htmlspecialchars(strip_tags($_POST['new_password']), ENT_QUOTES );
-$ID = $_SESSION['ID_user'];
+}
 
 // var_dump($ID);
 // var_dump($email);

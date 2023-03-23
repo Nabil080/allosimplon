@@ -7,10 +7,12 @@ require_once '../config/connexion.php';
 <?php
 // Variables + sécurisation
 $errors = array();
-$email = htmlspecialchars(strip_tags($_POST['email']), ENT_QUOTES );
-$email_verif = htmlspecialchars(strip_tags($_POST['email_verif']), ENT_QUOTES );
-$password = htmlspecialchars(strip_tags($_POST['password']), ENT_QUOTES );
 $ID = $_SESSION['ID_user'];
+if(isset($_POST['submit'])){
+    $email = htmlspecialchars(strip_tags($_POST['email']), ENT_QUOTES );
+    $email_verif = htmlspecialchars(strip_tags($_POST['email_verif']), ENT_QUOTES );
+    $password = htmlspecialchars(strip_tags($_POST['password']), ENT_QUOTES );
+}
 
 // var_dump($ID);
 // var_dump($email);

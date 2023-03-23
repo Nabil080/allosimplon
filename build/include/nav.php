@@ -94,10 +94,6 @@
                 <h3 class="mb-4 text-xl font-medium  dark:text-gray-100">Inscrivez vous</h3>
                 <form class="space-y-6" action="/portfolio/allosimplon/build/traitements/sign.php" method="post">
                     <div>
-                        <label for="pseudo" class="block mb-2 text-sm font-medium  dark:text-gray-100"> Pseudo </label>
-                        <input type="text" name="pseudo" maxlength="16" id="pseudo" class="bg-gray-50 border border-gray-300  text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-gray-100" placeholder="Pseudo" required>
-                    </div>
-                    <div>
                         <label for="email" class="block mb-2 text-sm font-medium  dark:text-gray-100"> E-mail </label>
                         <input type="email" name="email" id="email" class="bg-gray-50 border border-gray-300  text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-gray-100" placeholder="E-mail" required>
                     </div>
