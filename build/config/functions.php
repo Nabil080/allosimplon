@@ -219,4 +219,32 @@ function GetGenreFilm($ID_genre){
     }
     }
 
+function GetScenaristFilm($ID_scenarist){
+    if(require("connexion.php")){
+
+    // selectionne ID_scenarist dans scenarist_filmlà où scenarist.ID_scenarist = scenarist_scenarist.ID_scenarist
+    $ID_film_request=$con->prepare(
+        "SELECT
+            ID_film
+        FROM film_scenarist
+        WHERE ID_scenarist = $ID_scenarist");
+    $ID_film_request->execute();
+    while($ID_film=$ID_film_request->fetch()){
+
+        // selectionne * dans filmlà où scenarist_scenarist.ID_film= scenarist.ID_scenarist
+        $film_request=$con->prepare(
+            "SELECT
+                *
+            FROM film
+            WHERE ID_film =  $ID_film[0]"
+            );
+        $film_request->execute();
+        while($film=$film_request->fetch()){
+
+            $film_name = $film['film_name'];
+            echo $film_name, '<br>';
+        }
+    }
+    }
+    }
 ?>
