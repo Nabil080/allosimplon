@@ -25,6 +25,21 @@
             </tr>
         </thead>
         <tbody class="[&_td]:text-center">
+
+
+        <?php
+
+
+$request=$con->prepare("SELECT * FROM user");
+$request->execute();
+while($user=$request->fetch()){
+    $ID = $user['ID_user'];
+    $pseudo = $user['user_pseudo'];
+    $email = $user['user_email'];
+    $role = $user['ID_role'];
+?>
+
+
             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 h-fit">
                 <!-- <td class="w-4 py-4">
                     <div class="flex items-center">
@@ -33,16 +48,16 @@
                     </div>
                 </td> -->
                 <th scope="row" class="text-center px-1 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white max-w-[8rem]">
-                    12
+                    <?=$ID?>
                 </th>
                 <td class="px-6 py-4">
-                    nabil@mail.com
+                    <?=$email?>
                 </td>
                 <td class="px-6 py-4">
-                    Admin
+                    <?=$role?>
                 </td>
                 <td class="px-6 py-4">
-                    santa marita, louurd
+                    <?php GetUserFav($ID) ?>
                 </td>
                                 <td class="">
                     <div class="space-x-3 justify-center my-auto h-full flex ">
@@ -52,6 +67,7 @@
                 </td>
             </tr>
 
+            <?php } ?>
 
         </tbody>
     </table>

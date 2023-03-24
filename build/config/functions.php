@@ -1,5 +1,3 @@
-
-
 <?php
 
 function GetFilmActor($ID_film, $show_ID, $show_photo, $show_name){
@@ -163,4 +161,147 @@ function GetFilmScenarist($ID_film, $show_ID, $show_photo, $show_name){
     }
     }
 
+function GetActorFilm($ID_actor){
+    if(require("connexion.php")){
+
+    // selectionne ID_actor dans actor_filmlà où actor.ID_actor = actor_actor.ID_actor
+    $ID_film_request=$con->prepare(
+        "SELECT
+            ID_film
+        FROM film_actor
+        WHERE ID_actor = $ID_actor");
+    $ID_film_request->execute();
+    while($ID_film=$ID_film_request->fetch()){
+
+        // selectionne * dans filmlà où actor_actor.ID_film= actor.ID_actor
+        $film_request=$con->prepare(
+            "SELECT
+                *
+            FROM film
+            WHERE ID_film =  $ID_film[0]"
+            );
+        $film_request->execute();
+        while($film=$film_request->fetch()){
+
+            $film_name = $film['film_name'];
+            echo $film_name, '<br>';
+        }
+    }
+    }
+    }
+
+function GetGenreFilm($ID_genre){
+    if(require("connexion.php")){
+
+    // selectionne ID_genre dans genre_filmlà où genre.ID_genre = genre_genre.ID_genre
+    $ID_film_request=$con->prepare(
+        "SELECT
+            ID_film
+        FROM film_genre
+        WHERE ID_genre = $ID_genre");
+    $ID_film_request->execute();
+    while($ID_film=$ID_film_request->fetch()){
+
+        // selectionne * dans filmlà où genre_genre.ID_film= genre.ID_genre
+        $film_request=$con->prepare(
+            "SELECT
+                *
+            FROM film
+            WHERE ID_film =  $ID_film[0]"
+            );
+        $film_request->execute();
+        while($film=$film_request->fetch()){
+
+            $film_name = $film['film_name'];
+            echo $film_name, '<br>';
+        }
+    }
+    }
+    }
+
+function GetScenaristFilm($ID_scenarist){
+    if(require("connexion.php")){
+
+    // selectionne ID_scenarist dans scenarist_filmlà où scenarist.ID_scenarist = scenarist_scenarist.ID_scenarist
+    $ID_film_request=$con->prepare(
+        "SELECT
+            ID_film
+        FROM film_scenarist
+        WHERE ID_scenarist = $ID_scenarist");
+    $ID_film_request->execute();
+    while($ID_film=$ID_film_request->fetch()){
+
+        // selectionne * dans filmlà où scenarist_scenarist.ID_film= scenarist.ID_scenarist
+        $film_request=$con->prepare(
+            "SELECT
+                *
+            FROM film
+            WHERE ID_film =  $ID_film[0]"
+            );
+        $film_request->execute();
+        while($film=$film_request->fetch()){
+
+            $film_name = $film['film_name'];
+            echo $film_name, '<br>';
+        }
+    }
+    }
+    }
+
+function GetRealisatorFilm($ID_realisator){
+    if(require("connexion.php")){
+
+    // selectionne ID_realisator dans realisator_filmlà où realisator.ID_realisator = realisator_realisator.ID_realisator
+    $ID_film_request=$con->prepare(
+        "SELECT
+            ID_film
+        FROM film_realisator
+        WHERE ID_realisator = $ID_realisator");
+    $ID_film_request->execute();
+    while($ID_film=$ID_film_request->fetch()){
+
+        // selectionne * dans filmlà où realisator_realisator.ID_film= realisator.ID_realisator
+        $film_request=$con->prepare(
+            "SELECT
+                *
+            FROM film
+            WHERE ID_film =  $ID_film[0]"
+            );
+        $film_request->execute();
+        while($film=$film_request->fetch()){
+
+            $film_name = $film['film_name'];
+            echo $film_name, '<br>';
+        }
+    }
+    }
+    }
+
+function GetUserFav($ID_user){
+    if(require("connexion.php")){
+        // selectionne ID_user dans user_fav là où user.ID_user = user_film.ID_user
+    $ID_film_request=$con->prepare(
+        "SELECT
+            ID_film
+        FROM user_fav
+        WHERE ID_user = $ID_user");
+    $ID_film_request->execute();
+    while($ID_film=$ID_film_request->fetch()){
+
+        $film_request=$con->prepare(
+            "SELECT
+                *
+            FROM film
+            WHERE ID_film = $ID_film[0]"
+        );
+        $film_request->execute();
+        while($film=$film_request->fetch()){
+
+            $film_name = $film['film_name'];
+            echo $film_name, '<br>';
+        }
+
+    }
+    }
+}
 ?>
