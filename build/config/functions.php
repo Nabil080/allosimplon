@@ -1,5 +1,3 @@
-
-
 <?php
 
 function GetFilmActor($ID_film, $show_ID, $show_photo, $show_name){
@@ -158,6 +156,35 @@ function GetFilmScenarist($ID_film, $show_ID, $show_photo, $show_name){
                 echo $scenarist_name, '<br>';
             }
     
+        }
+    }
+    }
+    }
+
+function GetActorFilm($ID_actor){
+    if(require("connexion.php")){
+
+    // selectionne ID_actor dans actor_filmlà où actor.ID_actor = actor_actor.ID_actor
+    $ID_film_request=$con->prepare(
+        "SELECT
+            ID_film
+        FROM film_actor
+        WHERE ID_actor = $ID_actor");
+    $ID_film_request->execute();
+    while($ID_film=$ID_film_request->fetch()){
+
+        // selectionne * dans filmlà où actor_actor.ID_film= actor.ID_actor
+        $film_request=$con->prepare(
+            "SELECT
+                *
+            FROM film
+            WHERE ID_film =  $ID_film[0]"
+            );
+        $film_request->execute();
+        while($film=$film_request->fetch()){
+
+            $film_name = $film['film_name'];
+            echo $film_name, '<br>';
         }
     }
     }
