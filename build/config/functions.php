@@ -247,4 +247,61 @@ function GetScenaristFilm($ID_scenarist){
     }
     }
     }
+
+function GetRealisatorFilm($ID_realisator){
+    if(require("connexion.php")){
+
+    // selectionne ID_realisator dans realisator_filmlà où realisator.ID_realisator = realisator_realisator.ID_realisator
+    $ID_film_request=$con->prepare(
+        "SELECT
+            ID_film
+        FROM film_realisator
+        WHERE ID_realisator = $ID_realisator");
+    $ID_film_request->execute();
+    while($ID_film=$ID_film_request->fetch()){
+
+        // selectionne * dans filmlà où realisator_realisator.ID_film= realisator.ID_realisator
+        $film_request=$con->prepare(
+            "SELECT
+                *
+            FROM film
+            WHERE ID_film =  $ID_film[0]"
+            );
+        $film_request->execute();
+        while($film=$film_request->fetch()){
+
+            $film_name = $film['film_name'];
+            echo $film_name, '<br>';
+        }
+    }
+    }
+    }
+
+function GetUserFav($ID_user){
+    if(require("connexion.php")){
+        // selectionne ID_user dans user_fav là où user.ID_user = user_film.ID_user
+    $ID_film_request=$con->prepare(
+        "SELECT
+            ID_film
+        FROM user_fav
+        WHERE ID_user = $ID_user");
+    $ID_film_request->execute();
+    while($ID_film=$ID_film_request->fetch()){
+
+        $film_request=$con->prepare(
+            "SELECT
+                *
+            FROM film
+            WHERE ID_film = $ID_film[0]"
+        );
+        $film_request->execute();
+        while($film=$film_request->fetch()){
+
+            $film_name = $film['film_name'];
+            echo $film_name, '<br>';
+        }
+
+    }
+    }
+}
 ?>

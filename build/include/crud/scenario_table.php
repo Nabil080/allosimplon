@@ -27,8 +27,8 @@
         <tbody class="[&_td]:text-center">
 
             <?php
-            
-            
+
+
             $request=$con->prepare("SELECT * FROM scenarist");
             $request->execute();
             while($scenarist=$request->fetch()){
