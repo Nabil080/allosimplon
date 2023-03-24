@@ -567,7 +567,7 @@
                     </div>
                 </td> -->
                 <th scope="row" class="px-1 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white max-w-[8rem]">
-                    <img src="img/4.jpg" class="w-full objet-cover" alt="">
+                    <img src="/portfolio/allosimplon/build/img/4.jpg" class="w-full objet-cover" alt="">
                 </th>
                 <td class="px-6 py-4">
                     Blade runner
@@ -646,7 +646,7 @@
                     
                     <dt class="mb-2 font-semibold leading-none text-gray-900 dark:text-white w-full bg-main-default py-2 my-2">Image de fond</dt>
                     <dd class="mb-4 font- text-gray-500 sm:mb-5 dark:text-gray-300">
-                        <img src="img/4-bg.jpg" alt="">
+                        <img src="/portfolio/allosimplon/build/img/4-bg.jpg" alt="">
                     </dd>
                     <dt class="mb-2 font-semibold leading-none text-gray-900 dark:text-white w-full bg-main-default py-2 my-2">Bande annonce</dt>
                     <dd class="mb-4 font- text-gray-500 sm:mb-5 dark:text-gray-300">
@@ -688,7 +688,7 @@
                     </div>
                 </td> -->
                 <th scope="row" class="px-1 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white max-w-[8rem]">
-                    <img src="img/4.jpg" class="w-full objet-cover" alt="">
+                    <img src="/portfolio/allosimplon/build/img/4.jpg" class="w-full objet-cover" alt="">
                 </th>
                 <td class="px-6 py-4">
                     Blade runner
@@ -767,7 +767,7 @@
                     
                     <dt class="mb-2 font-semibold leading-none text-gray-900 dark:text-white w-full bg-main-default py-2 my-2">Image de fond</dt>
                     <dd class="mb-4 font- text-gray-500 sm:mb-5 dark:text-gray-300">
-                        <img src="img/4-bg.jpg" alt="">
+                        <img src="/portfolio/allosimplon/build/img/4-bg.jpg" alt="">
                     </dd>
                     <dt class="mb-2 font-semibold leading-none text-gray-900 dark:text-white w-full bg-main-default py-2 my-2">Bande annonce</dt>
                     <dd class="mb-4 font- text-gray-500 sm:mb-5 dark:text-gray-300">
@@ -809,7 +809,7 @@
                     </div>
                 </td> -->
                 <th scope="row" class="px-1 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white max-w-[8rem]">
-                    <img src="img/4.jpg" class="w-full objet-cover" alt="">
+                    <img src="/portfolio/allosimplon/build/img/4.jpg" class="w-full objet-cover" alt="">
                 </th>
                 <td class="px-6 py-4">
                     Blade runner
@@ -888,7 +888,7 @@
                     
                     <dt class="mb-2 font-semibold leading-none text-gray-900 dark:text-white w-full bg-main-default py-2 my-2">Image de fond</dt>
                     <dd class="mb-4 font- text-gray-500 sm:mb-5 dark:text-gray-300">
-                        <img src="img/4-bg.jpg" alt="">
+                        <img src="/portfolio/allosimplon/build/img/4-bg.jpg" alt="">
                     </dd>
                     <dt class="mb-2 font-semibold leading-none text-gray-900 dark:text-white w-full bg-main-default py-2 my-2">Bande annonce</dt>
                     <dd class="mb-4 font- text-gray-500 sm:mb-5 dark:text-gray-300">
@@ -930,7 +930,7 @@
                     </div>
                 </td> -->
                 <th scope="row" class="px-1 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white max-w-[8rem]">
-                    <img src="img/4.jpg" class="w-full objet-cover" alt="">
+                    <img src="/portfolio/allosimplon/build/img/4.jpg" class="w-full objet-cover" alt="">
                 </th>
                 <td class="px-6 py-4">
                     Blade runner
@@ -1009,7 +1009,7 @@
                     
                     <dt class="mb-2 font-semibold leading-none text-gray-900 dark:text-white w-full bg-main-default py-2 my-2">Image de fond</dt>
                     <dd class="mb-4 font- text-gray-500 sm:mb-5 dark:text-gray-300">
-                        <img src="img/4-bg.jpg" alt="">
+                        <img src="/portfolio/allosimplon/build/img/4-bg.jpg" alt="">
                     </dd>
                     <dt class="mb-2 font-semibold leading-none text-gray-900 dark:text-white w-full bg-main-default py-2 my-2">Bande annonce</dt>
                     <dd class="mb-4 font- text-gray-500 sm:mb-5 dark:text-gray-300">
@@ -1051,7 +1051,7 @@
                     </div>
                 </td> -->
                 <th scope="row" class="px-1 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white max-w-[8rem]">
-                    <img src="img/4.jpg" class="w-full objet-cover" alt="">
+                    <img src="/portfolio/allosimplon/build/img/4.jpg" class="w-full objet-cover" alt="">
                 </th>
                 <td class="px-6 py-4">
                     Blade runner
@@ -1130,7 +1130,7 @@
                     
                     <dt class="mb-2 font-semibold leading-none text-gray-900 dark:text-white w-full bg-main-default py-2 my-2">Image de fond</dt>
                     <dd class="mb-4 font- text-gray-500 sm:mb-5 dark:text-gray-300">
-                        <img src="img/4-bg.jpg" alt="">
+                        <img src="/portfolio/allosimplon/build/img/4-bg.jpg" alt="">
                     </dd>
                     <dt class="mb-2 font-semibold leading-none text-gray-900 dark:text-white w-full bg-main-default py-2 my-2">Bande annonce</dt>
                     <dd class="mb-4 font- text-gray-500 sm:mb-5 dark:text-gray-300">
@@ -1171,7 +1171,7 @@
                     </div>
                 </td> -->
                 <th scope="row" class="px-1 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white max-w-[8rem]">
-                    <img src="img/4.jpg" class="w-full objet-cover" alt="">
+                    <img src="/portfolio/allosimplon/build/img/4.jpg" class="w-full objet-cover" alt="">
                 </th>
                 <td class="px-6 py-4">
                     Blade runner
@@ -1250,7 +1250,7 @@
                     
                     <dt class="mb-2 font-semibold leading-none text-gray-900 dark:text-white w-full bg-main-default py-2 my-2">Image de fond</dt>
                     <dd class="mb-4 font- text-gray-500 sm:mb-5 dark:text-gray-300">
-                        <img src="img/4-bg.jpg" alt="">
+                        <img src="/portfolio/allosimplon/build/img/4-bg.jpg" alt="">
                     </dd>
                     <dt class="mb-2 font-semibold leading-none text-gray-900 dark:text-white w-full bg-main-default py-2 my-2">Bande annonce</dt>
                     <dd class="mb-4 font- text-gray-500 sm:mb-5 dark:text-gray-300">
@@ -1321,7 +1321,7 @@
                     </div>
                 </td> -->
                 <th scope="row" class="px-1 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white max-w-[8rem]">
-                    <img src="img/ryan.jpg" class="w-full objet-cover" alt="">
+                    <img src="/portfolio/allosimplon/build/img/ryan.jpg" class="w-full objet-cover" alt="">
                 </th>
                 <td class="px-6 py-4">
                     Ryan Gosling
@@ -1482,7 +1482,7 @@
                     </div>
                 </td> -->
                 <th scope="row" class="px-1 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white max-w-[8rem]">
-                    <img src="img/hampton.jpg" class="w-full objet-cover" alt="">
+                    <img src="/portfolio/allosimplon/build/img/hampton.jpg" class="w-full objet-cover" alt="">
                 </th>
                 <td scope="row" class="text-center px-1 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white max-w-[8rem]">
                     Hampton Fancher
@@ -1539,7 +1539,7 @@
                     </div>
                 </td> -->
                 <th scope="row" class="px-1 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white max-w-[8rem]">
-                    <img src="img/denis.jpg" class="w-full objet-cover" alt="">
+                    <img src="/portfolio/allosimplon/build/img/denis.jpg" class="w-full objet-cover" alt="">
                 </th>
                 <td scope="row" class="text-center px-1 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white max-w-[8rem]">
                     Denis Villeneuve
