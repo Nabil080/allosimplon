@@ -3,12 +3,20 @@ session_start();
 header('Content-type: text/html; charset=utf-8');
 require_once '../config/connexion.php';
 require_once '../config/functions.php';
+
+
 ?>
+
 
 <?php include('../include/head.php')?>
 
 <?php include('../include/nav.php')?>
 
+<?php var_dump($_SESSION)?>
+
+
+<?php if(isset($_SESSION['ID_role'])){
+    if($_SESSION['ID_role']==1){ ?>
 
 
 <div class="flex justify-center mt-28 mb-6">
@@ -124,3 +132,11 @@ const multiSelectWithoutCtrl = ( elemSelector ) => {
 
 
 <?php include('../include/footer.php')?>
+
+<?php }else{ ?>
+<div class=mt-8>Vous n'êtes pas un admnisitrateur ! Zone inaccessible.</div>
+<a class="text-main-light" href="/portfolio/allosimplon/build/index.php">Retourner à l'accueil</a>
+<?php };}else{ ?>
+    <div class=mt-8>Vous n'êtes pas un admnisitrateur ! Zone inaccessible.</div>
+    <a class="text-main-light" href="/portfolio/allosimplon/build/index.php">Retourner à l'accueil</a>
+<?php } ?>

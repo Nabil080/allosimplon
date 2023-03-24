@@ -87,7 +87,7 @@ function GetFilmRealisator($ID_film, $show_ID, $show_photo, $show_name){
 
 function GetFilmGenre($ID_film, $show_ID, $show_name){
     if(require("connexion.php")){
-    
+
     // selectionne ID_genre dans film_genre là où film.ID_film = film_genre.ID_film
     $ID_genre_request=$con->prepare(
         "SELECT
@@ -96,7 +96,7 @@ function GetFilmGenre($ID_film, $show_ID, $show_name){
         WHERE ID_film = $ID_film");
     $ID_genre_request->execute();
     while($ID_genre=$ID_genre_request->fetch()){
-    
+
         // selectionne * dans genre là où film_genre.ID_genre = genre.ID_genre
         $genre_request=$con->prepare(
             "SELECT
@@ -106,17 +106,17 @@ function GetFilmGenre($ID_film, $show_ID, $show_name){
             );
         $genre_request->execute();
         while($genre=$genre_request->fetch()){
-    
+
             $genre_ID = $genre['ID_genre'];
             $genre_name = $genre['genre_name'];
-    
+
             if($show_ID=="true"){
                 echo $genre_ID, '<br>';
             }
             if($show_name=="true"){
                 echo $genre_name, '<br>';
             }
-    
+
         }
     }
     }
