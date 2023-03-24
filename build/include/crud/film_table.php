@@ -94,30 +94,6 @@
 <!-- REQUETE JOIN ACTEUR/REAL/GENRE/SCENAR -->
 
 <?php
-// selectionne ID_actor dans film_actor là où film.ID_film = film_actor.ID_film
-$ID_actor_request=$con->prepare(
-    "SELECT
-        ID_actor
-    FROM film_actor
-    WHERE ID_film = $ID");
-$ID_actor_request->execute();
-while($ID_actor=$ID_actor_request->fetch()){
-
-    // selectionne * dans actor là où film_actor.ID_actor = actor.ID_actor
-    $actor_request=$con->prepare(
-        "SELECT
-            *
-        FROM actor
-        WHERE ID_actor =  $ID_actor[0]"
-        );
-    $actor_request->execute();
-    while($actor=$actor_request->fetch()){
-        echo $actor['ID_actor'];
-        echo $actor['actor_photo'];
-        echo $actor['actor_name'];
-        echo '<br>';
-    }
-}
 
 
 ?>
@@ -160,20 +136,15 @@ while($ID_actor=$ID_actor_request->fetch()){
                     <dt class="mb-2 font-semibold leading-none text-gray-900 dark:text-white w-full bg-main-default py-2 my-2">Réalisateurs</dt>
                     <dd class="mb-4 font- text-gray-500 sm:mb-5 dark:text-gray-300">
                         <ul>
-                            <li>Denis Villeneuve</li>
+                        <?php GetFilmRealisator($ID,false,false,true);?>
                         </ul>
                     </dd>
                     <dt class="mb-2 font-semibold leading-none text-gray-900 dark:text-white w-full bg-main-default py-2 my-2">Acteurs</dt>
                     <dd class="mb-4 font- text-gray-500 sm:mb-5 dark:text-gray-300">
                         <ul>
-                            <li>Ryan Gosling</li>
-                            <li>Harrison Ford</li>
-                            <li>Ana de Amars</li>
-                            <li>Robin Wright</li>
-                            <li>Sylvia Hoeks</li>
+                        <?php GetFilmActor($ID,false,false,true)?>
                         </ul>
                     </dd>
-                    
                     <dt class="mb-2 font-semibold leading-none text-gray-900 dark:text-white w-full bg-main-default py-2 my-2">Image de fond</dt>
                     <dd class="mb-4 font- text-gray-500 sm:mb-5 dark:text-gray-300">
                         <img src="/portfolio/allosimplon/build/img/<?=$background?>" alt="">
