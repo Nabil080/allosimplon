@@ -1,3 +1,5 @@
+
+
 <?php
 session_start();
 header('Content-type: text/html; charset=utf-8');
@@ -7,12 +9,11 @@ require_once '../config/connexion.php';
 <?php
 // Variables + sécurisation
 $errors = array();
-if(isset($_POST['submit'])){
     // $pseudo = htmlspecialchars(strip_tags($_POST['pseudo']), ENT_QUOTES );
     $email = htmlspecialchars(strip_tags($_POST['email']), ENT_QUOTES );
+    $pseudo = htmlspecialchars(strip_tags($_POST['pseudo']), ENT_QUOTES );
     $password = htmlspecialchars(strip_tags($_POST['password']), ENT_QUOTES );
     $password_verif = htmlspecialchars(strip_tags($_POST['password_verif']), ENT_QUOTES );
-}
 
 // verif syntaxe email
 if(empty($email) || !filter_var($email,FILTER_VALIDATE_EMAIL)){
@@ -32,15 +33,15 @@ if(empty($password) || $password!=$password_verif
     $errors['mdp']="Les mots de passes ne sont pas assez forts ou ne correspondent pas.";
 }
 
-// if(empty($pseudo) || strlen($pseudo) > 16){
-//     $errors['pseudo']="Pseudo trop long ou invalide (16 charactères maximum)";
-// }
+if(empty($pseudo) || strlen($pseudo) > 16){
+    $errors['pseudo']="Pseudo trop long ou invalide (16 charactères maximum)";
+}
 
 if(empty($errors)){
     // Insère l'utilisateur dans la bdd
-    $request=$con->prepare("INSERT INTO user SET user_email = ?, user_password = ?, ID_role = ?");
+    $request=$con->prepare("INSERT INTO user SET user_pseudo = ?, user_email = ?, user_password = ?, ID_role = ?");
     $password_hash=password_hash($password,PASSWORD_BCRYPT);
-    $request->execute([$email, $password_hash, 2]);
+    $request->execute([$pseudo, $email, $password_hash, 2]);
     echo "<p>inscription reussie</p>";
     header('location: /portfolio/allosimplon/build/index.php');
 }else{

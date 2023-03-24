@@ -8,11 +8,11 @@ require_once 'config/connexion.php';
 
 <?php include('include/nav.php')?>
 
-    <!-- <div class=" mt-28">
+    <div class=" mt-28">
     <?php
     var_dump($_SESSION);
     ?>
-    </div> -->
+    </div>
 
 
 <?php include('include/top_film_slide.php')?>
