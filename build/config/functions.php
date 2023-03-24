@@ -190,4 +190,33 @@ function GetActorFilm($ID_actor){
     }
     }
 
+function GetGenreFilm($ID_genre){
+    if(require("connexion.php")){
+
+    // selectionne ID_genre dans genre_filmlà où genre.ID_genre = genre_genre.ID_genre
+    $ID_film_request=$con->prepare(
+        "SELECT
+            ID_film
+        FROM film_genre
+        WHERE ID_genre = $ID_genre");
+    $ID_film_request->execute();
+    while($ID_film=$ID_film_request->fetch()){
+
+        // selectionne * dans filmlà où genre_genre.ID_film= genre.ID_genre
+        $film_request=$con->prepare(
+            "SELECT
+                *
+            FROM film
+            WHERE ID_film =  $ID_film[0]"
+            );
+        $film_request->execute();
+        while($film=$film_request->fetch()){
+
+            $film_name = $film['film_name'];
+            echo $film_name, '<br>';
+        }
+    }
+    }
+    }
+
 ?>
