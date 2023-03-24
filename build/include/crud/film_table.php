@@ -122,15 +122,13 @@
                     <dt class="mb-2 font-semibold leading-none text-gray-900 dark:text-white w-full bg-main-default py-2 my-2">Genres</dt>
                     <dd class="mb-4 font- text-gray-500 sm:mb-5 dark:text-gray-300">
                         <ul>
-                            <li>Sciences-fiction</li>
+                            <?php GetFilmGenre($ID,false,true) ?>
                         </ul>
                     </dd>
                     <dt class="mb-2 font-semibold leading-none text-gray-900 dark:text-white w-full bg-main-default py-2 my-2">Scénario</dt>
                     <dd class="mb-4 font- text-gray-500 sm:mb-5 dark:text-gray-300">
                         <ul>
-                            <li>Hampton Fancher</li>
-                            <li>Michael Green</li>
-                            <li>Ridley Scott</li>
+                        <?php GetFilmScenarist($ID,false,false,true) ?>
                         </ul>
                     </dd>
                     <dt class="mb-2 font-semibold leading-none text-gray-900 dark:text-white w-full bg-main-default py-2 my-2">Réalisateurs</dt>
