@@ -180,7 +180,7 @@ function switchDiv() {
                 </div>
                 <div class="flex justify-center">
                     <button type="button" class=" text-gray-100 bg-main-light hover:bg-main-hover focus:ring-main-light focus:ring-offset-main-light font-medium rounded-lg  px-5 py-2.5 mr-2 mb-2 focus:outline-none"><a href="/portfolio/allosimplon/build/content/favoris.php">Voir vos favoris</a></button>
-                    <button type="button" class=" text-gray-100 bg-main-light hover:bg-main-hover focus:ring-main-light focus:ring-offset-main-light font-medium rounded-lg  px-5 py-2.5 mr-2 mb-2 focus:outline-none"><a href="/portfolio/allosimplon/build/content/crud.php">Interface admin</a></button>
+                    <?php if($_SESSION['ID_role']==1){?><button type="button" class=" text-gray-100 bg-main-light hover:bg-main-hover focus:ring-main-light focus:ring-offset-main-light font-medium rounded-lg  px-5 py-2.5 mr-2 mb-2 focus:outline-none"><a href="/portfolio/allosimplon/build/content/crud.php">Interface admin</a></button><?php }?>
                 </div>
                 <div class="flex justify-end w-full">
                     <a class="text-sm text-main-light ml-4" href="/portfolio/allosimplon/build/traitements/logout.php">Se déconnecter</a>
