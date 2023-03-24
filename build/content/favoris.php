@@ -1,7 +1,15 @@
+<?php
+session_start();
+header('Content-type: text/html; charset=utf-8');
+require_once '../config/connexion.php';
+?>
 
 <?php include('../include/head.php')?>
 
 <?php include('../include/nav.php')?>
+
+<?php if(isset($_SESSION['ETAT'])){
+    if($_SESSION['ETAT']== "connected"){ ?>
 
 <div class="flex justify-center mt-28 mb-6">
 <h1 class="font-bold text-4xl">Favoris</h1>
@@ -80,7 +88,7 @@
                         </div>
                     </div>
                 </div>
-                <img class="" src="img/1.jpg" alt="">
+                <img class="" src="/portfolio/allosimplon/build/img/1.jpg" alt="">
             </div>
             <div class="group relative">
                                             <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
@@ -109,7 +117,7 @@
                                     </div>
                                 </div>
                             </div>
-                <img class="object-cover w-full h-full" src="img/2.jpg" alt="">
+                <img class="object-cover w-full h-full" src="/portfolio/allosimplon/build/img/2.jpg" alt="">
             </div>
             <div class="group relative">
                                             <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
@@ -138,7 +146,7 @@
                                     </div>
                                 </div>
                             </div>
-                <img class="object-cover w-full h-full" src="img/3.jpg" alt="">
+                <img class="object-cover w-full h-full" src="/portfolio/allosimplon/build/img/3.jpg" alt="">
             </div>
             <div class="group relative">
                                             <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
@@ -167,7 +175,7 @@
                                     </div>
                                 </div>
                             </div>
-                <img class="object-cover w-full h-full" src="img/4.jpg" alt="">
+                <img class="object-cover w-full h-full" src="/portfolio/allosimplon/build/img/4.jpg" alt="">
             </div>
             <div class="group relative">
                                             <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
@@ -196,7 +204,7 @@
                                     </div>
                                 </div>
                             </div>
-                <img class="object-cover w-full h-full" src="img/5.jpg" alt="">
+                <img class="object-cover w-full h-full" src="/portfolio/allosimplon/build/img/5.jpg" alt="">
             </div>
             <div class="group relative">
                                             <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
@@ -225,7 +233,7 @@
                                     </div>
                                 </div>
                             </div>
-                <img class="object-cover w-full h-full" src="img/6.jpg" alt="">
+                <img class="object-cover w-full h-full" src="/portfolio/allosimplon/build/img/6.jpg" alt="">
             </div>
             <div class="group relative">
                                             <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
@@ -254,7 +262,7 @@
                                     </div>
                                 </div>
                             </div>
-                <img class="object-cover w-full h-full" src="img/7.jpg" alt="">
+                <img class="object-cover w-full h-full" src="/portfolio/allosimplon/build/img/7.jpg" alt="">
             </div>
             <div class="group relative">
                                             <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
@@ -283,7 +291,7 @@
                                     </div>
                                 </div>
                             </div>
-                <img class="object-cover w-full h-full" src="img/8.jpg" alt="">
+                <img class="object-cover w-full h-full" src="/portfolio/allosimplon/build/img/8.jpg" alt="">
             </div>
             <div class="group relative">
                                             <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
@@ -312,7 +320,7 @@
                                     </div>
                                 </div>
                             </div>
-                <img class="object-cover w-full h-full" src="img/9.jpg" alt="">
+                <img class="object-cover w-full h-full" src="/portfolio/allosimplon/build/img/9.jpg" alt="">
             </div>
             <div class="group relative">
                                             <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
@@ -341,7 +349,7 @@
                                     </div>
                                 </div>
                             </div>
-                <img class="object-cover w-full h-full" src="img/10.jpg" alt="">
+                <img class="object-cover w-full h-full" src="/portfolio/allosimplon/build/img/10.jpg" alt="">
             </div>
             <div class="group relative">
                                             <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
@@ -370,7 +378,7 @@
                                     </div>
                                 </div>
                             </div>
-                <img class="object-cover w-full h-full" src="img/1.jpg" alt="">
+                <img class="object-cover w-full h-full" src="/portfolio/allosimplon/build/img/1.jpg" alt="">
             </div>
             <div class="group relative">
                                             <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
@@ -399,7 +407,7 @@
                                     </div>
                                 </div>
                             </div>
-                <img class="object-cover w-full h-full" src="img/2.jpg" alt="">
+                <img class="object-cover w-full h-full" src="/portfolio/allosimplon/build/img/2.jpg" alt="">
             </div>
             <div class="group relative">
                                             <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
@@ -428,7 +436,7 @@
                                     </div>
                                 </div>
                             </div>
-                <img class="object-cover w-full h-full" src="img/3.jpg" alt="">
+                <img class="object-cover w-full h-full" src="/portfolio/allosimplon/build/img/3.jpg" alt="">
             </div>
             <div class="group relative">
                                             <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
@@ -457,7 +465,7 @@
                                     </div>
                                 </div>
                             </div>
-                <img class="object-cover w-full h-full" src="img/4.jpg" alt="">
+                <img class="object-cover w-full h-full" src="/portfolio/allosimplon/build/img/4.jpg" alt="">
             </div>
             <div class="group relative">
                                             <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
@@ -486,7 +494,7 @@
                                     </div>
                                 </div>
                             </div>
-                <img class="object-cover w-full h-full" src="img/5.jpg" alt="">
+                <img class="object-cover w-full h-full" src="/portfolio/allosimplon/build/img/5.jpg" alt="">
             </div>
             <div class="group relative">
                                             <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
@@ -515,7 +523,7 @@
                                     </div>
                                 </div>
                             </div>
-                <img class="object-cover w-full h-full" src="img/6.jpg" alt="">
+                <img class="object-cover w-full h-full" src="/portfolio/allosimplon/build/img/6.jpg" alt="">
             </div>
         </div>
 <!-- pagination -->
@@ -558,5 +566,11 @@
 
 <?php include('../include/footer.php')?>
 
-
+<?php }else{ ?>
+<div class="mt-28">Vous n'êtes pas connecté ! Zone inaccessible.</div>
+<a class="text-main-light" href="/portfolio/allosimplon/build/index.php">Retourner à l'accueil</a>
+<?php };}else{ ?>
+    <div class="mt-28">Vous n'êtes pas connecté ! Zone inaccessible.</div>
+    <a class="text-main-light" href="/portfolio/allosimplon/build/index.php">Retourner à l'accueil</a>
+<?php } ?>
 
