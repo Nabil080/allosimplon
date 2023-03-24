@@ -1,3 +1,7 @@
+<?php if(isset($_SESSION['user_role'])){
+    if($_SESSION['user_role']==1){ ?>
+
+
 <?php include('../include/head.php')?>
 
 <?php include('../include/nav.php')?>
@@ -1579,3 +1583,12 @@
 
 
 <?php include('../include/footer.php')?>
+
+
+<?php }else{ ?>
+<div>Vous n'êtes pas un admnisitrateur ! Zone inacessible.</div>
+<a href="/portfolio/allosimplon/build/index.php">Retourner à l'accueil</a>
+<?php };}else{ ?>
+    <div>Vous n'êtes pas un admnisitrateur ! Zone inacessible.</div>
+    <a href="/portfolio/allosimplon/build/index.php">Retourner à l'accueil</a>
+<?php } ?>

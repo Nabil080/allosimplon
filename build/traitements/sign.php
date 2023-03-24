@@ -1,3 +1,5 @@
+
+
 <?php
 session_start();
 header('Content-type: text/html; charset=utf-8');
@@ -7,11 +9,11 @@ require_once '../config/connexion.php';
 <?php
 // Variables + sécurisation
 $errors = array();
-$pseudo = htmlspecialchars(strip_tags($_POST['pseudo']), ENT_QUOTES );
-$email = htmlspecialchars(strip_tags($_POST['email']), ENT_QUOTES );
-$password = htmlspecialchars(strip_tags($_POST['password']), ENT_QUOTES );
-$password_verif = htmlspecialchars(strip_tags($_POST['password_verif']), ENT_QUOTES );
-
+    // $pseudo = htmlspecialchars(strip_tags($_POST['pseudo']), ENT_QUOTES );
+    $email = htmlspecialchars(strip_tags($_POST['email']), ENT_QUOTES );
+    $pseudo = htmlspecialchars(strip_tags($_POST['pseudo']), ENT_QUOTES );
+    $password = htmlspecialchars(strip_tags($_POST['password']), ENT_QUOTES );
+    $password_verif = htmlspecialchars(strip_tags($_POST['password_verif']), ENT_QUOTES );
 
 // verif syntaxe email
 if(empty($email) || !filter_var($email,FILTER_VALIDATE_EMAIL)){
