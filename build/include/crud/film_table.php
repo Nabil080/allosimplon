@@ -34,6 +34,29 @@
             </tr>
         </thead>
         <tbody class="[&_td]:text-center">
+
+
+
+
+        <!-- REQUETE RECUP FILM + BOUCLE -->
+
+
+        <?php
+            $request=$con->prepare("SELECT * FROM film");
+            $request->execute();
+            while($film=$request->fetch()){
+                // Variables
+                $photo=$film['film_photo'];
+                $name=$film['film_name'];
+                $ID=$film['ID_film'];
+                $time=$film['film_time'];
+                $date=$film['film_date'];
+                $note=$film['film_grade'];
+                $description=$film['film_description'];
+                $video=$film['film_video'];
+                $background=$film['film_background']
+        ?>
+
             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 h-fit">
                 <!-- <td class="w-4 py-4">
                     <div class="flex items-center">
@@ -42,41 +65,73 @@
                     </div>
                 </td> -->
                 <th scope="row" class="px-1 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white max-w-[8rem]">
-                    <img src="/portfolio/allosimplon/build/img/4.jpg" class="w-full objet-cover" alt="">
+                    <img src="/portfolio/allosimplon/build/img/<?=$photo?>" class="w-full objet-cover" alt="">
                 </th>
                 <td class="px-6 py-4">
-                    Blade runner
+                    <?=$name?>
                 </td>
                 <td class="px-6 py-4">
-                    1
+                    <?=$ID?>
                 </td>
                 <td class="px-6 py-4">
-                    163m
+                    <?=$time?>
                 </td>
                 <td class="px-6 py-4">
-                    2017
+                    <?=$date?>
                 </td>
                 <td class="px-6 py-4">
-                    8,00
+                    <?=$note?>
                 </td>
                 <td class="px-6 py-4">
                     <!-- Modal toggle -->
 <div class="flex justify-center m-5">
-    <button id="readProductButton" data-modal-toggle="readProductModal" class="block text-white bg-main-light hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center  dark:hover:bg-primary-700 dark:focus:ring-primary-800" type="button">
+    <button data-modal-toggle="modal<?=$ID?>" class="block text-white bg-main-light hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center  dark:hover:bg-primary-700 dark:focus:ring-primary-800" type="button">
     Plus d'informations
     </button>
 </div>
 
+<!-- REQUETE JOIN ACTEUR/REAL/GENRE/SCENAR -->
+<!-- REQUETE JOIN ACTEUR/REAL/GENRE/SCENAR -->
+
+<?php
+// selectionne ID_actor dans film_actor là où film.ID_film = film_actor.ID_film
+$ID_actor_request=$con->prepare(
+    "SELECT
+        ID_actor
+    FROM film_actor
+    WHERE ID_film = $ID");
+$ID_actor_request->execute();
+while($ID_actor=$ID_actor_request->fetch()){
+
+    // selectionne * dans actor là où film_actor.ID_actor = actor.ID_actor
+    $actor_request=$con->prepare(
+        "SELECT
+            *
+        FROM actor
+        WHERE ID_actor =  $ID_actor[0]"
+        );
+    $actor_request->execute();
+    while($actor=$actor_request->fetch()){
+        echo $actor['ID_actor'];
+        echo $actor['actor_photo'];
+        echo $actor['actor_name'];
+        echo '<br>';
+    }
+}
+
+
+?>
+
 <!-- Main modal -->
-<div id="readProductModal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-scroll overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-modal md:h-full">
-    <div class="relative p-4 w-full max-w-3xl h-full max-h-[80vh]">
+    <div id="modal<?=$ID?>" tabindex="-1" aria-hidden="true" class="hidden overflow-y-scroll overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-modal md:h-full">
+        <div class="relative p-4 w-full max-w-3xl h-full max-h-[80vh]">
         <!-- Modal content -->
-        <div class="relative p-4 bg-white rounded-lg shadow dark:bg-gray-800 sm:p-5">
+            <div class="relative p-4 bg-white rounded-lg shadow dark:bg-gray-800 sm:p-5">
                 <!-- Modal header -->
                 <div class="flex justify-between mb-4 rounded-t sm:mb-5">
                     <div class="text-lg text-gray-900 md:text-xl dark:text-white">
                         <h3 class="font-semibold ">
-                            Blade runner
+                            <?=$name?>
                         </h3>
 
                     </div>
@@ -121,16 +176,14 @@
                     
                     <dt class="mb-2 font-semibold leading-none text-gray-900 dark:text-white w-full bg-main-default py-2 my-2">Image de fond</dt>
                     <dd class="mb-4 font- text-gray-500 sm:mb-5 dark:text-gray-300">
-                        <img src="/portfolio/allosimplon/build/img/4-bg.jpg" alt="">
+                        <img src="/portfolio/allosimplon/build/img/<?=$background?>" alt="">
                     </dd>
                     <dt class="mb-2 font-semibold leading-none text-gray-900 dark:text-white w-full bg-main-default py-2 my-2">Bande annonce</dt>
                     <dd class="mb-4 font- text-gray-500 sm:mb-5 dark:text-gray-300">
-                        <iframe class="w-full aspect-video" width="" height="" src="https://www.youtube.com/embed/FfRPKYwsFNg" title="YouTube video player" frameborder="0"  allowfullscreen></iframe>
+                        <iframe class="w-full aspect-video" width="" height="" src="<?=$video?>" title="YouTube video player" frameborder="0"  allowfullscreen></iframe>
                     </dd>
                     <dt class="mb-2 font-semibold leading-none text-gray-900 dark:text-white w-full bg-main-default py-2 my-2">Synopsis</dt>
-                    <dd class="mb-4 font- text-gray-500 sm:mb-5 dark:text-gray-300">Blade Runner 2049 est un film de science-fiction américain réalisé par Denis Villeneuve et sorti en 2017. Il fait suite au film Blade Runner, réalisé par Ridley Scott (producteur de cette suite), sorti en 1982 et adapté du roman Les androïdes rêvent-ils de moutons électriques ? de Philip K. Dick.
-                        L'histoire de Blade Runner 2049 se situe trente ans après les aventures de Rick Deckard et raconte les aventures d'un « blade runner » (policier chargé de traquer les réplicants, des androïdes créés à l'image de l'Homme). </dd>
-                </dl>
+                    <dd class="mb-4 font- text-gray-500 sm:mb-5 dark:text-gray-300"><?=$description?></dd>
                                 <div class="flex justify-between items-center">
                     <div class="flex items-center space-x-3 sm:space-x-4">
                         <button type="button" data-modal-toggle="modifyfilm" class="text-white bg-blue-600 hover:bg-blue-700 inline-flex items-center bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
@@ -155,5 +208,7 @@
                     </div>
                 </td>
             </tr>
+       <?php };
+        ?>
         </tbody>
     </table>
