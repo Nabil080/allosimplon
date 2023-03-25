@@ -1,3 +1,12 @@
+<?php
+session_start();
+header('Content-type: text/html; charset=utf-8');
+require_once '../config/connexion.php';
+require_once '../config/functions.php';
+
+
+?>
+
 <?php include('../include/head.php')?>
 
 <?php include('../include/nav.php')?>
@@ -63,23 +72,7 @@
 <!-- SECTION CRUD SECTION CRUD SECTION CRUD -->
 <!-- SECTION CRUD SECTION CRUD SECTION CRUD -->
 
-<script>
 
-const multiSelectWithoutCtrl = ( elemSelector ) => {
-    let options = [].slice.call(document.querySelectorAll(`${elemSelector} option`));
-    options.forEach(function (element) {
-        element.addEventListener("mousedown", 
-            function (e) {
-                e.preventDefault();
-                element.parentElement.focus();
-                this.selected = !this.selected;
-                return false;
-            }, false );
-    });
-}
-
-    multiSelectWithoutCtrl('#dd')
-    </script>
 
 <?php include('../include/crud/crud_film.php') ?>
 
@@ -102,7 +95,26 @@ const multiSelectWithoutCtrl = ( elemSelector ) => {
 
 
 
+<script>
 
+const multiSelectWithoutCtrl = ( elemSelector ) => {
+    let options = [].slice.call(document.querySelectorAll(`${elemSelector} option`));
+    options.forEach(function (element) {
+        element.addEventListener("mousedown",
+            function (e) {
+                e.preventDefault();
+                element.parentElement.focus();
+                this.selected = !this.selected;
+                return false;
+            }, false );
+    });
+}
+
+    // multiSelectWithoutCtrl('#genre')
+    // multiSelectWithoutCtrl('#actor')
+    multiSelectWithoutCtrl('#realisator')
+    multiSelectWithoutCtrl('#scenarist')
+    </script>
 
 
 
