@@ -25,6 +25,19 @@
             </tr>
         </thead>
         <tbody class="[&_td]:text-center">
+
+
+
+        <?php
+        // REQUETE RECUP ACTEURS + BOUCLE
+        $request=$con->prepare("SELECT * FROM actor");
+        $request->execute();
+        while($actor=$request->fetch()){
+            $ID = $actor['ID_actor'];
+            $name = $actor['actor_name'];
+            $photo = $actor['actor_photo'];
+        ?>
+
             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 h-fit">
                 <!-- <td class="w-4 py-4">
                     <div class="flex items-center">
@@ -33,19 +46,17 @@
                     </div>
                 </td> -->
                 <th scope="row" class="px-1 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white max-w-[8rem]">
-                    <img src="img/ryan.jpg" class="w-full objet-cover" alt="">
+                    <img src="/portfolio/allosimplon/build/img/<?=$photo?>" class="w-full objet-cover" alt="">
                 </th>
                 <td class="px-6 py-4">
-                    Ryan Gosling
+                <?=$name?>
                 </td>
                 <td class="px-6 py-4">
-                    48
+                <?=$ID?>
                 </td>
                 <td class="px-6 py-4">
-                    Blade runner, lame coureur..
-                    Blade runner, lame coureur..
+                    <?php GetActorFilm($ID) ?>
                 </td>
-                
                                 <td class="">
                     <div class="space-x-3 justify-center my-auto h-full flex ">
                         <a href="#" class="font-medium p-4 border-blue-600 border rounded-lg  text-blue-600 dark:text-blue-500 hover:text-gray-50 hover:bg-blue-500">Modifier</a>
@@ -54,6 +65,7 @@
                 </td>
             </tr>
 
+            <?php } ?>
 
         </tbody>
     </table>
