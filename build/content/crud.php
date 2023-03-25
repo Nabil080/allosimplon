@@ -110,10 +110,8 @@ const multiSelectWithoutCtrl = ( elemSelector ) => {
     });
 }
 
-    // multiSelectWithoutCtrl('#genre')
-    // multiSelectWithoutCtrl('#actor')
-    multiSelectWithoutCtrl('#realisator')
-    multiSelectWithoutCtrl('#scenarist')
+
+    multiSelectWithoutCtrl('#dd')
     </script>
 
 
