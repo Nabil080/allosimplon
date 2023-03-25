@@ -305,55 +305,66 @@ function GetUserFav($ID_user){
     }
 }
 
-
-function AddFilm(){
+function SelectFilm(){
     if(require("connexion.php")){
+        $select_film_request=$con->prepare(
+            "SELECT ID_film, film_name FROM film");
+        $select_film_request->execute();
+        while($select_film=$select_film_request->fetch()){?>
+            <option value=<?=$select_film['ID_film']?>>
+                <?=$select_film['film_name']?>
+            </option>
+        <?php }
+    }
+};
 
-    $add_film_request=$con->prepare(
-        "INSERT INTO
-            film
-        SET
-            film_name = ?, film_date = ?, film_photo = ?, film_video = ?, film_grade = ?, film_description = ?, film_time = ?, film_background = ?");
+function SelectActor(){
+    if(require("connexion.php")){
+        $select_actor_request=$con->prepare(
+            "SELECT ID_actor, actor_name FROM actor");
+        $select_actor_request->execute();
+        while($select_actor=$select_actor_request->fetch()){?>
+            <option value=<?=$select_actor['ID_actor']?>>
+                <?=$select_actor['actor_name']?>
+            </option>
+        <?php }
+    }
+};
+function SelectGenre(){
+    if(require("connexion.php")){
+        $select_genre_request=$con->prepare(
+            "SELECT ID_genre, genre_name FROM genre");
+        $select_genre_request->execute();
+        while($select_genre=$select_genre_request->fetch()){?>
+            <option value=<?=$select_genre['ID_genre']?>>
+                <?=$select_genre['genre_name']?>
+            </option>
+        <?php }
+    }
+};
 
-    $add_film_request->execute([ $film_name, $film_date, $film_photo, $film_video, $film_grade,  $film_description, $film_time, $film_background]);
-
-    $add_actor_request=$con->prepare(
-        "INSERT INTO
-            film_actor
-        SET
-        ID_film = ?, ID_actor = ? ");
-
-    $add_actor_request->execute([ $ID_film, $ID_actor]);
-
-    $add_realisator_request=$con->prepare(
-        "INSERT INTO
-            film_realisator
-        SET
-        ID_film = ?, ID_realisator = ?
-        ");
-    $add_realisator_request->execute([ $ID_film, $ID_realisator
-    ]);
-
-    $add_genre_request=$con->prepare(
-        "INSERT INTO
-            film_genre
-        SET
-        ID_film = ?, ID_genre = ?
-        ");
-    $add_genre_request->execute([ $ID_film, $ID_genre
-    ]);
-
-    $add_scenarist_request=$con->prepare(
-        "INSERT INTO
-            film_scenarist
-        SET
-        ID_film = ?, ID_scenarist = ?
-        ");
-    $add_scenarist_request->execute([ $ID_film, $ID_genre
-    ]);
-
-
-    echo 'Le film a été ajouté.';
-}
-}
+function SelectRealisator(){
+    if(require("connexion.php")){
+        $select_realisator_request=$con->prepare(
+            "SELECT ID_realisator, realisator_name FROM realisator");
+        $select_realisator_request->execute();
+        while($select_realisator=$select_realisator_request->fetch()){?>
+            <option value=<?=$select_realisator['ID_realisator']?>>
+                <?=$select_realisator['realisator_name']?>
+            </option>
+        <?php }
+    }
+};
+function SelectScenarist(){
+    if(require("connexion.php")){
+        $select_scenarist_request=$con->prepare(
+            "SELECT ID_scenarist, scenarist_name FROM scenarist");
+        $select_scenarist_request->execute();
+        while($select_scenarist=$select_scenarist_request->fetch()){?>
+            <option value=<?=$select_scenarist['ID_scenarist']?>>
+                <?=$select_scenarist['scenarist_name']?>
+            </option>
+        <?php }
+    }
+};
 ?>
