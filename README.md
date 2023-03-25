@@ -11,3 +11,5 @@ Pour récupérer le css tailwind compilé :
 > éxécutez cette commande dans le terminal a la racine du dossier (requiert nodejs)
 > npx tailwindcss -i ./src/input.css -o ./build/css/output.css --watch
 
+Pour un accès au crud : 
+> force à vous localhost/portfolio/allosimplon/build/content/crud.php
