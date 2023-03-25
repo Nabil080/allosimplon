@@ -25,6 +25,20 @@
             </tr>
         </thead>
         <tbody class="[&_td]:text-center">
+
+
+
+        <?php
+
+
+            $request=$con->prepare("SELECT * FROM realisator");
+            $request->execute();
+            while($realisator=$request->fetch()){
+                $ID = $realisator['ID_realisator'];
+                $name = $realisator['realisator_name'];
+                $photo = $realisator['realisator_photo'];
+            ?>
+
             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 h-fit">
                 <!-- <td class="w-4 py-4">
                     <div class="flex items-center">
@@ -33,16 +47,16 @@
                     </div>
                 </td> -->
                 <th scope="row" class="px-1 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white max-w-[8rem]">
-                    <img src="img/hampton.jpg" class="w-full objet-cover" alt="">
+                    <img src="/portfolio/allosimplon/build/img/<?=$photo?>" class="w-full objet-cover" alt="">
                 </th>
                 <td scope="row" class="text-center px-1 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white max-w-[8rem]">
-                    Hampton Fancher
+                    <?=$name?>
                 </td>
                 <td class="px-6 py-4">
-                    12
+                    <?=$ID?>
                 </td>
                 <td class="px-6 py-4">
-                    One Piece, Entre, Autres!!
+                    <?php GetRealisatorFilm($ID) ?>
                 </td>
                                 <td class="">
                     <div class="space-x-3 justify-center my-auto h-full flex ">
@@ -52,6 +66,7 @@
                 </td>
             </tr>
 
+                <?php } ?>
 
         </tbody>
     </table>

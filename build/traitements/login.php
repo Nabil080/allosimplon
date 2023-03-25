@@ -1,3 +1,4 @@
+
 <?php
 session_start();
 header('Content-type: text/html; charset=utf-8');
@@ -7,14 +8,15 @@ require_once '../config/connexion.php';
 <?php
 // Variables + sécurisation
 $errors = array();
-$email = htmlspecialchars(strip_tags($_POST['email']), ENT_QUOTES );
-$password = htmlspecialchars(strip_tags($_POST['password']), ENT_QUOTES );
+    $email = htmlspecialchars(strip_tags($_POST['email']), ENT_QUOTES );
+    $password = htmlspecialchars(strip_tags($_POST['password']), ENT_QUOTES );
 
 // Verif email valide
 if(empty($email) || !filter_var($email,FILTER_VALIDATE_EMAIL)){
     $errors['email']= "Email invalide";
 }else{
 // Verif email présent en BDD
+
     $verif_mail=$con->prepare("SELECT ID_user FROM user WHERE user_email = ?");
     $verif_mail->execute([$email]);
     $email_row=$verif_mail->fetch();
@@ -37,8 +39,10 @@ if($bool=="true"){
         $_SESSION['ID_user'] = $user_row['ID_user'];
         $_SESSION['user_pseudo'] = $user_row['user_pseudo'];
         $_SESSION['user_email'] = $user_row['user_email'];
+        $_SESSION['user_password'] = $user_row['user_password'];
         $_SESSION['ID_role'] = $user_row['ID_role'];
         header('Location: ../index.php');
+        $connected = "true";
 
     }else{
         $_SESSION['ETAT'] = "not connected";
@@ -53,3 +57,4 @@ if($bool=="true"){
 
 
 ?>
+
