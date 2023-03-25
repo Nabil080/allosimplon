@@ -304,4 +304,67 @@ function GetUserFav($ID_user){
     }
     }
 }
+
+function SelectFilm(){
+    if(require("connexion.php")){
+        $select_film_request=$con->prepare(
+            "SELECT ID_film, film_name FROM film");
+        $select_film_request->execute();
+        while($select_film=$select_film_request->fetch()){?>
+            <option value=<?=$select_film['ID_film']?>>
+                <?=$select_film['film_name']?>
+            </option>
+        <?php }
+    }
+};
+
+function SelectActor(){
+    if(require("connexion.php")){
+        $select_actor_request=$con->prepare(
+            "SELECT ID_actor, actor_name FROM actor");
+        $select_actor_request->execute();
+        while($select_actor=$select_actor_request->fetch()){?>
+            <option value=<?=$select_actor['ID_actor']?>>
+                <?=$select_actor['actor_name']?>
+            </option>
+        <?php }
+    }
+};
+function SelectGenre(){
+    if(require("connexion.php")){
+        $select_genre_request=$con->prepare(
+            "SELECT ID_genre, genre_name FROM genre");
+        $select_genre_request->execute();
+        while($select_genre=$select_genre_request->fetch()){?>
+            <option value=<?=$select_genre['ID_genre']?>>
+                <?=$select_genre['genre_name']?>
+            </option>
+        <?php }
+    }
+};
+
+function SelectRealisator(){
+    if(require("connexion.php")){
+        $select_realisator_request=$con->prepare(
+            "SELECT ID_realisator, realisator_name FROM realisator");
+        $select_realisator_request->execute();
+        while($select_realisator=$select_realisator_request->fetch()){?>
+            <option value=<?=$select_realisator['ID_realisator']?>>
+                <?=$select_realisator['realisator_name']?>
+            </option>
+        <?php }
+    }
+};
+function SelectScenarist(){
+    if(require("connexion.php")){
+        $select_scenarist_request=$con->prepare(
+            "SELECT ID_scenarist, scenarist_name FROM scenarist");
+        $select_scenarist_request->execute();
+        while($select_scenarist=$select_scenarist_request->fetch()){?>
+            <option value=<?=$select_scenarist['ID_scenarist']?>>
+                <?=$select_scenarist['scenarist_name']?>
+            </option>
+        <?php }
+    }
+};
 ?>
