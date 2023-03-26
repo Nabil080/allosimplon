@@ -78,22 +78,12 @@ require_once '../config/functions.php';
 <!-- SECTION CRUD SECTION CRUD SECTION CRUD -->
 
 
-
-<?php include('../include/crud/crud_film.php') ?>
-
-<?php include('../include/crud/crud_actor.php') ?>
-
-
-
-
-
-
 <div id="crudtable" class="relative overflow-x-scroll shadow-md sm:rounded-lg">
     <?php include('../include/crud/film_table.php')?>
     <?php include('../include/crud/actor_table.php')?>
     <?php include('../include/crud/genre_table.php')?>
     <?php include('../include/crud/user_table.php')?>
-    <?php include('../include/crud/real_table.php')?>
+    <?php include('../include/crud/realisator_table.php')?>
     <?php include('../include/crud/scenario_table.php')?>
 </div>
 
