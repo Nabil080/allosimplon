@@ -81,6 +81,7 @@ require_once '../config/functions.php';
 
 
 
+<?php include('../include/crud/crud_film.php') ?>
 <?php include('../include/crud/crud_actor.php') ?>
 
 
