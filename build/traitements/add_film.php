@@ -22,6 +22,7 @@ if(
     empty($film_name) ||
     empty($film_date) ||
     empty($film_video) ||
+    !filter_var($film_video,FILTER_VALIDATE_URL) ||
     empty($film_grade) ||
     empty($film_description) ||
     empty($film_time) ||
@@ -42,7 +43,7 @@ if(
                 $errorFile = $_FILES['photo']['error'];
                 $sizeFile = $_FILES['photo']['size'];
         
-                $max_size = 700000;
+                $max_size = 10000000;
                 $extensions = ['png', 'jpg', 'jpeg', 'gif', 'jiff'];
         
                 if ($sizeFile > $max_size) {
@@ -76,7 +77,7 @@ if(
                 $errorFile = $_FILES['background']['error'];
                 $sizeFile = $_FILES['background']['size'];
         
-                $max_size = 700000;
+                $max_size = 20000000;
                 $extensions = ['png', 'jpg', 'jpeg', 'gif', 'jiff'];
         
                 if ($sizeFile > $max_size) {
@@ -173,8 +174,13 @@ if(
                 }
 
                 } else {
-                    echo 'la photo backogrund n as pas pu etre upload';
+                    echo 'la photo background n as pas pu etre upload';
+                    
+                    var_dump($_FILES);
+                    var_dump($_FILES['background']['error']);
+                    var_dump($_FILES['background']['name']);
                     die(); // Il y a eu une erreur lors du déplacement du fichier
+                    
                 }
         
             } else {
