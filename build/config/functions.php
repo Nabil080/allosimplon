@@ -361,10 +361,119 @@ function SelectScenarist(){
             "SELECT ID_scenarist, scenarist_name FROM scenarist");
         $select_scenarist_request->execute();
         while($select_scenarist=$select_scenarist_request->fetch()){?>
-            <option value=<?=$select_scenarist['ID_scenarist']?>>
+            <option 
+            value=<?=$select_scenarist['ID_scenarist']?>>
                 <?=$select_scenarist['scenarist_name']?>
             </option>
         <?php }
     }
 };
+
+function SelectedRealisator($ID_film){
+    if(require("connexion.php")){
+        $select_realisator_request=$con->prepare(
+            "SELECT ID_realisator, realisator_name FROM realisator");
+            $select_realisator_request->execute();
+            while($select_realisator=$select_realisator_request->fetch()){
+            $selected_realisator_request=$con->prepare(
+                "SELECT ID_film FROM film_realisator WHERE ID_realisator = ? AND ID_film = ? ");
+            $selected_realisator_request->execute([$select_realisator['ID_realisator'],$ID_film]);
+            $is_realisator_selected=$selected_realisator_request->fetch();
+            if($is_realisator_selected){?>
+                <option selected
+                value=<?=$select_realisator['ID_realisator']?>>
+                    <?=$select_realisator['realisator_name']?>
+                </option>
+            <?php }else{?>
+            
+                <option
+                value=<?=$select_realisator['ID_realisator']?>>
+                    <?=$select_realisator['realisator_name']?>
+                </option>
+            <?php }
+    }
+}
+}
+
+function SelectedActor($ID_film){
+    if(require("connexion.php")){
+        $select_actor_request=$con->prepare(
+            "SELECT ID_actor, actor_name FROM actor");
+            $select_actor_request->execute();
+            while($select_actor=$select_actor_request->fetch()){
+            $selected_actor_request=$con->prepare(
+                "SELECT ID_film FROM film_actor WHERE ID_actor = ? AND ID_film = ? ");
+            $selected_actor_request->execute([$select_actor['ID_actor'],$ID_film]);
+            $is_actor_selected=$selected_actor_request->fetch();
+            if($is_actor_selected){?>
+                <option selected
+                value=<?=$select_actor['ID_actor']?>>
+                    <?=$select_actor['actor_name']?>
+                </option>
+            <?php }else{?>
+            
+                <option
+                value=<?=$select_actor['ID_actor']?>>
+                    <?=$select_actor['actor_name']?>
+                </option>
+            <?php }
+    }
+}
+}
+
+function SelectedGenre($ID_film){
+    if(require("connexion.php")){
+        $select_genre_request=$con->prepare(
+            "SELECT ID_genre, genre_name FROM genre");
+            $select_genre_request->execute();
+            while($select_genre=$select_genre_request->fetch()){
+            $selected_genre_request=$con->prepare(
+                "SELECT ID_film FROM film_genre WHERE ID_genre = ? AND ID_film = ? ");
+            $selected_genre_request->execute([$select_genre['ID_genre'],$ID_film]);
+            $is_genre_selected=$selected_genre_request->fetch();
+            if($is_genre_selected){?>
+                <option selected
+                value=<?=$select_genre['ID_genre']?>>
+                    <?=$select_genre['genre_name']?>
+                </option>
+            <?php }else{?>
+            
+                <option
+                value=<?=$select_genre['ID_genre']?>>
+                    <?=$select_genre['genre_name']?>
+                </option>
+            <?php }
+    }
+}
+}
+
+function SelectedScenarist($ID_film){
+    if(require("connexion.php")){
+        $select_scenarist_request=$con->prepare(
+            "SELECT ID_scenarist, scenarist_name FROM scenarist");
+            $select_scenarist_request->execute();
+            while($select_scenarist=$select_scenarist_request->fetch()){
+            $selected_scenarist_request=$con->prepare(
+                "SELECT ID_film FROM film_scenarist WHERE ID_scenarist = ? AND ID_film = ? ");
+            $selected_scenarist_request->execute([$select_scenarist['ID_scenarist'],$ID_film]);
+            $is_scenarist_selected=$selected_scenarist_request->fetch();
+            if($is_scenarist_selected){?>
+                <option selected
+                value=<?=$select_scenarist['ID_scenarist']?>>
+                    <?=$select_scenarist['scenarist_name']?>
+                </option>
+            <?php }else{?>
+            
+                <option
+                value=<?=$select_scenarist['ID_scenarist']?>>
+                    <?=$select_scenarist['scenarist_name']?>
+                </option>
+            <?php }
+    }
+}
+}
+
 ?>
+
+
+
