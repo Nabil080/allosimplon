@@ -84,7 +84,7 @@ require_once '../config/functions.php';
     <?php include('../include/crud/genre_table.php')?>
     <?php include('../include/crud/user_table.php')?>
     <?php include('../include/crud/realisator_table.php')?>
-    <?php include('../include/crud/scenario_table.php')?>
+    <?php include('../include/crud/scenarist_table.php')?>
 </div>
 
 
