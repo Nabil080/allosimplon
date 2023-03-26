@@ -45,6 +45,19 @@ if(
     
         $add_film_request->execute([ $film_name, $film_date, $film_video, $film_grade,  $film_description, $film_time, $ID_film]);
     
+        // Suppression des éléments dans les tables de liaisons
+        $delete_film_actor=$con->prepare("DELETE FROM film_actor WHERE ID_film = ?");
+        $delete_film_actor->execute([$ID_film]);
+
+        $delete_film_realisator=$con->prepare("DELETE FROM film_realisator WHERE ID_film = ?");
+        $delete_film_realisator->execute([$ID_film]);
+
+        $delete_film_scenarist=$con->prepare("DELETE FROM film_scenarist WHERE ID_film = ?");
+        $delete_film_scenarist->execute([$ID_film]);
+
+        $delete_film_genre=$con->prepare("DELETE FROM film_genre WHERE ID_film = ?");
+        $delete_film_genre->execute([$ID_film]);
+
     foreach($ID_actor_array as $ID_actor){
         $add_actor_request=$con->prepare(
             "INSERT
@@ -107,7 +120,7 @@ if(
                 $errorFile = $_FILES['photo']['error'];
                 $sizeFile = $_FILES['photo']['size'];
         
-                $max_size = 700000;
+                $max_size = 20000000;
                 $extensions = ['png', 'jpg', 'jpeg', 'gif', 'jiff'];
         
                 if ($sizeFile > $max_size) {
@@ -146,7 +159,7 @@ if(
                 $errorFile = $_FILES['background']['error'];
                 $sizeFile = $_FILES['background']['size'];
         
-                $max_size = 700000;
+                $max_size = 20000000;
                 $extensions = ['png', 'jpg', 'jpeg', 'gif', 'jiff'];
         
                 if ($sizeFile > $max_size) {
