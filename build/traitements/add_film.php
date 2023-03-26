@@ -42,7 +42,7 @@ if(
                 $errorFile = $_FILES['photo']['error'];
                 $sizeFile = $_FILES['photo']['size'];
         
-                $max_size = 700000;
+                $max_size = 20000000;
                 $extensions = ['png', 'jpg', 'jpeg', 'gif', 'jiff'];
         
                 if ($sizeFile > $max_size) {
@@ -76,7 +76,7 @@ if(
                 $errorFile = $_FILES['background']['error'];
                 $sizeFile = $_FILES['background']['size'];
         
-                $max_size = 700000;
+                $max_size = 20000000;
                 $extensions = ['png', 'jpg', 'jpeg', 'gif', 'jiff'];
         
                 if ($sizeFile > $max_size) {
