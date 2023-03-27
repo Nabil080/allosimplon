@@ -9,11 +9,12 @@ if(!isset($_POST['submit'])){
 }else{
 $realisator_name = htmlspecialchars(strip_tags($_POST['name']), ENT_QUOTES );
 $ID_realisator = htmlspecialchars(strip_tags($_POST['ID']),ENT_QUOTES);
+if(isset($_POST['film'])){
 $ID_film_array = ($_POST['film']);
+}
 
 if(
-    empty($realisator_name) ||
-    empty($ID_film_array)
+    empty($realisator_name)
     ){
     echo 'un élément est manquant';
     }else{
@@ -28,19 +29,20 @@ if(
     
         $add_realisator_request->execute([$realisator_name, $ID_realisator]);
     
+    if(isset($_POST['film'])){
         // Suppression des éléments dans les tables de liaisons
         $delete_realisator_film=$con->prepare("DELETE FROM film_realisator WHERE ID_realisator = ?");
         $delete_realisator_film->execute([$ID_realisator]);
 
-    foreach($ID_film_array as $ID_film){
-        $add_realisator_request=$con->prepare(
-            "INSERT INTO
-                film_realisator
-            SET
-            ID_film = ?, ID_realisator = ? ");
-        $add_realisator_request->execute([ $ID_film, $ID_realisator]);
-    }
-
+        foreach($ID_film_array as $ID_film){
+            $add_realisator_request=$con->prepare(
+                "INSERT INTO
+                    film_realisator
+                SET
+                ID_film = ?, ID_realisator = ? ");
+            $add_realisator_request->execute([ $ID_film, $ID_realisator]);
+        }
+}
         echo "L'acteur a été modifié.";
         echo'<br> ID acteurs : <br>';
         var_dump($ID_realisator);

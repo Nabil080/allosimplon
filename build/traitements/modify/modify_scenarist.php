@@ -9,11 +9,11 @@ if(!isset($_POST['submit'])){
 }else{
 $scenarist_name = htmlspecialchars(strip_tags($_POST['name']), ENT_QUOTES );
 $ID_scenarist = htmlspecialchars(strip_tags($_POST['ID']),ENT_QUOTES);
+if(isset($_POST['film'])){
 $ID_film_array = ($_POST['film']);
-
+}
 if(
-    empty($scenarist_name) ||
-    empty($ID_film_array)
+    empty($scenarist_name)
     ){
     echo 'un élément est manquant';
     }else{
@@ -28,6 +28,7 @@ if(
     
         $add_scenarist_request->execute([$scenarist_name, $ID_scenarist]);
     
+if(isset($_POST['film'])){
         // Suppression des éléments dans les tables de liaisons
         $delete_scenarist_film=$con->prepare("DELETE FROM film_scenarist WHERE ID_scenarist = ?");
         $delete_scenarist_film->execute([$ID_scenarist]);
@@ -40,7 +41,7 @@ if(
             ID_film = ?, ID_scenarist = ? ");
         $add_scenarist_request->execute([ $ID_film, $ID_scenarist]);
     }
-
+}
         echo "Le scénariste a été modifié.";
         echo'<br> ID scénariste : <br>';
         var_dump($ID_scenarist);
