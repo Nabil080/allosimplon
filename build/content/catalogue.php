@@ -71,7 +71,7 @@ require_once '../config/functions.php';
                     $description=$film['film_description'];
                 ?>
             <div class="group relative">
-            <a href="/portfolio/allosimplon/build/content/film.php" class="cursor-pointer">
+            <a href="/portfolio/allosimplon/build/content/film.php?page=<?=$ID?>"   class="cursor-pointer">
                 <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
                     <div class="relative w-full h-full flex flex-col justify-between">
                         <p class="font-bold text-xl cursor-dark"><?=$date?></p>
