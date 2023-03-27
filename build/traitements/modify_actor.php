@@ -34,7 +34,7 @@ if(
 
     foreach($ID_film_array as $ID_film){
         $add_actor_request=$con->prepare(
-            "INSERT
+            "INSERT INTO
                 film_actor
             SET
             ID_film = ?, ID_actor = ? ");

@@ -34,7 +34,7 @@ if(
 
     foreach($ID_film_array as $ID_film){
         $add_realisator_request=$con->prepare(
-            "INSERT
+            "INSERT INTO
                 film_realisator
             SET
             ID_film = ?, ID_realisator = ? ");

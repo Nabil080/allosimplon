@@ -38,7 +38,7 @@ if(
 
     foreach($ID_film_array as $ID_film){
         $add_user_request=$con->prepare(
-            "INSERT
+            "INSERT INTO
                 user_fav
             SET
             ID_film = ?, ID_user = ? ");
