@@ -41,7 +41,7 @@ if($bool=="true"){
         $_SESSION['user_email'] = $user_row['user_email'];
         $_SESSION['user_password'] = $user_row['user_password'];
         $_SESSION['ID_role'] = $user_row['ID_role'];
-        header('Location: ../index.php');
+        header('Location: ../../index.php');
         $connected = "true";
 
     }else{
