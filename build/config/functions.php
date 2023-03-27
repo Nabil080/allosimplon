@@ -1,10 +1,58 @@
 <?php
 
-function GetFilm($LIMIT){
+function GetFilm($ORDER,$LIMIT){
     if(require("connexion.php")){
-        $request=$con->prepare("SELECT * FROM film $LIMIT");
+        $request=$con->prepare("SELECT * FROM film $ORDER $LIMIT");
             $request->execute();
             return $request;
+    }
+}
+
+function GetOneFilm($ID_film){
+    if(require("connexion.php")){
+        $request=$con->prepare("SELECT * FROM film WHERE ID_film = ?");
+            $request->execute([$ID_film]);
+            return $request;
+    }
+}
+
+function GetOneActor($ID_film){
+    if(require("connexion.php")){
+        // RECUP TOUS LES ACTEURS EN RAPPORT AVEC LE FILM
+        $request=$con->prepare("SELECT ID_actor FROM film_actor WHERE ID_film = ?");
+            $request->execute([$ID_film]);
+            return $request;
+
+    }
+}
+
+function GetOneGenre($ID_film){
+    if(require("connexion.php")){
+        // RECUP TOUS LES ACTEURS EN RAPPORT AVEC LE FILM
+        $request=$con->prepare("SELECT ID_genre FROM film_genre WHERE ID_film = ?");
+            $request->execute([$ID_film]);
+            return $request;
+
+    }
+}
+
+function GetOneRealisator($ID_film){
+    if(require("connexion.php")){
+        // RECUP TOUS LES ACTEURS EN RAPPORT AVEC LE FILM
+        $request=$con->prepare("SELECT ID_realisator FROM film_realisator WHERE ID_film = ?");
+            $request->execute([$ID_film]);
+            return $request;
+
+    }
+}
+
+function GetOneScenarist($ID_film){
+    if(require("connexion.php")){
+        // RECUP TOUS LES ACTEURS EN RAPPORT AVEC LE FILM
+        $request=$con->prepare("SELECT ID_scenarist FROM film_scenarist WHERE ID_film = ?");
+            $request->execute([$ID_film]);
+            return $request;
+
     }
 }
 

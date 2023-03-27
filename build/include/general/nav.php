@@ -189,7 +189,7 @@ function switchDiv() {
             <!-- CONTENU MODIFIER PSEUDO -->
             <div id="pseudo_form" class="px-6 py-6 lg:px-8 hidden">
                 <h3 class="mb-4 text-2xl font-medium dark:text-gray-100">Modifier votre<span class="pl-1 decoration-main-light underline font-bold">pseudo</span></h3>
-                <form class="space-y-6" action="/portfolio/allosimplon/build/traitements/modify_pseudo.php" method="post">
+                <form class="space-y-6" action="/portfolio/allosimplon/build/traitements/modify/modify_pseudo.php" method="post">
                     <div>
                         <label for="pseudo" class="block mb-2 text-sm font-medium  dark:text-gray-100"> Pseudo </label>
                         <input value="<?=$_SESSION['user_pseudo']?>" type="pseudo" name="pseudo" id="pseudo" class="bg-gray-50 border border-gray-300  text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-gray-100" placeholder="Pseudonyme" required>
@@ -207,7 +207,7 @@ function switchDiv() {
             <!-- CONTENU MODIFIER EMAIL -->
             <div id="mail_form" class="px-6 py-6 lg:px-8 hidden">
                 <h3 class="mb-4 text-2xl font-medium dark:text-gray-100">Modifier votre<span class="pl-1 decoration-main-light underline font-bold">E-mail</span></h3>
-                <form class="space-y-6" action="/portfolio/allosimplon/build/traitements/modify_mail.php" method="post">
+                <form class="space-y-6" action="/portfolio/allosimplon/build/traitements/modify/modify_mail.php" method="post">
                     <div>
                         <label for="email" class="block mb-2 text-sm font-medium  dark:text-gray-100"> E-mail </label>
                         <input value="<?=$_SESSION['user_email']?>" type="email" name="email" id="email" class="bg-gray-50 border border-gray-300  text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-gray-100" placeholder="E-mail" required>
@@ -229,7 +229,7 @@ function switchDiv() {
             <!-- CONTENU MODIFIER PASSWORD -->
             <div id="pass_form" class="px-6 py-6 lg:px-8 hidden">
                 <h3 class="mb-4 text-2xl font-medium dark:text-gray-100">Modifier votre<span class="pl-1 decoration-main-light underline font-bold">mot de passe</span></h3>
-                <form class="space-y-6" action="/portfolio/allosimplon/build/traitements/modify_password.php" method="post">
+                <form class="space-y-6" action="/portfolio/allosimplon/build/traitements/modify/modify_password.php" method="post">
                     <div>
                         <label for="password" class="block mb-2 text-sm font-medium  dark:text-gray-100"> Ancien mot de passe </label>
                         <input type="password" name="password" id="password" placeholder="*********" class="bg-gray-50 border border-gray-300  text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-gray-100" required>

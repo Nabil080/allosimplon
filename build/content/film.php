@@ -2,6 +2,7 @@
 session_start();
 header('Content-type: text/html; charset=utf-8');
 require_once '../config/connexion.php';
+require_once '../config/functions.php';
 ?>
 
 <!DOCTYPE html>
@@ -35,14 +36,21 @@ require_once '../config/connexion.php';
     <title>Cinemet</title>
 </head>
 
-<body class="bg-main-dark text-gray-100 bg-cover bg-center bg-fixed bg-no-repeat " style="background-image:url(/portfolio/allosimplon/build/img/4-bg.jpg)">
+<?php $ID_film = $_GET['page'];
+$request=GetOneFilm($ID_film);
+$film=$request->fetch();
+// var_dump($film);
+
+?>
+
+<body class="bg-main-dark text-gray-100 bg-cover bg-center bg-fixed bg-no-repeat " style="background-image:url(/portfolio/allosimplon/build/upload/film/<?=$film['film_background']?>)">
 
 <?php include('../include/general/nav.php')?>
 
 
 
 <div class="flex justify-center mt-28 mb-6">
-<h1 class="font-bold text-4xl drop-shadow-lg ">Blade runner</h1>
+<h1 class="font-bold text-4xl drop-shadow-lg "><?=$film['film_name']?></h1>
 </div>
 
 
@@ -53,16 +61,54 @@ require_once '../config/connexion.php';
 <!-- GRILLE -->
     <div class="block md:grid md:grid-cols-2 gap-8  ">
         <div class="p-8">
-            <img src="/portfolio/allosimplon/build/img/4.jpg" class="" alt="">
+            <img src="/portfolio/allosimplon/build/upload/film/<?=$film['film_photo']?>" class="" alt="">
         </div>
         <div class="[&>*]:my-4 my-8 relative">
-            <div class="font-bold text-xl flex flex-wrap gap-y-4 gap-x-2"><p class="underline ">Nom d'origine : </p><span class="font-normal">Blade runner</span></div>
-            <div class="font-bold text-xl flex flex-wrap gap-y-4 gap-x-2"><p class="underline ">Date de sortie : </p><span class="font-normal">2019</span></div>
-            <div class="font-bold text-xl flex flex-wrap gap-y-4 gap-x-2"><p class="underline ">Durée du film : </p><span class="font-normal">2h19</span></div>
-            <div class="font-bold text-xl flex flex-wrap gap-y-4 gap-x-2"><p class="underline ">Genres : </p><a href="/portfolio/allosimplon/build/" class="text-main-light hover:text-main-hover font-normal">Comédie</a>, <a href="/portfolio/allosimplon/build/" class="text-main-light hover:text-main-hover font-normal">aventure</a></div>
-            <div class="font-bold text-xl flex flex-wrap gap-y-4 gap-x-2"><p class="underline ">Acteurs principaux : </p><a href="/portfolio/allosimplon/build/" class="text-main-light hover:text-main-hover font-normal">Jim carrey</a>, <a href="/portfolio/allosimplon/build/" class="text-main-light hover:text-main-hover font-normal">Zooey Deschanel</a>, <a href="/portfolio/allosimplon/build/" class="text-main-light hover:text-main-hover font-normal">Bradley Cooper</a>, <a href="/portfolio/allosimplon/build/" class="text-main-light hover:text-main-hover font-normal">John Michael Haggins</a></div>
-            <div class="font-bold text-xl flex flex-wrap gap-y-4 gap-x-2"><p class="underline ">Réalisateurs : </p><span class="font-normal"><a href="/portfolio/allosimplon/build/" class="text-main-light hover:text-main-hover font-normal">Peyton Reed</a></div>
-            <div class="font-bold text-xl flex flex-wrap gap-y-4 gap-x-2"><p class="underline ">Scénario : </p> <span class="font-normal">Jarrad paul, Nicholas Stoller</span></div>
+            <div class="font-bold text-xl flex flex-wrap gap-y-4 gap-x-2"><p class="underline ">Nom d'origine : </p><span class="font-normal"><?=$film['film_name']?></span></div>
+            <div class="font-bold text-xl flex flex-wrap gap-y-4 gap-x-2"><p class="underline ">Date de sortie : </p><span class="font-normal"><?=$film['film_date']?></span></div>
+            <div class="font-bold text-xl flex flex-wrap gap-y-4 gap-x-2"><p class="underline ">Durée du film : </p><span class="font-normal"><?=$film['film_time']?></span></div>
+            <div class="font-bold text-xl flex flex-wrap gap-y-4 gap-x-2"><p class="underline ">Genres : </p>
+                <?php $request=GetOneGenre($ID_film);
+                while($genres=$request->fetch()){
+                    $genre_info=$con->prepare("SELECT * from genre WHERE ID_genre = ?");
+                    $genre_info->execute([$genres['ID_genre']]);
+                    while($genre=$genre_info->fetch()){?>
+                        <a href="/portfolio/allosimplon/build/" class="text-main-light hover:text-main-hover font-normal"><?=$genre['genre_name']?></a>
+                <?php }
+                } ?>
+            </div>
+            <div class="font-bold text-xl flex flex-wrap gap-y-4 gap-x-3"><p class="underline ">Acteurs principaux : </p>
+
+
+                <?php $request=GetOneActor($ID_film);
+                while($actors=$request->fetch()){
+                    $actor_info=$con->prepare("SELECT * from actor WHERE ID_actor = ?");
+                    $actor_info->execute([$actors['ID_actor']]);
+                    while($actor=$actor_info->fetch()){?>
+                    <a href="/portfolio/allosimplon/build/" class="text-main-light hover:text-main-hover hover:underline font-normal"><?=$actor['actor_name']?></a>
+                <?php }
+                } ?>
+            </div>
+        <div class="font-bold text-xl flex flex-wrap gap-y-4 gap-x-2"><p class="underline ">Réalisateurs : </p><span class="font-normal">
+        <?php $request=GetOneRealisator($ID_film);
+                while($realisators=$request->fetch()){
+                    $realisator_info=$con->prepare("SELECT * from realisator WHERE ID_realisator = ?");
+                    $realisator_info->execute([$realisators['ID_realisator']]);
+                    while($realisator=$realisator_info->fetch()){?>
+                    <a href="/portfolio/allosimplon/build/" class="text-main-light hover:text-main-hover hover:underline font-normal"><?=$realisator['realisator_name']?></a>
+                <?php }
+                } ?>
+            </div>
+            <div class="font-bold text-xl flex flex-wrap gap-y-4 gap-x-2"><p class="underline ">Scénaristes : </p><span class="font-normal">
+        <?php $request=GetOneScenarist($ID_film);
+                while($scenarists=$request->fetch()){
+                    $scenarist_info=$con->prepare("SELECT * from scenarist WHERE ID_scenarist = ?");
+                    $scenarist_info->execute([$scenarists['ID_scenarist']]);
+                    while($scenarist=$scenarist_info->fetch()){?>
+                    <a href="/portfolio/allosimplon/build/" class="text-main-light hover:text-main-hover hover:underline font-normal"><?=$scenarist['scenarist_name']?></a>
+                <?php }
+                } ?>
+            </div>
             <div class="font-bold text-xl flex flex-wrap gap-y-4 gap-x-2 absolute bottom-0"><p class="underline ">Note : </p>
                 <span class="font-normal text-main-light">
                     <i class="fa-solid fa-star cursor-pointer"></i>
@@ -73,12 +119,10 @@ require_once '../config/connexion.php';
                 </span></div>
         </div>
     </div>
-<div class="px-8 font-bold text-xl space-x-6"><p class="underline float-left">Synopsis : </p><span class="font-normal">
-    En l'an 2019, un ex-policier devenu détective privé, Rick Deckard, est rappelé en service pour faire la chasse à des robots d'apparence humaine appelés "replicants." Deckard doit en éliminer quatre qui se cachent à Los Angeles. La tâche n'est pas facile, mais il arrive à supprimer trois des robots, sans pouvoir empêcher le meurtre d'un important industriel. Le quatrième "replicant," Batty, s'avère particulièrement coriace.
-</span></div>
+<div class="px-8 font-bold text-xl space-x-6"><p class="underline float-left">Synopsis : </p><span class="font-normal"><?=$film['film_description']?></span></div>
 <!-- IFRAME -->
 <div class="p-8 flex place-content-center">
-    <iframe class="w-full aspect-video" src="https://www.youtube.com/embed/FfRPKYwsFNg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    <iframe class="w-full aspect-video" src="<?=$film['film_video']?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 </div>
 </section>
 
