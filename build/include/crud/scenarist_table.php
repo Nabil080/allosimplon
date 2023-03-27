@@ -154,7 +154,7 @@
                     </div>
                 </td> -->
                 <th scope="row" class="px-1 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white max-w-[8rem]">
-                    <img src="/portfolio/allosimplon/build/img/<?=$photo?>" class="w-full objet-cover" alt="">
+                    <img src="/portfolio/allosimplon/build/upload/scenarist/<?=$photo?>" class="w-full objet-cover" alt="">
                 </th>
                 <td scope="row" class="text-center px-1 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white max-w-[8rem]">
                     <?=$name?>

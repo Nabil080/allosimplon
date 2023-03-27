@@ -263,7 +263,7 @@
                     </div>
                 </td> -->
                 <th scope="row" class="px-1 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white max-w-[8rem]">
-                    <img src="/portfolio/allosimplon/build/img/<?=$photo?>" class="w-full objet-cover" alt="">
+                    <img src="/portfolio/allosimplon/build/upload/film/<?=$photo?>" class="w-full objet-cover" alt="">
                 </th>
                 <td class="px-6 py-4">
                     <?=$name?>
@@ -343,7 +343,7 @@
                     </dd>
                     <dt class="mb-2 font-semibold leading-none text-gray-900 dark:text-white w-full bg-main-default py-2 my-2">Image de fond</dt>
                     <dd class="mb-4 font- text-gray-500 sm:mb-5 dark:text-gray-300">
-                        <img src="/portfolio/allosimplon/build/img/<?=$background?>" alt="">
+                        <img src="/portfolio/allosimplon/build/upload/film/<?=$background?>" alt="">
                     </dd>
                     <dt class="mb-2 font-semibold leading-none text-gray-900 dark:text-white w-full bg-main-default py-2 my-2">Bande annonce</dt>
                     <dd class="mb-4 font- text-gray-500 sm:mb-5 dark:text-gray-300">
