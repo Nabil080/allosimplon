@@ -14,7 +14,7 @@
                 </button>
             </div>
             <!-- Modal body -->
-            <form enctype="multipart/form-data" action="/portfolio/allosimplon/build/traitements/sign.php" method="post">
+            <form enctype="multipart/form-data" action="/portfolio/allosimplon/build/traitements/connexion/sign.php" method="post">
                 <div class="grid gap-4 mb-4 sm:grid-cols-2">
                     <div>
                     <label for="pseudo" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"> Pseudo </label>
@@ -106,7 +106,7 @@ while($user=$request->fetch()){
                 </button>
             </div>
             <!-- Modal body -->
-            <form enctype="multipart/form-data" action="/portfolio/allosimplon/build/traitements/modify_user.php" method="post">
+            <form enctype="multipart/form-data" action="/portfolio/allosimplon/build/traitements/modify/modify_user.php" method="post">
                 <div class="grid gap-4 mb-4 sm:grid-cols-2">
                     <div>
                         <label for="pseudo" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Pseudo</label>
@@ -152,7 +152,7 @@ while($user=$request->fetch()){
                 <button data-modal-toggle="deleteuser<?=$ID?>" type="button" class="py-2 px-3 text-sm font-medium text-gray-500 bg-white rounded-lg border border-gray-200 hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-primary-300 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">
                     Non, annuler
                 </button>
-                <form action="/portfolio/allosimplon/build/traitements/delete_user.php" method="post" >
+                <form action="/portfolio/allosimplon/build/traitements/delete/delete_user.php" method="post" >
                     <input type="text" name="ID" value="<?=$ID?>" class="hidden" selected>
                     <button type="submit" value="submit" name="submit" class="py-2 px-3 text-sm font-medium text-center text-white bg-red-600 rounded-lg hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-red-300 dark:bg-red-500 dark:hover:bg-red-600 dark:focus:ring-red-900">
                         Oui, je suis sûr.

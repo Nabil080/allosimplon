@@ -1,14 +1,14 @@
 <?php
 session_start();
 header('Content-type: text/html; charset=utf-8');
-require_once '../config/connexion.php';
+require_once '../../config/connexion.php';
 
 // Variables + sécurisation
 if($_POST['submit']){
-$scenarist_name = htmlspecialchars(strip_tags($_POST['name']), ENT_QUOTES );
-if(empty($scenarist_name)){
+$actor_name = htmlspecialchars(strip_tags($_POST['name']), ENT_QUOTES );
+if(empty($actor_name)){
     echo "Des éléments sont manquants";
-    var_dump($scenarist_name);
+    var_dump($actor_name);
     var_dump($_POST);
     die();
 }else{
@@ -39,22 +39,22 @@ if(empty($scenarist_name)){
             echo 'format image incorrect';
         }
 
-        $scenarist_name_photo = uniqid() . '.' . $file_type;
+        $actor_name_photo = uniqid() . '.' . $file_type;
 
         $upload_dir = '../img/';
-        if(move_uploaded_file($_FILES['photo']['tmp_name'], $upload_dir . $scenarist_name_photo)) {
+        if(move_uploaded_file($_FILES['photo']['tmp_name'], $upload_dir . $actor_name_photo)) {
             echo 'le fichier est dans le serveur';// Le fichier a été correctement déplacé
 
 
-        $add_scenarist_request=$con->prepare(
+        $add_actor_request=$con->prepare(
             "INSERT INTO
-                scenarist
+                actor
             SET
-                scenarist_name = ?, scenarist_photo = ?");
-        $add_scenarist_request->execute([ $scenarist_name, $scenarist_name_photo]);
+                actor_name = ?, actor_photo = ?");
+        $add_actor_request->execute([ $actor_name, $actor_name_photo]);
 
-        echo "Le scénariste a bien été ajouté";
-        var_dump ($add_scenarist_request);
+        echo "L'acteur a bien été ajouté";
+        var_dump ($add_actor_request);
 
     }else{
         echo "Le fichier n'a pas pu être déplacé dans le serveur";

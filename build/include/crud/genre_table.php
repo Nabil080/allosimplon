@@ -13,7 +13,7 @@
                 </button>
             </div>
             <!-- Modal body -->
-            <form enctype="multipart/form-data" action="/portfolio/allosimplon/build/traitements/add_genre.php" method="post">
+            <form enctype="multipart/form-data" action="/portfolio/allosimplon/build/traitements/add/add_genre.php" method="post">
                 <div class="grid gap-4 mb-4 sm:grid-cols-2">
                     <div>
                         <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nom du genre</label>
@@ -41,10 +41,10 @@
                     </div>
                 </th> -->
                 <th scope="col" class="px-6 py-3">
-                    Nom du Genre
+                    ID
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    ID
+                    Nom du Genre
                 </th>
                 <th scope="col" class="px-6 py-3">
                     Films
@@ -83,7 +83,7 @@
                 </button>
             </div>
             <!-- Modal body -->
-            <form enctype="multipart/form-data" action="/portfolio/allosimplon/build/traitements/modify_genre.php" method="post">
+            <form enctype="multipart/form-data" action="/portfolio/allosimplon/build/traitements/modify/modify_genre.php" method="post">
                 <div class="grid gap-4 mb-4 sm:grid-cols-2">
                     <div>
                         <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nom du genre</label>
@@ -121,7 +121,7 @@
                 <button data-modal-toggle="deletegenre<?=$ID?>" type="button" class="py-2 px-3 text-sm font-medium text-gray-500 bg-white rounded-lg border border-gray-200 hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-primary-300 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">
                     Non, annuler
                 </button>
-                <form action="/portfolio/allosimplon/build/traitements/delete_genre.php" method="post" >
+                <form action="/portfolio/allosimplon/build/traitements/delete/delete_genre.php" method="post" >
                     <input type="text" name="ID" value="<?=$ID?>" class="hidden" selected>
                     <button type="submit" value="submit" name="submit" class="py-2 px-3 text-sm font-medium text-center text-white bg-red-600 rounded-lg hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-red-300 dark:bg-red-500 dark:hover:bg-red-600 dark:focus:ring-red-900">
                         Oui, je suis sûr.
@@ -140,10 +140,10 @@
                     </div>
                 </td> -->
                 <th scope="row" class="text-center px-1 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white max-w-[8rem]">
-                    <?=$name?>
+                    <?=$ID?>
                 </th>
                 <td class="px-6 py-4">
-                    <?=$ID?>
+                    <?=$name?>
                 </td>
                 <td class="px-6 py-4">
                     <?php GetGenreFilm($ID) ?>

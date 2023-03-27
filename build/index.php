@@ -4,9 +4,9 @@ header('Content-type: text/html; charset=utf-8');
 require_once 'config/connexion.php';
 ?>
 
-<?php include('include/head.php')?>
+<?php include('include/general/head.php')?>
 
-<?php include('include/nav.php')?>
+<?php include('include/general/nav.php')?>
 
     <div class=" mt-28">
     <?php
@@ -15,10 +15,10 @@ require_once 'config/connexion.php';
     </div>
 
 
-<?php include('include/top_film_slide.php')?>
+<?php include('include/unique/top_film_slide.php')?>
 
-<?php include('include/last_film_slide.php')?>
+<?php include('include/unique/last_film_slide.php')?>
 
-<?php include('include/random_film_slide.php')?>
+<?php include('include/unique/random_film_slide.php')?>
 
-<?php include('include/footer.php')?>
+<?php include('include/general/footer.php')?>

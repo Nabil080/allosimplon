@@ -4,9 +4,9 @@ header('Content-type: text/html; charset=utf-8');
 require_once '../config/connexion.php';
 ?>
 
-<?php include('../include/head.php')?>
+<?php include('../include/general/head.php')?>
 
-<?php include('../include/nav.php')?>
+<?php include('../include/general/nav.php')?>
 
 
 <div class="flex justify-center mt-28 mb-6">
@@ -20,7 +20,7 @@ require_once '../config/connexion.php';
 <section class="flex justify-center">
 <div class="w-[1500px] mx-12 flex gap-4">
     <!-- FILTRES -->
-    <?php include('../include/filtre.php')?>
+    <?php include('../include/general/filtre.php')?>
     <!-- PAGE -->
     <div>
         <!-- pagination -->
@@ -564,4 +564,4 @@ require_once '../config/connexion.php';
 
 
 
-<?php include('../include/footer.php')?>
+<?php include('../include/general/footer.php')?>

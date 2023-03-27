@@ -4,9 +4,9 @@ header('Content-type: text/html; charset=utf-8');
 require_once '../config/connexion.php';
 ?>
 
-<?php include('../include/head.php')?>
+<?php include('../include/general/head.php')?>
 
-<?php include('../include/nav.php')?>
+<?php include('../include/general/nav.php')?>
 
 <!-- SECTION CONTACT -->
 <section class="flex w-2/3 lg:mx-auto border-main-default mt-24 p-4">
@@ -76,4 +76,4 @@ require_once '../config/connexion.php';
 </section>
 
 
-<?php include('../include/footer.php')?>
+<?php include('../include/general/footer.php')?>

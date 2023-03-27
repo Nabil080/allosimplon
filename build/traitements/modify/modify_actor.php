@@ -1,49 +1,49 @@
 <?php
 session_start();
 header('Content-type: text/html; charset=utf-8');
-require_once '../config/connexion.php';
+require_once '../../config/connexion.php';
 
 // Variables + sécurisation
 if(!isset($_POST['submit'])){
-    echo "venez depuis le formulaire de modification du scénariste";
+    echo "venez depuis le formulaire de modification de l'acteur";
 }else{
-$scenarist_name = htmlspecialchars(strip_tags($_POST['name']), ENT_QUOTES );
-$ID_scenarist = htmlspecialchars(strip_tags($_POST['ID']),ENT_QUOTES);
+$actor_name = htmlspecialchars(strip_tags($_POST['name']), ENT_QUOTES );
+$ID_actor = htmlspecialchars(strip_tags($_POST['ID']),ENT_QUOTES);
 $ID_film_array = ($_POST['film']);
 
 if(
-    empty($scenarist_name) ||
+    empty($actor_name) ||
     empty($ID_film_array)
     ){
     echo 'un élément est manquant';
     }else{
 
-        $add_scenarist_request=$con->prepare(
+        $add_actor_request=$con->prepare(
             "UPDATE
-                scenarist
+                actor
             SET
-                scenarist_name = ?
+                actor_name = ?
             WHERE
-                ID_scenarist = ?");
+                ID_actor = ?");
     
-        $add_scenarist_request->execute([$scenarist_name, $ID_scenarist]);
+        $add_actor_request->execute([$actor_name, $ID_actor]);
     
         // Suppression des éléments dans les tables de liaisons
-        $delete_scenarist_film=$con->prepare("DELETE FROM film_scenarist WHERE ID_scenarist = ?");
-        $delete_scenarist_film->execute([$ID_scenarist]);
+        $delete_actor_film=$con->prepare("DELETE FROM film_actor WHERE ID_actor = ?");
+        $delete_actor_film->execute([$ID_actor]);
 
     foreach($ID_film_array as $ID_film){
-        $add_scenarist_request=$con->prepare(
+        $add_actor_request=$con->prepare(
             "INSERT INTO
-                film_scenarist
+                film_actor
             SET
-            ID_film = ?, ID_scenarist = ? ");
-        $add_scenarist_request->execute([ $ID_film, $ID_scenarist]);
+            ID_film = ?, ID_actor = ? ");
+        $add_actor_request->execute([ $ID_film, $ID_actor]);
     }
 
-        echo "Le scénariste a été modifié.";
-        echo'<br> ID scénariste : <br>';
-        var_dump($ID_scenarist);
+        echo "L'acteur a été modifié.";
+        echo'<br> ID acteurs : <br>';
+        var_dump($ID_actor);
 
             // VERIFICATION PHOTO AFFICHE
             if (isset($_FILES['photo']['name']) && $_FILES['photo']['error'] == 0) {
@@ -73,15 +73,15 @@ if(
                     echo 'format image incorrect';
                 }
         
-                $scenarist_name_photo = uniqid() . '.' . $file_type;
+                $actor_name_photo = uniqid() . '.' . $file_type;
             
                 $upload_dir = '../img/';
-                if(move_uploaded_file($_FILES['photo']['tmp_name'], $upload_dir . $scenarist_name_photo)) {
+                if(move_uploaded_file($_FILES['photo']['tmp_name'], $upload_dir . $actor_name_photo)) {
                     echo 'le fichier est dans le serveur';// Le fichier a été correctement déplacé
 
 
-                    $update_photo=$con->prepare("UPDATE scenarist SET scenarist_photo = ? WHERE ID_scenarist = ?");
-                    $update_photo->execute([$scenarist_name_photo, $ID_scenarist]);
+                    $update_photo=$con->prepare("UPDATE actor SET actor_photo = ? WHERE ID_actor = ?");
+                    $update_photo->execute([$actor_name_photo, $ID_actor]);
                 }else{
                     echo "problème lors du déplacement de l'image dans le serveur";
                 }

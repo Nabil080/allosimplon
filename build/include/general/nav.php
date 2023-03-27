@@ -54,7 +54,7 @@
     <ul class="text-lg font-normal text-main-light">
         <a href="/portfolio/allosimplon/build/content/favoris.php"><li>Favoris</li></a>
         <a data-modal-target="login" data-modal-toggle="login"><li>Informations</li></a>
-        <a href="/portfolio/allosimplon/build/traitements/logout.php"><li>Se déconnecter</li></a>
+        <a href="/portfolio/allosimplon/build/traitements/connexion/logout.php"><li>Se déconnecter</li></a>
     </ul>
 </div>
 </div>
@@ -74,7 +74,7 @@
             <!-- CONNEXION -->
             <div id="co" class="px-6 py-6 lg:px-8">
                 <h3 class="mb-4 text-xl font-medium  dark:text-gray-100">Connectez vous</h3>
-                <form class="space-y-6" action="/portfolio/allosimplon/build/traitements/login.php" method="post">
+                <form class="space-y-6" action="/portfolio/allosimplon/build/traitements/connexion/login.php" method="post">
                     <div>
                         <label for="email" class="block mb-2 text-sm font-medium  dark:text-gray-100">E-mail</label>
                         <input type="email" name="email" id="email" class="bg-gray-50 border border-gray-300  text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-gray-100" placeholder="E-mail" required>
@@ -92,7 +92,7 @@
             <!-- INSCRIPTION -->
             <div id="paco" class="hidden px-6 py-6 lg:px-8">
                 <h3 class="mb-4 text-xl font-medium  dark:text-gray-100">Inscrivez vous</h3>
-                <form class="space-y-6" action="/portfolio/allosimplon/build/traitements/sign.php" method="post">
+                <form class="space-y-6" action="/portfolio/allosimplon/build/traitements/connexion/sign.php" method="post">
                     <div>
                     <label for="pseudo" class="block mb-2 text-sm font-medium  dark:text-gray-100"> Pseudo </label>
                         <input type="text" name="pseudo" maxlength="16" id="pseudo" class="bg-gray-50 border border-gray-300  text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-gray-100" placeholder="Pseudo" required>
@@ -183,7 +183,7 @@ function switchDiv() {
                     <?php if($_SESSION['ID_role']==1){?><button type="button" class=" text-gray-100 bg-main-light hover:bg-main-hover focus:ring-main-light focus:ring-offset-main-light font-medium rounded-lg  px-5 py-2.5 mr-2 mb-2 focus:outline-none"><a href="/portfolio/allosimplon/build/content/crud.php">Interface admin</a></button><?php }?>
                 </div>
                 <div class="flex justify-end w-full">
-                    <a class="text-sm text-main-light ml-4" href="/portfolio/allosimplon/build/traitements/logout.php">Se déconnecter</a>
+                    <a class="text-sm text-main-light ml-4" href="/portfolio/allosimplon/build/traitements/connexion/logout.php">Se déconnecter</a>
                 </div>
             </div>
             <!-- CONTENU MODIFIER PSEUDO -->
