@@ -1,14 +1,14 @@
 <?php
 session_start();
 header('Content-type: text/html; charset=utf-8');
-require_once '../config/connexion.php';
+require_once '../../config/connexion.php';
 
 // Variables + sécurisation
 if($_POST['submit']){
-$realisator_name = htmlspecialchars(strip_tags($_POST['name']), ENT_QUOTES );
-if(empty($realisator_name)){
+$actor_name = htmlspecialchars(strip_tags($_POST['name']), ENT_QUOTES );
+if(empty($actor_name)){
     echo "Des éléments sont manquants";
-    var_dump($realisator_name);
+    var_dump($actor_name);
     var_dump($_POST);
     die();
 }else{
@@ -39,22 +39,22 @@ if(empty($realisator_name)){
             echo 'format image incorrect';
         }
 
-        $realisator_name_photo = uniqid() . '.' . $file_type;
+        $actor_name_photo = uniqid() . '.' . $file_type;
 
-        $upload_dir = '../img/';
-        if(move_uploaded_file($_FILES['photo']['tmp_name'], $upload_dir . $realisator_name_photo)) {
+        $upload_dir = '../../upload/actor/';
+        if(move_uploaded_file($_FILES['photo']['tmp_name'], $upload_dir . $actor_name_photo)) {
             echo 'le fichier est dans le serveur';// Le fichier a été correctement déplacé
 
 
-        $add_realisator_request=$con->prepare(
+        $add_actor_request=$con->prepare(
             "INSERT INTO
-                realisator
+                actor
             SET
-                realisator_name = ?, realisator_photo = ?");
-        $add_realisator_request->execute([ $realisator_name, $realisator_name_photo]);
+                actor_name = ?, actor_photo = ?");
+        $add_actor_request->execute([ $actor_name, $actor_name_photo]);
 
-        echo "Le réalisateur a bien été ajouté";
-        var_dump ($add_realisator_request);
+        echo "L'acteur a bien été ajouté";
+        var_dump ($add_actor_request);
 
     }else{
         echo "Le fichier n'a pas pu être déplacé dans le serveur";

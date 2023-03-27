@@ -37,7 +37,7 @@ require_once '../config/connexion.php';
 
 <body class="bg-main-dark text-gray-100 bg-cover bg-center bg-fixed bg-no-repeat " style="background-image:url(/portfolio/allosimplon/build/img/4-bg.jpg)">
 
-<?php include('../include/nav.php')?>
+<?php include('../include/general/nav.php')?>
 
 
 
@@ -925,4 +925,4 @@ require_once '../config/connexion.php';
     </section>
 
 
-    <?php include('../include/footer.php')?>
+    <?php include('../include/general/footer.php')?>

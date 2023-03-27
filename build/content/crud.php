@@ -7,9 +7,9 @@ require_once '../config/functions.php';
 
 ?>
 
-<?php include('../include/head.php')?>
+<?php include('../include/general/head.php')?>
 
-<?php include('../include/nav.php')?>
+<?php include('../include/general/nav.php')?>
 
 <?php var_dump($_SESSION)?>
 
@@ -57,16 +57,16 @@ require_once '../config/functions.php';
         <button role="tab" aria-controls="actor" id="actortab" data-tabs-target="#actor" aria-selected="false" class="inline-block w-full p-4 bg-white hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700">Acteurs</button>
     </li>
     <li class="w-full">
-        <button role="tab" aria-controls="genre" id="genretab" data-tabs-target="#genre" aria-selected="false" class="inline-block w-full p-4 bg-white hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700">Genres</button>
-    </li>
-    <li class="w-full">
-        <button role="tab" aria-controls="user" id="usertab" data-tabs-target="#user" aria-selected="false" class="inline-block w-full p-4 bg-white hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700">Utilisateurs</button>
-    </li>
-    <li class="w-full">
         <button role="tab" aria-controls="real" id="realtab" data-tabs-target="#real" aria-selected="false" class="inline-block w-full p-4 bg-white hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700">Réalisateurs</button>
     </li>
     <li class="w-full">
         <button role="tab" aria-controls="scenario" id="scenariotab" data-tabs-target="#scenario" aria-selected="false" class="inline-block w-full p-4 bg-white hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700">Scénaristes</button>
+    </li>
+    <li class="w-full">
+        <button role="tab" aria-controls="genre" id="genretab" data-tabs-target="#genre" aria-selected="false" class="inline-block w-full p-4 bg-white hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700">Genres</button>
+    </li>
+    <li class="w-full">
+        <button role="tab" aria-controls="user" id="usertab" data-tabs-target="#user" aria-selected="false" class="inline-block w-full p-4 bg-white hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700">Utilisateurs</button>
     </li>
 </ul>
 
@@ -81,10 +81,10 @@ require_once '../config/functions.php';
 <div id="crudtable" class="relative overflow-x-scroll shadow-md sm:rounded-lg">
     <?php include('../include/crud/film_table.php')?>
     <?php include('../include/crud/actor_table.php')?>
-    <?php include('../include/crud/genre_table.php')?>
-    <?php include('../include/crud/user_table.php')?>
     <?php include('../include/crud/realisator_table.php')?>
     <?php include('../include/crud/scenarist_table.php')?>
+    <?php include('../include/crud/genre_table.php')?>
+    <?php include('../include/crud/user_table.php')?>
 </div>
 
 
@@ -121,7 +121,7 @@ const multiSelectWithoutCtrl = ( elemSelector ) => {
 
 
 
-<?php include('../include/footer.php')?>
+<?php include('../include/general/footer.php')?>
 
 <?php }else{ ?>
 <div class=mt-8>Vous n'êtes pas un admnisitrateur ! Zone inaccessible.</div>

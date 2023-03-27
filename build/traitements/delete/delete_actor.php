@@ -1,7 +1,7 @@
 <?php
 session_start();
 header('Content-type: text/html; charset=utf-8');
-require_once '../config/connexion.php';
+require_once '../../config/connexion.php';
 
 if(empty($_POST['ID'])){
     echo "Il manque l'ID de l'acteur que vous souhaitez supprimer !";
