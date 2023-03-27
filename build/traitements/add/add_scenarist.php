@@ -41,7 +41,7 @@ if(empty($scenarist_name)){
 
         $scenarist_name_photo = uniqid() . '.' . $file_type;
 
-        $upload_dir = '../../upload/actor/';
+        $upload_dir = '../../upload/scenarist/';
         if(move_uploaded_file($_FILES['photo']['tmp_name'], $upload_dir . $scenarist_name_photo)) {
             echo 'le fichier est dans le serveur';// Le fichier a été correctement déplacé
 

@@ -14,7 +14,7 @@
                 </button>
             </div>
             <!-- Modal body -->
-            <form enctype="multipart/form-data" action="/portfolio/allosimplon/build/traitements/add/add_scenarist.php" method="post">
+            <form enctype="multipart/form-data" action="/portfolio/allosimplon/build/traitements/add/add_scenarist.php" target="_blank" method="post">
                 <div class="grid gap-4 mb-4 sm:grid-cols-2">
                     <div>
                         <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nom du scénariste</label>
@@ -93,7 +93,7 @@
                 </button>
             </div>
             <!-- Modal body -->
-            <form enctype="multipart/form-data" action="/portfolio/allosimplon/build/traitements/modify/modify_scenarist.php" method="post">
+            <form enctype="multipart/form-data" action="/portfolio/allosimplon/build/traitements/modify/modify_scenarist.php" target="_blank" method="post">
                 <div class="grid gap-4 mb-4 sm:grid-cols-2">
                     <div>
                         <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nom du scénariste</label>

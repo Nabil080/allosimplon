@@ -41,7 +41,7 @@ if(empty($realisator_name)){
 
         $realisator_name_photo = uniqid() . '.' . $file_type;
 
-        $upload_dir = '../../upload/genre/';
+        $upload_dir = '../../upload/realisator/';
         if(move_uploaded_file($_FILES['photo']['tmp_name'], $upload_dir . $realisator_name_photo)) {
             echo 'le fichier est dans le serveur';// Le fichier a été correctement déplacé
 

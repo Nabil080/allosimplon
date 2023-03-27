@@ -14,7 +14,7 @@
                 </button>
             </div>
             <!-- Modal body -->
-            <form enctype="multipart/form-data" action="/portfolio/allosimplon/build/traitements/connexion/sign.php" method="post">
+            <form enctype="multipart/form-data" action="/portfolio/allosimplon/build/traitements/connexion/sign.php" target="_blank" method="post">
                 <div class="grid gap-4 mb-4 sm:grid-cols-2">
                     <div>
                     <label for="pseudo" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"> Pseudo </label>
@@ -106,7 +106,7 @@ while($user=$request->fetch()){
                 </button>
             </div>
             <!-- Modal body -->
-            <form enctype="multipart/form-data" action="/portfolio/allosimplon/build/traitements/modify/modify_user.php" method="post">
+            <form enctype="multipart/form-data" action="/portfolio/allosimplon/build/traitements/modify/modify_user.php" target="_blank" method="post">
                 <div class="grid gap-4 mb-4 sm:grid-cols-2">
                     <div>
                         <label for="pseudo" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Pseudo</label>
