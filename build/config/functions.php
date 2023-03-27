@@ -473,6 +473,33 @@ function SelectedScenarist($ID_film){
 }
 }
 
+function SelectedFilm($ID, $ID_select, $table){
+    if(require("connexion.php")){
+        $select_film_request=$con->prepare(
+            "SELECT ID_film, film_name FROM film");
+        $select_film_request->execute();
+        while($select_film=$select_film_request->fetch()){
+            $selected_film_request=$con->prepare(
+                "SELECT $ID_select from $table WHERE ID_film = ? AND $ID_select = ?");
+            $selected_film_request->execute([$select_film['ID_film'], $ID]);
+            $is_film_selected=$selected_film_request->fetch();
+
+            if($is_film_selected){?>
+                <option selected
+                value=<?=$select_film['ID_film']?>>
+                    <?=$select_film['film_name']?>
+                </option>
+        <?php }else{?>
+                <option
+                value=<?=$select_film['ID_film']?>>
+                    <?=$select_film['film_name']?>
+                </option>
+        <?php }
+        }
+    }
+}
+
+
 ?>
 
 
