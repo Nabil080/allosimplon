@@ -406,7 +406,7 @@ function SelectedRealisator($ID_film){
 function SelectedActor($ID_film){
     if(require("connexion.php")){
         $select_actor_request=$con->prepare(
-            "SELECT ID_actor, actor_name FROM actor ORDER BY actor_name ASC");
+            "SELECT ID_actor, actor_name FROM actor");
             $select_actor_request->execute();
             while($select_actor=$select_actor_request->fetch()){
             $selected_actor_request=$con->prepare(
