@@ -1,8 +1,8 @@
 <?php
 
-function GetFilm($LIMIT){
+function GetFilm($ORDER,$LIMIT){
     if(require("connexion.php")){
-        $request=$con->prepare("SELECT * FROM film $LIMIT");
+        $request=$con->prepare("SELECT * FROM film $ORDER $LIMIT");
             $request->execute();
             return $request;
     }
