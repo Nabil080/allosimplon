@@ -1,5 +1,13 @@
 <?php
 
+function GetFilm($LIMIT){
+    if(require("connexion.php")){
+        $request=$con->prepare("SELECT * FROM film $LIMIT");
+            $request->execute();
+            return $request;
+    }
+}
+
 function GetFilmActor($ID_film, $show_ID, $show_photo, $show_name){
 if(require("connexion.php")){
 
@@ -398,7 +406,7 @@ function SelectedRealisator($ID_film){
 function SelectedActor($ID_film){
     if(require("connexion.php")){
         $select_actor_request=$con->prepare(
-            "SELECT ID_actor, actor_name FROM actor");
+            "SELECT ID_actor, actor_name FROM actor ORDER BY actor_name ASC");
             $select_actor_request->execute();
             while($select_actor=$select_actor_request->fetch()){
             $selected_actor_request=$con->prepare(
@@ -411,7 +419,6 @@ function SelectedActor($ID_film){
                     <?=$select_actor['actor_name']?>
                 </option>
             <?php }else{?>
-            
                 <option
                 value=<?=$select_actor['ID_actor']?>>
                     <?=$select_actor['actor_name']?>
@@ -499,7 +506,119 @@ function SelectedFilm($ID, $ID_select, $table){
     }
 }
 
+function Stars($note){
 
+    if($note==0){
+    echo'
+        <div class="grade text-main-light z-50 text-2xl text-center">
+            <i class="fa-regular fa-star cursor-pointer"></i>
+            <i class="fa-regular fa-star cursor-pointer"></i>
+            <i class="fa-regular fa-star cursor-pointer"></i>
+            <i class="fa-regular fa-star cursor-pointer"></i>
+            <i class="fa-regular fa-star cursor-pointer"></i>
+        </div>
+    '; }
+    if($note==1){
+    echo'
+        <div class="grade text-main-light z-50 text-2xl text-center">
+            <i class="fa-regular fa-star cursor-pointer"></i>
+            <i class="fa-regular fa-star cursor-pointer"></i>
+            <i class="fa-regular fa-star cursor-pointer"></i>
+            <i class="fa-regular fa-star cursor-pointer"></i>
+            <i class="fa-regular fa-star cursor-pointer"></i>
+        </div>
+    '; }
+    if($note==2){
+        echo'
+        <div class="grade text-main-light z-50 text-2xl text-center">
+            <i class="fa-solid fa-star cursor-pointer"></i>
+            <i class="fa-regular fa-star cursor-pointer"></i>
+            <i class="fa-regular fa-star cursor-pointer"></i>
+            <i class="fa-regular fa-star cursor-pointer"></i>
+            <i class="fa-regular fa-star cursor-pointer"></i>
+        </div>
+    '; }
+    if($note==3){
+        echo'
+        <div class="grade text-main-light z-50 text-2xl text-center">
+            <i class="fa-solid fa-star cursor-pointer"></i>
+            <i class="fa-regular fa-star cursor-pointer"></i>
+            <i class="fa-regular fa-star cursor-pointer"></i>
+            <i class="fa-regular fa-star cursor-pointer"></i>
+            <i class="fa-regular fa-star cursor-pointer"></i>
+        </div>
+    '; }
+    if($note==4){
+        echo'
+        <div class="grade text-main-light z-50 text-2xl text-center">
+            <i class="fa-solid fa-star cursor-pointer"></i>
+            <i class="fa-solid fa-star cursor-pointer"></i>
+            <i class="fa-regular fa-star cursor-pointer"></i>
+            <i class="fa-regular fa-star cursor-pointer"></i>
+            <i class="fa-regular fa-star cursor-pointer"></i>
+        </div>
+    '; }
+    if($note==5){
+        echo'
+        <div class="grade text-main-light z-50 text-2xl text-center">
+            <i class="fa-solid fa-star cursor-pointer"></i>
+            <i class="fa-solid fa-star cursor-pointer"></i>
+            <i class="fa-regular fa-star cursor-pointer"></i>
+            <i class="fa-regular fa-star cursor-pointer"></i>
+            <i class="fa-regular fa-star cursor-pointer"></i>
+        </div>
+    '; }
+    if($note==6){
+        echo'
+        <div class="grade text-main-light z-50 text-2xl text-center">
+            <i class="fa-solid fa-star cursor-pointer"></i>
+            <i class="fa-solid fa-star cursor-pointer"></i>
+            <i class="fa-solid fa-star cursor-pointer"></i>
+            <i class="fa-regular fa-star cursor-pointer"></i>
+            <i class="fa-regular fa-star cursor-pointer"></i>
+        </div>
+    '; }
+    if($note==7){
+        echo'
+        <div class="grade text-main-light z-50 text-2xl text-center">
+            <i class="fa-solid fa-star cursor-pointer"></i>
+            <i class="fa-solid fa-star cursor-pointer"></i>
+            <i class="fa-solid fa-star cursor-pointer"></i>
+            <i class="fa-regular fa-star cursor-pointer"></i>
+            <i class="fa-regular fa-star cursor-pointer"></i>
+        </div>
+    '; }
+    if($note==8){
+        echo'
+        <div class="grade text-main-light z-50 text-2xl text-center">
+            <i class="fa-solid fa-star cursor-pointer"></i>
+            <i class="fa-solid fa-star cursor-pointer"></i>
+            <i class="fa-solid fa-star cursor-pointer"></i>
+            <i class="fa-solid fa-star cursor-pointer"></i>
+            <i class="fa-regular fa-star cursor-pointer"></i>
+        </div>
+    '; }
+    if($note==9){
+        echo'
+        <div class="grade text-main-light z-50 text-2xl text-center">
+            <i class="fa-solid fa-star cursor-pointer"></i>
+            <i class="fa-solid fa-star cursor-pointer"></i>
+            <i class="fa-solid fa-star cursor-pointer"></i>
+            <i class="fa-solid fa-star cursor-pointer"></i>
+            <i class="fa-regular fa-star cursor-pointer"></i>
+        </div>
+    '; }
+    if($note==10){
+        echo'
+        <div class="grade text-main-light z-50 text-2xl text-center">
+            <i class="fa-solid fa-star cursor-pointer"></i>
+            <i class="fa-solid fa-star cursor-pointer"></i>
+            <i class="fa-solid fa-star cursor-pointer"></i>
+            <i class="fa-solid fa-star cursor-pointer"></i>
+            <i class="fa-solid fa-star cursor-pointer"></i>
+        </div>
+    '; }
+}
 ?>
 
 
