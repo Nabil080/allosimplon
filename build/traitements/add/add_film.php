@@ -171,6 +171,7 @@ if(
                     var_dump($ID_genre_array);
                     echo'<br> ID scenarist : <br>';
                     var_dump($ID_scenarist_array);
+                    
                 }
 
                 } else {

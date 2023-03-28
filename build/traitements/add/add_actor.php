@@ -56,6 +56,8 @@ if(empty($actor_name)){
         echo "L'acteur a bien été ajouté";
         var_dump ($add_actor_request);
 
+        header('Location: ' . $_SERVER['HTTP_REFERER']);
+
     }else{
         echo "Le fichier n'a pas pu être déplacé dans le serveur";
         die();

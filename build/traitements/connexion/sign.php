@@ -43,7 +43,7 @@ if(empty($errors)){
     $password_hash=password_hash($password,PASSWORD_BCRYPT);
     $request->execute([$pseudo, $email, $password_hash, 2]);
     echo "<p>inscription reussie</p>";
-    header('location: /portfolio/allosimplon/build/index.php');
+    header('Location: ' . $_SERVER['HTTP_REFERER']);
 }else{
     echo '<pre>'.print_r($errors,true).'<pre>';
 

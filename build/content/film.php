@@ -57,7 +57,16 @@ $film=$request->fetch();
 <!-- PAGE FILM -->
 <section class="mx-auto w-[60%]  border relative bg-main-dark">
 <!-- AJOUTER/RETIRER FAVORIS -->
-    <button class="absolute -top-12 right-4 text-main-light text-xl flex text-center gap-2"> Ajouter aux favoris <i class="fa-regular fa-heart relative group text-2xl"><i class="fa-solid fa-heart absolute hidden group-hover:block top-0 left-0 text-2xl"></i></i></button>
+<div class="absolute top-2 right-4 text-main-light text-lg flex text-center gap-8 w-fit">
+    <div>
+        Ajouter/Retirer des favoris
+    </div>
+<div>
+<?php
+    isFilmFav($ID_film,$_SESSION['ID_user']);
+?>
+    </div>
+</div>
 <!-- GRILLE -->
     <div class="block md:grid md:grid-cols-2 gap-8  ">
         <div class="p-8">
