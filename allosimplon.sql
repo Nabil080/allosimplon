@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : lun. 27 mars 2023 à 17:22
+-- Généré le : mar. 28 mars 2023 à 12:45
 -- Version du serveur : 8.0.31
 -- Version de PHP : 8.0.26
 
@@ -35,7 +35,7 @@ CREATE TABLE IF NOT EXISTS `actor` (
   PRIMARY KEY (`ID_actor`),
   UNIQUE KEY `actor_name` (`actor_name`),
   KEY `actor_name_2` (`actor_name`)
-) ENGINE=InnoDB AUTO_INCREMENT=44 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=82 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `actor`
@@ -78,7 +78,45 @@ INSERT INTO `actor` (`ID_actor`, `actor_name`, `actor_photo`) VALUES
 (40, 'Kenneth Branagh', '6421a42049e2e.jpg'),
 (41, 'David Thewlis', '6421a57a06935.jpg'),
 (42, 'Leonardo DiCaprio', '6421a681aca26.jpg'),
-(43, 'Kate Winslet', '6421a68b9ac53.jpg');
+(43, 'Kate Winslet', '6421a68b9ac53.jpg'),
+(44, 'Brendan Gleeson', '64228c2fcb766.jpg'),
+(45, 'Ralph Fiennes', '64228c3ce0a0b.jpg'),
+(46, 'Will Ferrell', '64228e94b8ade.jpg'),
+(47, 'Tina Fey', '64228eb573f23.jpg'),
+(48, 'Jonah Hill', '64228ec0eb3c6.jpg'),
+(49, 'David Cross', '64228eca539ea.jpg'),
+(50, 'Brad Pitt', '64228ed43e3af.jpg'),
+(51, 'Ewan McGregor', '6422904187958.jpg'),
+(52, 'Natalie Portman', '6422904e90bda.jpg'),
+(53, 'Hayden Christensen', '6422906019417.jpg'),
+(54, 'Ian McDiarmid', '6422906a4c5c4.jpg'),
+(55, 'Samuel L. Jackson', '6422907300bbb.jpg'),
+(56, 'Marion Cotillard', '642291b4b4f10.jpg'),
+(57, 'Ken Watanabe', '642291c390f79.jpg'),
+(58, 'Tom Hardy', '642291cba4319.jpg'),
+(59, 'Elliot Page', '642291d8cbbd5.png'),
+(60, 'Joseph Gordon-Levitt', '642291ed9e1b8.jpg'),
+(61, 'Ben Kingsley', '642292f6cf5e0.jpg'),
+(62, 'Gwyneth Paltrow', '642293dd719f6.jpg'),
+(63, 'Terrence Howard', '642293e6417b4.jpg'),
+(64, 'Jeff Bridges', '642293f8cddda.jpg'),
+(65, 'Shaun Toub', '642294028a8e8.jpg'),
+(66, 'Jon Favreau', '64229429918e8.jpeg'),
+(67, 'Don Cheadle', '6422965a17f04.jpg'),
+(68, 'Mickey Rourke', '64229664094ab.jpg'),
+(69, 'Guy Pearce', '642297231fdf7.jpg'),
+(70, 'Jeremy Renner', '642298913e0de.jpg'),
+(71, 'John Michael Higgins', '642299bf9969d.jpg'),
+(72, 'Bradley Cooper', '642299c576868.jpg'),
+(73, 'Jim Carrey', '642299cea56c9.jpg'),
+(74, 'Zooey Deschanel', '642299d829abb.png'),
+(75, 'Christopher Lee', '64229aef174f3.jpg'),
+(76, 'Idris Elba', '64229f74136ab.jpg'),
+(77, 'Sharlto Copley', '64229f836d284.jpg'),
+(78, 'Tyrese Gibson', '6422a08684b5f.jpg'),
+(79, 'Jordana Brewster', '6422a09180606.jpg'),
+(80, 'John Cena', '6422a09cc52f0.jpg'),
+(81, 'Vin Diesel', '6422a0a6aed2a.png');
 
 -- --------------------------------------------------------
 
@@ -102,7 +140,7 @@ CREATE TABLE IF NOT EXISTS `film` (
   UNIQUE KEY `film_name_3` (`film_name`),
   UNIQUE KEY `film_name_4` (`film_name`),
   KEY `film_name` (`film_name`)
-) ENGINE=InnoDB AUTO_INCREMENT=45 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=63 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `film`
@@ -116,7 +154,24 @@ INSERT INTO `film` (`ID_film`, `film_name`, `film_date`, `film_photo`, `film_vid
 (41, 'Titanic', 1997, '64215ce7a9f98.jpg', 'https://www.youtube.com/embed/cIJ8ma0kKtY', 8, 'En 1997, l&#039;épave du Titanic est l&#039;objet d&#039;une exploration fiévreuse, menée par des chercheurs de trésor en quête d&#039;un diamant bleu qui se trouvait à bord. Frappée par un reportage télévisé, l&#039;une des rescapées du naufrage, âgée de 102 ans, Rose DeWitt, se rend sur place et évoque ses souvenirs. 1912. Fiancée à un industriel arrogant, Rose croise sur le bateau un artiste sans le sou.', 195, '64215ce7aa53e.jpg'),
 (42, 'Avatar', 2009, '64219f6300cae.jpg', 'https://www.youtube.com/embed/5PSNL1qE6VY', 8, 'Sur le monde extraterrestre luxuriant de Pandora vivent les Na&#039;vi, des êtres qui semblent primitifs, mais qui sont très évolués. Jake Sully, un ancien Marine paralysé, redevient mobile grâce à un tel Avatar et tombe amoureux d&#039;une femme Na&#039;vi. Alors qu&#039;un lien avec elle grandit, il est entraîné dans une bataille pour la survie de son monde.', 162, '64219f630106d.jpg'),
 (43, 'Harry Potter à l&#039;école des sorcieres', 2001, '6421a3051cfb8.jpg', 'https://www.youtube.com/embed/P1BGgqhVGAI', 7, 'Harry Potter, un jeune orphelin, est élevé par son oncle et sa tante qui le détestent. Alors qu&#039;il était haut comme trois pommes, ces derniers lui ont raconté que ses parents étaient morts dans un accident de voiture. Le jour de son onzième anniversaire, Harry reçoit la visite inattendue d&#039;un homme gigantesque se nommant Rubeus Hagrid, et celui-ci lui révèle qu&#039;il est en fait le fils de deux puissants magiciens et qu&#039;il possède lui aussi d&#039;extraordinaires pouvoirs', 152, '6421a3051d3c4.jpg'),
-(44, 'Harry Potter et la Chambre des Secrets', 2002, '6421a5290671b.jpg', 'https://www.youtube.com/embed/Z3T8PuWuoL0', 7, 'Alors que l&#039;oncle Vernon, la tante Pétunia et son cousin Dudley reçoivent d&#039;importants invités à dîner, Harry Potter est contraint de passer la soirée dans sa chambre. Dobby, un elfe, fait alors son apparition. Il lui annonce que de terribles dangers menacent l&#039;école de Poudlard et qu&#039;il ne doit pas y retourner en septembre. Harry refuse de le croire. Mais sitôt la rentrée des classes effectuée, ce dernier entend une voix malveillante.', 161, '6421a52906ae6.jpg');
+(44, 'Harry Potter et la Chambre des Secrets', 2002, '6421a5290671b.jpg', 'https://www.youtube.com/embed/Z3T8PuWuoL0', 7, 'Alors que l&#039;oncle Vernon, la tante Pétunia et son cousin Dudley reçoivent d&#039;importants invités à dîner, Harry Potter est contraint de passer la soirée dans sa chambre. Dobby, un elfe, fait alors son apparition. Il lui annonce que de terribles dangers menacent l&#039;école de Poudlard et qu&#039;il ne doit pas y retourner en septembre. Harry refuse de le croire. Mais sitôt la rentrée des classes effectuée, ce dernier entend une voix malveillante.', 161, '6421a52906ae6.jpg'),
+(45, 'Harry Potter et le Prisonnier d&#039;Azkaban', 2004, '64228bbac0bfa.jpg', 'https://www.youtube.com/embed/CLncEeVf4ks', 8, 'Sirius Black, un dangereux sorcier criminel, s&#039;échappe de la sombre prison d&#039;Azkaban avec un seul et unique but : se venger d&#039;Harry Potter, entré avec ses amis Ron et Hermione en troisième année à l&#039;école de sorcellerie de Poudlard, où ils auront aussi à faire avec les terrifiants Détraqueurs.', 142, '64228bbac0ef0.jpg'),
+(46, 'Harry Potter et la Coupe de feu', 2005, '64228d83b593e.jpg', 'https://www.youtube.com/embed/XO9rqIgzDL0', 8, 'La quatrième année à l&#039;école de Poudlard est marquée par le Tournoi des trois sorciers. Les participants sont choisis par la fameuse coupe de feu, qui est à l&#039;origine d&#039;un scandale. Elle sélectionne Harry Potter tandis qu&#039;il n&#039;a pas l&#039;âge légal requis. Après avoir surmonté une série d&#039;épreuves physiques de plus en plus difficiles, il est enfin confronté à Celui-Dont-On-Ne-Doit-Pas-Prononcer-Le-Nom.', 157, '64228d83b5c33.jpg'),
+(47, 'Megamind', 2010, '64228f99bb7aa.jpg', 'https://www.youtube.com/embed/ead9HCX9fe4', 7, 'Megamind est le plus grand adversaire de Metroman, le superhéros chargé de protéger les citoyens de Metro City. Megamind réussit un jour, à sa plus grande surprise, à tuer Metroman. Après avoir terrorisé la ville entière, il réalise bien vite qu&#039;un méchant sans héros pour le combattre, c&#039;est risible et inutile. Il décide donc d&#039;insuffler les dons de Metroman à un jeune garçon ordinaire afin qu&#039;il devienne le nouveau défenseur de Metro City.', 96, '64228f99bbbd3.jpg'),
+(48, 'Star Wars: Episode III - La revanche des Sith', 2005, '64229181e5789.jpg', 'https://www.youtube.com/embed/t1qtvKYwTV0', 6, 'La Guerre des Clones fait rage. Une franche hostilité oppose désormais le Chancelier Palpatine au Conseil Jedi. Anakin Skywalker, jeune Chevalier Jedi pris entre deux feux, hésite sur la conduite à tenir. Séduit par la promesse d&#039;un pouvoir sans précédent, tenté par le côté obscur de la Force, il prête allégeance au maléfique Darth Sidious et devient Dark Vador.Les Seigneurs Sith s&#039;unissent alors pour préparer leur revanche, qui commence par l&#039;extermination des Jedi.', 140, '64229181e5e5f.jpg'),
+(49, 'Inception', 2010, '6422929e43c79.jpg', 'https://www.youtube.com/embed/CPTIgILtna8', 9, 'Dom Cobb est un voleur expérimenté dans l&#039;art périlleux de `l&#039;extraction&#039; : sa spécialité consiste à s&#039;approprier les secrets les plus précieux d&#039;un individu, enfouis au plus profond de son subconscient, pendant qu&#039;il rêve et que son esprit est particulièrement vulnérable. Très recherché pour ses talents dans l&#039;univers trouble de l&#039;espionnage industriel, Cobb est aussi devenu un fugitif traqué dans le monde entier. Cependant, une ultime mission pourrait lui permettre de retrouver sa vie d&#039;avant.', 148, '6422929e44200.jpg'),
+(50, 'Shutter Island', 2010, '64229382c3cbf.jpg', 'https://www.youtube.com/embed/v8yrZSkKxTA', 8, 'En 1954, une meurtrière, extrêmement dangereuse, placée en centre de détention psychiatrique disparaît sur l&#039;île de Shutter Island. Deux officiers du corps fédéral des marshals, Teddy Daniels et Chuck Aule, sont envoyés sur place pour enquêter. Très vite, Teddy Daniels comprend que le personnel de l&#039;établissement cache quelque chose. Seul indice dont il dispose : un bout de papier sur lequel est griffonnée une suite de chiffres entrecoupée de lettres.', 130, '64229382c414d.jpg'),
+(51, 'Iron Man', 2008, '642295ada3029.jpg', 'https://www.youtube.com/embed/8ugaeA-nMTc', 8, 'Alors qu&#039;il fait l&#039;essai d&#039;une arme de son invention en Afghanistan, le milliardaire Tony Stark est capturé par des insurgés qui le forcent à travailler pour eux. Mais à leur insu, le scientifique crée pour lui-même une armure superpuissante au moyen de laquelle il s&#039;évade et rentre aux États-Unis. Transformé par son aventure, il décide de mettre son génie et sa fortune au service du Bien.', 126, '642295ada32e7.jpg'),
+(53, 'Iron Man 2', 2010, '642296e41cd82.jpg', 'https://www.youtube.com/embed/BoohRoVA9WQ', 7, 'Le monde sait désormais que l&#039;inventeur milliardaire Tony Stark et le super-héros Iron Man ne font qu&#039;un. Cependant, malgré les pressions, Tony n&#039;est pas disposé à divulguer les secrets de son armure, redoutant que l&#039;information atterrisse dans de mauvaises mains. Avec Pepper Potts et James Rhodey Rhodes à ses côtés, Tony va forger de nouvelles alliances et affronter de nouvelles forces toutes-puissantes.', 124, '642296e41d205.jpg'),
+(54, 'Iron Man 3', 2013, '642297ad303e0.jpg', 'https://www.youtube.com/embed/Ke1Y3P9D0Bc', 7, 'Tony Stark, alias Iron Man, mène une vie confortable aux côtés de sa compagne, Pepper. Cependant, il se retrouve confronté à Mandarin, chef d&#039;une organisation terroriste, qui détruit sa maison et tout son univers. Tony Stark part alors à la recherche de Pepper, disparue, et cherche à se venger. Démuni, il ne peut compter que sur son ingéniosité, ses multiples inventions et son instinct de survie pour protéger ses proches.', 130, '642297ad30879.jpg'),
+(55, 'Avengers', 2012, '64229876d2cf2.jpg', 'https://www.youtube.com/embed/TcMBFSGVi1c', 8, 'Quand un ennemi inattendu fait surface pour menacer la sécurité et l&#039;équilibre mondial, Nick Fury, directeur de l&#039;agence internationale pour le maintien de la paix, connue sous le nom du S.H.I.E.L.D., doit former une équipe pour éviter une catastrophe mondiale imminente. Un effort de recrutement à l&#039;échelle mondiale est mis en place, pour finalement réunir l&#039;équipe de super héros de rêve, dont Iron Man, l&#039;incroyable Hulk, Thor, Captain America, Hawkeye et Black Widow.', 143, '64229876d30e8.jpeg'),
+(56, 'Avengers: L&#039;ère d&#039;ultron', 2015, '642298fca7081.jpg', 'https://www.youtube.com/embed/tmeOjFno6Do', 7, 'Alors qu&#039;il tente de récupérer le sceptre de Loki avec l&#039;aide de ses camarades Avengers, Tony Stark découvre que Strucker avait mis au point une intelligence artificielle révolutionnaire, plus puissante encore que Jarvis. Strucker, mis hors d&#039;état de nuire, et le sceptre récupéré, Stark conçoit bientôt un projet insensé : relancer son programme de maintien de la paix, jusque-là en sommeil, grâce à cette conscience robotisée ultra-puissante.', 141, '642298fca7308.jpg'),
+(57, 'Yes Man', 2008, '64229a38b1b1a.jpg', 'https://www.youtube.com/embed/dDh1l3qVNoY', 7, 'Après avoir assisté à un séminaire d&#039;auto-assistance, un homme négatif apporte un changement étonnant dans sa vie en disant oui à tout.', 104, '64229a38b2181.jpg'),
+(58, 'Star Wars, épisode II : L&#039;Attaque des clones', 2002, '64229bb342f8d.jpg', 'https://www.youtube.com/embed/arGWLDOeoOw', 6, 'Depuis le blocus de la planète Naboo, la République, gouvernée par le Chancelier Palpatine, connaît une crise. Un groupe de dissidents, mené par le sombre Jedi comte Dooku, manifeste son mécontentement. Le Sénat et la population intergalactique se montrent pour leur part inquiets. Certains sénateurs demandent à ce que la République soit dotée d&#039;une armée pour empêcher que la situation ne se détériore. Padmé Amidala, devenue sénatrice, est menacée par les séparatistes et échappe à un attentat.', 142, '64229bb3433d4.jpg'),
+(59, 'Avengers: Infinity War', 2018, '64229c4730e33.jpg', 'https://www.youtube.com/embed/6ZfuNTqbHE8', 9, 'Alors que les Avengers et leurs alliés ont continué de protéger le monde face à des menaces bien trop grandes pour être combattues par un héros seul, un nouveau danger est venu de l&#039;espace : Thanos. Despote craint dans tout l&#039;univers, Thanos a pour objectif de recueillir les six Pierres d&#039;Infinité, des artefacts parmi les plus puissants de l&#039;univers, et de les utiliser afin d&#039;imposer sa volonté sur toute la réalité. Tous les combats que les Avengers ont menés culminent dans cette bataille.', 149, '64229c473135a.jpg'),
+(60, 'Avatar: La Voie de l&#039;eau', 2022, '64229ef91aed1.jpg', 'https://www.youtube.com/embed/d9MyW72ELq0', 8, 'Jake Sully et Ney&#039;tiri ont formé une famille et font tout pour rester aussi soudés que possible. Ils sont cependant contraints de quitter leur foyer et d&#039;explorer les différentes régions encore mystérieuses de Pandora. Lorsqu&#039;une ancienne menace refait surface, Jake va devoir mener une guerre difficile contre les humains.', 192, '64229ef91b3f5.jpg'),
+(61, 'Beast', 2022, '6422a05c44e64.jpg', 'https://www.youtube.com/embed/oQMc7Sq36mI', 5, 'Le docteur Nate Samuels voyage avec ses deux filles adolescentes en Afrique du Sud. C&#039;est dans ce pays qu&#039;il avait autrefois rencontré sa femme, décédée il y a peu de temps. Nate, Meredith et Norah se rendent dans une réserve naturelle gérée par Martin Battles. La famille Samuels va alors être la cible d&#039;un lion. Cet animal, attaqué par des braconniers, qui a vu toute sa troupe tuée par ces derniers considère alors tous les humains comme une menace. Il va prendre en chasse Nate et les siens. ', 93, '6422a05c4528a.jpg'),
+(62, 'Fast and Furious ', 2021, '6422a69004959.jpg', 'https://www.youtube.com/embed/hCPXYelJteM', 5, 'Dom Toretto mène une vie tranquille avec Letty et son fils, mais ils savent que le danger est toujours présent. Son équipe et lui tentent de mettre fin à un complot mondial ourdi par l&#039;assassin le plus doué et le pilote le plus performant qu&#039;ils aient jamais rencontré: le frère délaissé de Dom.', 143, '6422a15bebee9.jpg');
 
 -- --------------------------------------------------------
 
@@ -149,31 +204,114 @@ INSERT INTO `film_actor` (`ID_film`, `ID_actor`) VALUES
 (39, 11),
 (39, 12),
 (39, 13),
+(45, 13),
 (39, 14),
 (39, 15),
 (39, 16),
 (39, 17),
 (40, 18),
+(51, 18),
+(53, 18),
+(54, 18),
+(55, 18),
+(56, 18),
+(59, 18),
 (40, 19),
+(55, 19),
+(56, 19),
+(59, 19),
 (40, 20),
+(50, 20),
+(55, 20),
+(56, 20),
+(59, 20),
 (40, 21),
+(55, 21),
+(56, 21),
+(59, 21),
 (40, 22),
+(55, 22),
+(56, 22),
+(59, 22),
 (42, 27),
+(60, 27),
 (42, 28),
+(60, 28),
 (42, 29),
+(60, 29),
 (42, 30),
+(60, 30),
 (42, 31),
 (42, 32),
+(62, 32),
 (43, 33),
 (44, 33),
+(45, 33),
+(46, 33),
 (43, 34),
 (44, 34),
+(45, 34),
+(46, 34),
 (43, 35),
 (44, 35),
+(45, 35),
+(46, 35),
 (43, 36),
 (43, 37),
 (44, 37),
-(44, 40);
+(44, 40),
+(45, 41),
+(41, 42),
+(49, 42),
+(50, 42),
+(41, 43),
+(60, 43),
+(46, 44),
+(46, 45),
+(47, 46),
+(47, 47),
+(47, 48),
+(47, 49),
+(47, 50),
+(48, 51),
+(58, 51),
+(48, 52),
+(58, 52),
+(48, 53),
+(58, 53),
+(48, 54),
+(48, 55),
+(53, 55),
+(58, 55),
+(49, 56),
+(49, 57),
+(49, 58),
+(49, 59),
+(49, 60),
+(50, 61),
+(54, 61),
+(51, 62),
+(53, 62),
+(54, 62),
+(51, 63),
+(51, 64),
+(51, 65),
+(53, 67),
+(54, 67),
+(53, 68),
+(54, 69),
+(56, 70),
+(57, 71),
+(57, 72),
+(57, 73),
+(57, 74),
+(58, 75),
+(61, 76),
+(61, 77),
+(62, 78),
+(62, 79),
+(62, 80),
+(62, 81);
 
 -- --------------------------------------------------------
 
@@ -204,7 +342,31 @@ INSERT INTO `film_genre` (`ID_genre`, `ID_film`) VALUES
 (8, 41),
 (1, 42),
 (9, 43),
-(9, 44);
+(9, 44),
+(9, 45),
+(9, 46),
+(10, 47),
+(11, 47),
+(1, 48),
+(1, 49),
+(12, 49),
+(12, 50),
+(13, 50),
+(5, 51),
+(5, 53),
+(4, 54),
+(5, 54),
+(4, 55),
+(5, 55),
+(4, 56),
+(5, 56),
+(11, 57),
+(1, 58),
+(4, 59),
+(5, 59),
+(1, 60),
+(12, 61),
+(4, 62);
 
 -- --------------------------------------------------------
 
@@ -227,12 +389,29 @@ CREATE TABLE IF NOT EXISTS `film_realisator` (
 INSERT INTO `film_realisator` (`ID_film`, `ID_realisator`) VALUES
 (2, 1),
 (39, 1),
+(49, 1),
 (1, 2),
+(62, 4),
 (40, 6),
+(59, 6),
 (41, 7),
 (42, 7),
+(60, 7),
 (43, 9),
-(44, 9);
+(44, 9),
+(45, 10),
+(46, 11),
+(47, 12),
+(54, 12),
+(48, 14),
+(58, 14),
+(50, 15),
+(51, 16),
+(53, 16),
+(55, 18),
+(56, 18),
+(57, 19),
+(61, 20);
 
 -- --------------------------------------------------------
 
@@ -258,12 +437,34 @@ INSERT INTO `film_scenarist` (`ID_film`, `ID_scenarist`) VALUES
 (1, 2),
 (1, 3),
 (39, 5),
+(49, 5),
 (40, 6),
+(59, 6),
 (40, 7),
+(59, 7),
 (41, 8),
 (42, 8),
+(60, 8),
 (43, 9),
-(44, 9);
+(44, 9),
+(45, 9),
+(46, 9),
+(47, 10),
+(48, 11),
+(58, 11),
+(50, 12),
+(51, 13),
+(51, 14),
+(51, 15),
+(53, 16),
+(54, 17),
+(55, 18),
+(56, 18),
+(57, 19),
+(57, 20),
+(60, 21),
+(61, 23),
+(62, 24);
 
 -- --------------------------------------------------------
 
@@ -277,7 +478,7 @@ CREATE TABLE IF NOT EXISTS `genre` (
   `genre_name` varchar(255) NOT NULL,
   PRIMARY KEY (`ID_genre`),
   UNIQUE KEY `genre_name` (`genre_name`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `genre`
@@ -285,11 +486,15 @@ CREATE TABLE IF NOT EXISTS `genre` (
 
 INSERT INTO `genre` (`ID_genre`, `genre_name`) VALUES
 (4, 'Action'),
+(10, 'Animation'),
+(11, 'Comédie'),
 (7, 'Drame'),
 (9, 'Fantaisie'),
+(13, 'psychologique'),
 (8, 'Romantique'),
 (1, 'Science-fiction'),
-(5, 'Super-Héros');
+(5, 'Super-Héros'),
+(12, 'Thriller');
 
 -- --------------------------------------------------------
 
@@ -304,7 +509,7 @@ CREATE TABLE IF NOT EXISTS `realisator` (
   `realisator_photo` varchar(255) NOT NULL,
   PRIMARY KEY (`ID_realisator`),
   UNIQUE KEY `realisator_name` (`realisator_name`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `realisator`
@@ -316,7 +521,18 @@ INSERT INTO `realisator` (`ID_realisator`, `realisator_name`, `realisator_photo`
 (4, 'Zoro', '64215432c2840.jpg'),
 (6, 'Anthony Russo et Joe Russo', '6421590ecbf0d.jpg'),
 (7, 'James Cameron', '64215c26d3867.jpg'),
-(9, 'Chris Columbus', '6421a0e660f1e.jpg');
+(9, 'Chris Columbus', '6421a0e660f1e.jpg'),
+(10, 'Alfonso Cuarón', '64228bc993c75.jpg'),
+(11, 'Mike Newell', '64228c1ec9b7a.jpg'),
+(12, 'Tom McGrath', '64228e30811c4.jpg'),
+(13, 'Brent Simons', '64228e4913539.jpg'),
+(14, 'George Lucas', '6422902433549.jpg'),
+(15, 'Martin Scorsese', '642292c64c04a.jpg'),
+(16, 'Jon Favreau', '642294303d496.jpeg'),
+(17, 'Matt Holloway', '6422945d9dce5.jpg'),
+(18, 'Joss Whedon', '642298116776f.jpg'),
+(19, 'Peyton Reed', '6422998196e1a.jpg'),
+(20, 'Baltasar Kormákur', '64229fccc88a2.jpg');
 
 -- --------------------------------------------------------
 
@@ -353,7 +569,7 @@ CREATE TABLE IF NOT EXISTS `scenarist` (
   `scenarist_photo` varchar(255) NOT NULL,
   PRIMARY KEY (`ID_scenarist`),
   UNIQUE KEY `scenarist_name` (`scenarist_name`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `scenarist`
@@ -367,7 +583,22 @@ INSERT INTO `scenarist` (`ID_scenarist`, `scenarist_name`, `scenarist_photo`) VA
 (6, 'Christopher Markus', '64215948e5779.jpg'),
 (7, 'Stephen McFeely', '6421595c27961.jpg'),
 (8, 'James Cameron', '64215c310a5b4.jpg'),
-(9, 'Steve Kloves', '6421a0fdeb318.jpg');
+(9, 'Steve Kloves', '6421a0fdeb318.jpg'),
+(10, 'Brent Simons', '64228fafd2b24.jpg'),
+(11, 'George Lucas', '6422902aafa24.jpg'),
+(12, 'Laeta Kalogridis', '642292e123a4c.jpg'),
+(13, 'Matt Holloway', '642294784b46c.jpg'),
+(14, 'Art Marcum', '6422948db32e1.jpg'),
+(15, 'Ramin Djawadi', '642294aae864d.jpg'),
+(16, 'Justin Theroux', '64229642d80f5.jpg'),
+(17, 'Drew Pearce', '64229712b0aa3.jpg'),
+(18, 'Joss Whedon', '6422990d79258.jpg'),
+(19, 'Nicholas Stoller', '6422999bc0cc1.jpg'),
+(20, 'Jarrad Paul', '642299ae15f08.jpg'),
+(21, 'Josh Friedman', '64229e5e48036.jpg'),
+(22, 'Baltasar Kormákur', '64229f95c9830.jpg'),
+(23, 'Ryan Engle', '64229fc094b88.jpg'),
+(24, 'Daniel Casey', '6422a0d7c2d64.jpg');
 
 -- --------------------------------------------------------
 
@@ -392,7 +623,7 @@ CREATE TABLE IF NOT EXISTS `user` (
 --
 
 INSERT INTO `user` (`ID_user`, `user_pseudo`, `user_email`, `user_password`, `ID_role`) VALUES
-(7, 'admino', 'admin@admin.admin', '$2y$10$wXaaQohBokaNdxsJBq6Ag.Tj/Akd4CaCNwsedG/ZnM6k1kJK1T/by', 1),
+(7, 'admin', 'admin@admin.admin', '$2y$10$QPODPiXHEDI0RNq6UEDjqOgZ2xMwVVZis0K0luXrF4oRNG4zR2Pdy', 1),
 (8, 'user', 'user@user.user', '$2y$10$fHloGo1Gz1xh2cm5m1hDi.DPlUgdvc0zIbtPJ/4PK8tJqIsDCrtVO', 2),
 (9, 'test', 'test@test.test', '$2y$10$shqhZSHjV0qzi5yL0/Yk2uFSK.a/Lvm/KDf3uPeaTAcLpKfKlv8Aa', 2),
 (10, 'Nabil', 'nabil@nabil.nabil', '$2y$10$H3.GZRp8SqL2c59v2IIbu.7V0aDlGP0my3yTMq40b8ff78sNwck2K', 1),
@@ -418,10 +649,14 @@ CREATE TABLE IF NOT EXISTS `user_fav` (
 --
 
 INSERT INTO `user_fav` (`ID_user`, `ID_film`) VALUES
-(10, 1),
 (14, 1),
 (7, 2),
-(10, 2);
+(10, 43),
+(10, 44),
+(10, 45),
+(10, 46),
+(10, 51),
+(10, 53);
 
 --
 -- Contraintes pour les tables déchargées
