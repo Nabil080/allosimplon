@@ -79,7 +79,7 @@
         <?php
 
 
-$request=$con->prepare("SELECT * FROM user");
+$request=$con->prepare("SELECT * FROM user ORDER BY ID_role");
 $request->execute();
 while($user=$request->fetch()){
     $ID = $user['ID_user'];

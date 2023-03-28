@@ -58,7 +58,7 @@
 
     <?php
         // REQUETE RECUP GENRES + BOUCLE
-        $request=$con->prepare("SELECT * FROM genre");
+        $request=$con->prepare("SELECT * FROM genre ORDER BY genre_name");
         $request->execute();
         while($genre=$request->fetch()){
             $ID = $genre['ID_genre'];

@@ -364,7 +364,7 @@ function GetUserFav($ID_user){
 function SelectFilm(){
     if(require("connexion.php")){
         $select_film_request=$con->prepare(
-            "SELECT ID_film, film_name FROM film");
+            "SELECT ID_film, film_name FROM film ORDER BY film_name");
         $select_film_request->execute();
         while($select_film=$select_film_request->fetch()){?>
             <option value=<?=$select_film['ID_film']?>>
@@ -377,7 +377,7 @@ function SelectFilm(){
 function SelectActor(){
     if(require("connexion.php")){
         $select_actor_request=$con->prepare(
-            "SELECT ID_actor, actor_name FROM actor");
+            "SELECT ID_actor, actor_name FROM actor ORDER BY actor_name");
         $select_actor_request->execute();
         while($select_actor=$select_actor_request->fetch()){?>
             <option value=<?=$select_actor['ID_actor']?>>
@@ -389,7 +389,7 @@ function SelectActor(){
 function SelectGenre(){
     if(require("connexion.php")){
         $select_genre_request=$con->prepare(
-            "SELECT ID_genre, genre_name FROM genre");
+            "SELECT ID_genre, genre_name FROM genre ORDER BY genre_name");
         $select_genre_request->execute();
         while($select_genre=$select_genre_request->fetch()){?>
             <option value=<?=$select_genre['ID_genre']?>>
@@ -402,7 +402,7 @@ function SelectGenre(){
 function SelectRealisator(){
     if(require("connexion.php")){
         $select_realisator_request=$con->prepare(
-            "SELECT ID_realisator, realisator_name FROM realisator");
+            "SELECT ID_realisator, realisator_name FROM realisator ORDER BY realisator_name");
         $select_realisator_request->execute();
         while($select_realisator=$select_realisator_request->fetch()){?>
             <option value=<?=$select_realisator['ID_realisator']?>>
@@ -414,7 +414,7 @@ function SelectRealisator(){
 function SelectScenarist(){
     if(require("connexion.php")){
         $select_scenarist_request=$con->prepare(
-            "SELECT ID_scenarist, scenarist_name FROM scenarist");
+            "SELECT ID_scenarist, scenarist_name FROM scenarist ORDER BY scenarist_name");
         $select_scenarist_request->execute();
         while($select_scenarist=$select_scenarist_request->fetch()){?>
             <option 
@@ -428,7 +428,7 @@ function SelectScenarist(){
 function SelectedRealisator($ID_film){
     if(require("connexion.php")){
         $select_realisator_request=$con->prepare(
-            "SELECT ID_realisator, realisator_name FROM realisator");
+            "SELECT ID_realisator, realisator_name FROM realisator ORDER BY realisator_name");
             $select_realisator_request->execute();
             while($select_realisator=$select_realisator_request->fetch()){
             $selected_realisator_request=$con->prepare(
@@ -454,7 +454,7 @@ function SelectedRealisator($ID_film){
 function SelectedActor($ID_film){
     if(require("connexion.php")){
         $select_actor_request=$con->prepare(
-            "SELECT ID_actor, actor_name FROM actor");
+            "SELECT ID_actor, actor_name FROM actor ORDER BY actor_name");
             $select_actor_request->execute();
             while($select_actor=$select_actor_request->fetch()){
             $selected_actor_request=$con->prepare(
@@ -479,7 +479,7 @@ function SelectedActor($ID_film){
 function SelectedGenre($ID_film){
     if(require("connexion.php")){
         $select_genre_request=$con->prepare(
-            "SELECT ID_genre, genre_name FROM genre");
+            "SELECT ID_genre, genre_name FROM genre ORDER BY genre_name");
             $select_genre_request->execute();
             while($select_genre=$select_genre_request->fetch()){
             $selected_genre_request=$con->prepare(
@@ -505,7 +505,7 @@ function SelectedGenre($ID_film){
 function SelectedScenarist($ID_film){
     if(require("connexion.php")){
         $select_scenarist_request=$con->prepare(
-            "SELECT ID_scenarist, scenarist_name FROM scenarist");
+            "SELECT ID_scenarist, scenarist_name FROM scenarist ORDER BY scenarist_name");
             $select_scenarist_request->execute();
             while($select_scenarist=$select_scenarist_request->fetch()){
             $selected_scenarist_request=$con->prepare(
@@ -531,11 +531,11 @@ function SelectedScenarist($ID_film){
 function SelectedFilm($ID, $ID_select, $table){
     if(require("connexion.php")){
         $select_film_request=$con->prepare(
-            "SELECT ID_film, film_name FROM film");
+            "SELECT ID_film, film_name FROM film ORDER BY film_name");
         $select_film_request->execute();
         while($select_film=$select_film_request->fetch()){
             $selected_film_request=$con->prepare(
-                "SELECT $ID_select from $table WHERE ID_film = ? AND $ID_select = ?");
+                "SELECT $ID_select from $table WHERE ID_film = ? AND $ID_select = ? ");
             $selected_film_request->execute([$select_film['ID_film'], $ID]);
             $is_film_selected=$selected_film_request->fetch();
 

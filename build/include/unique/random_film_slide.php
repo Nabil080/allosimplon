@@ -322,13 +322,12 @@ $film=$request->fetchAll();
                                 <!-- IMAGE -->
                             <img src="/portfolio/allosimplon/build/upload/film/<?=$film[9]['film_photo']?>" class="h-full mx-auto">
                         </div>
-
                     </div>
             </div>
             <!-- Item 3 -->
-            <div class="hidden duration-3000 ease-in-out h-full" data-carousel-item>
+                        <div class="hidden duration-3000 ease-in-out h-full" data-carousel-item>
                     <div class="absolute block md:gap-2 md:grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 justify-items-center  h-full w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
-                    <div class="h-full relative group">
+                        <div class="h-full relative group">
                             <!-- OVERLAY!!! -->
                             <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
                                 <div class="relative w-full h-full flex flex-col justify-between">
@@ -478,7 +477,7 @@ $film=$request->fetchAll();
             <!-- Item 4 -->
             <div class="hidden duration-3000 ease-in-out h-full" data-carousel-item>
                     <div class="absolute block md:gap-2 md:grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 justify-items-center  h-full w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
-                    <div class="h-full relative group">
+                        <div class="h-full relative group">
                             <!-- OVERLAY!!! -->
                             <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
                                 <div class="relative w-full h-full flex flex-col justify-between">
@@ -626,9 +625,9 @@ $film=$request->fetchAll();
                     </div>
             </div>
             <!-- Item 5 -->
-            <div class="hidden duration-3000 ease-in-out h-full" data-carousel-item>
+                        <div class="hidden duration-3000 ease-in-out h-full" data-carousel-item>
                     <div class="absolute block md:gap-2 md:grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 justify-items-center  h-full w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
-                    <div class="h-full relative group">
+                        <div class="h-full relative group">
                             <!-- OVERLAY!!! -->
                             <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
                                 <div class="relative w-full h-full flex flex-col justify-between">
@@ -775,7 +774,7 @@ $film=$request->fetchAll();
                         </div>
                     </div>
             </div>
-
+            
 
 
 

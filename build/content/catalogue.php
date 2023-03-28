@@ -59,7 +59,7 @@ require_once '../config/functions.php';
       </nav>
     </div>
     <!-- CATALOGUE -->
-        <div class="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:-grid-cols-5 [&>*]:w-full [&>*]:h-full object-cover ">
+        <div class="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:-grid-cols-5 [&_img]:w-full [&_img]:h-full object-cover ">
             <?php $request = GetFilm(" ","LIMIT 16");
                 while($film=$request->fetch()){
                     $photo=$film['film_photo'];
@@ -71,7 +71,7 @@ require_once '../config/functions.php';
                     $description=$film['film_description'];
                 ?>
             <div class="group relative">
-            <a href="/portfolio/allosimplon/build/content/film.php?page=<?=$ID?>"   class="cursor-pointer">
+            <a href="/portfolio/allosimplon/build/content/film.php?page=<?=$ID?>"   class="cursor-pointer h-full">
                 <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
                     <div class="relative w-full h-full flex flex-col justify-between">
                         <p class="font-bold text-xl cursor-dark"><?=$date?></p>
