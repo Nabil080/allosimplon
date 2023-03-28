@@ -556,7 +556,7 @@ function SelectedFilm($ID, $ID_select, $table){
 
 function Stars($note){
 
-    if($note==0){
+    if($note >=0 && $note < 2){
     echo'
         <div class="grade text-main-light z-50 text-2xl text-center">
             <i class="fa-regular fa-star cursor-pointer"></i>
@@ -566,19 +566,9 @@ function Stars($note){
             <i class="fa-regular fa-star cursor-pointer"></i>
         </div>
     '; }
-    if($note==1){
+    if($note >=2 && $note < 4){
     echo'
         <div class="grade text-main-light z-50 text-2xl text-center">
-            <i class="fa-regular fa-star cursor-pointer"></i>
-            <i class="fa-regular fa-star cursor-pointer"></i>
-            <i class="fa-regular fa-star cursor-pointer"></i>
-            <i class="fa-regular fa-star cursor-pointer"></i>
-            <i class="fa-regular fa-star cursor-pointer"></i>
-        </div>
-    '; }
-    if($note==2){
-        echo'
-        <div class="grade text-main-light z-50 text-2xl text-center">
             <i class="fa-solid fa-star cursor-pointer"></i>
             <i class="fa-regular fa-star cursor-pointer"></i>
             <i class="fa-regular fa-star cursor-pointer"></i>
@@ -586,17 +576,7 @@ function Stars($note){
             <i class="fa-regular fa-star cursor-pointer"></i>
         </div>
     '; }
-    if($note==3){
-        echo'
-        <div class="grade text-main-light z-50 text-2xl text-center">
-            <i class="fa-solid fa-star cursor-pointer"></i>
-            <i class="fa-regular fa-star cursor-pointer"></i>
-            <i class="fa-regular fa-star cursor-pointer"></i>
-            <i class="fa-regular fa-star cursor-pointer"></i>
-            <i class="fa-regular fa-star cursor-pointer"></i>
-        </div>
-    '; }
-    if($note==4){
+    if($note >=4 && $note < 6){
         echo'
         <div class="grade text-main-light z-50 text-2xl text-center">
             <i class="fa-solid fa-star cursor-pointer"></i>
@@ -606,17 +586,7 @@ function Stars($note){
             <i class="fa-regular fa-star cursor-pointer"></i>
         </div>
     '; }
-    if($note==5){
-        echo'
-        <div class="grade text-main-light z-50 text-2xl text-center">
-            <i class="fa-solid fa-star cursor-pointer"></i>
-            <i class="fa-solid fa-star cursor-pointer"></i>
-            <i class="fa-regular fa-star cursor-pointer"></i>
-            <i class="fa-regular fa-star cursor-pointer"></i>
-            <i class="fa-regular fa-star cursor-pointer"></i>
-        </div>
-    '; }
-    if($note==6){
+    if($note >= 6 && $note < 8){
         echo'
         <div class="grade text-main-light z-50 text-2xl text-center">
             <i class="fa-solid fa-star cursor-pointer"></i>
@@ -626,17 +596,7 @@ function Stars($note){
             <i class="fa-regular fa-star cursor-pointer"></i>
         </div>
     '; }
-    if($note==7){
-        echo'
-        <div class="grade text-main-light z-50 text-2xl text-center">
-            <i class="fa-solid fa-star cursor-pointer"></i>
-            <i class="fa-solid fa-star cursor-pointer"></i>
-            <i class="fa-solid fa-star cursor-pointer"></i>
-            <i class="fa-regular fa-star cursor-pointer"></i>
-            <i class="fa-regular fa-star cursor-pointer"></i>
-        </div>
-    '; }
-    if($note==8){
+    if($note >=8 && $note <= 9 ){
         echo'
         <div class="grade text-main-light z-50 text-2xl text-center">
             <i class="fa-solid fa-star cursor-pointer"></i>
@@ -646,17 +606,7 @@ function Stars($note){
             <i class="fa-regular fa-star cursor-pointer"></i>
         </div>
     '; }
-    if($note==9){
-        echo'
-        <div class="grade text-main-light z-50 text-2xl text-center">
-            <i class="fa-solid fa-star cursor-pointer"></i>
-            <i class="fa-solid fa-star cursor-pointer"></i>
-            <i class="fa-solid fa-star cursor-pointer"></i>
-            <i class="fa-solid fa-star cursor-pointer"></i>
-            <i class="fa-regular fa-star cursor-pointer"></i>
-        </div>
-    '; }
-    if($note==10){
+    if($note > 9 && $note <= 10){
         echo'
         <div class="grade text-main-light z-50 text-2xl text-center">
             <i class="fa-solid fa-star cursor-pointer"></i>
