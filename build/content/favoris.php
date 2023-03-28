@@ -62,47 +62,8 @@ require_once '../config/functions.php';
         <div class="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:-grid-cols-5 [&_img]:w-full [&_img]:h-full object-cover ">
             <?php $ID_user=$_SESSION['ID_user'];
 
-                $request = GetUserFilm($ID_user," ","LIMIT 16");
-                while($film=$request->fetch()){
-                    $photo=$film['film_photo'];
-                    $name=$film['film_name'];
-                    $ID=$film['ID_film'];
-                    $time=$film['film_time'];
-                    $date=$film['film_date'];
-                    $note=$film['film_grade'];
-                    $description=$film['film_description'];
-                ?>
-            <div class="group relative">
-            <a href="/portfolio/allosimplon/build/content/film.php?page=<?=$ID?>"   class="cursor-pointer h-full">
-                <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
-                    <div class="relative w-full h-full flex flex-col justify-between">
-                        <p class="font-bold text-xl cursor-dark"><?=$date?></p>
-                        <i class="fa-regular fa-heart cursor-pointer absolute text-main-light right-0 top-0 text-2xl group/fav">
-                            <i class="fa-solid fa-heart cursor-pointer absolute right-0 top-0 text-2xl text-main-light hidden group-hover/fav:block "></i>
-                        </i>
-                        <div>
-                            <div class="flex justify-start">
-                                <h2 class="underline font-bold text-main-light text-2xl mb-2"><?=$name?></h2>
-                            </div>
-                            <div class="flex justify-start">
-                                <p class="font-normal cursor-dark"><?php echo substr($description,0,200),'...' ?>
-                                </p>
-                            </div>
-                            <div class="flex justify-between h-auto mt-4 text-center">
-                                <div class="flex justify-start align-bottom">
-                                    <?=$time?>min
-                                </div>
-                                <div class="flex justify-end">
-                                    <?php Stars($note) ?>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <img class="" src="/portfolio/allosimplon/build/upload/film/<?=$photo?>" alt="<?=$name?>">
-                </a>
-            </div>
-            <?php } ?>
+                GetUserFilm($ID_user," ","LIMIT 16");
+            ?>
         </div>
 <!-- pagination -->
 <div class="flex justify-center my-4  ">
