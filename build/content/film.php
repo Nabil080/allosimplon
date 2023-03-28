@@ -85,7 +85,14 @@ $film=$request->fetch();
                     $actor_info=$con->prepare("SELECT * from actor WHERE ID_actor = ?");
                     $actor_info->execute([$actors['ID_actor']]);
                     while($actor=$actor_info->fetch()){?>
-                    <a href="/portfolio/allosimplon/build/" class="text-main-light hover:text-main-hover hover:underline font-normal"><?=$actor['actor_name']?></a>
+                    <a href="/portfolio/allosimplon/build/" class="text-main-light relative hover:text-main-hover hover:underline font-normal group">
+                        <!-- overlay acteur -->
+                        <div class="opacity-0 group-hover:opacity-100 -translate-y-20 group-hover:-translate-y-0  group-hover:linear duration-500  absolute bottom-10 w-24 aspect-square object-cover ">
+                            <img class="w-full h-auto" src="/portfolio/allosimplon/build/upload/actor/<?=$actor['actor_photo']?>">
+                        </div>
+    
+                        <?=$actor['actor_name']?>
+                    </a>
                 <?php }
                 } ?>
             </div>
@@ -95,7 +102,13 @@ $film=$request->fetch();
                     $realisator_info=$con->prepare("SELECT * from realisator WHERE ID_realisator = ?");
                     $realisator_info->execute([$realisators['ID_realisator']]);
                     while($realisator=$realisator_info->fetch()){?>
-                    <a href="/portfolio/allosimplon/build/" class="text-main-light hover:text-main-hover hover:underline font-normal"><?=$realisator['realisator_name']?></a>
+                    <a href="/portfolio/allosimplon/build/" class="text-main-light relative hover:text-main-hover hover:underline font-normal group">
+                        <!-- overlay réalisateur -->
+                        <div class="opacity-0 group-hover:opacity-100 -translate-y-20 group-hover:-translate-y-0  group-hover:linear duration-500 absolute bottom-10 w-24 aspect-square object-cover">
+                            <img class="w-full h-auto" src="/portfolio/allosimplon/build/upload/realisator/<?=$realisator['realisator_photo']?>">
+                        </div>
+                    <?=$realisator['realisator_name']?>
+                </a>
                 <?php }
                 } ?>
             </div>
@@ -105,7 +118,14 @@ $film=$request->fetch();
                     $scenarist_info=$con->prepare("SELECT * from scenarist WHERE ID_scenarist = ?");
                     $scenarist_info->execute([$scenarists['ID_scenarist']]);
                     while($scenarist=$scenarist_info->fetch()){?>
-                    <a href="/portfolio/allosimplon/build/" class="text-main-light hover:text-main-hover hover:underline font-normal"><?=$scenarist['scenarist_name']?></a>
+                    <a href="/portfolio/allosimplon/build/" class="text-main-light relative hover:text-main-hover hover:underline font-normal group">
+                        <!-- overlay scénariste -->
+                        <div class="opacity-0 group-hover:opacity-100 translate-y-20 group-hover:translate-y-0  group-hover:linear duration-500 absolute top-10 w-24 aspect-square object-cover">
+                            <img class="w-full h-auto" src="/portfolio/allosimplon/build/upload/scenarist/<?=$scenarist['scenarist_photo']?>">
+                        </div>
+                    
+                    <?=$scenarist['scenarist_name']?>
+                </a>
                 <?php }
                 } ?>
             </div>
