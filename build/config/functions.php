@@ -8,6 +8,7 @@ function GetFilm($ORDER,$LIMIT){
     }
 }
 
+
 function GetOneFilm($ID_film){
     if(require("connexion.php")){
         $request=$con->prepare("SELECT * FROM film WHERE ID_film = ?");
@@ -335,7 +336,7 @@ function GetRealisatorFilm($ID_realisator){
 
 function GetUserFav($ID_user){
     if(require("connexion.php")){
-        // selectionne ID_user dans user_fav là où user.ID_user = user_film.ID_user
+    // selectionne ID_user dans user_fav là où user.ID_user = user_film.ID_user
     $ID_film_request=$con->prepare(
         "SELECT
             ID_film
@@ -356,6 +357,31 @@ function GetUserFav($ID_user){
             $film_name = $film['film_name'];
             echo $film_name, '<br>';
         }
+
+    }
+    }
+}
+
+function GetUserFilm($ID_user,$ORDER,$LIMIT){
+    if(require("connexion.php")){
+    // selectionne ID_user dans user_fav là où user.ID_user = user_film.ID_user
+    $ID_film_request=$con->prepare(
+        "SELECT
+            ID_film
+        FROM user_fav
+        WHERE ID_user = $ID_user
+        $ORDER $LIMIT");
+    $ID_film_request->execute();
+    while($ID_film=$ID_film_request->fetch()){
+
+        $film_request=$con->prepare(
+            "SELECT
+                *
+            FROM film
+            WHERE ID_film = $ID_film[0]"
+        );
+        $film_request->execute();
+        return $film_request;
 
     }
     }
