@@ -13,6 +13,8 @@ $film_video = htmlspecialchars(strip_tags($_POST['video']), ENT_QUOTES );
 $film_grade = htmlspecialchars(strip_tags($_POST['grade']), ENT_QUOTES );
 $film_description = htmlspecialchars(strip_tags($_POST['description']), ENT_QUOTES );
 $film_time = htmlspecialchars(strip_tags($_POST['time']), ENT_QUOTES );
+$film_admin_id = htmlspecialchars(strip_tags($_POST['admin_id']), ENT_QUOTES );
+$film_admin_pseudo = htmlspecialchars(strip_tags($_POST['admin_pseudo']), ENT_QUOTES );
 $ID_actor_array = ($_POST['actor']);
 $ID_realisator_array = ($_POST['realisator']);
 $ID_genre_array = ($_POST['genre']);
@@ -26,6 +28,8 @@ if(
     empty($film_grade) ||
     empty($film_description) ||
     empty($film_time) ||
+    empty($film_admin_id) ||
+    empty($film_admin_pseudo) ||
     empty($ID_actor_array) ||
     empty($ID_realisator_array) ||
     empty($ID_genre_array) ||
@@ -107,9 +111,9 @@ if(
                         "INSERT INTO
                             film
                         SET
-                            film_name = ?, film_date = ?, film_photo = ?, film_video = ?, film_grade = ?, film_description = ?, film_time = ?, film_background = ?");
+                            film_name = ?, film_date = ?, film_photo = ?, film_video = ?, film_grade = ?, film_description = ?, film_time = ?, film_background = ?, admin_id = ?, admin_pseudo = ?");
                 
-                    $add_film_request->execute([ $film_name, $film_date, $film_name_photo, $film_video, $film_grade,  $film_description, $film_time, $film_name_background]);
+                    $add_film_request->execute([ $film_name, $film_date, $film_name_photo, $film_video, $film_grade,  $film_description, $film_time, $film_name_background,$film_admin_id, $film_admin_pseudo]);
                 
                     $get_film_id=$con->prepare(
                         "SELECT ID_film
