@@ -377,7 +377,8 @@ function GetUserFilm($ID_user,$ORDER,$LIMIT){
             "SELECT
                 *
             FROM film
-            WHERE ID_film = $ID_film[0]"
+            WHERE ID_film = $ID_film[0] 
+            $ORDER $LIMIT"
         );
         $film_request->execute();
         while($film=$film_request->fetch()){
@@ -394,9 +395,9 @@ function GetUserFilm($ID_user,$ORDER,$LIMIT){
         <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
             <div class="relative w-full h-full flex flex-col justify-between">
                 <p class="font-bold text-xl cursor-dark"><?=$date?></p>
-                <i class="fa-regular fa-heart cursor-pointer absolute text-main-light right-0 top-0 text-2xl group/fav">
-                    <i class="fa-solid fa-heart cursor-pointer absolute right-0 top-0 text-2xl text-main-light hidden group-hover/fav:block "></i>
-                </i>
+                <?php
+                            isFilmFav($ID,$ID_user);
+                        ?>
                 <div>
                     <div class="flex justify-start">
                         <h2 class="underline font-bold text-main-light text-2xl mb-2"><?=$name?></h2>
@@ -618,16 +619,6 @@ function SelectedFilm($ID, $ID_select, $table){
     }
 }
 
-
-function IsFilmFav($ID_film){
-    if(require("connexion.php")){
-        $is_film_fav_request=$con->prepare(
-            "SELECT ID_user FROM user_fav WHERE ID_film = ?");
-        $is_film_fav_request->execute($ID_film);
-        $fav=$is_film_fav_request->fetch();
-        return $fav;
-    }
-}
 function AddFav(){
     if(require("connexion.php")){
         // RECUP VARIABLES + SAFE
@@ -651,6 +642,7 @@ function AddFav(){
 
 
 function ShowAddFav($ID_film){
+    if(require("connexion.php")){
     ?><form method="post" action="/portfolio/allosimplon/build/traitements/add/add_user_fav.php">
     <input class="hidden" name="ID_user" value="<?=$_SESSION['ID_user']?>">
     <input class="hidden" name="ID_film" value="<?=$ID_film?>">
@@ -660,7 +652,7 @@ function ShowAddFav($ID_film){
       </i>
     </button>
     </form>
-    <?php
+    <?php }
 }
 
 function DeleteFav(){
@@ -685,6 +677,7 @@ function DeleteFav(){
 }
 
 function ShowDeleteFav($ID_film){
+    if(require("connexion.php")){
     ?><form method="post" action="/portfolio/allosimplon/build/traitements/delete/delete_user_fav.php">
     <input class="hidden" name="ID_user" value="<?=$_SESSION['ID_user']?>">
     <input class="hidden" name="ID_film" value="<?=$ID_film?>">
@@ -694,7 +687,17 @@ function ShowDeleteFav($ID_film){
       </i>
     </button>
     </form>
-    <?php
+    <?php }
+}
+
+function IsFilmFav($ID_film,$ID_user){
+    if(require("connexion.php")){
+    $is_film_fav_request=$con->prepare(
+        "SELECT * FROM user_fav WHERE ID_film = ? AND ID_user = ?");
+    $is_film_fav_request->execute([$ID_film,$ID_user]);
+    $fav=$is_film_fav_request->fetch();
+    if($fav){ShowDeleteFav($ID_film);}else{ShowAddFav($ID_film);}
+    }
 }
 
 function Stars($note){

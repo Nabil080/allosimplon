@@ -69,13 +69,16 @@ require_once '../config/functions.php';
                     $date=$film['film_date'];
                     $note=$film['film_grade'];
                     $description=$film['film_description'];
+                    $ID_user=$_SESSION['ID_user'];
                 ?>
             <div class="group relative">
             <a href="/portfolio/allosimplon/build/content/film.php?page=<?=$ID?>"   class="cursor-pointer h-full">
                 <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
                     <div class="relative w-full h-full flex flex-col justify-between">
                         <p class="font-bold text-xl cursor-dark"><?=$date?></p>
-                        <?php ShowDeleteFav($ID);?>
+                        <?php
+                            isFilmFav($ID,$ID_user);
+                        ?>
                         <div>
                             <div class="flex justify-start">
                                 <h2 class="underline font-bold text-main-light text-2xl mb-2"><?=$name?></h2>
