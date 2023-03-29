@@ -98,13 +98,13 @@
                     </div>
                 </th> -->
                 <th scope="col" class="px-6 py-3">
+                    ID
+                </th>
+                <th scope="col" class="px-6 py-3">
                     Affiche
                 </th>
                 <th scope="col" class="px-6 py-3">
                     Nom du Film
-                </th>
-                <th scope="col" class="px-6 py-3">
-                    ID
                 </th>
                 <th scope="col" class="px-6 py-3">
                     Durée
@@ -266,14 +266,14 @@
                         <label for="checkbox-table-search-1" class="sr-only">checkbox</label>
                     </div>
                 </td> -->
-                <th scope="row" class="px-1 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white max-w-[8rem]">
-                    <img src="/portfolio/allosimplon/build/upload/film/<?=$photo?>" class="w-full objet-cover" alt="">
+                <th class="px-6 py-4">
+                    <?=$ID?>
                 </th>
-                <td class="px-6 py-4">
-                    <?=$name?>
+                <td scope="row" class="px-1 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white max-w-[8rem]">
+                    <img src="/portfolio/allosimplon/build/upload/film/<?=$photo?>" class="w-full objet-cover" alt="">
                 </td>
                 <td class="px-6 py-4">
-                    <?=$ID?>
+                    <?=$name?>
                 </td>
                 <td class="px-6 py-4">
                     <?=$time?>
