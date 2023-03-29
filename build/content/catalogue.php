@@ -14,7 +14,27 @@ require_once '../config/functions.php';
 <h1 class="font-bold text-4xl">Tous les films</h1>
 </div>
 
+<!-- PAGINATION -->
+<?php
+// Page active
+if (!isset ($_GET['page']) ) {$page_number = 1;
+} else {$page_number = $_GET['page'];}
+$pagination_number = $page_number;
+// Limite de lignes par page
+$limit = 12;
+          // echo 'limite par page :'; var_dump($limit);
+$initial_page = ($page_number-1)*$limit;
+          // echo' initial page: ';var_dump($initial_page);
+// Nombre total de pages nécessaires
+$film_count_request = $con->prepare("SELECT ID_film FROM film"); $film_count_request->execute();
+$film_count= $film_count_request->rowCount();
+          // echo' Nombre de films: ';var_dump($film_count);
+$page_count = ceil($film_count/$limit);
+          // echo' Nombre de pages nécessaires: ';var_dump($page_count);
+$rqs=$con->prepare("SELECT * FROM film LIMIT " . $initial_page . ',' . $limit);$rqs->execute();
 
+
+?>
 
 <!-- SECTION CATALOGUE -->
 
@@ -28,40 +48,35 @@ require_once '../config/functions.php';
 <div class="flex justify-center my-4  ">
     <nav aria-label="Page navigation example">
         <ul class="inline-flex items-center -space-x-px">
+          <?php if($page_number > 1){?>
           <li>
-            <a href="/portfolio/allosimplon/build/content/#" class="block px-3 py-2 ml-0 leading-tight text-gray-400 hover:text-main-light hover:font-bold ">
+            <a href="/portfolio/allosimplon/build/content/catalogue.php?page=<?=$page_number-1?>" class="block px-3 py-2 ml-0 leading-tight text-gray-400 hover:text-main-light hover:font-bold ">
               <span class="sr-only">Previous</span>
               <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
             </a>
           </li>
+            <?php } ?>
+          <?php for($pagination_number = 1; $pagination_number<=$page_count; $pagination_number++){ ?>
           <li>
-            <a href="/portfolio/allosimplon/build/content/#" class="px-3 py-2 leading-tight text-gray-400 hover:text-main-light hover:font-bold ">1</a>
+            <a href="/portfolio/allosimplon/build/content/catalogue.php?page=<?=$pagination_number?>" class="px-3 py-2 leading-tight text-gray-400 hover:text-main-light hover:font-bold "><?=$pagination_number?></a>
           </li>
+          <?php } ?>
+          <?php if($page_number < $page_count){ ?>
           <li>
-            <a href="/portfolio/allosimplon/build/content/#" class="px-3 py-2 leading-tight text-gray-400 hover:text-main-light hover:font-bold ">2</a>
-          </li>
-          <li>
-            <a href="/portfolio/allosimplon/build/content/#" aria-current="page" class="z-10 px-3 py-2 leading-tight text-main-light font-bold">3</a>
-          </li>
-          <li>
-            <a href="/portfolio/allosimplon/build/content/#" class="px-3 py-2 leading-tight text-gray-400 hover:text-main-light hover:font-bold ">4</a>
-          </li>
-          <li>
-            <a href="/portfolio/allosimplon/build/content/#" class="px-3 py-2 leading-tight text-gray-400 hover:text-main-light hover:font-bold ">5</a>
-          </li>
-          <li>
-            <a href="/portfolio/allosimplon/build/content/#" class="block px-3 py-2 leading-tight text-gray-400 hover:text-main-light hover:font-bold ">
+            <a href="/portfolio/allosimplon/build/content/catalogue.php?page=<?=$page_number+1?>" class="block px-3 py-2 leading-tight text-gray-400 hover:text-main-light hover:font-bold ">
               <span class="sr-only">Next</span>
               <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg>
             </a>
           </li>
+          <?php } ?>
         </ul>
       </nav>
     </div>
+
     <!-- CATALOGUE -->
         <div class="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:-grid-cols-5 [&_img]:w-full [&_img]:h-full object-cover ">
-            <?php $request = GetFilm(" ","LIMIT 16");
-                while($film=$request->fetch()){
+            <?php
+                while($film=$rqs->fetch()){
                     $photo=$film['film_photo'];
                     $name=$film['film_name'];
                     $ID=$film['ID_film'];
@@ -103,41 +118,33 @@ require_once '../config/functions.php';
             </div>
             <?php } ?>
         </div>
-<!-- pagination -->
-<div class="flex justify-center my-4  ">
-    <nav aria-label="Page navigation example">
-        <ul class="inline-flex items-center -space-x-px">
-          <li>
-            <a href="/portfolio/allosimplon/build/content/#" class="block px-3 py-2 ml-0 leading-tight text-gray-400 hover:text-main-light hover:font-bold ">
-              <span class="sr-only">Previous</span>
-              <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-            </a>
-          </li>
-          <li>
-            <a href="/portfolio/allosimplon/build/content/#" class="px-3 py-2 leading-tight text-gray-400 hover:text-main-light hover:font-bold ">1</a>
-          </li>
-          <li>
-            <a href="/portfolio/allosimplon/build/content/#" class="px-3 py-2 leading-tight text-gray-400 hover:text-main-light hover:font-bold ">2</a>
-          </li>
-          <li>
-            <a href="/portfolio/allosimplon/build/content/#" aria-current="page" class="z-10 px-3 py-2 leading-tight text-main-light font-bold">3</a>
-          </li>
-          <li>
-            <a href="/portfolio/allosimplon/build/content/#" class="px-3 py-2 leading-tight text-gray-400 hover:text-main-light hover:font-bold ">4</a>
-          </li>
-          <li>
-            <a href="/portfolio/allosimplon/build/content/#" class="px-3 py-2 leading-tight text-gray-400 hover:text-main-light hover:font-bold ">5</a>
-          </li>
-          <li>
-            <a href="/portfolio/allosimplon/build/content/#" class="block px-3 py-2 leading-tight text-gray-400 hover:text-main-light hover:font-bold ">
-              <span class="sr-only">Next</span>
-              <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg>
-            </a>
-          </li>
-        </ul>
-      </nav>
-    </div>
-    </div>
+    <!-- pagination -->
+    <div class="flex justify-center my-4  ">
+<nav aria-label="Page navigation example">
+    <ul class="inline-flex items-center -space-x-px">
+      <?php if($page_number > 1){?>
+      <li>
+        <a href="/portfolio/allosimplon/build/content/catalogue.php?page=<?=$page_number-1?>" class="block px-3 py-2 ml-0 leading-tight text-gray-400 hover:text-main-light hover:font-bold ">
+          <span class="sr-only">Previous</span>
+          <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+        </a>
+      </li>
+        <?php } ?>
+      <?php for($pagination_number = 1; $pagination_number<=$page_count; $pagination_number++){ ?>
+      <li>
+        <a href="/portfolio/allosimplon/build/content/catalogue.php?page=<?=$pagination_number?>" class="px-3 py-2 leading-tight text-gray-400 hover:text-main-light hover:font-bold "><?=$pagination_number?></a>
+      </li>
+      <?php } ?>
+      <?php if($page_number < $page_count){ ?>
+      <li>
+        <a href="/portfolio/allosimplon/build/content/catalogue.php?page=<?=$page_number+1?>" class="block px-3 py-2 leading-tight text-gray-400 hover:text-main-light hover:font-bold ">
+          <span class="sr-only">Next</span>
+          <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg>
+        </a>
+      </li>
+      <?php } ?>
+    </ul>
+  </nav>
 </div>
 </section>
 
