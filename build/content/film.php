@@ -352,7 +352,7 @@ $similar_films=GetFilmByGenre($film['ID_film']);
                         </div>
                     </div>
             </div>
-            <?php }else{echo count($similar_films);} ?>
+            <?php } ?>
             <!-- Item 2 -->
             <?php if(!empty($similar_films[9])){?>
             <div class="hidden duration-3000 ease-in-out h-full" data-carousel-item>
@@ -523,7 +523,7 @@ $similar_films=GetFilmByGenre($film['ID_film']);
                         </div>
                     </div>
             </div>
-            <?php }else{echo count($similar_films);} ?>
+            <?php } ?>
             <!-- Item 3 -->
             <?php if(!empty($similar_films[14])){?>
             <div class="hidden duration-3000 ease-in-out h-full" data-carousel-item>
@@ -695,7 +695,7 @@ $similar_films=GetFilmByGenre($film['ID_film']);
                         </div>
                     </div>
             </div>
-            <?php }else{echo count($similar_films);} ?>
+            <?php } ?>
             <!-- Item 4 -->
             <?php if(!empty($similar_films[19])){?>
             <div class="hidden duration-3000 ease-in-out h-full" data-carousel-item>
@@ -867,7 +867,7 @@ $similar_films=GetFilmByGenre($film['ID_film']);
                         </div>
                     </div>
             </div>
-            <?php }else{echo count($similar_films);} ?>
+            <?php } ?>
             <!-- Item 5 -->
             <?php if(!empty($similar_films[24])){?>
             <div class="hidden duration-3000 ease-in-out h-full" data-carousel-item >
@@ -1039,7 +1039,7 @@ $similar_films=GetFilmByGenre($film['ID_film']);
                         </div>
                     </div>
                 </div>
-            <?php }else{echo count($similar_films);} ?>
+            <?php } ?>
 
 
 

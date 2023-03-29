@@ -774,7 +774,7 @@ function GetFilmByGenre($ID_film){
         $similar_films_request=$con->prepare("SELECT ID_film FROM film_genre WHERE ID_genre IN ($genres) ORDER BY rand() LIMIT 25");
         $similar_films_request->execute();
         $similar_films=$similar_films_request->fetchAll(PDO::FETCH_COLUMN);
-        
+        var_dump($similar_films);
         // TRANSFORME EN STRING
         $films = implode(", ",$similar_films);
         
