@@ -21,7 +21,7 @@ if (!isset ($_GET['page']) ) {$page_number = 1;
 } else {$page_number = $_GET['page'];}
 $pagination_number = $page_number;
 // Limite de lignes par page
-$limit = 12;
+$limit = 4;
           // echo 'limite par page :'; var_dump($limit);
 $initial_page = ($page_number-1)*$limit;
           // echo' initial page: ';var_dump($initial_page);
@@ -50,22 +50,36 @@ $rqs=$con->prepare("SELECT * FROM film LIMIT " . $initial_page . ',' . $limit);$
         <ul class="inline-flex items-center -space-x-px">
           <?php if($page_number > 1){?>
           <li>
+            <a href="/portfolio/allosimplon/build/content/catalogue.php?page=1" class="block px-3 py-2 ml-0 leading-tight text-gray-400 hover:text-main-light hover:font-bold">
+              <svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M18.75 19.5l-7.5-7.5 7.5-7.5m-6 15L5.25 12l7.5-7.5" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+            </a>
+          </li>
+          <li>
             <a href="/portfolio/allosimplon/build/content/catalogue.php?page=<?=$page_number-1?>" class="block px-3 py-2 ml-0 leading-tight text-gray-400 hover:text-main-light hover:font-bold ">
               <span class="sr-only">Previous</span>
               <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
             </a>
           </li>
             <?php } ?>
-          <?php for($pagination_number = 1; $pagination_number<=$page_count; $pagination_number++){ ?>
+          <?php for($pagination_number = 1; $pagination_number<=$page_count; $pagination_number++){
+            if($pagination_number > $page_number-3 && $pagination_number < $page_number+3){?>
           <li>
-            <a href="/portfolio/allosimplon/build/content/catalogue.php?page=<?=$pagination_number?>" class="px-3 py-2 leading-tight text-gray-400 hover:text-main-light hover:font-bold "><?=$pagination_number?></a>
+            <a href="/portfolio/allosimplon/build/content/catalogue.php?page=<?=$pagination_number?>" class="<?php if($pagination_number==$page_number){echo'text-main-light font-bold';}else{echo 'text-gray-400';} ?> px-3 py-2 leading-tight text-gray-400 hover:text-main-light hover:font-bold "><?=$pagination_number?></a>
           </li>
-          <?php } ?>
+          <?php }} ?>
           <?php if($page_number < $page_count){ ?>
           <li>
             <a href="/portfolio/allosimplon/build/content/catalogue.php?page=<?=$page_number+1?>" class="block px-3 py-2 leading-tight text-gray-400 hover:text-main-light hover:font-bold ">
               <span class="sr-only">Next</span>
               <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg>
+            </a>
+          </li>
+          <li>
+            <a href="/portfolio/allosimplon/build/content/catalogue.php?page=<?=$page_count?>" class="block px-3 py-2 leading-tight text-gray-400 hover:text-main-light hover:font-bold ">
+              <span class="sr-only">Last</span>
+              <svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M11.25 4.5l7.5 7.5-7.5 7.5m-6-15l7.5 7.5-7.5 7.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
             </a>
           </li>
           <?php } ?>
@@ -124,17 +138,25 @@ $rqs=$con->prepare("SELECT * FROM film LIMIT " . $initial_page . ',' . $limit);$
     <ul class="inline-flex items-center -space-x-px">
       <?php if($page_number > 1){?>
       <li>
+        <a href="/portfolio/allosimplon/build/content/catalogue.php?page=1" class="block px-3 py-2 ml-0 leading-tight text-gray-400 hover:text-main-light hover:font-bold">
+          <svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M18.75 19.5l-7.5-7.5 7.5-7.5m-6 15L5.25 12l7.5-7.5" stroke-linecap="round" stroke-linejoin="round"></path>
+        </svg>
+        </a>
+      </li>
+      <li>
         <a href="/portfolio/allosimplon/build/content/catalogue.php?page=<?=$page_number-1?>" class="block px-3 py-2 ml-0 leading-tight text-gray-400 hover:text-main-light hover:font-bold ">
           <span class="sr-only">Previous</span>
           <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
         </a>
       </li>
         <?php } ?>
-      <?php for($pagination_number = 1; $pagination_number<=$page_count; $pagination_number++){ ?>
+      <?php for($pagination_number = 1; $pagination_number<=$page_count; $pagination_number++){
+        if($pagination_number > $page_number-3 && $pagination_number < $page_number+3){?>
       <li>
-        <a href="/portfolio/allosimplon/build/content/catalogue.php?page=<?=$pagination_number?>" class="px-3 py-2 leading-tight text-gray-400 hover:text-main-light hover:font-bold "><?=$pagination_number?></a>
+        <a href="/portfolio/allosimplon/build/content/catalogue.php?page=<?=$pagination_number?>" class="<?php if($pagination_number==$page_number){echo'text-main-light font-bold';}else{echo 'text-gray-400';} ?> px-3 py-2 leading-tight text-gray-400 hover:text-main-light hover:font-bold "><?=$pagination_number?></a>
       </li>
-      <?php } ?>
+      <?php }} ?>
       <?php if($page_number < $page_count){ ?>
       <li>
         <a href="/portfolio/allosimplon/build/content/catalogue.php?page=<?=$page_number+1?>" class="block px-3 py-2 leading-tight text-gray-400 hover:text-main-light hover:font-bold ">
@@ -142,10 +164,17 @@ $rqs=$con->prepare("SELECT * FROM film LIMIT " . $initial_page . ',' . $limit);$
           <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg>
         </a>
       </li>
+      <li>
+        <a href="/portfolio/allosimplon/build/content/catalogue.php?page=<?=$page_count?>" class="block px-3 py-2 leading-tight text-gray-400 hover:text-main-light hover:font-bold ">
+          <span class="sr-only">Last</span>
+          <svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M11.25 4.5l7.5 7.5-7.5 7.5m-6-15l7.5 7.5-7.5 7.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+        </a>
+      </li>
       <?php } ?>
     </ul>
   </nav>
 </div>
+
 </section>
 
 
