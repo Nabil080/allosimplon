@@ -8,6 +8,7 @@ function GetFilm($ORDER,$LIMIT){
     }
 }
 
+
 function GetOneFilm($ID_film){
     if(require("connexion.php")){
         $request=$con->prepare("SELECT * FROM film WHERE ID_film = ?");
@@ -334,7 +335,7 @@ function GetRealisatorFilm($ID_realisator){
 
 function GetUserFav($ID_user){
     if(require("connexion.php")){
-        // selectionne ID_user dans user_fav là où user.ID_user = user_film.ID_user
+    // selectionne ID_user dans user_fav là où user.ID_user = user_film.ID_user
     $ID_film_request=$con->prepare(
         "SELECT
             ID_film
@@ -355,6 +356,70 @@ function GetUserFav($ID_user){
             $film_name = $film['film_name'];
             echo $film_name, '<br>';
         }
+
+    }
+    }
+}
+
+function GetUserFilm($ID_user,$ORDER,$LIMIT){
+    if(require("connexion.php")){
+    // selectionne ID_user dans user_fav là où user.ID_user = user_film.ID_user
+    $ID_film_request=$con->prepare(
+        "SELECT
+            ID_film
+        FROM user_fav
+        WHERE ID_user = $ID_user");
+    $ID_film_request->execute();
+    while($ID_film=$ID_film_request->fetch()){
+
+        $film_request=$con->prepare(
+            "SELECT
+                *
+            FROM film
+            WHERE ID_film = $ID_film[0] 
+            $ORDER $LIMIT"
+        );
+        $film_request->execute();
+        while($film=$film_request->fetch()){
+            $photo=$film['film_photo'];
+            $name=$film['film_name'];
+            $ID=$film['ID_film'];
+            $time=$film['film_time'];
+            $date=$film['film_date'];
+            $note=$film['film_grade'];
+            $description=$film['film_description'];
+        ?>
+    <div class="group relative">
+    <a href="/portfolio/allosimplon/build/content/film.php?page=<?=$ID?>"   class="cursor-pointer h-full">
+        <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
+            <div class="relative w-full h-full flex flex-col justify-between">
+                <p class="font-bold text-xl cursor-dark"><?=$date?></p>
+                <?php
+                            isFilmFav($ID,$ID_user);
+                        ?>
+                <div>
+                    <div class="flex justify-start">
+                        <h2 class="underline font-bold text-main-light text-2xl mb-2"><?=$name?></h2>
+                    </div>
+                    <div class="flex justify-start">
+                        <p class="font-normal cursor-dark"><?php echo substr($description,0,200),'...' ?>
+                        </p>
+                    </div>
+                    <div class="flex justify-between h-auto mt-4 text-center">
+                        <div class="flex justify-start align-bottom">
+                            <?=$time?>min
+                        </div>
+                        <div class="flex justify-end">
+                            <?php Stars($note) ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <img class="" src="/portfolio/allosimplon/build/upload/film/<?=$photo?>" alt="<?=$name?>">
+        </a>
+    </div>
+    <?php } 
 
     }
     }
@@ -553,8 +618,89 @@ function SelectedFilm($ID, $ID_select, $table){
     }
 }
 
-function Stars($note){
+function AddFav(){
+    if(require("connexion.php")){
+        // RECUP VARIABLES + SAFE
+        if(isset($_POST['submit'])){
+            $ID_user=htmlspecialchars(strip_tags($_POST['ID_user']),ENT_QUOTES);
+            $ID_film=htmlspecialchars(strip_tags($_POST['ID_film']),ENT_QUOTES);
+        }else{
+            echo 'données du formulaires non récupérées';
+            var_dump($_POST);
+            die();
+        }
 
+        $add_user_fav_request=$con->prepare(
+            "INSERT
+                into user_fav
+            SET ID_user = ?, ID_film = ?");
+        $add_user_fav_request->execute([$ID_user,$ID_film]);
+        echo 'Le film a bien été ajouté en favori !';
+    }
+}
+
+
+function ShowAddFav($ID_film){
+    if(require("connexion.php")){
+    ?><form method="post" action="/portfolio/allosimplon/build/traitements/add/add_user_fav.php">
+    <input class="hidden" name="ID_user" value="<?=$_SESSION['ID_user']?>">
+    <input class="hidden" name="ID_film" value="<?=$ID_film?>">
+    <button type="submit" name="submit" value="submit" class="group/fav z-20">
+      <i class=" fa-regular fa-heart cursor-pointer absolute text-main-light right-0 top-0 text-2xl">
+        <i type="submit" class="fa-solid fa-heart cursor-pointer absolute right-0 top-0 text-2xl text-main-light hidden group-hover/fav:block"></i>
+      </i>
+    </button>
+    </form>
+    <?php }
+}
+
+function DeleteFav(){
+    if(require("connexion.php")){
+        // RECUP VARIABLES + SAFE
+        if(isset($_POST['submit'])){
+            $ID_user=htmlspecialchars(strip_tags($_POST['ID_user']),ENT_QUOTES);
+            $ID_film=htmlspecialchars(strip_tags($_POST['ID_film']),ENT_QUOTES);
+        }else{
+            echo 'données du formulaires non récupérées';
+            var_dump($_POST);
+            die();
+        }
+
+        $add_user_fav_request=$con->prepare(
+            "DELETE FROM
+                user_fav
+            WHERE ID_user = ? AND ID_film = ?");
+        $add_user_fav_request->execute([$ID_user,$ID_film]);
+        echo 'Le film a bien été supprimé des favoris !';
+    }
+}
+
+function ShowDeleteFav($ID_film){
+    if(require("connexion.php")){
+    ?><form method="post" action="/portfolio/allosimplon/build/traitements/delete/delete_user_fav.php">
+    <input class="hidden" name="ID_user" value="<?=$_SESSION['ID_user']?>">
+    <input class="hidden" name="ID_film" value="<?=$ID_film?>">
+    <button type="submit" name="submit" value="submit" class="group/fav z-20">
+      <i class=" fa-solid fa-heart cursor-pointer absolute text-main-light right-0 top-0 text-2xl">
+        <i type="submit" class="fa-regular fa-heart cursor-pointer absolute right-0 top-0 text-2xl text-main-light hidden group-hover/fav:block"></i>
+      </i>
+    </button>
+    </form>
+    <?php }
+}
+
+function IsFilmFav($ID_film,$ID_user){
+    if(require("connexion.php")){
+    $is_film_fav_request=$con->prepare(
+        "SELECT * FROM user_fav WHERE ID_film = ? AND ID_user = ?");
+    $is_film_fav_request->execute([$ID_film,$ID_user]);
+    $fav=$is_film_fav_request->fetch();
+    if($fav){ShowDeleteFav($ID_film);}else{ShowAddFav($ID_film);}
+    }
+}
+
+
+function Stars($note){
     if($note >=0 && $note < 2){
     echo'
         <div class="grade text-main-light z-50 text-2xl text-center">
@@ -640,6 +786,7 @@ function GetFilmByGenre($ID_film){
         return $similar_films;
     }
 }
+
 
 
 
