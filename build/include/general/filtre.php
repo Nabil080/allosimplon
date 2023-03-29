@@ -1,5 +1,5 @@
 <!-- FILTRES -->
-<div class="grow w-full hidden md:block">
+<div class="grow w-full max-w-[230px] hidden md:block">
         <div class="font-bold text-3xl w-fit notewe">Note IMDb</div>
         <div class=" my-8 grade text-main-light z-50 text-2xl">
             <i class="fa-solid fa-star cursor-pointer"></i>
