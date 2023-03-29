@@ -31,7 +31,7 @@ $film_count= $film_count_request->rowCount();
           // echo' Nombre de films: ';var_dump($film_count);
 $page_count = ceil($film_count/$limit);
           // echo' Nombre de pages nécessaires: ';var_dump($page_count);
-$rqs=$con->prepare("SELECT * FROM film LIMIT " . $initial_page . ',' . $limit);$rqs->execute();
+$rqs=$con->prepare("SELECT * FROM film ORDER BY film_grade DESC LIMIT " . $initial_page . ',' . $limit);$rqs->execute();
 
 
 ?>
