@@ -33,7 +33,6 @@ function GetOneGenre($ID_film){
         $request=$con->prepare("SELECT ID_genre FROM film_genre WHERE ID_film = ?");
             $request->execute([$ID_film]);
             return $request;
-
     }
 }
 
@@ -700,120 +699,97 @@ function IsFilmFav($ID_film,$ID_user){
     }
 }
 
+
 function Stars($note){
+    if($note >=0 && $note < 2){
+    echo'
+        <div class="grade text-main-light z-50 text-2xl text-center">
+            <i class="fa-regular fa-star cursor-pointer"></i>
+            <i class="fa-regular fa-star cursor-pointer"></i>
+            <i class="fa-regular fa-star cursor-pointer"></i>
+            <i class="fa-regular fa-star cursor-pointer"></i>
+            <i class="fa-regular fa-star cursor-pointer"></i>
+        </div>
+    '; }
+    if($note >=2 && $note < 4){
+    echo'
+        <div class="grade text-main-light z-50 text-2xl text-center">
+            <i class="fa-solid fa-star cursor-pointer"></i>
+            <i class="fa-regular fa-star cursor-pointer"></i>
+            <i class="fa-regular fa-star cursor-pointer"></i>
+            <i class="fa-regular fa-star cursor-pointer"></i>
+            <i class="fa-regular fa-star cursor-pointer"></i>
+        </div>
+    '; }
+    if($note >=4 && $note < 6){
+        echo'
+        <div class="grade text-main-light z-50 text-2xl text-center">
+            <i class="fa-solid fa-star cursor-pointer"></i>
+            <i class="fa-solid fa-star cursor-pointer"></i>
+            <i class="fa-regular fa-star cursor-pointer"></i>
+            <i class="fa-regular fa-star cursor-pointer"></i>
+            <i class="fa-regular fa-star cursor-pointer"></i>
+        </div>
+    '; }
+    if($note >= 6 && $note < 8){
+        echo'
+        <div class="grade text-main-light z-50 text-2xl text-center">
+            <i class="fa-solid fa-star cursor-pointer"></i>
+            <i class="fa-solid fa-star cursor-pointer"></i>
+            <i class="fa-solid fa-star cursor-pointer"></i>
+            <i class="fa-regular fa-star cursor-pointer"></i>
+            <i class="fa-regular fa-star cursor-pointer"></i>
+        </div>
+    '; }
+    if($note >=8 && $note <= 9 ){
+        echo'
+        <div class="grade text-main-light z-50 text-2xl text-center">
+            <i class="fa-solid fa-star cursor-pointer"></i>
+            <i class="fa-solid fa-star cursor-pointer"></i>
+            <i class="fa-solid fa-star cursor-pointer"></i>
+            <i class="fa-solid fa-star cursor-pointer"></i>
+            <i class="fa-regular fa-star cursor-pointer"></i>
+        </div>
+    '; }
+    if($note > 9 && $note <= 10){
+        echo'
+        <div class="grade text-main-light z-50 text-2xl text-center">
+            <i class="fa-solid fa-star cursor-pointer"></i>
+            <i class="fa-solid fa-star cursor-pointer"></i>
+            <i class="fa-solid fa-star cursor-pointer"></i>
+            <i class="fa-solid fa-star cursor-pointer"></i>
+            <i class="fa-solid fa-star cursor-pointer"></i>
+        </div>
+    '; }
+}
+
+function GetFilmByGenre($ID_film){
     if(require("connexion.php")){
-    if($note==0){
-    echo'
-        <div class="grade text-main-light z-50 text-2xl text-center">
-            <i class="fa-regular fa-star cursor-pointer"></i>
-            <i class="fa-regular fa-star cursor-pointer"></i>
-            <i class="fa-regular fa-star cursor-pointer"></i>
-            <i class="fa-regular fa-star cursor-pointer"></i>
-            <i class="fa-regular fa-star cursor-pointer"></i>
-        </div>
-    '; }
-    if($note==1){
-    echo'
-        <div class="grade text-main-light z-50 text-2xl text-center">
-            <i class="fa-regular fa-star cursor-pointer"></i>
-            <i class="fa-regular fa-star cursor-pointer"></i>
-            <i class="fa-regular fa-star cursor-pointer"></i>
-            <i class="fa-regular fa-star cursor-pointer"></i>
-            <i class="fa-regular fa-star cursor-pointer"></i>
-        </div>
-    '; }
-    if($note==2){
-        echo'
-        <div class="grade text-main-light z-50 text-2xl text-center">
-            <i class="fa-solid fa-star cursor-pointer"></i>
-            <i class="fa-regular fa-star cursor-pointer"></i>
-            <i class="fa-regular fa-star cursor-pointer"></i>
-            <i class="fa-regular fa-star cursor-pointer"></i>
-            <i class="fa-regular fa-star cursor-pointer"></i>
-        </div>
-    '; }
-    if($note==3){
-        echo'
-        <div class="grade text-main-light z-50 text-2xl text-center">
-            <i class="fa-solid fa-star cursor-pointer"></i>
-            <i class="fa-regular fa-star cursor-pointer"></i>
-            <i class="fa-regular fa-star cursor-pointer"></i>
-            <i class="fa-regular fa-star cursor-pointer"></i>
-            <i class="fa-regular fa-star cursor-pointer"></i>
-        </div>
-    '; }
-    if($note==4){
-        echo'
-        <div class="grade text-main-light z-50 text-2xl text-center">
-            <i class="fa-solid fa-star cursor-pointer"></i>
-            <i class="fa-solid fa-star cursor-pointer"></i>
-            <i class="fa-regular fa-star cursor-pointer"></i>
-            <i class="fa-regular fa-star cursor-pointer"></i>
-            <i class="fa-regular fa-star cursor-pointer"></i>
-        </div>
-    '; }
-    if($note==5){
-        echo'
-        <div class="grade text-main-light z-50 text-2xl text-center">
-            <i class="fa-solid fa-star cursor-pointer"></i>
-            <i class="fa-solid fa-star cursor-pointer"></i>
-            <i class="fa-regular fa-star cursor-pointer"></i>
-            <i class="fa-regular fa-star cursor-pointer"></i>
-            <i class="fa-regular fa-star cursor-pointer"></i>
-        </div>
-    '; }
-    if($note==6){
-        echo'
-        <div class="grade text-main-light z-50 text-2xl text-center">
-            <i class="fa-solid fa-star cursor-pointer"></i>
-            <i class="fa-solid fa-star cursor-pointer"></i>
-            <i class="fa-solid fa-star cursor-pointer"></i>
-            <i class="fa-regular fa-star cursor-pointer"></i>
-            <i class="fa-regular fa-star cursor-pointer"></i>
-        </div>
-    '; }
-    if($note==7){
-        echo'
-        <div class="grade text-main-light z-50 text-2xl text-center">
-            <i class="fa-solid fa-star cursor-pointer"></i>
-            <i class="fa-solid fa-star cursor-pointer"></i>
-            <i class="fa-solid fa-star cursor-pointer"></i>
-            <i class="fa-regular fa-star cursor-pointer"></i>
-            <i class="fa-regular fa-star cursor-pointer"></i>
-        </div>
-    '; }
-    if($note==8){
-        echo'
-        <div class="grade text-main-light z-50 text-2xl text-center">
-            <i class="fa-solid fa-star cursor-pointer"></i>
-            <i class="fa-solid fa-star cursor-pointer"></i>
-            <i class="fa-solid fa-star cursor-pointer"></i>
-            <i class="fa-solid fa-star cursor-pointer"></i>
-            <i class="fa-regular fa-star cursor-pointer"></i>
-        </div>
-    '; }
-    if($note==9){
-        echo'
-        <div class="grade text-main-light z-50 text-2xl text-center">
-            <i class="fa-solid fa-star cursor-pointer"></i>
-            <i class="fa-solid fa-star cursor-pointer"></i>
-            <i class="fa-solid fa-star cursor-pointer"></i>
-            <i class="fa-solid fa-star cursor-pointer"></i>
-            <i class="fa-regular fa-star cursor-pointer"></i>
-        </div>
-    '; }
-    if($note==10){
-        echo'
-        <div class="grade text-main-light z-50 text-2xl text-center">
-            <i class="fa-solid fa-star cursor-pointer"></i>
-            <i class="fa-solid fa-star cursor-pointer"></i>
-            <i class="fa-solid fa-star cursor-pointer"></i>
-            <i class="fa-solid fa-star cursor-pointer"></i>
-            <i class="fa-solid fa-star cursor-pointer"></i>
-        </div>
-    '; }
+        $genres_request=GetOneGenre($ID_film);
+        $genres_array=$genres_request->fetchAll(PDO::FETCH_COLUMN);
+        // TRANSFORME EN STRING
+        $genres = implode(", ",$genres_array);
+        
+        // RECUP ARRAY FILMS AVEC UN DES ID_GENRE
+        $similar_films_request=$con->prepare("SELECT ID_film FROM film_genre WHERE ID_genre IN ($genres) ORDER BY rand() LIMIT 25");
+        $similar_films_request->execute();
+        $similar_films=$similar_films_request->fetchAll(PDO::FETCH_COLUMN);
+        
+        // TRANSFORME EN STRING
+        $films = implode(", ",$similar_films);
+        
+        // RECUP ARRAY INFO_FILMS AVEC UN DES ID_FILM
+        $similar_films_info_request=$con->prepare("SELECT * FROM film WHERE ID_film IN ($films) ORDER BY rand()");
+        $similar_films_info_request->execute();
+        $similar_films = $similar_films_info_request->fetchAll();
+        // ARRAY INFO FILMS SIMI
+        return $similar_films;
+    }
 }
-}
+
+
+
+
 ?>
 
 
