@@ -196,9 +196,9 @@ $similar_films=GetFilmByGenre($film['ID_film']);
                             <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
                                 <div class="relative w-full h-full flex flex-col justify-between">
                                     <p class="font-bold text-xl cursor-dark"><?=$similar_films[0]['film_date']?></p>
-                                    <i class="fa-regular fa-heart cursor-pointer absolute text-main-light right-0 top-0 text-2xl group/fav">
-                                        <i class="fa-solid fa-heart cursor-pointer absolute right-0 top-0 text-2xl text-main-light hidden group-hover/fav:block "></i>
-                                    </i>
+                        <?php
+                            isFilmFav($similar_films[0]['ID_film'],$_SESSION['ID_user']);
+                        ?>
                                     <div>
                                         <div class="flex justify-start">
                                             <a href="/portfolio/allosimplon/build/content/film.php?page=<?=$similar_films[0]['ID_film']?>"><h2 class="underline font-bold text-main-light text-2xl mb-2"><?=$similar_films[0]['film_name']?></h2></a>
@@ -228,9 +228,9 @@ $similar_films=GetFilmByGenre($film['ID_film']);
                             <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
                                 <div class="relative w-full h-full flex flex-col justify-between">
                                     <p class="font-bold text-xl cursor-dark"><?=$similar_films[1]['film_date']?></p>
-                                    <i class="fa-regular fa-heart cursor-pointer absolute text-main-light right-0 top-0 text-2xl group/fav">
-                                        <i class="fa-solid fa-heart cursor-pointer absolute right-0 top-0 text-2xl text-main-light hidden group-hover/fav:block "></i>
-                                    </i>
+                        <?php
+                            isFilmFav($similar_films[1]['ID_film'],$_SESSION['ID_user']);
+                        ?>
                                     <div>
                                         <div class="flex justify-start">
                                             <a href="/portfolio/allosimplon/build/content/film.php?page=<?=$similar_films[1]['ID_film']?>"><h2 class="underline font-bold text-main-light text-2xl mb-2"><?=$similar_films[1]['film_name']?></h2></a>
@@ -260,9 +260,9 @@ $similar_films=GetFilmByGenre($film['ID_film']);
                             <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
                                 <div class="relative w-full h-full flex flex-col justify-between">
                                     <p class="font-bold text-xl cursor-dark"><?=$similar_films[2]['film_date']?></p>
-                                    <i class="fa-regular fa-heart cursor-pointer absolute text-main-light right-0 top-0 text-2xl group/fav">
-                                        <i class="fa-solid fa-heart cursor-pointer absolute right-0 top-0 text-2xl text-main-light hidden group-hover/fav:block "></i>
-                                    </i>
+                        <?php
+                            isFilmFav($similar_films[2]['ID_film'],$_SESSION['ID_user']);
+                        ?>
                                     <div>
                                         <div class="flex justify-start">
                                             <a href="/portfolio/allosimplon/build/content/film.php?page=<?=$similar_films[2]['ID_film']?>"><h2 class="underline font-bold text-main-light text-2xl mb-2"><?=$similar_films[2]['film_name']?></h2></a>
@@ -292,9 +292,9 @@ $similar_films=GetFilmByGenre($film['ID_film']);
                             <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
                                 <div class="relative w-full h-full flex flex-col justify-between">
                                     <p class="font-bold text-xl cursor-dark"><?=$similar_films[3]['film_date']?></p>
-                                    <i class="fa-regular fa-heart cursor-pointer absolute text-main-light right-0 top-0 text-2xl group/fav">
-                                        <i class="fa-solid fa-heart cursor-pointer absolute right-0 top-0 text-2xl text-main-light hidden group-hover/fav:block "></i>
-                                    </i>
+                        <?php
+                            isFilmFav($similar_films[3]['ID_film'],$_SESSION['ID_user']);
+                        ?>
                                     <div>
                                         <div class="flex justify-start">
                                             <a href="/portfolio/allosimplon/build/content/film.php?page=<?=$similar_films[3]['ID_film']?>"><h2 class="underline font-bold text-main-light text-2xl mb-2"><?=$similar_films[3]['film_name']?></h2></a>
@@ -325,9 +325,9 @@ $similar_films=GetFilmByGenre($film['ID_film']);
                             <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
                                 <div class="relative w-full h-full flex flex-col justify-between">
                                     <p class="font-bold text-xl cursor-dark"><?=$similar_films[4]['film_date']?></p>
-                                    <i class="fa-regular fa-heart cursor-pointer absolute text-main-light right-0 top-0 text-2xl group/fav">
-                                        <i class="fa-solid fa-heart cursor-pointer absolute right-0 top-0 text-2xl text-main-light hidden group-hover/fav:block "></i>
-                                    </i>
+                        <?php
+                            isFilmFav($similar_films[4]['ID_film'],$_SESSION['ID_user']);
+                        ?>
                                     <div>
                                         <div class="flex justify-start">
                                             <a href="/portfolio/allosimplon/build/content/film.php?page=<?=$similar_films[4]['ID_film']?>"><h2 class="underline font-bold text-main-light text-2xl mb-2"><?=$similar_films[4]['film_name']?></h2></a>
@@ -364,9 +364,9 @@ $similar_films=GetFilmByGenre($film['ID_film']);
                             <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
                                 <div class="relative w-full h-full flex flex-col justify-between">
                                     <p class="font-bold text-xl cursor-dark"><?=$similar_films[5]['film_date']?></p>
-                                    <i class="fa-regular fa-heart cursor-pointer absolute text-main-light right-0 top-0 text-2xl group/fav">
-                                        <i class="fa-solid fa-heart cursor-pointer absolute right-0 top-0 text-2xl text-main-light hidden group-hover/fav:block "></i>
-                                    </i>
+                        <?php
+                            isFilmFav($similar_films[5]['ID_film'],$_SESSION['ID_user']);
+                        ?>
                                     <div>
                                         <div class="flex justify-start">
                                             <a href="/portfolio/allosimplon/build/content/film.php?page=<?=$similar_films[5]['ID_film']?>"><h2 class="underline font-bold text-main-light text-2xl mb-2"><?=$similar_films[5]['film_name']?></h2></a>
@@ -397,9 +397,9 @@ $similar_films=GetFilmByGenre($film['ID_film']);
                             <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
                                 <div class="relative w-full h-full flex flex-col justify-between">
                                     <p class="font-bold text-xl cursor-dark"><?=$similar_films[6]['film_date']?></p>
-                                    <i class="fa-regular fa-heart cursor-pointer absolute text-main-light right-0 top-0 text-2xl group/fav">
-                                        <i class="fa-solid fa-heart cursor-pointer absolute right-0 top-0 text-2xl text-main-light hidden group-hover/fav:block "></i>
-                                    </i>
+                        <?php
+                            isFilmFav($similar_films[6]['ID_film'],$_SESSION['ID_user']);
+                        ?>
                                     <div>
                                         <div class="flex justify-start">
                                             <a href="/portfolio/allosimplon/build/content/film.php?page=<?=$similar_films[6]['ID_film']?>"><h2 class="underline font-bold text-main-light text-2xl mb-2"><?=$similar_films[6]['film_name']?></h2></a>
@@ -430,9 +430,9 @@ $similar_films=GetFilmByGenre($film['ID_film']);
                             <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
                                 <div class="relative w-full h-full flex flex-col justify-between">
                                     <p class="font-bold text-xl cursor-dark"><?=$similar_films[7]['film_date']?></p>
-                                    <i class="fa-regular fa-heart cursor-pointer absolute text-main-light right-0 top-0 text-2xl group/fav">
-                                        <i class="fa-solid fa-heart cursor-pointer absolute right-0 top-0 text-2xl text-main-light hidden group-hover/fav:block "></i>
-                                    </i>
+                        <?php
+                            isFilmFav($similar_films[7]['ID_film'],$_SESSION['ID_user']);
+                        ?>
                                     <div>
                                         <div class="flex justify-start">
                                             <a href="/portfolio/allosimplon/build/content/film.php?page=<?=$similar_films[7]['ID_film']?>"><h2 class="underline font-bold text-main-light text-2xl mb-2"><?=$similar_films[7]['film_name']?></h2></a>
@@ -463,9 +463,9 @@ $similar_films=GetFilmByGenre($film['ID_film']);
                             <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
                                 <div class="relative w-full h-full flex flex-col justify-between">
                                     <p class="font-bold text-xl cursor-dark"><?=$similar_films[8]['film_date']?></p>
-                                    <i class="fa-regular fa-heart cursor-pointer absolute text-main-light right-0 top-0 text-2xl group/fav">
-                                        <i class="fa-solid fa-heart cursor-pointer absolute right-0 top-0 text-2xl text-main-light hidden group-hover/fav:block "></i>
-                                    </i>
+                        <?php
+                            isFilmFav($similar_films[8]['ID_film'],$_SESSION['ID_user']);
+                        ?>
                                     <div>
                                         <div class="flex justify-start">
                                             <a href="/portfolio/allosimplon/build/content/film.php?page=<?=$similar_films[8]['ID_film']?>"><h2 class="underline font-bold text-main-light text-2xl mb-2"><?=$similar_films[8]['film_name']?></h2></a>
@@ -496,9 +496,9 @@ $similar_films=GetFilmByGenre($film['ID_film']);
                             <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
                                 <div class="relative w-full h-full flex flex-col justify-between">
                                     <p class="font-bold text-xl cursor-dark"><?=$similar_films[9]['film_date']?></p>
-                                    <i class="fa-regular fa-heart cursor-pointer absolute text-main-light right-0 top-0 text-2xl group/fav">
-                                        <i class="fa-solid fa-heart cursor-pointer absolute right-0 top-0 text-2xl text-main-light hidden group-hover/fav:block "></i>
-                                    </i>
+                        <?php
+                            isFilmFav($similar_films[9]['ID_film'],$_SESSION['ID_user']);
+                        ?>
                                     <div>
                                         <div class="flex justify-start">
                                             <a href="/portfolio/allosimplon/build/content/film.php?page=<?=$similar_films[9]['ID_film']?>"><h2 class="underline font-bold text-main-light text-2xl mb-2"><?=$similar_films[9]['film_name']?></h2></a>
@@ -536,9 +536,9 @@ $similar_films=GetFilmByGenre($film['ID_film']);
                             <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
                                 <div class="relative w-full h-full flex flex-col justify-between">
                                     <p class="font-bold text-xl cursor-dark"><?=$similar_films[10]['film_date']?></p>
-                                    <i class="fa-regular fa-heart cursor-pointer absolute text-main-light right-0 top-0 text-2xl group/fav">
-                                        <i class="fa-solid fa-heart cursor-pointer absolute right-0 top-0 text-2xl text-main-light hidden group-hover/fav:block "></i>
-                                    </i>
+                        <?php
+                            isFilmFav($similar_films[10]['ID_film'],$_SESSION['ID_user']);
+                        ?>
                                     <div>
                                         <div class="flex justify-start">
                                             <a href="/portfolio/allosimplon/build/content/film.php?page=<?=$similar_films[10]['ID_film']?>"><h2 class="underline font-bold text-main-light text-2xl mb-2"><?=$similar_films[10]['film_name']?></h2></a>
@@ -569,9 +569,9 @@ $similar_films=GetFilmByGenre($film['ID_film']);
                             <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
                                 <div class="relative w-full h-full flex flex-col justify-between">
                                     <p class="font-bold text-xl cursor-dark"><?=$similar_films[11]['film_date']?></p>
-                                    <i class="fa-regular fa-heart cursor-pointer absolute text-main-light right-0 top-0 text-2xl group/fav">
-                                        <i class="fa-solid fa-heart cursor-pointer absolute right-0 top-0 text-2xl text-main-light hidden group-hover/fav:block "></i>
-                                    </i>
+                        <?php
+                            isFilmFav($similar_films[11]['ID_film'],$_SESSION['ID_user']);
+                        ?>
                                     <div>
                                         <div class="flex justify-start">
                                             <a href="/portfolio/allosimplon/build/content/film.php?page=<?=$similar_films[11]['ID_film']?>"><h2 class="underline font-bold text-main-light text-2xl mb-2"><?=$similar_films[11]['film_name']?></h2></a>
@@ -602,9 +602,9 @@ $similar_films=GetFilmByGenre($film['ID_film']);
                             <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
                                 <div class="relative w-full h-full flex flex-col justify-between">
                                     <p class="font-bold text-xl cursor-dark"><?=$similar_films[12]['film_date']?></p>
-                                    <i class="fa-regular fa-heart cursor-pointer absolute text-main-light right-0 top-0 text-2xl group/fav">
-                                        <i class="fa-solid fa-heart cursor-pointer absolute right-0 top-0 text-2xl text-main-light hidden group-hover/fav:block "></i>
-                                    </i>
+                        <?php
+                            isFilmFav($similar_films[12]['ID_film'],$_SESSION['ID_user']);
+                        ?>
                                     <div>
                                         <div class="flex justify-start">
                                             <a href="/portfolio/allosimplon/build/content/film.php?page=<?=$similar_films[12]['ID_film']?>"><h2 class="underline font-bold text-main-light text-2xl mb-2"><?=$similar_films[12]['film_name']?></h2></a>
@@ -635,9 +635,9 @@ $similar_films=GetFilmByGenre($film['ID_film']);
                             <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
                                 <div class="relative w-full h-full flex flex-col justify-between">
                                     <p class="font-bold text-xl cursor-dark"><?=$similar_films[13]['film_date']?></p>
-                                    <i class="fa-regular fa-heart cursor-pointer absolute text-main-light right-0 top-0 text-2xl group/fav">
-                                        <i class="fa-solid fa-heart cursor-pointer absolute right-0 top-0 text-2xl text-main-light hidden group-hover/fav:block "></i>
-                                    </i>
+                        <?php
+                            isFilmFav($similar_films[13]['ID_film'],$_SESSION['ID_user']);
+                        ?>
                                     <div>
                                         <div class="flex justify-start">
                                             <a href="/portfolio/allosimplon/build/content/film.php?page=<?=$similar_films[13]['ID_film']?>"><h2 class="underline font-bold text-main-light text-2xl mb-2"><?=$similar_films[13]['film_name']?></h2></a>
@@ -668,9 +668,9 @@ $similar_films=GetFilmByGenre($film['ID_film']);
                             <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
                                 <div class="relative w-full h-full flex flex-col justify-between">
                                     <p class="font-bold text-xl cursor-dark"><?=$similar_films[14]['film_date']?></p>
-                                    <i class="fa-regular fa-heart cursor-pointer absolute text-main-light right-0 top-0 text-2xl group/fav">
-                                        <i class="fa-solid fa-heart cursor-pointer absolute right-0 top-0 text-2xl text-main-light hidden group-hover/fav:block "></i>
-                                    </i>
+                        <?php
+                            isFilmFav($similar_films[14]['ID_film'],$_SESSION['ID_user']);
+                        ?>
                                     <div>
                                         <div class="flex justify-start">
                                             <a href="/portfolio/allosimplon/build/content/film.php?page=<?=$similar_films[14]['ID_film']?>"><h2 class="underline font-bold text-main-light text-2xl mb-2"><?=$similar_films[14]['film_name']?></h2></a>
@@ -708,9 +708,9 @@ $similar_films=GetFilmByGenre($film['ID_film']);
                             <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
                                 <div class="relative w-full h-full flex flex-col justify-between">
                                     <p class="font-bold text-xl cursor-dark"><?=$similar_films[15]['film_date']?></p>
-                                    <i class="fa-regular fa-heart cursor-pointer absolute text-main-light right-0 top-0 text-2xl group/fav">
-                                        <i class="fa-solid fa-heart cursor-pointer absolute right-0 top-0 text-2xl text-main-light hidden group-hover/fav:block "></i>
-                                    </i>
+                        <?php
+                            isFilmFav($similar_films[15]['ID_film'],$_SESSION['ID_user']);
+                        ?>
                                     <div>
                                         <div class="flex justify-start">
                                             <a href="/portfolio/allosimplon/build/content/film.php?page=<?=$similar_films[15]['ID_film']?>"><h2 class="underline font-bold text-main-light text-2xl mb-2"><?=$similar_films[15]['film_name']?></h2></a>
@@ -741,9 +741,9 @@ $similar_films=GetFilmByGenre($film['ID_film']);
                             <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
                                 <div class="relative w-full h-full flex flex-col justify-between">
                                     <p class="font-bold text-xl cursor-dark"><?=$similar_films[16]['film_date']?></p>
-                                    <i class="fa-regular fa-heart cursor-pointer absolute text-main-light right-0 top-0 text-2xl group/fav">
-                                        <i class="fa-solid fa-heart cursor-pointer absolute right-0 top-0 text-2xl text-main-light hidden group-hover/fav:block "></i>
-                                    </i>
+                        <?php
+                            isFilmFav($similar_films[16]['ID_film'],$_SESSION['ID_user']);
+                        ?>
                                     <div>
                                         <div class="flex justify-start">
                                             <a href="/portfolio/allosimplon/build/content/film.php?page=<?=$similar_films[16]['ID_film']?>"><h2 class="underline font-bold text-main-light text-2xl mb-2"><?=$similar_films[16]['film_name']?></h2></a>
@@ -774,9 +774,9 @@ $similar_films=GetFilmByGenre($film['ID_film']);
                             <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
                                 <div class="relative w-full h-full flex flex-col justify-between">
                                     <p class="font-bold text-xl cursor-dark"><?=$similar_films[17]['film_date']?></p>
-                                    <i class="fa-regular fa-heart cursor-pointer absolute text-main-light right-0 top-0 text-2xl group/fav">
-                                        <i class="fa-solid fa-heart cursor-pointer absolute right-0 top-0 text-2xl text-main-light hidden group-hover/fav:block "></i>
-                                    </i>
+                        <?php
+                            isFilmFav($similar_films[17]['ID_film'],$_SESSION['ID_user']);
+                        ?>
                                     <div>
                                         <div class="flex justify-start">
                                             <a href="/portfolio/allosimplon/build/content/film.php?page=<?=$similar_films[17]['ID_film']?>"><h2 class="underline font-bold text-main-light text-2xl mb-2"><?=$similar_films[17]['film_name']?></h2></a>
@@ -807,9 +807,9 @@ $similar_films=GetFilmByGenre($film['ID_film']);
                             <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
                                 <div class="relative w-full h-full flex flex-col justify-between">
                                     <p class="font-bold text-xl cursor-dark"><?=$similar_films[18]['film_date']?></p>
-                                    <i class="fa-regular fa-heart cursor-pointer absolute text-main-light right-0 top-0 text-2xl group/fav">
-                                        <i class="fa-solid fa-heart cursor-pointer absolute right-0 top-0 text-2xl text-main-light hidden group-hover/fav:block "></i>
-                                    </i>
+                        <?php
+                            isFilmFav($similar_films[18]['ID_film'],$_SESSION['ID_user']);
+                        ?>
                                     <div>
                                         <div class="flex justify-start">
                                             <a href="/portfolio/allosimplon/build/content/film.php?page=<?=$similar_films[18]['ID_film']?>"><h2 class="underline font-bold text-main-light text-2xl mb-2"><?=$similar_films[18]['film_name']?></h2></a>
@@ -840,9 +840,9 @@ $similar_films=GetFilmByGenre($film['ID_film']);
                             <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
                                 <div class="relative w-full h-full flex flex-col justify-between">
                                     <p class="font-bold text-xl cursor-dark"><?=$similar_films[19]['film_date']?></p>
-                                    <i class="fa-regular fa-heart cursor-pointer absolute text-main-light right-0 top-0 text-2xl group/fav">
-                                        <i class="fa-solid fa-heart cursor-pointer absolute right-0 top-0 text-2xl text-main-light hidden group-hover/fav:block "></i>
-                                    </i>
+                        <?php
+                            isFilmFav($similar_films[19]['ID_film'],$_SESSION['ID_user']);
+                        ?>
                                     <div>
                                         <div class="flex justify-start">
                                             <a href="/portfolio/allosimplon/build/content/film.php?page=<?=$similar_films[19]['ID_film']?>"><h2 class="underline font-bold text-main-light text-2xl mb-2"><?=$similar_films[19]['film_name']?></h2></a>
@@ -880,9 +880,9 @@ $similar_films=GetFilmByGenre($film['ID_film']);
                             <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
                                 <div class="relative w-full h-full flex flex-col justify-between">
                                     <p class="font-bold text-xl cursor-dark"><?=$similar_films[20]['film_date']?></p>
-                                    <i class="fa-regular fa-heart cursor-pointer absolute text-main-light right-0 top-0 text-2xl group/fav">
-                                        <i class="fa-solid fa-heart cursor-pointer absolute right-0 top-0 text-2xl text-main-light hidden group-hover/fav:block "></i>
-                                    </i>
+                        <?php
+                            isFilmFav($similar_films[20]['ID_film'],$_SESSION['ID_user']);
+                        ?>
                                     <div>
                                         <div class="flex justify-start">
                                             <a href="/portfolio/allosimplon/build/content/film.php?page=<?=$similar_films[20]['ID_film']?>"><h2 class="underline font-bold text-main-light text-2xl mb-2"><?=$similar_films[20]['film_name']?></h2></a>
@@ -913,9 +913,9 @@ $similar_films=GetFilmByGenre($film['ID_film']);
                             <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
                                 <div class="relative w-full h-full flex flex-col justify-between">
                                     <p class="font-bold text-xl cursor-dark"><?=$similar_films[21]['film_date']?></p>
-                                    <i class="fa-regular fa-heart cursor-pointer absolute text-main-light right-0 top-0 text-2xl group/fav">
-                                        <i class="fa-solid fa-heart cursor-pointer absolute right-0 top-0 text-2xl text-main-light hidden group-hover/fav:block "></i>
-                                    </i>
+                        <?php
+                            isFilmFav($similar_films[21]['ID_film'],$_SESSION['ID_user']);
+                        ?>
                                     <div>
                                         <div class="flex justify-start">
                                             <a href="/portfolio/allosimplon/build/content/film.php?page=<?=$similar_films[21]['ID_film']?>"><h2 class="underline font-bold text-main-light text-2xl mb-2"><?=$similar_films[21]['film_name']?></h2></a>
@@ -946,9 +946,9 @@ $similar_films=GetFilmByGenre($film['ID_film']);
                             <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
                                 <div class="relative w-full h-full flex flex-col justify-between">
                                     <p class="font-bold text-xl cursor-dark"><?=$similar_films[22]['film_date']?></p>
-                                    <i class="fa-regular fa-heart cursor-pointer absolute text-main-light right-0 top-0 text-2xl group/fav">
-                                        <i class="fa-solid fa-heart cursor-pointer absolute right-0 top-0 text-2xl text-main-light hidden group-hover/fav:block "></i>
-                                    </i>
+                        <?php
+                            isFilmFav($similar_films[22]['ID_film'],$_SESSION['ID_user']);
+                        ?>
                                     <div>
                                         <div class="flex justify-start">
                                             <a href="/portfolio/allosimplon/build/content/film.php?page=<?=$similar_films[22]['ID_film']?>"><h2 class="underline font-bold text-main-light text-2xl mb-2"><?=$similar_films[22]['film_name']?></h2></a>
@@ -979,9 +979,9 @@ $similar_films=GetFilmByGenre($film['ID_film']);
                             <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
                                 <div class="relative w-full h-full flex flex-col justify-between">
                                     <p class="font-bold text-xl cursor-dark"><?=$similar_films[23]['film_date']?></p>
-                                    <i class="fa-regular fa-heart cursor-pointer absolute text-main-light right-0 top-0 text-2xl group/fav">
-                                        <i class="fa-solid fa-heart cursor-pointer absolute right-0 top-0 text-2xl text-main-light hidden group-hover/fav:block "></i>
-                                    </i>
+                        <?php
+                            isFilmFav($similar_films[23]['ID_film'],$_SESSION['ID_user']);
+                        ?>
                                     <div>
                                         <div class="flex justify-start">
                                             <a href="/portfolio/allosimplon/build/content/film.php?page=<?=$similar_films[23]['ID_film']?>"><h2 class="underline font-bold text-main-light text-2xl mb-2"><?=$similar_films[23]['film_name']?></h2></a>
@@ -1012,9 +1012,9 @@ $similar_films=GetFilmByGenre($film['ID_film']);
                             <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
                                 <div class="relative w-full h-full flex flex-col justify-between">
                                     <p class="font-bold text-xl cursor-dark"><?=$similar_films[24]['film_date']?></p>
-                                    <i class="fa-regular fa-heart cursor-pointer absolute text-main-light right-0 top-0 text-2xl group/fav">
-                                        <i class="fa-solid fa-heart cursor-pointer absolute right-0 top-0 text-2xl text-main-light hidden group-hover/fav:block "></i>
-                                    </i>
+                        <?php
+                            isFilmFav($similar_films[24]['ID_film'],$_SESSION['ID_user']);
+                        ?>
                                     <div>
                                         <div class="flex justify-start">
                                             <a href="/portfolio/allosimplon/build/content/film.php?page=<?=$similar_films[24]['ID_film']?>"><h2 class="underline font-bold text-main-light text-2xl mb-2"><?=$similar_films[24]['film_name']?></h2></a>
@@ -1071,9 +1071,9 @@ $similar_films=GetFilmByGenre($film['ID_film']);
                 <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
                     <div class="relative w-full h-full flex flex-col justify-between">
                         <p class="font-bold text-xl cursor-dark"><?=$similar_films[0]['film_date']?></p>
-                        <i class="fa-regular fa-heart cursor-pointer absolute text-main-light right-0 top-0 text-2xl group/fav">
-                            <i class="fa-solid fa-heart cursor-pointer absolute right-0 top-0 text-2xl text-main-light hidden group-hover/fav:block "></i>
-                        </i>
+                        <?php
+                            isFilmFav($similar_films[0]['ID_film'],$_SESSION['ID_user']);
+                        ?>
                         <div>
                             <div class="flex justify-start">
                                 <a href="/portfolio/allosimplon/build/content/film.php?page=<?=$similar_films[0]['ID_film']?>"><h2 class="underline font-bold text-main-light text-2xl mb-2"><?=$similar_films[0]['film_name']?></h2></a>
@@ -1103,9 +1103,9 @@ $similar_films=GetFilmByGenre($film['ID_film']);
                 <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
                     <div class="relative w-full h-full flex flex-col justify-between">
                         <p class="font-bold text-xl cursor-dark"><?=$similar_films[1]['film_date']?></p>
-                        <i class="fa-regular fa-heart cursor-pointer absolute text-main-light right-0 top-0 text-2xl group/fav">
-                            <i class="fa-solid fa-heart cursor-pointer absolute right-0 top-0 text-2xl text-main-light hidden group-hover/fav:block "></i>
-                        </i>
+                        <?php
+                            isFilmFav($similar_films[1]['ID_film'],$_SESSION['ID_user']);
+                        ?>
                         <div>
                             <div class="flex justify-start">
                                 <a href="/portfolio/allosimplon/build/content/film.php?page=<?=$similar_films[1]['ID_film']?>"><h2 class="underline font-bold text-main-light text-2xl mb-2"><?=$similar_films[1]['film_name']?></h2></a>
@@ -1135,9 +1135,9 @@ $similar_films=GetFilmByGenre($film['ID_film']);
                 <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
                     <div class="relative w-full h-full flex flex-col justify-between">
                         <p class="font-bold text-xl cursor-dark"><?=$similar_films[2]['film_date']?></p>
-                        <i class="fa-regular fa-heart cursor-pointer absolute text-main-light right-0 top-0 text-2xl group/fav">
-                            <i class="fa-solid fa-heart cursor-pointer absolute right-0 top-0 text-2xl text-main-light hidden group-hover/fav:block "></i>
-                        </i>
+                        <?php
+                            isFilmFav($similar_films[2]['ID_film'],$_SESSION['ID_user']);
+                        ?>
                         <div>
                             <div class="flex justify-start">
                                 <a href="/portfolio/allosimplon/build/content/film.php?page=<?=$similar_films[2]['ID_film']?>"><h2 class="underline font-bold text-main-light text-2xl mb-2"><?=$similar_films[2]['film_name']?></h2></a>
@@ -1167,9 +1167,9 @@ $similar_films=GetFilmByGenre($film['ID_film']);
                 <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
                     <div class="relative w-full h-full flex flex-col justify-between">
                         <p class="font-bold text-xl cursor-dark"><?=$similar_films[3]['film_date']?></p>
-                        <i class="fa-regular fa-heart cursor-pointer absolute text-main-light right-0 top-0 text-2xl group/fav">
-                            <i class="fa-solid fa-heart cursor-pointer absolute right-0 top-0 text-2xl text-main-light hidden group-hover/fav:block "></i>
-                        </i>
+                        <?php
+                            isFilmFav($similar_films[3]['ID_film'],$_SESSION['ID_user']);
+                        ?>
                         <div>
                             <div class="flex justify-start">
                                 <a href="/portfolio/allosimplon/build/content/film.php?page=<?=$similar_films[3]['ID_film']?>"><h2 class="underline font-bold text-main-light text-2xl mb-2"><?=$similar_films[3]['film_name']?></h2></a>
@@ -1200,9 +1200,9 @@ $similar_films=GetFilmByGenre($film['ID_film']);
                 <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
                     <div class="relative w-full h-full flex flex-col justify-between">
                         <p class="font-bold text-xl cursor-dark"><?=$similar_films[4]['film_date']?></p>
-                        <i class="fa-regular fa-heart cursor-pointer absolute text-main-light right-0 top-0 text-2xl group/fav">
-                            <i class="fa-solid fa-heart cursor-pointer absolute right-0 top-0 text-2xl text-main-light hidden group-hover/fav:block "></i>
-                        </i>
+                        <?php
+                            isFilmFav($similar_films[4]['ID_film'],$_SESSION['ID_user']);
+                        ?>
                         <div>
                             <div class="flex justify-start">
                                 <a href="/portfolio/allosimplon/build/content/film.php?page=<?=$similar_films[4]['ID_film']?>"><h2 class="underline font-bold text-main-light text-2xl mb-2"><?=$similar_films[4]['film_name']?></h2></a>
