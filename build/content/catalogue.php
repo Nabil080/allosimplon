@@ -57,6 +57,7 @@ if(isset($_GET['genre'])){
 var_dump($get_film_array);
 for($i=$genre_count;$i>1;$i--){
   $common_films= array_intersect($get_film_array[0],$get_film_array[$i-1]);
+  if(empty($common_films)){$bool="false";}else{$bool="true";}
   var_dump($common_films);
 }
 if($genre_count>1){
@@ -118,9 +119,10 @@ if(isset($order) && !isset($clause)){
   $film_request = $con->prepare("SELECT * FROM film $order LIMIT $initial_page,$limit");
   echo'là40';
 }
-
+var_dump($bool);
+if($bool=="true"){
 $film_request->execute();
-
+}
 var_dump($film_request);
 // var_dump($_SESSION['filters']);
 
