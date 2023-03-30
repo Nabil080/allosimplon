@@ -1,11 +1,8 @@
 <?php
 
-  if(empty($_SESSION['filters'])){
-    $url = "/portfolio/allosimplon/build/content/catalogue.php?";
-  }else{
-    $url = "/portfolio/allosimplon/build/content/catalogue.php?" . $_SESSION['filters']  . "&";
-  }
-//   var_dump($url);
+// $unique_genre=$con->prepare("SELECT DISTINCT ID_genre from film_genre");$unique_genre->execute();
+// $unique_genre_array=$unique_genre->fetchAll(PDO::FETCH_ASSOC);var_dump($unique_genre_array);
+// $unique_genre_string=implode(", ",$unique_genre_array);
 ?>
 
 
@@ -31,12 +28,17 @@
             <a href="<?=$url?>sort=a-z"><button class="border-gray-700 p-2 hover:border-main-light hover:bg-main-hover border-2 rounded-md active:text-black" ><i class="fa-solid fa-plus"></i>Publication</button></a>
         </div>
         <div class="font-bold text-3xl w-fit notewe">Genres</div>
+        <form method="post" action="/portfolio/allosimplon/build/traitements/delete/delete_filter.php"><button type="submit" name="submit">Retirer les filtres</button></form>
         <div class="my-8 flex flex-wrap gap-1">
-            <?php $genre_request=$con->prepare("SELECT * FROM genre");$genre_request->execute();
+            <?php 
+            $genre_request=$con->prepare("SELECT * FROM genre WHERE ID_genre");$genre_request->execute();
             while($genre=$genre_request->fetch()){ ?>
-            <a href="<?=$url?>genre=<?=$genre['ID_genre']?>">
+            <a href="<?=$url?>genre[]=<?=$genre['ID_genre']?>">
                 <button id="<?=$genre['ID_genre']?>" class="border-gray-700 p-2 hover:border-main-light hover:bg-main-hover border-2 rounded-md active:text-black" ><i class="fa-solid fa-plus"></i><?=$genre['genre_name']?></button>
             </a>
             <?php } ?>
         </div>
     </div>
+
+
+

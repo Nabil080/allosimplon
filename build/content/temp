@@ -17,45 +17,61 @@ require_once '../config/functions.php';
 <!-- PAGINATION -->
 <?php
 // Page active
-if (!isset ($_GET['page']) ) {$page_number = 1; $_GET['page']= 1;
-} else {$page_number = $_GET['page'];}
+if (!isset ($_GET['page']) ){$page_number_temp = 1; $_GET['page']= 1;
+}else{$page_number_temp=$_GET['page'];}
+$page_number=$page_number_temp;
 $pagination_number = $page_number;
 // Limite de lignes par page
-$limit = 16;
+$limit = 8;
           // echo 'limite par page :'; var_dump($limit);
 $initial_page = ($page_number-1)*$limit;
+$limit_request=$initial_page.",".$limit;
           // echo' initial page: ';var_dump($initial_page);
-// Nombre total de pages nécessaires
-$film_count_request = $con->prepare("SELECT ID_film FROM film"); $film_count_request->execute();
-$film_count= $film_count_request->rowCount();
+          $film_count_request=$con->prepare("SELECT ID_film FROM film");$film_count_request->execute();
+          $film_count= $film_count_request->rowCount();
           // echo' Nombre de films: ';var_dump($film_count);
-$page_count = ceil($film_count/$limit);
+          $page_count = ceil($film_count/$limit);
           // echo' Nombre de pages nécessaires: ';var_dump($page_count);
 
 
 $filters=[];
-var_dump($filters);
+// echo'filters:';var_dump($filters);
 
-var_dump($_GET);
+// echo'get:';var_dump($_GET);
 if(isset($_GET['note'])){$filters['note']=$_GET['note'];}
 
 if(isset($_GET['sort'])){$filters['sort']=$_GET['sort'];}
 
-$get_genre_array=[];
-var_dump($get_genre_array);
+
 if(isset($_GET['genre'])){
   $get_genre_array=$_GET['genre'];
   var_dump($get_genre_array);
-  $filters['genre'] = implode(", ",$get_genre_array);
-  $get_film_genre_request=$con->prepare("SELECT ID_film FROM film_genre WHERE ID_genre IN (" . $filters['genre'] . ")");$get_film_genre_request->execute();
-  while($film_genre_array = $get_film_genre_request->fetch()){
-        $get_film_array[]=$film_genre_array['ID_film'];
-        echo($film_genre_array['ID_film']);
-      }
-  var_dump($get_film_array);
-  $filters['film'] = implode(", ",$get_film_array);
+  $genre_count=count($get_genre_array);
+  var_dump($genre_count);
+  foreach($get_genre_array as $ID_genre){
+    $request=$con->prepare("SELECT ID_film FROM film_genre WHERE ID_genre = $ID_genre");$request->execute();
+    $fetch=$request->fetchAll(PDO::FETCH_COLUMN);
+    $get_film_array[]=$fetch;
+}
+
+var_dump($get_film_array);
+for($i=$genre_count;$i>1;$i--){
+  $common_films= array_intersect($get_film_array[0],$get_film_array[$i-1]);
+  var_dump($common_films);
+}
+if($genre_count>1){
+var_dump($common_films);
+
+  $filters['film'] = implode(", ",$common_films);
+}else{
+  $filters['film'] = implode(", ",$get_film_array[0]);
+}
   var_dump($filters);
 }
+if(isset($get_genre_array)){
+echo'genre_array:';var_dump($get_genre_array);}
+var_dump($filters);
+var_dump($_SESSION['filters']);
 
 if(isset($filters['film'])){
    if(!isset($clause)){
@@ -86,20 +102,25 @@ if(isset($filters['sort'])){
 
 if(empty($filters)){
   $film_request =$con->prepare("SELECT * FROM film LIMIT $initial_page,$limit");
+  echo 'là30';
 }
 if(isset($clause)){
   if(isset($order)){
     $film_request = $con->prepare("SELECT * FROM film $clause $order LIMIT $initial_page,$limit");
+    echo 'là10';
   }else{
-    $film_request = $con->prepare("SELECT * FROM film $clause LIMIT $inital_page,$limit");
+    $film_request = $con->prepare("SELECT * FROM film $clause LIMIT $limit_request");
+    echo 'là20';
   }
 }
 
 if(isset($order) && !isset($clause)){
   $film_request = $con->prepare("SELECT * FROM film $order LIMIT $initial_page,$limit");
+  echo'là40';
 }
 
 $film_request->execute();
+
 var_dump($film_request);
 // var_dump($_SESSION['filters']);
 
@@ -107,7 +128,7 @@ if(isset($_GET['page'])){
   if(!isset($_SESSION['filters'])){
       $_SESSION['filters'] =  "page=".$_GET['page'];echo 'orv';
   }else{
-      $_SESSION['filters'] = "&page=" .  $_GET['page'];echo'slt';
+      $_SESSION['filters'] = "page=" .  $_GET['page'];echo'slt';
   }
 }
 
@@ -121,9 +142,9 @@ if(isset($_GET['note'])){
 
 if(isset($_GET['genre'])){
   if(!isset($_SESSION['filters'])){
-      $_SESSION['filters'] = "genre=".$_GET['genre'];
+      $_SESSION['filters'] = "genre[]=".$_GET['genre'];
   }else{
-      $_SESSION['filters'] .= "&genre=" . implode(", ",$_GET['genre']);
+      $_SESSION['filters'] .= "&genre[]=" . implode("&genre[]=",$_GET['genre']);
 }
 }
 
@@ -142,6 +163,8 @@ if(empty($_SESSION['filters'])){
   $url = "/portfolio/allosimplon/build/content/catalogue.php?" . $_SESSION['filters']  . "&";
 }
 var_dump($url);
+
+
 ?>
 
 
