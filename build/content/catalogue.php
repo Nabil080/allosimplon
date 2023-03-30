@@ -35,9 +35,9 @@ $limit_request=$initial_page.",".$limit;
 
 
 $filters=[];
-// echo'filters:';var_dump($filters);
+echo'filters:';var_dump($filters);
 
-// echo'get:';var_dump($_GET);
+echo'get:';var_dump($_GET);
 if(isset($_GET['note'])){$filters['note']=$_GET['note'];}
 
 if(isset($_GET['sort'])){$filters['sort']=$_GET['sort'];}
@@ -55,11 +55,13 @@ if(isset($_GET['genre'])){
 }
 
 var_dump($get_film_array);
-for($i=$genre_count;$i>1;$i--){
-  $common_films= array_intersect($get_film_array[0],$get_film_array[$i-1]);
-  if(empty($common_films)){$bool="false";}else{$bool="true";}
+$bool= [];
+for($i=0;$i<$genre_count;$i++){
+  $common_films= array_intersect($get_film_array[0],$get_film_array[$i]);
+  if(empty($common_films)){$bool[$i]="false";}else{$bool[$i]="true";}
   var_dump($common_films);
 }
+var_dump($bool);
 if($genre_count>1){
 var_dump($common_films);
 
@@ -97,6 +99,7 @@ if(isset($filters['sort'])){
   if($filters['sort']=="asc"){$order_name="ID_film ASC";};
   if($filters['sort']=="desc"){$order_name="ID_film DESC";};
   if($filters['sort']=="grade"){$order_name="film_grade DESC";};
+  if($filters['sort']=="date"){$order_name="film_date DESC";};
 
   $order = " ORDER BY " . $order_name ;
 }
@@ -119,10 +122,14 @@ if(isset($order) && !isset($clause)){
   $film_request = $con->prepare("SELECT * FROM film $order LIMIT $initial_page,$limit");
   echo'là40';
 }
-var_dump($bool);
-if($bool=="true"){
+
+if(isset($bool) && in_array("false",$bool)){
+  echo'pas de film';
+}else{
 $film_request->execute();
 }
+
+
 var_dump($film_request);
 // var_dump($_SESSION['filters']);
 
