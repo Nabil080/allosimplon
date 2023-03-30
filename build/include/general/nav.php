@@ -22,7 +22,7 @@
 <div id="burgermenu" class="hidden text-gray-100 h-screen md:h-96 lg:h-56 flex p-4 text-3xl gap-8  font-bold px-[15%]">
 <div id="leftmenu" class="basis-auto flex-col flex justify-between underline">
     <a href="/portfolio/allosimplon/build/index.php">Accueil</a>
-    <a href="/portfolio/allosimplon/build/content/catalogue.php">Catalogue</a>
+    <a href="/portfolio/allosimplon/build/content/catalogue.php?page=1">Catalogue</a>
     <a href="/portfolio/allosimplon/build/content/actor.php">Acteurs</a>
 </div>
     <ul class="text-lg grow font-normal text-main-light flex-wrap flex flex-col w-6">

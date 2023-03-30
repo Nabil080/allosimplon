@@ -117,7 +117,7 @@ $film=$request->fetch();
                             <img class="w-full h-auto" src="/portfolio/allosimplon/build/upload/realisator/<?=$realisator['realisator_photo']?>">
                         </div>
                     <?=$realisator['realisator_name']?>
-                </a>
+                    </a>
                 <?php }
                 } ?>
             </div>
@@ -139,12 +139,9 @@ $film=$request->fetch();
                 } ?>
             </div>
             <div class="font-bold text-xl flex flex-wrap gap-y-4 gap-x-2 absolute bottom-0"><p class="underline ">Note : </p>
-                <span class="font-normal text-main-light">
-                    <i class="fa-solid fa-star cursor-pointer"></i>
-                    <i class="fa-solid fa-star cursor-pointer"></i>
-                    <i class="fa-solid fa-star cursor-pointer"></i>
-                    <i class="fa-regular fa-star cursor-pointer relative group/star"><i class="fa-solid fa-star cursor-pointer absolute top-0 left-0 hidden group-hover/star:block"></i></i>
-                    <i class="fa-regular fa-star cursor-pointer relative group/star"><i class="fa-solid fa-star cursor-pointer absolute top-0 left-0 hidden group-hover/star:block"></i></i>
+            <?php Stars($film['film_grade'])?>
+                <span class="font-normal text-gray-50 text-center">
+                    <?=$film['film_grade'];?>
                 </span></div>
         </div>
     </div>
@@ -211,7 +208,7 @@ $similar_films=GetFilmByGenre($film['ID_film']);
                                                 <?=$similar_films[0]['film_time']?>min
                                             </div>
                                             <div class="flex justify-end">
-                                                <?php Stars($similar_films[0]['film_grade']) ?>
+                                                <?php Stars($similar_films[0]['film_grade'])?>
                                             </div>
                                         </div>
                                     </div>
