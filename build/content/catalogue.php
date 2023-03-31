@@ -7,7 +7,7 @@ require_once '../config/functions.php';
 
 <?php include('../include/general/head.php')?>
 
-<?php include('../include/general/nav_search.php')?>
+<?php include('../include/general/nav.php')?>
 
 
 <div class="flex justify-center mt-28 mb-6">
@@ -41,6 +41,9 @@ $filters=[];
 if(isset($_GET['note'])){$filters['note']=$_GET['note'];}
 
 if(isset($_GET['sort'])){$filters['sort']=$_GET['sort'];}
+
+
+if(isset($_GET['genre'])){$filters['genre']=$_GET['genre'];}
 
 if(isset($_GET['search'])){$filters['search']=$_GET['search'];}
 
@@ -139,6 +142,7 @@ if(isset($order) && !isset($clause)){
 if(isset($bool) && in_array("false",$bool)){
   echo'pas de film';
 }else{
+var_dump($filters);
 var_dump($film_request);
 $film_request->execute();
 }
