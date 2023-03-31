@@ -42,6 +42,8 @@ if(isset($_GET['note'])){$filters['note']=$_GET['note'];}
 
 if(isset($_GET['sort'])){$filters['sort']=$_GET['sort'];}
 
+if(isset($_GET['search'])){$filters['search']=$_GET['search'];}
+
 
 if(isset($_GET['genre'])){
   $get_genre_array=$_GET['genre'];
@@ -92,6 +94,14 @@ if(isset($filters['note'])){
     }
 }
 
+if(isset($filters['search'])){
+  if(!isset($clause)){
+    $clause = " " . "WHERE film_name LIKE '%".$filters['search']."%' ";
+  }else{
+    $clause .= " AND film_name LIKE '%".$filters['search']."%' ";
+  }
+}
+
 if(isset($filters['sort'])){
   if($filters['sort']=="a-z"){$order_name="film_name ASC";};
   if($filters['sort']=="z-a"){$order_name="film_name DESC";};
@@ -123,9 +133,12 @@ if(isset($order) && !isset($clause)){
   // echo'là40';
 }
 
+
+
 if(isset($bool) && in_array("false",$bool)){
   echo'pas de film';
 }else{
+var_dump($film_request);
 $film_request->execute();
 }
 
@@ -163,6 +176,14 @@ if(isset($_GET['sort'])){
   }else{
       $_SESSION['filters'] .= "&sort=" . $_GET['sort'];
 }
+}
+
+if(isset($_GET['search'])){
+  if(!isset($_SESSION['filters'])){
+    $_SESSION['filters'] = "search=".$_GET['search'];
+  }else{
+    $_SESSION['filters'] .= "&search=".$_GET['search'];
+  }
 }
 // var_dump($_SESSION['filters']);
 

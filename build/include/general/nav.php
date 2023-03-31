@@ -3,7 +3,7 @@
 
 <nav id="navbar" class="text-main-light bg-main-dark fixed top-0 w-full z-40 ease-out duration-300">
 <div id="nav-contain" class="flex p-4 gap-4  w-full h-20 md:px-[10%]">
-    <img src="/portfolio/allosimplon/build/img/popcorn.png" class="basis-auto" alt="logo"><a class="self-center" href="/portfolio/allosimplon/build/index.php">
+    <img src="/portfolio/allosimplon/build/upload/site/popcorn.png" class="basis-auto" alt="logo"><a class="self-center" href="/portfolio/allosimplon/build/index.php">
         <span class="text-gray-100 uppercase self-center text-xl ">SimplonFilm</span></a>
     <form action="" method="get" class="grow flex relative">
         <input type="search" name="search" class="bg-main-dark placeholder:italic pl-4 hidden md:block border border-solid  basis-full text-gray-100  focus:ring-0" placeholder="Cherchez un film!" >
