@@ -149,8 +149,8 @@ if(isset($order) && !isset($clause)){
 if(isset($bool) && in_array("false",$bool)){
   echo'pas de film';
 }else{
-var_dump($filters);
-var_dump($film_request);
+// var_dump($filters);
+// var_dump($film_request);
 $film_request->execute();
 }
 
