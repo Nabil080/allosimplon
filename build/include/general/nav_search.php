@@ -5,7 +5,7 @@
 <div id="nav-contain" class="flex p-4 gap-4  w-full h-20 md:px-[10%]">
     <img src="/portfolio/allosimplon/build/upload/site/popcorn.png" class="basis-auto" alt="logo"><a class="self-center" href="/portfolio/allosimplon/build/index.php">
         <span class="text-gray-100 uppercase self-center text-xl ">SimplonFilm</span></a>
-    <form action="/portfolio/allosimplon/build/traitements/search.php" method="get" class="grow flex relative">
+    <form action="" method="get" class="grow flex relative">
         <input <?php if(isset($_GET['search'])){echo 'value="'.$_GET['search'].'"';} ?> type="search" name="search" class="bg-main-dark placeholder:italic pl-4 hidden md:block border border-solid  basis-full text-gray-100  focus:ring-0" placeholder="Cherchez un film!" >
         <button type="submit"><i class="fa fa-search absolute top-2 right-3 text-2xl"></i></button>
     </form>

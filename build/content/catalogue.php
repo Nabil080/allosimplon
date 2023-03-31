@@ -7,7 +7,7 @@ require_once '../config/functions.php';
 
 <?php include('../include/general/head.php')?>
 
-<?php include('../include/general/nav.php')?>
+<?php include('../include/general/nav_search.php')?>
 
 
 <div class="flex justify-center mt-28 mb-6">
