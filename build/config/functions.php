@@ -664,7 +664,7 @@ function ShowFakeFav($likes){
 function Stars($note){
     if($note >=0 && $note < 2){
     echo'
-        <div class="grade text-main-light z-50 text-2xl text-center">
+        <div class="grade text-main-light text-2xl text-center">
             <i class="fa-regular fa-star cursor-pointer"></i>
             <i class="fa-regular fa-star cursor-pointer"></i>
             <i class="fa-regular fa-star cursor-pointer"></i>
@@ -674,7 +674,7 @@ function Stars($note){
     '; }
     if($note >=2 && $note < 4){
     echo'
-        <div class="grade text-main-light z-50 text-2xl text-center">
+        <div class="grade text-main-light text-2xl text-center">
             <i class="fa-solid fa-star cursor-pointer"></i>
             <i class="fa-regular fa-star cursor-pointer"></i>
             <i class="fa-regular fa-star cursor-pointer"></i>
@@ -684,7 +684,7 @@ function Stars($note){
     '; }
     if($note >=4 && $note < 6){
         echo'
-        <div class="grade text-main-light z-50 text-2xl text-center">
+        <div class="grade text-main-light text-2xl text-center">
             <i class="fa-solid fa-star cursor-pointer"></i>
             <i class="fa-solid fa-star cursor-pointer"></i>
             <i class="fa-regular fa-star cursor-pointer"></i>
@@ -694,7 +694,7 @@ function Stars($note){
     '; }
     if($note >= 6 && $note < 8){
         echo'
-        <div class="grade text-main-light z-50 text-2xl text-center">
+        <div class="grade text-main-light text-2xl text-center">
             <i class="fa-solid fa-star cursor-pointer"></i>
             <i class="fa-solid fa-star cursor-pointer"></i>
             <i class="fa-solid fa-star cursor-pointer"></i>
@@ -704,7 +704,7 @@ function Stars($note){
     '; }
     if($note >=8 && $note <= 9 ){
         echo'
-        <div class="grade text-main-light z-50 text-2xl text-center">
+        <div class="grade text-main-light text-2xl text-center">
             <i class="fa-solid fa-star cursor-pointer"></i>
             <i class="fa-solid fa-star cursor-pointer"></i>
             <i class="fa-solid fa-star cursor-pointer"></i>
@@ -714,7 +714,7 @@ function Stars($note){
     '; }
     if($note > 9 && $note <= 10){
         echo'
-        <div class="grade text-main-light z-50 text-2xl text-center">
+        <div class="grade text-main-light text-2xl text-center">
             <i class="fa-solid fa-star cursor-pointer"></i>
             <i class="fa-solid fa-star cursor-pointer"></i>
             <i class="fa-solid fa-star cursor-pointer"></i>
