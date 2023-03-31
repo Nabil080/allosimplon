@@ -42,11 +42,11 @@ if(isset($_GET['note'])){$filters['note']=$_GET['note'];}
 
 if(isset($_GET['sort'])){$filters['sort']=$_GET['sort'];}
 
-
 if(isset($_GET['genre'])){$filters['genre']=$_GET['genre'];}
 
 if(isset($_GET['search'])){$filters['search']=$_GET['search'];}
 
+if(isset($_GET['letter'])){$filters['letter']=$_GET['letter'];}
 
 if(isset($_GET['genre'])){
   $get_genre_array=$_GET['genre'];
@@ -105,6 +105,14 @@ if(isset($filters['search'])){
   }
 }
 
+if(isset($filters['letter'])){
+  if(!isset($clause)){
+    $clause = " WHERE film_name LIKE ('".$filters['letter']."%')";
+  }else{
+    $clause .= " AND film_name LIKE ('".$filters['letter']."%')";
+  }
+}
+
 if(isset($filters['sort'])){
   if($filters['sort']=="a-z"){$order_name="film_name ASC";};
   if($filters['sort']=="z-a"){$order_name="film_name DESC";};
@@ -114,7 +122,6 @@ if(isset($filters['sort'])){
   if($filters['sort']=="grade"){$order_name="film_grade DESC";};
   if($filters['sort']=="date"){$order_name="film_date DESC";};
   if($filters['sort']=="fav"){$order_name="likes DESC";};
-
   $order = " ORDER BY " . $order_name ;
 }
 
@@ -190,6 +197,14 @@ if(isset($_GET['search'])){
     $_SESSION['filters'] .= "&search=".$_GET['search'];
   }
 }
+
+if(isset($_GET['letter'])){
+  if(!isset($_SESSION['filters'])){
+    $_SESSION['filters'] = "letter=".$_GET['letter'];
+  }else{
+    $_SESSION['filters'] .= "&letter=".$_GET['letter'];
+  }
+}
 // var_dump($_SESSION['filters']);
 
 if(empty($_SESSION['filters'])){
@@ -252,8 +267,39 @@ if(empty($_SESSION['filters'])){
           <?php } ?>
         </ul>
       </nav>
-    </div>
+</div>
 
+<?php if(isset($_GET['sort'])){
+  if($_GET['sort']=="a-z"||$_GET['sort']=="z-a"){?>
+<div class="flex text-lg justify-center gap-6 mb-2 [&>a]:text-main-light">
+  <a class="hover:text-main-hover hover:underline decoration-main-light <?php if(isset($_GET['letter']) && $_GET['letter']=="A"){echo 'underline text-main-hover';} ?>" href="<?=$url?>letter=A">A</a>
+  <a class="hover:text-main-hover hover:underline decoration-main-light <?php if(isset($_GET['letter']) && $_GET['letter']=="B"){echo 'underline text-main-hover';} ?>" href="<?=$url?>letter=B">B</a>
+  <a class="hover:text-main-hover hover:underline decoration-main-light <?php if(isset($_GET['letter']) && $_GET['letter']=="C"){echo 'underline text-main-hover';} ?>" href="<?=$url?>letter=c">C</a>
+  <a class="hover:text-main-hover hover:underline decoration-main-light <?php if(isset($_GET['letter']) && $_GET['letter']=="D"){echo 'underline text-main-hover';} ?>" href="<?=$url?>letter=D">D</a>
+  <a class="hover:text-main-hover hover:underline decoration-main-light <?php if(isset($_GET['letter']) && $_GET['letter']=="E"){echo 'underline text-main-hover';} ?>" href="<?=$url?>letter=E">E</a>
+  <a class="hover:text-main-hover hover:underline decoration-main-light <?php if(isset($_GET['letter']) && $_GET['letter']=="F"){echo 'underline text-main-hover';} ?>" href="<?=$url?>letter=F">F</a>
+  <a class="hover:text-main-hover hover:underline decoration-main-light <?php if(isset($_GET['letter']) && $_GET['letter']=="G"){echo 'underline text-main-hover';} ?>" href="<?=$url?>letter=G">G</a>
+  <a class="hover:text-main-hover hover:underline decoration-main-light <?php if(isset($_GET['letter']) && $_GET['letter']=="H"){echo 'underline text-main-hover';} ?>" href="<?=$url?>letter=H">H</a>
+  <a class="hover:text-main-hover hover:underline decoration-main-light <?php if(isset($_GET['letter']) && $_GET['letter']=="I"){echo 'underline text-main-hover';} ?>" href="<?=$url?>letter=I">I</a>
+  <a class="hover:text-main-hover hover:underline decoration-main-light <?php if(isset($_GET['letter']) && $_GET['letter']=="J"){echo 'underline text-main-hover';} ?>" href="<?=$url?>letter=J">J</a>
+  <a class="hover:text-main-hover hover:underline decoration-main-light <?php if(isset($_GET['letter']) && $_GET['letter']=="K"){echo 'underline text-main-hover';} ?>" href="<?=$url?>letter=K">K</a>
+  <a class="hover:text-main-hover hover:underline decoration-main-light <?php if(isset($_GET['letter']) && $_GET['letter']=="L"){echo 'underline text-main-hover';} ?>" href="<?=$url?>letter=L">L</a>
+  <a class="hover:text-main-hover hover:underline decoration-main-light <?php if(isset($_GET['letter']) && $_GET['letter']=="M"){echo 'underline text-main-hover';} ?>" href="<?=$url?>letter=M">M</a>
+  <a class="hover:text-main-hover hover:underline decoration-main-light <?php if(isset($_GET['letter']) && $_GET['letter']=="N"){echo 'underline text-main-hover';} ?>" href="<?=$url?>letter=N">N</a>
+  <a class="hover:text-main-hover hover:underline decoration-main-light <?php if(isset($_GET['letter']) && $_GET['letter']=="O"){echo 'underline text-main-hover';} ?>" href="<?=$url?>letter=O">O</a>
+  <a class="hover:text-main-hover hover:underline decoration-main-light <?php if(isset($_GET['letter']) && $_GET['letter']=="P"){echo 'underline text-main-hover';} ?>" href="<?=$url?>letter=P">P</a>
+  <a class="hover:text-main-hover hover:underline decoration-main-light <?php if(isset($_GET['letter']) && $_GET['letter']=="Q"){echo 'underline text-main-hover';} ?>" href="<?=$url?>letter=Q">Q</a>
+  <a class="hover:text-main-hover hover:underline decoration-main-light <?php if(isset($_GET['letter']) && $_GET['letter']=="R"){echo 'underline text-main-hover';} ?>" href="<?=$url?>letter=R">R</a>
+  <a class="hover:text-main-hover hover:underline decoration-main-light <?php if(isset($_GET['letter']) && $_GET['letter']=="S"){echo 'underline text-main-hover';} ?>" href="<?=$url?>letter=S">S</a>
+  <a class="hover:text-main-hover hover:underline decoration-main-light <?php if(isset($_GET['letter']) && $_GET['letter']=="T"){echo 'underline text-main-hover';} ?>" href="<?=$url?>letter=T">T</a>
+  <a class="hover:text-main-hover hover:underline decoration-main-light <?php if(isset($_GET['letter']) && $_GET['letter']=="U"){echo 'underline text-main-hover';} ?>" href="<?=$url?>letter=U">U</a>
+  <a class="hover:text-main-hover hover:underline decoration-main-light <?php if(isset($_GET['letter']) && $_GET['letter']=="V"){echo 'underline text-main-hover';} ?>" href="<?=$url?>letter=V">V</a>
+  <a class="hover:text-main-hover hover:underline decoration-main-light <?php if(isset($_GET['letter']) && $_GET['letter']=="W"){echo 'underline text-main-hover';} ?>" href="<?=$url?>letter=W">W</a>
+  <a class="hover:text-main-hover hover:underline decoration-main-light <?php if(isset($_GET['letter']) && $_GET['letter']=="X"){echo 'underline text-main-hover';} ?>" href="<?=$url?>letter=X">X</a>
+  <a class="hover:text-main-hover hover:underline decoration-main-light <?php if(isset($_GET['letter']) && $_GET['letter']=="Y"){echo 'underline text-main-hover';} ?>" href="<?=$url?>letter=Y">Y</a>
+  <a class="hover:text-main-hover hover:underline decoration-main-light <?php if(isset($_GET['letter']) && $_GET['letter']=="Z"){echo 'underline text-main-hover';} ?>" href="<?=$url?>letter=Z">Z</a>
+</div>
+<?php }} ?>
     <!-- CATALOGUE -->
         <div class="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:-grid-cols-5 [&_img]:w-full [&_img]:h-full object-cover ">
             <?php
