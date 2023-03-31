@@ -110,6 +110,7 @@ if(isset($filters['sort'])){
   if($filters['sort']=="desc"){$order_name="ID_film DESC";};
   if($filters['sort']=="grade"){$order_name="film_grade DESC";};
   if($filters['sort']=="date"){$order_name="film_date DESC";};
+  if($filters['sort']=="fav"){$order_name="likes DESC";};
 
   $order = " ORDER BY " . $order_name ;
 }
@@ -259,6 +260,7 @@ if(empty($_SESSION['filters'])){
                     $time=$film['film_time'];
                     $date=$film['film_date'];
                     $note=$film['film_grade'];
+                    $likes=$film['likes'];
                     $description=$film['film_description'];
                     if(isset($_SESSION['ID_user'])){$ID_user=$_SESSION['ID_user'];}
                 ?>
@@ -268,7 +270,7 @@ if(empty($_SESSION['filters'])){
                     <div class="relative w-full h-full flex flex-col justify-between">
                         <p class="font-bold text-xl cursor-dark"><?=$date?></p>
                         <?php
-                            if(isset($_SESSION['ID_user'])){isFilmFav($ID,$ID_user);}else{ShowFakeFav();}
+                            if(isset($_SESSION['ID_user'])){isFilmFav($ID,$ID_user,$likes);}else{ShowFakeFav($likes);}
                         ?>
                         <div>
                             <div class="flex justify-start">
