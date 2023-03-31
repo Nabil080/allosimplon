@@ -31,7 +31,7 @@ require_once '../config/connexion.php';
     </div>
 
     <!-- FORMULAIRE CONTACT -->
-    <form action="" method="post" class="grow p-4 border-main-default border-4 flex flex-col">
+    <form action="/portfolio/allosimplon/build/traitements/mailto.php" method="post" class="grow p-4 border-main-default border-4 flex flex-col">
     <div class="space-y-6 flex flex-col grow">
         <!-- TOP FORM -->
         <div class="flex gap-8">
