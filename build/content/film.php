@@ -63,7 +63,7 @@ $film=$request->fetch();
     </div>
 <div>
 <?php
-    isFilmFav($ID_film,$_SESSION['ID_user']);
+    if(isset($_SESSION['ID_user'])){isFilmFav($ID_film,$_SESSION['ID_user']);}else{ShowFakeFav();}
 ?>
     </div>
 </div>
@@ -194,7 +194,7 @@ $similar_films=GetFilmByGenre($film['ID_film']);
                                 <div class="relative w-full h-full flex flex-col justify-between">
                                     <p class="font-bold text-xl cursor-dark"><?=$similar_films[0]['film_date']?></p>
                         <?php
-                            isFilmFav($similar_films[0]['ID_film'],$_SESSION['ID_user']);
+                            if(isset($_SESSION['ID_user'])){isFilmFav($similar_films[0]['ID_film'],$_SESSION['ID_user']);}else{ShowFakeFav();}
                         ?>
                                     <div>
                                         <div class="flex justify-start">
@@ -226,7 +226,7 @@ $similar_films=GetFilmByGenre($film['ID_film']);
                                 <div class="relative w-full h-full flex flex-col justify-between">
                                     <p class="font-bold text-xl cursor-dark"><?=$similar_films[1]['film_date']?></p>
                         <?php
-                            isFilmFav($similar_films[1]['ID_film'],$_SESSION['ID_user']);
+                            if(isset($_SESSION['ID_user'])){isFilmFav($similar_films[1]['ID_film'],$_SESSION['ID_user']);}else{ShowFakeFav();}
                         ?>
                                     <div>
                                         <div class="flex justify-start">
@@ -258,7 +258,7 @@ $similar_films=GetFilmByGenre($film['ID_film']);
                                 <div class="relative w-full h-full flex flex-col justify-between">
                                     <p class="font-bold text-xl cursor-dark"><?=$similar_films[2]['film_date']?></p>
                         <?php
-                            isFilmFav($similar_films[2]['ID_film'],$_SESSION['ID_user']);
+                            if(isset($_SESSION['ID_user'])){isFilmFav($similar_films[2]['ID_film'],$_SESSION['ID_user']);}else{ShowFakeFav();}
                         ?>
                                     <div>
                                         <div class="flex justify-start">
@@ -290,7 +290,7 @@ $similar_films=GetFilmByGenre($film['ID_film']);
                                 <div class="relative w-full h-full flex flex-col justify-between">
                                     <p class="font-bold text-xl cursor-dark"><?=$similar_films[3]['film_date']?></p>
                         <?php
-                            isFilmFav($similar_films[3]['ID_film'],$_SESSION['ID_user']);
+                            if(isset($_SESSION['ID_user'])){isFilmFav($similar_films[3]['ID_film'],$_SESSION['ID_user']);}else{ShowFakeFav();}
                         ?>
                                     <div>
                                         <div class="flex justify-start">
@@ -323,7 +323,7 @@ $similar_films=GetFilmByGenre($film['ID_film']);
                                 <div class="relative w-full h-full flex flex-col justify-between">
                                     <p class="font-bold text-xl cursor-dark"><?=$similar_films[4]['film_date']?></p>
                         <?php
-                            isFilmFav($similar_films[4]['ID_film'],$_SESSION['ID_user']);
+                            if(isset($_SESSION['ID_user'])){isFilmFav($similar_films[4]['ID_film'],$_SESSION['ID_user']);}else{ShowFakeFav();}
                         ?>
                                     <div>
                                         <div class="flex justify-start">
@@ -362,7 +362,7 @@ $similar_films=GetFilmByGenre($film['ID_film']);
                                 <div class="relative w-full h-full flex flex-col justify-between">
                                     <p class="font-bold text-xl cursor-dark"><?=$similar_films[5]['film_date']?></p>
                         <?php
-                            isFilmFav($similar_films[5]['ID_film'],$_SESSION['ID_user']);
+                            if(isset($_SESSION['ID_user'])){isFilmFav($similar_films[5]['ID_film'],$_SESSION['ID_user']);}else{ShowFakeFav();}
                         ?>
                                     <div>
                                         <div class="flex justify-start">
@@ -395,7 +395,7 @@ $similar_films=GetFilmByGenre($film['ID_film']);
                                 <div class="relative w-full h-full flex flex-col justify-between">
                                     <p class="font-bold text-xl cursor-dark"><?=$similar_films[6]['film_date']?></p>
                         <?php
-                            isFilmFav($similar_films[6]['ID_film'],$_SESSION['ID_user']);
+                            if(isset($_SESSION['ID_user'])){isFilmFav($similar_films[6]['ID_film'],$_SESSION['ID_user']);}else{ShowFakeFav();}
                         ?>
                                     <div>
                                         <div class="flex justify-start">
@@ -428,7 +428,7 @@ $similar_films=GetFilmByGenre($film['ID_film']);
                                 <div class="relative w-full h-full flex flex-col justify-between">
                                     <p class="font-bold text-xl cursor-dark"><?=$similar_films[7]['film_date']?></p>
                         <?php
-                            isFilmFav($similar_films[7]['ID_film'],$_SESSION['ID_user']);
+                            if(isset($_SESSION['ID_user'])){isFilmFav($similar_films[7]['ID_film'],$_SESSION['ID_user']);}else{ShowFakeFav();}
                         ?>
                                     <div>
                                         <div class="flex justify-start">
@@ -461,7 +461,7 @@ $similar_films=GetFilmByGenre($film['ID_film']);
                                 <div class="relative w-full h-full flex flex-col justify-between">
                                     <p class="font-bold text-xl cursor-dark"><?=$similar_films[8]['film_date']?></p>
                         <?php
-                            isFilmFav($similar_films[8]['ID_film'],$_SESSION['ID_user']);
+                            if(isset($_SESSION['ID_user'])){isFilmFav($similar_films[8]['ID_film'],$_SESSION['ID_user']);}else{ShowFakeFav();}
                         ?>
                                     <div>
                                         <div class="flex justify-start">
@@ -494,7 +494,7 @@ $similar_films=GetFilmByGenre($film['ID_film']);
                                 <div class="relative w-full h-full flex flex-col justify-between">
                                     <p class="font-bold text-xl cursor-dark"><?=$similar_films[9]['film_date']?></p>
                         <?php
-                            isFilmFav($similar_films[9]['ID_film'],$_SESSION['ID_user']);
+                            if(isset($_SESSION['ID_user'])){isFilmFav($similar_films[9]['ID_film'],$_SESSION['ID_user']);}else{ShowFakeFav();}
                         ?>
                                     <div>
                                         <div class="flex justify-start">
@@ -534,7 +534,7 @@ $similar_films=GetFilmByGenre($film['ID_film']);
                                 <div class="relative w-full h-full flex flex-col justify-between">
                                     <p class="font-bold text-xl cursor-dark"><?=$similar_films[10]['film_date']?></p>
                         <?php
-                            isFilmFav($similar_films[10]['ID_film'],$_SESSION['ID_user']);
+                            if(isset($_SESSION['ID_user'])){isFilmFav($similar_films[10]['ID_film'],$_SESSION['ID_user']);}else{ShowFakeFav();}
                         ?>
                                     <div>
                                         <div class="flex justify-start">
@@ -567,7 +567,7 @@ $similar_films=GetFilmByGenre($film['ID_film']);
                                 <div class="relative w-full h-full flex flex-col justify-between">
                                     <p class="font-bold text-xl cursor-dark"><?=$similar_films[11]['film_date']?></p>
                         <?php
-                            isFilmFav($similar_films[11]['ID_film'],$_SESSION['ID_user']);
+                            if(isset($_SESSION['ID_user'])){isFilmFav($similar_films[11]['ID_film'],$_SESSION['ID_user']);}else{ShowFakeFav();}
                         ?>
                                     <div>
                                         <div class="flex justify-start">
@@ -600,7 +600,7 @@ $similar_films=GetFilmByGenre($film['ID_film']);
                                 <div class="relative w-full h-full flex flex-col justify-between">
                                     <p class="font-bold text-xl cursor-dark"><?=$similar_films[12]['film_date']?></p>
                         <?php
-                            isFilmFav($similar_films[12]['ID_film'],$_SESSION['ID_user']);
+                            if(isset($_SESSION['ID_user'])){isFilmFav($similar_films[12]['ID_film'],$_SESSION['ID_user']);}else{ShowFakeFav();}
                         ?>
                                     <div>
                                         <div class="flex justify-start">
@@ -633,7 +633,7 @@ $similar_films=GetFilmByGenre($film['ID_film']);
                                 <div class="relative w-full h-full flex flex-col justify-between">
                                     <p class="font-bold text-xl cursor-dark"><?=$similar_films[13]['film_date']?></p>
                         <?php
-                            isFilmFav($similar_films[13]['ID_film'],$_SESSION['ID_user']);
+                            if(isset($_SESSION['ID_user'])){isFilmFav($similar_films[13]['ID_film'],$_SESSION['ID_user']);}else{ShowFakeFav();}
                         ?>
                                     <div>
                                         <div class="flex justify-start">
@@ -666,7 +666,7 @@ $similar_films=GetFilmByGenre($film['ID_film']);
                                 <div class="relative w-full h-full flex flex-col justify-between">
                                     <p class="font-bold text-xl cursor-dark"><?=$similar_films[14]['film_date']?></p>
                         <?php
-                            isFilmFav($similar_films[14]['ID_film'],$_SESSION['ID_user']);
+                            if(isset($_SESSION['ID_user'])){isFilmFav($similar_films[14]['ID_film'],$_SESSION['ID_user']);}else{ShowFakeFav();}
                         ?>
                                     <div>
                                         <div class="flex justify-start">
@@ -706,7 +706,7 @@ $similar_films=GetFilmByGenre($film['ID_film']);
                                 <div class="relative w-full h-full flex flex-col justify-between">
                                     <p class="font-bold text-xl cursor-dark"><?=$similar_films[15]['film_date']?></p>
                         <?php
-                            isFilmFav($similar_films[15]['ID_film'],$_SESSION['ID_user']);
+                            if(isset($_SESSION['ID_user'])){isFilmFav($similar_films[15]['ID_film'],$_SESSION['ID_user']);}else{ShowFakeFav();}
                         ?>
                                     <div>
                                         <div class="flex justify-start">
@@ -739,7 +739,7 @@ $similar_films=GetFilmByGenre($film['ID_film']);
                                 <div class="relative w-full h-full flex flex-col justify-between">
                                     <p class="font-bold text-xl cursor-dark"><?=$similar_films[16]['film_date']?></p>
                         <?php
-                            isFilmFav($similar_films[16]['ID_film'],$_SESSION['ID_user']);
+                            if(isset($_SESSION['ID_user'])){isFilmFav($similar_films[16]['ID_film'],$_SESSION['ID_user']);}else{ShowFakeFav();}
                         ?>
                                     <div>
                                         <div class="flex justify-start">
@@ -772,7 +772,7 @@ $similar_films=GetFilmByGenre($film['ID_film']);
                                 <div class="relative w-full h-full flex flex-col justify-between">
                                     <p class="font-bold text-xl cursor-dark"><?=$similar_films[17]['film_date']?></p>
                         <?php
-                            isFilmFav($similar_films[17]['ID_film'],$_SESSION['ID_user']);
+                            if(isset($_SESSION['ID_user'])){isFilmFav($similar_films[17]['ID_film'],$_SESSION['ID_user']);}else{ShowFakeFav();}
                         ?>
                                     <div>
                                         <div class="flex justify-start">
@@ -805,7 +805,7 @@ $similar_films=GetFilmByGenre($film['ID_film']);
                                 <div class="relative w-full h-full flex flex-col justify-between">
                                     <p class="font-bold text-xl cursor-dark"><?=$similar_films[18]['film_date']?></p>
                         <?php
-                            isFilmFav($similar_films[18]['ID_film'],$_SESSION['ID_user']);
+                            if(isset($_SESSION['ID_user'])){isFilmFav($similar_films[18]['ID_film'],$_SESSION['ID_user']);}else{ShowFakeFav();}
                         ?>
                                     <div>
                                         <div class="flex justify-start">
@@ -838,7 +838,7 @@ $similar_films=GetFilmByGenre($film['ID_film']);
                                 <div class="relative w-full h-full flex flex-col justify-between">
                                     <p class="font-bold text-xl cursor-dark"><?=$similar_films[19]['film_date']?></p>
                         <?php
-                            isFilmFav($similar_films[19]['ID_film'],$_SESSION['ID_user']);
+                            if(isset($_SESSION['ID_user'])){isFilmFav($similar_films[19]['ID_film'],$_SESSION['ID_user']);}else{ShowFakeFav();}
                         ?>
                                     <div>
                                         <div class="flex justify-start">
@@ -878,7 +878,7 @@ $similar_films=GetFilmByGenre($film['ID_film']);
                                 <div class="relative w-full h-full flex flex-col justify-between">
                                     <p class="font-bold text-xl cursor-dark"><?=$similar_films[20]['film_date']?></p>
                         <?php
-                            isFilmFav($similar_films[20]['ID_film'],$_SESSION['ID_user']);
+                            if(isset($_SESSION['ID_user'])){isFilmFav($similar_films[20]['ID_film'],$_SESSION['ID_user']);}else{ShowFakeFav();}
                         ?>
                                     <div>
                                         <div class="flex justify-start">
@@ -911,7 +911,7 @@ $similar_films=GetFilmByGenre($film['ID_film']);
                                 <div class="relative w-full h-full flex flex-col justify-between">
                                     <p class="font-bold text-xl cursor-dark"><?=$similar_films[21]['film_date']?></p>
                         <?php
-                            isFilmFav($similar_films[21]['ID_film'],$_SESSION['ID_user']);
+                            if(isset($_SESSION['ID_user'])){isFilmFav($similar_films[21]['ID_film'],$_SESSION['ID_user']);}else{ShowFakeFav();}
                         ?>
                                     <div>
                                         <div class="flex justify-start">
@@ -944,7 +944,7 @@ $similar_films=GetFilmByGenre($film['ID_film']);
                                 <div class="relative w-full h-full flex flex-col justify-between">
                                     <p class="font-bold text-xl cursor-dark"><?=$similar_films[22]['film_date']?></p>
                         <?php
-                            isFilmFav($similar_films[22]['ID_film'],$_SESSION['ID_user']);
+                            if(isset($_SESSION['ID_user'])){isFilmFav($similar_films[22]['ID_film'],$_SESSION['ID_user']);}else{ShowFakeFav();}
                         ?>
                                     <div>
                                         <div class="flex justify-start">
@@ -977,7 +977,7 @@ $similar_films=GetFilmByGenre($film['ID_film']);
                                 <div class="relative w-full h-full flex flex-col justify-between">
                                     <p class="font-bold text-xl cursor-dark"><?=$similar_films[23]['film_date']?></p>
                         <?php
-                            isFilmFav($similar_films[23]['ID_film'],$_SESSION['ID_user']);
+                            if(isset($_SESSION['ID_user'])){isFilmFav($similar_films[23]['ID_film'],$_SESSION['ID_user']);}else{ShowFakeFav();}
                         ?>
                                     <div>
                                         <div class="flex justify-start">
@@ -1010,7 +1010,7 @@ $similar_films=GetFilmByGenre($film['ID_film']);
                                 <div class="relative w-full h-full flex flex-col justify-between">
                                     <p class="font-bold text-xl cursor-dark"><?=$similar_films[24]['film_date']?></p>
                         <?php
-                            isFilmFav($similar_films[24]['ID_film'],$_SESSION['ID_user']);
+                            if(isset($_SESSION['ID_user'])){isFilmFav($similar_films[24]['ID_film'],$_SESSION['ID_user']);}else{ShowFakeFav();}
                         ?>
                                     <div>
                                         <div class="flex justify-start">
@@ -1069,7 +1069,7 @@ $similar_films=GetFilmByGenre($film['ID_film']);
                     <div class="relative w-full h-full flex flex-col justify-between">
                         <p class="font-bold text-xl cursor-dark"><?=$similar_films[0]['film_date']?></p>
                         <?php
-                            isFilmFav($similar_films[0]['ID_film'],$_SESSION['ID_user']);
+                            if(isset($_SESSION['ID_user'])){isFilmFav($similar_films[0]['ID_film'],$_SESSION['ID_user']);}else{ShowFakeFav();}
                         ?>
                         <div>
                             <div class="flex justify-start">
@@ -1101,7 +1101,7 @@ $similar_films=GetFilmByGenre($film['ID_film']);
                     <div class="relative w-full h-full flex flex-col justify-between">
                         <p class="font-bold text-xl cursor-dark"><?=$similar_films[1]['film_date']?></p>
                         <?php
-                            isFilmFav($similar_films[1]['ID_film'],$_SESSION['ID_user']);
+                            if(isset($_SESSION['ID_user'])){isFilmFav($similar_films[1]['ID_film'],$_SESSION['ID_user']);}else{ShowFakeFav();}
                         ?>
                         <div>
                             <div class="flex justify-start">
@@ -1133,7 +1133,7 @@ $similar_films=GetFilmByGenre($film['ID_film']);
                     <div class="relative w-full h-full flex flex-col justify-between">
                         <p class="font-bold text-xl cursor-dark"><?=$similar_films[2]['film_date']?></p>
                         <?php
-                            isFilmFav($similar_films[2]['ID_film'],$_SESSION['ID_user']);
+                            if(isset($_SESSION['ID_user'])){isFilmFav($similar_films[2]['ID_film'],$_SESSION['ID_user']);}else{ShowFakeFav();}
                         ?>
                         <div>
                             <div class="flex justify-start">
@@ -1165,7 +1165,7 @@ $similar_films=GetFilmByGenre($film['ID_film']);
                     <div class="relative w-full h-full flex flex-col justify-between">
                         <p class="font-bold text-xl cursor-dark"><?=$similar_films[3]['film_date']?></p>
                         <?php
-                            isFilmFav($similar_films[3]['ID_film'],$_SESSION['ID_user']);
+                            if(isset($_SESSION['ID_user'])){isFilmFav($similar_films[3]['ID_film'],$_SESSION['ID_user']);}else{ShowFakeFav();}
                         ?>
                         <div>
                             <div class="flex justify-start">
@@ -1198,7 +1198,7 @@ $similar_films=GetFilmByGenre($film['ID_film']);
                     <div class="relative w-full h-full flex flex-col justify-between">
                         <p class="font-bold text-xl cursor-dark"><?=$similar_films[4]['film_date']?></p>
                         <?php
-                            isFilmFav($similar_films[4]['ID_film'],$_SESSION['ID_user']);
+                            if(isset($_SESSION['ID_user'])){isFilmFav($similar_films[4]['ID_film'],$_SESSION['ID_user']);}else{ShowFakeFav();}
                         ?>
                         <div>
                             <div class="flex justify-start">

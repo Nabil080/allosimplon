@@ -361,70 +361,6 @@ function GetUserFav($ID_user){
     }
 }
 
-function GetUserFilm($ID_user,$ORDER,$LIMIT){
-    if(require("connexion.php")){
-    // selectionne ID_user dans user_fav là où user.ID_user = user_film.ID_user
-    $ID_film_request=$con->prepare(
-        "SELECT
-            ID_film
-        FROM user_fav
-        WHERE ID_user = $ID_user");
-    $ID_film_request->execute();
-    while($ID_film=$ID_film_request->fetch()){
-
-        $film_request=$con->prepare(
-            "SELECT
-                *
-            FROM film
-            WHERE ID_film = $ID_film[0] 
-            $ORDER $LIMIT"
-        );
-        $film_request->execute();
-        while($film=$film_request->fetch()){
-            $photo=$film['film_photo'];
-            $name=$film['film_name'];
-            $ID=$film['ID_film'];
-            $time=$film['film_time'];
-            $date=$film['film_date'];
-            $note=$film['film_grade'];
-            $description=$film['film_description'];
-        ?>
-    <div class="group relative">
-    <a href="/portfolio/allosimplon/build/content/film.php?page=<?=$ID?>"   class="cursor-pointer h-full">
-        <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
-            <div class="relative w-full h-full flex flex-col justify-between">
-                <p class="font-bold text-xl cursor-dark"><?=$date?></p>
-                <?php
-                            isFilmFav($ID,$ID_user);
-                        ?>
-                <div>
-                    <div class="flex justify-start">
-                        <h2 class="underline font-bold text-main-light text-2xl mb-2"><?=$name?></h2>
-                    </div>
-                    <div class="flex justify-start">
-                        <p class="font-normal cursor-dark"><?php echo substr($description,0,200),'...' ?>
-                        </p>
-                    </div>
-                    <div class="flex justify-between h-auto mt-4 text-center">
-                        <div class="flex justify-start align-bottom">
-                            <?=$time?>min
-                        </div>
-                        <div class="flex justify-end">
-                            <?php Stars($note) ?>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <img class="" src="/portfolio/allosimplon/build/upload/film/<?=$photo?>" alt="<?=$name?>">
-        </a>
-    </div>
-    <?php } 
-
-    }
-    }
-}
-
 function SelectFilm(){
     if(require("connexion.php")){
         $select_film_request=$con->prepare(
@@ -691,12 +627,24 @@ function ShowDeleteFav($ID_film){
 
 function IsFilmFav($ID_film,$ID_user){
     if(require("connexion.php")){
-    $is_film_fav_request=$con->prepare(
-        "SELECT * FROM user_fav WHERE ID_film = ? AND ID_user = ?");
-    $is_film_fav_request->execute([$ID_film,$ID_user]);
-    $fav=$is_film_fav_request->fetch();
-    if($fav){ShowDeleteFav($ID_film);}else{ShowAddFav($ID_film);}
+        $is_film_fav_request=$con->prepare(
+            "SELECT * FROM user_fav WHERE ID_film = ? AND ID_user = ?");
+        $is_film_fav_request->execute([$ID_film,$ID_user]);
+        $fav=$is_film_fav_request->fetch();
+        if($fav){ShowDeleteFav($ID_film);}else{ShowAddFav($ID_film);}
     }
+}
+
+function ShowFakeFav(){
+    if(require("connexion.php")){?>
+    <a class="group/fav">
+    <button data-modal-target="login" data-modal-toggle="login" class="group/fav z-50">
+      <i class=" fa-regular fa-heart cursor-pointer absolute text-main-light right-0 top-0 text-2xl">
+        <i class="fa-solid fa-heart cursor-pointer absolute right-0 top-0 text-2xl text-main-light hidden group-hover/fav:block"></i>
+      </i>
+    </button>
+    </a>
+    <?php }
 }
 
 
@@ -774,7 +722,7 @@ function GetFilmByGenre($ID_film){
         $similar_films_request=$con->prepare("SELECT ID_film FROM film_genre WHERE ID_genre IN ($genres) ORDER BY rand() LIMIT 25");
         $similar_films_request->execute();
         $similar_films=$similar_films_request->fetchAll(PDO::FETCH_COLUMN);
-        var_dump($similar_films);
+        // var_dump($similar_films);
         // TRANSFORME EN STRING
         $films = implode(", ",$similar_films);
         

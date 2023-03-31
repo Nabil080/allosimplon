@@ -27,34 +27,23 @@
 </div>
     <ul class="text-lg grow font-normal text-main-light flex-wrap flex flex-col w-6">
             <a href="/portfolio/allosimplon/build/content/catalogue.php" class="underline text-3xl text-gray-100 font-bold">Genres</a>
-            <a href="" class=""><li class="hover:underline decoration-main-light "> Action </li></a>
-            <a href="" class=""><li class="hover:underline decoration-main-light "> Amateur </li></a>
-            <a href="" class=""><li class="hover:underline decoration-main-light "> Animation </li></a>
-            <a href="" class=""><li class="hover:underline decoration-main-light "> Aventure </li></a>
-            <a href="" class=""><li class="hover:underline decoration-main-light "> Catastrophe </li></a>
-            <a href="" class=""><li class="hover:underline decoration-main-light "> Chevaliers </li></a>
-            <a href="" class=""><li class="hover:underline decoration-main-light "> Comédie </li></a>
-            <a href="" class=""><li class="hover:underline decoration-main-light "> Documentaires </li></a>
-            <a href="" class=""><li class="hover:underline decoration-main-light "> Drame </li></a>
-            <a href="" class=""><li class="hover:underline decoration-main-light "> Fantastique </li></a>
-            <a href="" class=""><li class="hover:underline decoration-main-light "> Guerre/histoire </li></a>
-            <a href="" class=""><li class="hover:underline decoration-main-light "> Horreur </li></a>
-            <a href="" class=""><li class="hover:underline decoration-main-light "> Héros </li></a>
-            <a href="" class=""><li class="hover:underline decoration-main-light "> Musical </li></a>
-            <a href="" class=""><li class="hover:underline decoration-main-light "> Opéra </li></a>
-            <a href="" class=""><li class="hover:underline decoration-main-light "> Policier </li></a>
-            <a href="" class=""><li class="hover:underline decoration-main-light "> Sciences-fiction </li></a>
-            <a href="" class=""><li class="hover:underline decoration-main-light "> Sketch </li></a>
-            <a href="" class=""><li class="hover:underline decoration-main-light "> Sport </li></a>
-            <a href="" class=""><li class="hover:underline decoration-main-light "> Western </li></a>
+        <?php $genre_list_request=$con->prepare("SELECT * FROM genre");$genre_list_request->execute();while($genre_list=$genre_list_request->fetch()){?>
+            <a href="/portfolio/allosimplon/build/content/catalogue.php?page=1&genre[]=<?=$genre_list['ID_genre']?>"class=""><li class="hover:underline decoration-main-light "> <?=$genre_list['genre_name']?> </li></a>
+        <?php } ?>
     </ul>
 
 <div id="rightmenu" class="">
-    <a href="" class="underline">Profil</a>
+    <button data-modal-target="profil" data-modal-toggle="profil">Profil</button>
     <ul class="text-lg font-normal text-main-light">
-        <a href="/portfolio/allosimplon/build/content/favoris.php"><li>Favoris</li></a>
-        <a data-modal-target="login" data-modal-toggle="login"><li>Informations</li></a>
-        <a href="/portfolio/allosimplon/build/traitements/connexion/logout.php"><li>Se déconnecter</li></a>
+        <?php if(isset($_SESSION['ID_user'])){ ?>
+            <a href="/portfolio/allosimplon/build/content/favoris.php"><li>Favoris</li></a>
+            <button data-modal-target="profil" data-modal-toggle="profil"><li>Informations</li></button>
+            <a href="/portfolio/allosimplon/build/traitements/connexion/logout.php"><li>Se déconnecter</li></a>
+        <?php }else{ ?>
+            <li><button data-modal-targ="login" data-modal-toggle="login">Favoris</button></li>
+            <li><button data-modal-targ="login" data-modal-toggle="login">Informations</button></li>
+            <li><button data-modal-targ="login" data-modal-toggle="login">Se connecter</button></li>
+        <?php } ?>
     </ul>
 </div>
 </div>

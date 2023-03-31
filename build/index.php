@@ -10,11 +10,11 @@ require_once 'config/functions.php';
 
 <?php include('include/general/nav.php')?>
 
-    <div class=" mt-28">
+    <!-- <div class=" mt-28">
     <?php
     var_dump($_SESSION);
     ?>
-    </div>
+    </div> -->
 
 
 <?php include('include/unique/top_film_slide.php')?>
