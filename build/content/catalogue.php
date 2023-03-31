@@ -99,9 +99,9 @@ if(isset($filters['note'])){
 
 if(isset($filters['search'])){
   if(!isset($clause)){
-    $clause = " " . "WHERE film_name LIKE '%".$filters['search']."%' ";
+    $clause = " WHERE SOUNDEX(film_name) = SOUNDEX ('".$filters['search']."') OR film_name LIKE ('%".$filters['search']."%')";
   }else{
-    $clause .= " AND film_name LIKE '%".$filters['search']."%' ";
+    $clause .= " AND SOUNDEX(film_name) = SOUNDEX ('".$filters['search']."') OR film_name LIKE ('%".$filters['search']."%')";
   }
 }
 
