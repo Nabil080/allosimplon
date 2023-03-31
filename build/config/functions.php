@@ -386,6 +386,30 @@ function SelectActor(){
         <?php }
     }
 };
+function SelectedActor($ID_film){
+    if(require("connexion.php")){
+        $select_actor_request=$con->prepare(
+            "SELECT ID_actor, actor_name FROM actor ORDER BY actor_name");
+            $select_actor_request->execute();
+            while($select_actor=$select_actor_request->fetch()){
+            $selected_actor_request=$con->prepare(
+                "SELECT ID_film FROM film_actor WHERE ID_actor = ? AND ID_film = ? ");
+            $selected_actor_request->execute([$select_actor['ID_actor'],$ID_film]);
+            $is_actor_selected=$selected_actor_request->fetch();
+            if($is_actor_selected){?>
+                <option selected
+                value=<?=$select_actor['ID_actor']?>>
+                    <?=$select_actor['actor_name']?>
+                </option>
+            <?php }else{?>
+                <option
+                value=<?=$select_actor['ID_actor']?>>
+                    <?=$select_actor['actor_name']?>
+                </option>
+            <?php }
+    }
+}
+}
 function SelectGenre(){
     if(require("connexion.php")){
         $select_genre_request=$con->prepare(
@@ -451,30 +475,7 @@ function SelectedRealisator($ID_film){
 }
 }
 
-function SelectedActor($ID_film){
-    if(require("connexion.php")){
-        $select_actor_request=$con->prepare(
-            "SELECT ID_actor, actor_name FROM actor ORDER BY actor_name");
-            $select_actor_request->execute();
-            while($select_actor=$select_actor_request->fetch()){
-            $selected_actor_request=$con->prepare(
-                "SELECT ID_film FROM film_actor WHERE ID_actor = ? AND ID_film = ? ");
-            $selected_actor_request->execute([$select_actor['ID_actor'],$ID_film]);
-            $is_actor_selected=$selected_actor_request->fetch();
-            if($is_actor_selected){?>
-                <option selected
-                value=<?=$select_actor['ID_actor']?>>
-                    <?=$select_actor['actor_name']?>
-                </option>
-            <?php }else{?>
-                <option
-                value=<?=$select_actor['ID_actor']?>>
-                    <?=$select_actor['actor_name']?>
-                </option>
-            <?php }
-    }
-}
-}
+
 
 function SelectedGenre($ID_film){
     if(require("connexion.php")){
@@ -571,19 +572,22 @@ function AddFav(){
                 into user_fav
             SET ID_user = ?, ID_film = ?");
         $add_user_fav_request->execute([$ID_user,$ID_film]);
+        $update_fav_count=$con->prepare(
+            "UPDATE film JOIN (SELECT ID_film, COUNT(*) as likes_count FROM user_fav GROUP BY ID_film) AS fav_counts ON film.ID_film = fav_counts.ID_film SET film.likes = fav_counts.likes_count;");
+        $update_fav_count->execute();
         echo 'Le film a bien été ajouté en favori !';
     }
 }
 
 
-function ShowAddFav($ID_film){
+function ShowAddFav($ID_film,$likes){
     if(require("connexion.php")){
-    ?><form method="post" action="/portfolio/allosimplon/build/traitements/add/add_user_fav.php">
+    ?><form method="post" action="/portfolio/allosimplon/build/traitements/add/add_user_fav.php" class="w-fit">
     <input class="hidden" name="ID_user" value="<?=$_SESSION['ID_user']?>">
     <input class="hidden" name="ID_film" value="<?=$ID_film?>">
-    <button type="submit" name="submit" value="submit" class="group/fav z-20">
-      <i class=" fa-regular fa-heart cursor-pointer absolute text-main-light right-0 top-0 text-2xl">
-        <i type="submit" class="fa-solid fa-heart cursor-pointer absolute right-0 top-0 text-2xl text-main-light hidden group-hover/fav:block"></i>
+    <button type="submit" name="submit" value="submit" class="group/fav z-20 w-fit">
+      <i class=" fa-regular fa-heart cursor-pointer absolute flex text-main-light right-0 top-0 text-2xl"><p class="text-lg justify-center flex pl-2"><?=$likes?></p>
+        <i type="submit" class="fa-solid fa-heart cursor-pointer absolute right-0 top-0 text-2xl text-main-light hidden group-hover/fav:flex"><p class="text-lg justify-center flex pl-2"><?=$likes?></p></i>
       </i>
     </button>
     </form>
@@ -607,40 +611,49 @@ function DeleteFav(){
                 user_fav
             WHERE ID_user = ? AND ID_film = ?");
         $add_user_fav_request->execute([$ID_user,$ID_film]);
+        $update_fav_count=$con->prepare(
+            "UPDATE film JOIN (SELECT ID_film, COUNT(*) as likes_count FROM user_fav GROUP BY ID_film) AS fav_counts ON film.ID_film = fav_counts.ID_film SET film.likes = fav_counts.likes_count;");
+        $update_fav_count->execute();
         echo 'Le film a bien été supprimé des favoris !';
     }
 }
 
-function ShowDeleteFav($ID_film){
+function ShowDeleteFav($ID_film,$likes){
     if(require("connexion.php")){
-    ?><form method="post" action="/portfolio/allosimplon/build/traitements/delete/delete_user_fav.php">
+    ?><form method="post" action="/portfolio/allosimplon/build/traitements/delete/delete_user_fav.php" class="w-fit">
     <input class="hidden" name="ID_user" value="<?=$_SESSION['ID_user']?>">
     <input class="hidden" name="ID_film" value="<?=$ID_film?>">
-    <button type="submit" name="submit" value="submit" class="group/fav z-20">
-      <i class=" fa-solid fa-heart cursor-pointer absolute text-main-light right-0 top-0 text-2xl">
-        <i type="submit" class="fa-regular fa-heart cursor-pointer absolute right-0 top-0 text-2xl text-main-light hidden group-hover/fav:block"></i>
+    <button type="submit" name="submit" value="submit" class="group/fav z-20 w-fit">
+      <i class=" fa-solid fa-heart cursor-pointer absolute flex text-main-light right-0 top-0 text-2xl">
+    <p class="text-lg justify-center flex pl-2"><?=$likes?></p>
+        <i type="submit" class="fa-regular fa-heart cursor-pointer absolute right-0 top-0 text-2xl text-main-light hidden group-hover/fav:flex">
+        <p class="text-lg justify-center flex pl-2"><?=$likes?></p>
+        </i>
       </i>
     </button>
     </form>
     <?php }
 }
 
-function IsFilmFav($ID_film,$ID_user){
+function IsFilmFav($ID_film,$ID_user,$likes){
     if(require("connexion.php")){
         $is_film_fav_request=$con->prepare(
             "SELECT * FROM user_fav WHERE ID_film = ? AND ID_user = ?");
         $is_film_fav_request->execute([$ID_film,$ID_user]);
         $fav=$is_film_fav_request->fetch();
-        if($fav){ShowDeleteFav($ID_film);}else{ShowAddFav($ID_film);}
+        if($fav){ShowDeleteFav($ID_film,$likes);}else{ShowAddFav($ID_film,$likes);}
     }
 }
 
-function ShowFakeFav(){
+function ShowFakeFav($likes){
     if(require("connexion.php")){?>
     <a class="group/fav">
     <button data-modal-target="login" data-modal-toggle="login" class="group/fav z-50">
-      <i class=" fa-regular fa-heart cursor-pointer absolute text-main-light right-0 top-0 text-2xl">
-        <i class="fa-solid fa-heart cursor-pointer absolute right-0 top-0 text-2xl text-main-light hidden group-hover/fav:block"></i>
+      <i class=" fa-regular fa-heart cursor-pointer absolute flex text-main-light right-0 top-0 text-2xl">
+        <p class="text-lg justify-center flex pl-2"><?=$likes?></p>
+        <i class="fa-solid fa-heart cursor-pointer absolute right-0 top-0 text-2xl text-main-light hidden group-hover/fav:flex">
+            <p class="text-lg justify-center flex pl-2"><?=$likes?></p>
+        </i>
       </i>
     </button>
     </a>

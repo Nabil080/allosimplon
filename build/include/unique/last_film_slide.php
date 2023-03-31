@@ -35,7 +35,7 @@ $film=$request->fetchAll();
                                 <div class="relative w-full h-full flex flex-col justify-between">
                                     <p class="font-bold text-xl cursor-dark"><?=$film[0]['film_date']?></p>
                             <?php
-                                if(isset($_SESSION['ID_user'])){isFilmFav($film[0]['ID_film'],$_SESSION['ID_user']);}else{ShowFakeFav();}
+                                if(isset($_SESSION['ID_user'])){isFilmFav($film[0]['ID_film'],$_SESSION['ID_user'],$film[0]['likes']);}else{ShowFakeFav($film[0]['likes']);}
                             ?>
                                     <div>
                                         <div class="flex justify-start">
@@ -67,7 +67,7 @@ $film=$request->fetchAll();
                                 <div class="relative w-full h-full flex flex-col justify-between">
                                     <p class="font-bold text-xl cursor-dark"><?=$film[1]['film_date']?></p>
                         <?php
-                            if(isset($_SESSION['ID_user'])){isFilmFav($film[1]['ID_film'],$_SESSION['ID_user']);}else{ShowFakeFav();}
+                            if(isset($_SESSION['ID_user'])){isFilmFav($film[1]['ID_film'],$_SESSION['ID_user'],$film[1]['likes']);}else{ShowFakeFav($film[1]['likes']);}
                         ?>
                                     <div>
                                         <div class="flex justify-start">
@@ -99,7 +99,7 @@ $film=$request->fetchAll();
                                 <div class="relative w-full h-full flex flex-col justify-between">
                                     <p class="font-bold text-xl cursor-dark"><?=$film[2]['film_date']?></p>
                         <?php
-                            if(isset($_SESSION['ID_user'])){isFilmFav($film[2]['ID_film'],$_SESSION['ID_user']);}else{ShowFakeFav();}
+                            if(isset($_SESSION['ID_user'])){isFilmFav($film[2]['ID_film'],$_SESSION['ID_user'],$film[2]['likes']);}else{ShowFakeFav($film[2]['likes']);}
                         ?>
                                     <div>
                                         <div class="flex justify-start">
@@ -131,7 +131,7 @@ $film=$request->fetchAll();
                                 <div class="relative w-full h-full flex flex-col justify-between">
                                     <p class="font-bold text-xl cursor-dark"><?=$film[3]['film_date']?></p>
                         <?php
-                            if(isset($_SESSION['ID_user'])){isFilmFav($film[3]['ID_film'],$_SESSION['ID_user']);}else{ShowFakeFav();}
+                            if(isset($_SESSION['ID_user'])){isFilmFav($film[3]['ID_film'],$_SESSION['ID_user'],$film[3]['likes']);}else{ShowFakeFav($film[3]['likes']);}
                         ?>
                                     <div>
                                         <div class="flex justify-start">
@@ -164,7 +164,7 @@ $film=$request->fetchAll();
                                 <div class="relative w-full h-full flex flex-col justify-between">
                                     <p class="font-bold text-xl cursor-dark"><?=$film[4]['film_date']?></p>
                         <?php
-                            if(isset($_SESSION['ID_user'])){isFilmFav($film[4]['ID_film'],$_SESSION['ID_user']);}else{ShowFakeFav();}
+                            if(isset($_SESSION['ID_user'])){isFilmFav($film[4]['ID_film'],$_SESSION['ID_user'],$film[4]['likes']);}else{ShowFakeFav($film[4]['likes']);}
                         ?>
                                     <div>
                                         <div class="flex justify-start">
@@ -201,7 +201,7 @@ $film=$request->fetchAll();
                                 <div class="relative w-full h-full flex flex-col justify-between">
                                     <p class="font-bold text-xl cursor-dark"><?=$film[5]['film_date']?></p>
                         <?php
-                            if(isset($_SESSION['ID_user'])){isFilmFav($film[5]['ID_film'],$_SESSION['ID_user']);}else{ShowFakeFav();}
+                            if(isset($_SESSION['ID_user'])){isFilmFav($film[5]['ID_film'],$_SESSION['ID_user'],$film[5]['likes']);}else{ShowFakeFav($film[5]['likes']);}
                         ?>
                                     <div>
                                         <div class="flex justify-start">
@@ -234,7 +234,7 @@ $film=$request->fetchAll();
                                 <div class="relative w-full h-full flex flex-col justify-between">
                                     <p class="font-bold text-xl cursor-dark"><?=$film[6]['film_date']?></p>
                         <?php
-                            if(isset($_SESSION['ID_user'])){isFilmFav($film[6]['ID_film'],$_SESSION['ID_user']);}else{ShowFakeFav();}
+                            if(isset($_SESSION['ID_user'])){isFilmFav($film[6]['ID_film'],$_SESSION['ID_user'],$film[6]['likes']);}else{ShowFakeFav($film[6]['likes']);}
                         ?>
                                     <div>
                                         <div class="flex justify-start">
@@ -267,7 +267,7 @@ $film=$request->fetchAll();
                                 <div class="relative w-full h-full flex flex-col justify-between">
                                     <p class="font-bold text-xl cursor-dark"><?=$film[7]['film_date']?></p>
                         <?php
-                            if(isset($_SESSION['ID_user'])){isFilmFav($film[7]['ID_film'],$_SESSION['ID_user']);}else{ShowFakeFav();}
+                            if(isset($_SESSION['ID_user'])){isFilmFav($film[7]['ID_film'],$_SESSION['ID_user'],$film[7]['likes']);}else{ShowFakeFav($film[7]['likes']);}
                         ?>
                                     <div>
                                         <div class="flex justify-start">
@@ -300,7 +300,7 @@ $film=$request->fetchAll();
                                 <div class="relative w-full h-full flex flex-col justify-between">
                                     <p class="font-bold text-xl cursor-dark"><?=$film[8]['film_date']?></p>
                         <?php
-                            if(isset($_SESSION['ID_user'])){isFilmFav($film[8]['ID_film'],$_SESSION['ID_user']);}else{ShowFakeFav();}
+                            if(isset($_SESSION['ID_user'])){isFilmFav($film[8]['ID_film'],$_SESSION['ID_user'],$film[8]['likes']);}else{ShowFakeFav($film[8]['likes']);}
                         ?>
                                     <div>
                                         <div class="flex justify-start">
@@ -333,7 +333,7 @@ $film=$request->fetchAll();
                                 <div class="relative w-full h-full flex flex-col justify-between">
                                     <p class="font-bold text-xl cursor-dark"><?=$film[9]['film_date']?></p>
                         <?php
-                            if(isset($_SESSION['ID_user'])){isFilmFav($film[9]['ID_film'],$_SESSION['ID_user']);}else{ShowFakeFav();}
+                            if(isset($_SESSION['ID_user'])){isFilmFav($film[9]['ID_film'],$_SESSION['ID_user'],$film[9]['likes']);}else{ShowFakeFav($film[9]['likes']);}
                         ?>
                                     <div>
                                         <div class="flex justify-start">
@@ -371,7 +371,7 @@ $film=$request->fetchAll();
                                 <div class="relative w-full h-full flex flex-col justify-between">
                                     <p class="font-bold text-xl cursor-dark"><?=$film[10]['film_date']?></p>
                         <?php
-                            if(isset($_SESSION['ID_user'])){isFilmFav($film[10]['ID_film'],$_SESSION['ID_user']);}else{ShowFakeFav();}
+                            if(isset($_SESSION['ID_user'])){isFilmFav($film[10]['ID_film'],$_SESSION['ID_user'],$film[10]['likes']);}else{ShowFakeFav($film[10]['likes']);}
                         ?>
                                     <div>
                                         <div class="flex justify-start">
@@ -404,7 +404,7 @@ $film=$request->fetchAll();
                                 <div class="relative w-full h-full flex flex-col justify-between">
                                     <p class="font-bold text-xl cursor-dark"><?=$film[11]['film_date']?></p>
                         <?php
-                            if(isset($_SESSION['ID_user'])){isFilmFav($film[11]['ID_film'],$_SESSION['ID_user']);}else{ShowFakeFav();}
+                            if(isset($_SESSION['ID_user'])){isFilmFav($film[11]['ID_film'],$_SESSION['ID_user'],$film[11]['likes']);}else{ShowFakeFav($film[11]['likes']);}
                         ?>
                                     <div>
                                         <div class="flex justify-start">
@@ -437,7 +437,7 @@ $film=$request->fetchAll();
                                 <div class="relative w-full h-full flex flex-col justify-between">
                                     <p class="font-bold text-xl cursor-dark"><?=$film[12]['film_date']?></p>
                         <?php
-                            if(isset($_SESSION['ID_user'])){isFilmFav($film[12]['ID_film'],$_SESSION['ID_user']);}else{ShowFakeFav();}
+                            if(isset($_SESSION['ID_user'])){isFilmFav($film[12]['ID_film'],$_SESSION['ID_user'],$film[12]['likes']);}else{ShowFakeFav($film[12]['likes']);}
                         ?>
                                     <div>
                                         <div class="flex justify-start">
@@ -470,7 +470,7 @@ $film=$request->fetchAll();
                                 <div class="relative w-full h-full flex flex-col justify-between">
                                     <p class="font-bold text-xl cursor-dark"><?=$film[13]['film_date']?></p>
                         <?php
-                            if(isset($_SESSION['ID_user'])){isFilmFav($film[13]['ID_film'],$_SESSION['ID_user']);}else{ShowFakeFav();}
+                            if(isset($_SESSION['ID_user'])){isFilmFav($film[13]['ID_film'],$_SESSION['ID_user'],$film[13]['likes']);}else{ShowFakeFav($film[13]['likes']);}
                         ?>
                                     <div>
                                         <div class="flex justify-start">
@@ -503,7 +503,7 @@ $film=$request->fetchAll();
                                 <div class="relative w-full h-full flex flex-col justify-between">
                                     <p class="font-bold text-xl cursor-dark"><?=$film[14]['film_date']?></p>
                         <?php
-                            if(isset($_SESSION['ID_user'])){isFilmFav($film[14]['ID_film'],$_SESSION['ID_user']);}else{ShowFakeFav();}
+                            if(isset($_SESSION['ID_user'])){isFilmFav($film[14]['ID_film'],$_SESSION['ID_user'],$film[14]['likes']);}else{ShowFakeFav($film[14]['likes']);}
                         ?>
                                     <div>
                                         <div class="flex justify-start">
@@ -541,7 +541,7 @@ $film=$request->fetchAll();
                                 <div class="relative w-full h-full flex flex-col justify-between">
                                     <p class="font-bold text-xl cursor-dark"><?=$film[15]['film_date']?></p>
                         <?php
-                            if(isset($_SESSION['ID_user'])){isFilmFav($film[15]['ID_film'],$_SESSION['ID_user']);}else{ShowFakeFav();}
+                            if(isset($_SESSION['ID_user'])){isFilmFav($film[15]['ID_film'],$_SESSION['ID_user'],$film[15]['likes']);}else{ShowFakeFav($film[15]['likes']);}
                         ?>
                                     <div>
                                         <div class="flex justify-start">
@@ -574,7 +574,7 @@ $film=$request->fetchAll();
                                 <div class="relative w-full h-full flex flex-col justify-between">
                                     <p class="font-bold text-xl cursor-dark"><?=$film[16]['film_date']?></p>
                         <?php
-                            if(isset($_SESSION['ID_user'])){isFilmFav($film[16]['ID_film'],$_SESSION['ID_user']);}else{ShowFakeFav();}
+                            if(isset($_SESSION['ID_user'])){isFilmFav($film[16]['ID_film'],$_SESSION['ID_user'],$film[16]['likes']);}else{ShowFakeFav($film[16]['likes']);}
                         ?>
                                     <div>
                                         <div class="flex justify-start">
@@ -607,7 +607,7 @@ $film=$request->fetchAll();
                                 <div class="relative w-full h-full flex flex-col justify-between">
                                     <p class="font-bold text-xl cursor-dark"><?=$film[17]['film_date']?></p>
                         <?php
-                            if(isset($_SESSION['ID_user'])){isFilmFav($film[17]['ID_film'],$_SESSION['ID_user']);}else{ShowFakeFav();}
+                            if(isset($_SESSION['ID_user'])){isFilmFav($film[17]['ID_film'],$_SESSION['ID_user'],$film[17]['likes']);}else{ShowFakeFav($film[17]['likes']);}
                         ?>
                                     <div>
                                         <div class="flex justify-start">
@@ -640,7 +640,7 @@ $film=$request->fetchAll();
                                 <div class="relative w-full h-full flex flex-col justify-between">
                                     <p class="font-bold text-xl cursor-dark"><?=$film[18]['film_date']?></p>
                         <?php
-                            if(isset($_SESSION['ID_user'])){isFilmFav($film[18]['ID_film'],$_SESSION['ID_user']);}else{ShowFakeFav();}
+                            if(isset($_SESSION['ID_user'])){isFilmFav($film[18]['ID_film'],$_SESSION['ID_user'],$film[18]['likes']);}else{ShowFakeFav($film[18]['likes']);}
                         ?>
                                     <div>
                                         <div class="flex justify-start">
@@ -673,7 +673,7 @@ $film=$request->fetchAll();
                                 <div class="relative w-full h-full flex flex-col justify-between">
                                     <p class="font-bold text-xl cursor-dark"><?=$film[19]['film_date']?></p>
                         <?php
-                            if(isset($_SESSION['ID_user'])){isFilmFav($film[19]['ID_film'],$_SESSION['ID_user']);}else{ShowFakeFav();}
+                            if(isset($_SESSION['ID_user'])){isFilmFav($film[19]['ID_film'],$_SESSION['ID_user'],$film[19]['likes']);}else{ShowFakeFav($film[19]['likes']);}
                         ?>
                                     <div>
                                         <div class="flex justify-start">
@@ -711,7 +711,7 @@ $film=$request->fetchAll();
                                 <div class="relative w-full h-full flex flex-col justify-between">
                                     <p class="font-bold text-xl cursor-dark"><?=$film[20]['film_date']?></p>
                         <?php
-                            if(isset($_SESSION['ID_user'])){isFilmFav($film[20]['ID_film'],$_SESSION['ID_user']);}else{ShowFakeFav();}
+                            if(isset($_SESSION['ID_user'])){isFilmFav($film[20]['ID_film'],$_SESSION['ID_user'],$film[20]['likes']);}else{ShowFakeFav($film[20]['likes']);}
                         ?>
                                     <div>
                                         <div class="flex justify-start">
@@ -744,7 +744,7 @@ $film=$request->fetchAll();
                                 <div class="relative w-full h-full flex flex-col justify-between">
                                     <p class="font-bold text-xl cursor-dark"><?=$film[21]['film_date']?></p>
                         <?php
-                            if(isset($_SESSION['ID_user'])){isFilmFav($film[21]['ID_film'],$_SESSION['ID_user']);}else{ShowFakeFav();}
+                            if(isset($_SESSION['ID_user'])){isFilmFav($film[21]['ID_film'],$_SESSION['ID_user'],$film[21]['likes']);}else{ShowFakeFav($film[21]['likes']);}
                         ?>
                                     <div>
                                         <div class="flex justify-start">
@@ -777,7 +777,7 @@ $film=$request->fetchAll();
                                 <div class="relative w-full h-full flex flex-col justify-between">
                                     <p class="font-bold text-xl cursor-dark"><?=$film[22]['film_date']?></p>
                         <?php
-                            if(isset($_SESSION['ID_user'])){isFilmFav($film[22]['ID_film'],$_SESSION['ID_user']);}else{ShowFakeFav();}
+                            if(isset($_SESSION['ID_user'])){isFilmFav($film[22]['ID_film'],$_SESSION['ID_user'],$film[22]['likes']);}else{ShowFakeFav($film[22]['likes']);}
                         ?>
                                     <div>
                                         <div class="flex justify-start">
@@ -810,7 +810,7 @@ $film=$request->fetchAll();
                                 <div class="relative w-full h-full flex flex-col justify-between">
                                     <p class="font-bold text-xl cursor-dark"><?=$film[23]['film_date']?></p>
                         <?php
-                            if(isset($_SESSION['ID_user'])){isFilmFav($film[23]['ID_film'],$_SESSION['ID_user']);}else{ShowFakeFav();}
+                            if(isset($_SESSION['ID_user'])){isFilmFav($film[23]['ID_film'],$_SESSION['ID_user'],$film[23]['likes']);}else{ShowFakeFav($film[23]['likes']);}
                         ?>
                                     <div>
                                         <div class="flex justify-start">
@@ -843,7 +843,7 @@ $film=$request->fetchAll();
                                 <div class="relative w-full h-full flex flex-col justify-between">
                                     <p class="font-bold text-xl cursor-dark"><?=$film[24]['film_date']?></p>
                         <?php
-                            if(isset($_SESSION['ID_user'])){isFilmFav($film[24]['ID_film'],$_SESSION['ID_user']);}else{ShowFakeFav();}
+                            if(isset($_SESSION['ID_user'])){isFilmFav($film[24]['ID_film'],$_SESSION['ID_user'],$film[24]['likes']);}else{ShowFakeFav($film[24]['likes']);}
                         ?>
                                     <div>
                                         <div class="flex justify-start">

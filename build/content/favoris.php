@@ -44,9 +44,9 @@ $limit_request=$initial_page.",".$limit;
 $clause=" WHERE ID_film IN (" .$user_films. ")";
 
 $filters=[];
-echo'filters:';var_dump($filters);
+// echo'filters:';var_dump($filters);
 
-echo'get:';var_dump($_GET);
+// echo'get:';var_dump($_GET);
 if(isset($_GET['note'])){$filters['note']=$_GET['note'];}
 
 if(isset($_GET['sort'])){$filters['sort']=$_GET['sort'];}
@@ -54,9 +54,9 @@ if(isset($_GET['sort'])){$filters['sort']=$_GET['sort'];}
 
 if(isset($_GET['genre'])){
   $get_genre_array=$_GET['genre'];
-  var_dump($get_genre_array);
+  // var_dump($get_genre_array);
   $genre_count=count($get_genre_array);
-  var_dump($genre_count);
+  // var_dump($genre_count);
   foreach($get_genre_array as $ID_genre){
     $request=$con->prepare("SELECT ID_film FROM film_genre WHERE ID_genre = $ID_genre");$request->execute();
     $fetch=$request->fetchAll(PDO::FETCH_COLUMN);
@@ -64,27 +64,27 @@ if(isset($_GET['genre'])){
 }
 
 
-var_dump($get_film_array);
+// var_dump($get_film_array);
 $bool= [];
 for($i=0;$i<$genre_count;$i++){
   $common_films= array_intersect($get_film_array[0],$get_film_array[$i]);
   if(empty($common_films)){$bool[$i]="false";}else{$bool[$i]="true";}
-  var_dump($common_films);
+  // var_dump($common_films);
 }
-var_dump($bool);
+// var_dump($bool);
 if($genre_count>1){
-var_dump($common_films);
+// var_dump($common_films);
 
   $filters['film'] = implode(", ",$common_films);
 }else{
   $filters['film'] = implode(", ",$get_film_array[0]);
 }
-  var_dump($filters);
+  // var_dump($filters);
 }
-if(isset($get_genre_array)){
-echo'genre_array:';var_dump($get_genre_array);}
-var_dump($filters);
-var_dump($_SESSION['filters']);
+// if(isset($get_genre_array)){
+// echo'genre_array:';var_dump($get_genre_array);}
+// var_dump($filters);
+// var_dump($_SESSION['filters']);
 
 if(isset($filters['film'])){
    if(!isset($clause)){
@@ -110,27 +110,28 @@ if(isset($filters['sort'])){
   if($filters['sort']=="desc"){$order_name="ID_film DESC";};
   if($filters['sort']=="grade"){$order_name="film_grade DESC";};
   if($filters['sort']=="date"){$order_name="film_date DESC";};
+  if($filters['sort']=="fav"){$order_name="likes DESC";};
 
   $order = " ORDER BY " . $order_name ;
 }
 
 if(empty($filters)){
   $film_request =$con->prepare("SELECT * FROM film LIMIT $initial_page,$limit ");
-  echo 'là30';
+  // echo 'là30';
 }
 if(isset($clause)){
   if(isset($order)){
     $film_request = $con->prepare("SELECT * FROM film $clause $order LIMIT $initial_page,$limit");
-    echo 'là10';
+    // echo 'là10';
   }else{
     $film_request = $con->prepare("SELECT * FROM film $clause LIMIT $limit_request");
-    echo 'là20';
+    // echo 'là20';
   }
 }
 
 if(isset($order) && !isset($clause)){
   $film_request = $con->prepare("SELECT * FROM film $order LIMIT $initial_page,$limit");
-  echo'là40';
+  // echo'là40';
 }
 
 if(isset($bool) && in_array("false",$bool)){
@@ -140,14 +141,14 @@ $film_request->execute();
 }
 
 
-var_dump($film_request);
+// var_dump($film_request);
 // var_dump($_SESSION['filters']);
 
 if(isset($_GET['page'])){
   if(!isset($_SESSION['filters'])){
-      $_SESSION['filters'] =  "page=".$_GET['page'];echo 'orv';
+      $_SESSION['filters'] =  "page=".$_GET['page'];
   }else{
-      $_SESSION['filters'] = "page=" .  $_GET['page'];echo'slt';
+      $_SESSION['filters'] = "page=" .  $_GET['page'];
   }
 }
 
@@ -174,14 +175,14 @@ if(isset($_GET['sort'])){
       $_SESSION['filters'] .= "&sort=" . $_GET['sort'];
 }
 }
-var_dump($_SESSION['filters']);
+// var_dump($_SESSION['filters']);
 
 if(empty($_SESSION['filters'])){
   $url = "/portfolio/allosimplon/build/content/favoris.php?";
 }else{
   $url = "/portfolio/allosimplon/build/content/favoris.php?" . $_SESSION['filters']  . "&";
 }
-var_dump($url);
+// var_dump($url);
 
 
 ?>
@@ -248,6 +249,7 @@ var_dump($url);
                     $time=$film['film_time'];
                     $date=$film['film_date'];
                     $note=$film['film_grade'];
+                    $likes=$film['likes'];
                     $description=$film['film_description'];
                     $ID_user=$_SESSION['ID_user'];
                 ?>
@@ -257,7 +259,7 @@ var_dump($url);
                     <div class="relative w-full h-full flex flex-col justify-between">
                         <p class="font-bold text-xl cursor-dark"><?=$date?></p>
                         <?php
-                            isFilmFav($ID,$ID_user);
+                            isFilmFav($ID,$ID_user,$likes);
                         ?>
                         <div>
                             <div class="flex justify-start">
