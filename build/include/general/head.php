@@ -9,7 +9,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="/portfolio/allosimplon/build/css/output.css">
     <link rel="stylesheet" href="/Portfolio/allosimplon/src/input.css">
-    <link rel="icon" type="image/x-icon" href="/portfolio/allosimplon/build/img/popcorn.png">
+    <link rel="icon" type="image/x-icon" href="/portfolio/allosimplon/build/upload/site/popcorn.png">
     <script>
         tailwind.config = {
             theme: {
