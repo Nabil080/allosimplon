@@ -11,9 +11,6 @@ require_once '../config/functions.php';
 
 <?php include('../include/general/nav.php')?>
 
-<?php var_dump($_SESSION)?>
-
-
 <?php if(isset($_SESSION['ID_role'])){
     if($_SESSION['ID_role']==1){ ?>
 

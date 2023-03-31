@@ -12,7 +12,7 @@
     <div class="items-center flex basis-auto text-4xl gap-6">
         <!-- Modal toggle -->
         <?php if(isset($_SESSION['ID_user'])){ ?>
-            <h2 class="text-gray-50 text-2xl">Bonjour,<button class="pl-2 text-main-light" data-modal-target="profil" data-modal-toggle="profil"><?=$_SESSION['user_pseudo']?></button></h2>
+            <h2 class="text-gray-50 text-2xl hidden sm:block">Bonjour,<button class="pl-2 text-main-light" data-modal-target="profil" data-modal-toggle="profil"><?=$_SESSION['user_pseudo']?></button></h2>
             <?php }else{?>
             <button class="rounded-lg hover:bg-main-hover" data-modal-target="login" data-modal-toggle="login" ><i class="fa fa-user w-full h-full p-2"></i></button>
         <?php }?>

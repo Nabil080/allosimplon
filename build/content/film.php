@@ -58,10 +58,7 @@ $film=$request->fetch();
 <section class="mx-auto w-[60%]  border relative bg-main-dark">
 <!-- AJOUTER/RETIRER FAVORIS -->
 <div class="absolute top-2 right-4 text-main-light text-lg flex text-center gap-8 w-fit">
-    <div class="mr-8">
-        Ajouter/Retirer des favoris
-    </div>
-    <div class="w-fit">
+    <div>
 <?php
     if(isset($_SESSION['ID_user'])){isFilmFav($ID_film,$_SESSION['ID_user'],$film['likes']);}else{ShowFakeFav($film['likes']);}
 ?>

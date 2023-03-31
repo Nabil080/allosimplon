@@ -586,7 +586,7 @@ function ShowAddFav($ID_film,$likes){
     <input class="hidden" name="ID_user" value="<?=$_SESSION['ID_user']?>">
     <input class="hidden" name="ID_film" value="<?=$ID_film?>">
     <button type="submit" name="submit" value="submit" class="group/fav z-20 w-fit">
-      <i class=" fa-regular fa-heart cursor-pointer absolute flex text-main-light right-0 top-0 text-2xl"><p class="text-lg justify-center flex pl-2"><?=$likes?></p>
+      <i class=" fa-regular fa-heart animate-pulse cursor-pointer absolute flex text-main-light right-0 top-0 text-2xl"><p class="text-lg justify-center flex pl-2"><?=$likes?></p>
         <i type="submit" class="fa-solid fa-heart cursor-pointer absolute right-0 top-0 text-2xl text-main-light hidden group-hover/fav:flex"><p class="text-lg justify-center flex pl-2"><?=$likes?></p></i>
       </i>
     </button>
@@ -624,7 +624,7 @@ function ShowDeleteFav($ID_film,$likes){
     <input class="hidden" name="ID_user" value="<?=$_SESSION['ID_user']?>">
     <input class="hidden" name="ID_film" value="<?=$ID_film?>">
     <button type="submit" name="submit" value="submit" class="group/fav z-20 w-fit">
-      <i class=" fa-solid fa-heart cursor-pointer absolute flex text-main-light right-0 top-0 text-2xl">
+        <i class=" fa-solid fa-heart cursor-pointer hover:animate-pulse absolute flex text-main-light right-0 top-0 text-2xl">
     <p class="text-lg justify-center flex pl-2"><?=$likes?></p>
         <i type="submit" class="fa-regular fa-heart cursor-pointer absolute right-0 top-0 text-2xl text-main-light hidden group-hover/fav:flex">
         <p class="text-lg justify-center flex pl-2"><?=$likes?></p>
