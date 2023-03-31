@@ -16,6 +16,9 @@ require_once '../config/functions.php';
 
 <!-- PAGINATION -->
 <?php
+if(isset($_SESSION['ID_user'])){
+
+
 // Page active
 if (!isset ($_GET['page']) ){$page_number_temp = 1; $_GET['page']= 1;
 }else{$page_number_temp=$_GET['page'];}
@@ -327,4 +330,9 @@ var_dump($url);
 
 
 
-<?php include('../include/general/footer.php')?>
+<?php include('../include/general/footer.php');
+
+}else{
+  echo "Vous n'êtes pas connecté! <br>";
+  echo '<a href="/portfolio/allosimplon/build/index.php" class="text-main-light">Retour à l\'accueil';
+}?>
