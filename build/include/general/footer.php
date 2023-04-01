@@ -6,10 +6,10 @@
     <div class="flex justify-center items-center">
         <div class="mr-4 text-xl"> Rejoignez nous sur les réseaux !</div>
         <div class=" text-main-light">
-            <a href="https://facebook.com" target="_blank"><i class="fa-brands fa-instagram far"></i></a>
-            <a href="https://facebook.com" target="_blank"><i class="fa-brands fa-twitter far"></i></a>
+            <a href="https://instagram.com" target="_blank"><i class="fa-brands fa-instagram far"></i></a>
+            <a href="https://twitter.com" target="_blank"><i class="fa-brands fa-twitter far"></i></a>
             <a href="https://facebook.com" target="_blank"><i class="fa-brands fa-facebook-f far"></i></a>
-            <a href="https://facebook.com" target="_blank"><i class="fa-brands fa-youtube far"></i></a>
+            <a href="https://youtube.com" target="_blank"><i class="fa-brands fa-youtube far"></i></a>
             <a href="/portfolio/allosimplon/build/content/contact.php" target="_blank"><i class="fa-solid fa-envelope far"></i></a>
         </div>
     </div>

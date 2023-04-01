@@ -4,7 +4,7 @@
 
 
 <!-- CAROUSEL -->
-<section id="five car" class="">
+<section id="five car" class="hidden md:block">
     <div id="dark-carousel" class="relative flex" data-carousel="static">
 
         <!-- BOUTON PREV -->

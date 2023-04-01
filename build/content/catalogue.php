@@ -36,7 +36,7 @@ $filters=[];
 // echo'filters:';var_dump($filters);
 
 // echo'get:';var_dump($_GET);
-var_dump($filters);
+// var_dump($filters);
 
 if(isset($_GET['note'])){$filters['note']=$_GET['note'];}
 
@@ -48,7 +48,7 @@ if(isset($_GET['search'])){$filters['search']=$_GET['search'];}
 
 if(isset($_GET['letter'])){$filters['letter']=$_GET['letter'];}
 
-var_dump($filters);
+// var_dump($filters);
 
 if(isset($_GET['genre'])){
   $get_genre_array=$_GET['genre'];
@@ -155,7 +155,6 @@ if(isset($bool) && in_array("false",$bool)){
 // var_dump($filters);
 // var_dump($film_request);
 $film_request->execute();
-var_dump($film_request);
 }
 
 
@@ -320,6 +319,9 @@ if(empty($_SESSION['filters'])){
                 ?>
             <div class="group relative">
             <a href="/portfolio/allosimplon/build/content/film.php?page=<?=$ID?>"   class="cursor-pointer h-full">
+            <div class="absolute top-1 left-1 text-md p-1 rounded-lg font-bold text-gray-50 group-hover:hidden bg-main-light "><?=$film['film_date']?></div>
+            <div class="absolute top-1 right-1 text-md p-1 rounded-lg font-bold text-gray-50 group-hover:hidden"><?php if(isset($_SESSION['ID_user'])){isFilmFav($film['ID_film'],$_SESSION['ID_user'],$film['likes']);}else{ShowFakeFav($film['likes']);}?></div>
+            <div class="absolute bottom-2 text-md p-1 rounded-lg font-bold text-gray-50 w-full mx-auto group-hover:hidden"><?php Stars($film['film_grade']);?></div>
                 <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
                     <div class="relative w-full h-full flex flex-col justify-between">
                         <p class="font-bold text-xl cursor-dark"><?=$date?></p>
@@ -328,7 +330,7 @@ if(empty($_SESSION['filters'])){
                         ?>
                         <div>
                             <div class="flex justify-start">
-                            <a href="/portfolio/allosimplon/build/content/film.php?page=<?=$ID?>"><h2 class="underline font-bold text-main-light text-2xl mb-2"><?=$name?></h2></a>
+                            <h2 class="underline font-bold text-main-light text-2xl mb-2"><?=$name?></h2>
                             </div>
                             <div class="flex justify-start">
                                 <p class="font-normal cursor-dark"><?php echo substr($description,0,200),'...' ?>
