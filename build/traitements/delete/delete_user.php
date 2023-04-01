@@ -1,6 +1,4 @@
-<?php
-session_start();
-header('Content-type: text/html; charset=utf-8');
+<?php session_start();
 require_once '../../config/connexion.php';
 
 if(empty($_POST['ID'])){
@@ -22,6 +20,7 @@ $delete_user->execute([$ID_user]);
 
 echo "L'utilisateur a bien été supprimé ! ", "<br> var_dump post en bas là ! "; 
 var_dump($_POST);
+echo "<script>alert('L'utilisateur a bien été supprimé!'); window.location.replace(document.referrer);</script>";
 
 }
 

@@ -1,6 +1,4 @@
-<?php
-session_start();
-header('Content-type: text/html; charset=utf-8');
+<?php session_start();
 require_once '../../config/connexion.php';
 
 // Variables + sécurisation
@@ -43,8 +41,13 @@ if(empty($actor_name)){
 
         $upload_dir = '../../upload/actor/';
         if(move_uploaded_file($_FILES['photo']['tmp_name'], $upload_dir . $actor_name_photo)) {
-            echo 'le fichier est dans le serveur';// Le fichier a été correctement déplacé
+            echo 'le fichier est dans le serveur <br>';// Le fichier a été correctement déplacé
 
+        echo "L'acteur a bien été ajouté <br>";
+        
+
+        // Redirect to previous page
+        // echo "<script>window.location.replace(document.referrer);</script>";
 
         $add_actor_request=$con->prepare(
             "INSERT INTO
@@ -53,10 +56,10 @@ if(empty($actor_name)){
                 actor_name = ?, actor_photo = ?");
         $add_actor_request->execute([ $actor_name, $actor_name_photo]);
 
-        echo "L'acteur a bien été ajouté";
         var_dump ($add_actor_request);
 
-        header('Location: ' . $_SERVER['HTTP_REFERER']);
+        header('Location: ../../content/crud.php');
+        
 
     }else{
         echo "Le fichier n'a pas pu être déplacé dans le serveur";

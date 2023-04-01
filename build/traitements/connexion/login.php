@@ -1,7 +1,4 @@
-
-<?php
-session_start();
-header('Content-type: text/html; charset=utf-8');
+<?php session_start();
 require_once '../../config/connexion.php';
 ?>
 
@@ -14,6 +11,7 @@ $errors = array();
 // Verif email valide
 if(empty($email) || !filter_var($email,FILTER_VALIDATE_EMAIL)){
     $errors['email']= "Email invalide";
+    echo "<script> alert('Email invalide!'); window.location.replace(document.referrer);</script>";
 }else{
 // Verif email présent en BDD
 
@@ -26,6 +24,7 @@ if(empty($email) || !filter_var($email,FILTER_VALIDATE_EMAIL)){
         $ID = $email_row['ID_user'];
     }else{
         $errors['email']="L'email n'existe pas dans nos serveurs";
+        echo "<script> alert(' Aucun compte avec cet e-mail n'existe! ') ; window.location.replace(document.referrer);</script>";
     }
 }
 
@@ -41,20 +40,18 @@ if($bool=="true"){
         $_SESSION['user_email'] = $user_row['user_email'];
         $_SESSION['user_password'] = $user_row['user_password'];
         $_SESSION['ID_role'] = $user_row['ID_role'];
-        header('Location: ' . $_SERVER['HTTP_REFERER']);
+        header('Location:/portfolio/allosimplon/build/index.php');
         $connected = "true";
 
     }else{
         $_SESSION['ETAT'] = "not connected";
         echo 'Connexion échouée'; echo '<br> mdp incorrect';
         var_dump($password);
-        // header('Location: ../index.php');
+        echo "<script> alert(' Mot de passe incorrect ') ; window.location.replace(document.referrer);</script>";
         echo '<a href="/portfolio/allosimplon/build/index.php">accueil</a>';
     }
 }
     echo '<pre>'.print_r($errors,true).'<pre>';
-
-
 
 ?>
 

@@ -1,6 +1,4 @@
-<?php
-session_start();
-header('Content-type: text/html; charset=utf-8');
+<?php session_start();
 require_once '../../config/connexion.php';
 
 // Variables + sécurisation
@@ -175,6 +173,8 @@ if(
                     var_dump($ID_genre_array);
                     echo'<br> ID scenarist : <br>';
                     var_dump($ID_scenarist_array);
+
+                    header('Location: ../../content/crud.php');
                     
                 }
 

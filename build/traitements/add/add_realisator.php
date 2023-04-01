@@ -1,6 +1,4 @@
-<?php
-session_start();
-header('Content-type: text/html; charset=utf-8');
+<?php session_start();
 require_once '../../config/connexion.php';
 
 // Variables + sécurisation
@@ -55,6 +53,7 @@ if(empty($realisator_name)){
 
         echo "Le réalisateur a bien été ajouté";
         var_dump ($add_realisator_request);
+        header('Location: ../../content/crud.php');
 
     }else{
         echo "Le fichier n'a pas pu être déplacé dans le serveur";

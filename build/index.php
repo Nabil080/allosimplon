@@ -1,9 +1,6 @@
-<?php
-session_start();
-header('Content-type: text/html; charset=utf-8');
+<?php session_start();
 require_once 'config/connexion.php';
 require_once 'config/functions.php';
-
 ?>
 
 <?php include('include/general/head.php')?>

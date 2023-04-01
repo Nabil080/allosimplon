@@ -1,6 +1,4 @@
-<?php
-session_start();
-header('Content-type: text/html; charset=utf-8');
+<?php session_start();
 require_once '../config/connexion.php';
 require_once '../config/functions.php';
 
@@ -19,8 +17,9 @@ if(isset($_POST['message'])){
         $headers = ['From' => $email, 'Reply-To' => $email, 'Content-type' => 'text/html; charset=utf-8'];
         if (mail($to, $email_subject, $email_body, $headers)){
             echo 'mail envoyé';
-        //    header('Location: thank-you.html');
+            echo "<script> alert( 'Le mail a bien été envoyé' ) ; window.location.replace(document.referrer) ; </script>";
             } else {
+            echo "<script> alert( 'Le mail n'a pas pu être envoyé' ) ; window.location.replace(document.referrer) ; </script>";
                 echo 'Oops, c\'est pas envoyé :/';
             }
     }

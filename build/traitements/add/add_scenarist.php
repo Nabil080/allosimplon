@@ -1,6 +1,4 @@
-<?php
-session_start();
-header('Content-type: text/html; charset=utf-8');
+<?php session_start();
 require_once '../../config/connexion.php';
 
 // Variables + sécurisation
@@ -55,6 +53,7 @@ if(empty($scenarist_name)){
 
         echo "Le scénariste a bien été ajouté";
         var_dump ($add_scenarist_request);
+        header('Location: ../../content/crud.php');
 
     }else{
         echo "Le fichier n'a pas pu être déplacé dans le serveur";

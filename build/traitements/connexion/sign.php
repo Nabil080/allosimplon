@@ -1,8 +1,4 @@
-
-
-<?php
-session_start();
-header('Content-type: text/html; charset=utf-8');
+<?php session_start();
 require_once '../../config/connexion.php';
 ?>
 
@@ -18,6 +14,7 @@ $errors = array();
 // verif syntaxe email
 if(empty($email) || !filter_var($email,FILTER_VALIDATE_EMAIL)){
     $errors['email']="L'email est invalide";
+    echo "<script>alert('L'email est invalide!'); window.location.replace(document.referrer);</script>";
 }else{
     // verif email unique
     $verif_mail=$con->prepare("SELECT ID_user FROM user WHERE user_email = ? ");
@@ -25,16 +22,19 @@ if(empty($email) || !filter_var($email,FILTER_VALIDATE_EMAIL)){
     $email_row=$verif_mail->fetch();
     if($email_row){
         $errors['email']="L'adresse mail existe déjà";
+        echo "<script>alert('L'adresse mail existe déjà!'); window.location.replace(document.referrer);</script>";
     }
 }
 if(empty($password) || $password!=$password_verif
 // || !preg_match('/^(?=.{8,}$)(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\W).*$/',$password)
 ){
     $errors['mdp']="Les mots de passes ne sont pas assez forts ou ne correspondent pas.";
+    echo "<script>alert('Les mots de passes ne sont pas assez forts ou ne correspondent pas!'); window.location.replace(document.referrer);</script>";
 }
 
 if(empty($pseudo) || strlen($pseudo) > 16){
     $errors['pseudo']="Pseudo trop long ou invalide (16 charactères maximum)";
+    echo "<script>alert('Pseudo trop long ou invalide'); window.location.replace(document.referrer);</script>";
 }
 
 if(empty($errors)){
@@ -43,7 +43,7 @@ if(empty($errors)){
     $password_hash=password_hash($password,PASSWORD_BCRYPT);
     $request->execute([$pseudo, $email, $password_hash, 2]);
     echo "<p>inscription reussie</p>";
-    header('Location: ' . $_SERVER['HTTP_REFERER']);
+    echo "<script>alert('Vous vous êtes inscrit avec succès!'); window.location.replace(document.referrer);</script>";
 }else{
     echo '<pre>'.print_r($errors,true).'<pre>';
 
