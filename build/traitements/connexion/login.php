@@ -1,7 +1,4 @@
-
-<?php
-session_start();
-header('Content-type: text/html; charset=utf-8');
+<?php session_start();
 require_once '../../config/connexion.php';
 ?>
 
@@ -41,7 +38,7 @@ if($bool=="true"){
         $_SESSION['user_email'] = $user_row['user_email'];
         $_SESSION['user_password'] = $user_row['user_password'];
         $_SESSION['ID_role'] = $user_row['ID_role'];
-        header('Location: ' . $_SERVER['HTTP_REFERER']);
+        // header('Location: ' . $_SERVER['HTTP_REFERER']);
         $connected = "true";
 
     }else{
