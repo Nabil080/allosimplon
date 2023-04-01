@@ -36,6 +36,8 @@ $filters=[];
 // echo'filters:';var_dump($filters);
 
 // echo'get:';var_dump($_GET);
+var_dump($filters);
+
 if(isset($_GET['note'])){$filters['note']=$_GET['note'];}
 
 if(isset($_GET['sort'])){$filters['sort']=$_GET['sort'];}
@@ -45,6 +47,8 @@ if(isset($_GET['genre'])){$filters['genre']=$_GET['genre'];}
 if(isset($_GET['search'])){$filters['search']=$_GET['search'];}
 
 if(isset($_GET['letter'])){$filters['letter']=$_GET['letter'];}
+
+var_dump($filters);
 
 if(isset($_GET['genre'])){
   $get_genre_array=$_GET['genre'];
@@ -145,11 +149,13 @@ if(isset($order) && !isset($clause)){
 
 
 if(isset($bool) && in_array("false",$bool)){
-  echo'pas de film';
+  echo "<script> alert (' Aucun film correspondant ! ' ) ;</script>" ;
+  echo "<script> window.location.replace(document.referrer) ; </script>";
 }else{
 // var_dump($filters);
 // var_dump($film_request);
 $film_request->execute();
+var_dump($film_request);
 }
 
 

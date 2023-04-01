@@ -53,6 +53,7 @@ if(empty($realisator_name)){
 
         echo "Le réalisateur a bien été ajouté";
         var_dump ($add_realisator_request);
+        header('Location: ../../content/crud.php');
 
     }else{
         echo "Le fichier n'a pas pu être déplacé dans le serveur";

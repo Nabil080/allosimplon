@@ -3,6 +3,7 @@ require_once '../../config/connexion.php';
 
 if(empty($_POST['ID'])){
     echo "Il manque l'ID de l'acteur que vous souhaitez supprimer !";
+    echo "<script>alert('Il manque l'ID de l'acteur a supprimer!'); window.location.replace(document.referrer);</script>";
     die();
 }else{
 // DEFINITIONS DES VARIABLES
@@ -18,8 +19,10 @@ $delete_actor_film->execute([$ID_actor]);
 $delete_actor=$con->prepare("DELETE FROM actor WHERE ID_actor = ?");
 $delete_actor->execute([$ID_actor]);
 
-echo "L'acteur a bien été supprimé ! ", "<br> var_dump post en bas là ! "; 
+echo "L'acteur a bien été supprimé ! ", "<br> var_dump post en bas là ! ";
 var_dump($_POST);
+
+echo "<script> alert (' L'acteur a bien été supprimé! ' ) ; window.location.replace(document.referrer) ; </script>";
 
 }
 

@@ -3,5 +3,6 @@ require_once '../../config/connexion.php';
 require_once '../../config/functions.php';
 
 DeleteFav();
-header('Location: ' . $_SERVER['HTTP_REFERER'])
+echo "<script>window.location.replace(document.referrer);</script>";
+
 ?>

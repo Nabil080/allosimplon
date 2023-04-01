@@ -53,6 +53,7 @@ if(empty($scenarist_name)){
 
         echo "Le scénariste a bien été ajouté";
         var_dump ($add_scenarist_request);
+        header('Location: ../../content/crud.php');
 
     }else{
         echo "Le fichier n'a pas pu être déplacé dans le serveur";

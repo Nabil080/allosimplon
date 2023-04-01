@@ -11,9 +11,6 @@ if(empty($genre_name)){
     die();
 
 
-
-
-
 }else{
         $add_genre_request=$con->prepare(
             "INSERT INTO
@@ -24,6 +21,8 @@ if(empty($genre_name)){
 
         echo "Le genre a bien été ajouté";
         var_dump ($add_genre_request);
+
+        header('Location: ../../content/crud.php');
     }
 
 

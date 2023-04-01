@@ -22,14 +22,15 @@ $film=$request->fetchAll();
 
         </div>
         <!-- Carousel wrapper -->
-        <div class="relative h-[40vh] w-[80%] mx-auto overflow-hidden rounded-lg  md:h-96">
+        <div class="relative h-96 w-[80%] mx-auto overflow-hidden rounded-lg  md:h-[400px]">
 
             <!-- Item 1 -->
             <div class="hidden duration-3000 ease-in-out h-full" data-carousel-item>
                     <div class="absolute block md:gap-2 md:grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 justify-items-center  h-full w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
                         <div class="h-full relative group">
                             <a href="/portfolio/allosimplon/build/content/film.php?page=<?=$film[0]['ID_film']?>" class="h-full cursor-pointer overflow-hidden">
-                             <div class="absolute top-4 left-4 text-xl font-bold text-main-default"><?=$film[0]['film_date']?></div>
+                             <div class="absolute top-1 left-1 text-md p-1 rounded-lg font-bold text-gray-50 group-hover:hidden bg-main-light "><?=$film[0]['film_date']?></div>
+                             <div class="absolute top-1 right-1 text-md p-1 rounded-lg font-bold text-gray-50 group-hover:hidden"><?php if(isset($_SESSION['ID_user'])){isFilmFav($film[0]['ID_film'],$_SESSION['ID_user'],$film[0]['likes']);}else{ShowFakeFav($film[0]['likes']);}?></div>
                             <!-- OVERLAY!!! -->
                             <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
                                 <div class="relative w-full h-full flex flex-col justify-between">
@@ -39,12 +40,12 @@ $film=$request->fetchAll();
                             ?>
                                     <div>
                                         <div class="flex justify-start">
-                                            <a href="/portfolio/allosimplon/build/content/film.php?page=<?=$film[0]['ID_film']?>"><h2 class="underline font-bold text-main-light text-2xl mb-2"><?=$film[0]['film_name']?></h2></a>
+                                            <h2 class="underline font-bold text-main-light text-2xl mb-2"><?=$film[0]['film_name']?></h2>
                                         </div>
                                         <div class="flex justify-start">
                                             <p class="font-normal"><?=substr($film[0]['film_description'],0,200),'...';?></p>
                                         </div>
-                                        <div class="flex justify-between h-auto mt-4 text-center">
+                                        <div class="flex flex-wrap justify-between h-auto mt-4 text-center">
                                             <div class="flex justify-start align-bottom">
                                                 <?=$film[0]['film_time']?>min
                                             </div>
@@ -56,7 +57,7 @@ $film=$request->fetchAll();
                                 </div>
                             </div>
                                     <!-- IMAGE -->
-                                <img src="/portfolio/allosimplon/build/upload/film/<?=$film[0]['film_photo']?>" class="h-full mx-auto">
+                                <img src="/portfolio/allosimplon/build/upload/film/<?=$film[0]['film_photo']?>" class="h-[400px] mx-auto">
                             </a>
                         </div>
                         <div class="h-full relative group">
@@ -71,7 +72,7 @@ $film=$request->fetchAll();
                         ?>
                                     <div>
                                         <div class="flex justify-start">
-                                            <a href="/portfolio/allosimplon/build/content/film.php?page=<?=$film[1]['ID_film']?>"><h2 class="underline font-bold text-main-light text-2xl mb-2"><?=$film[1]['film_name']?></h2></a>
+                                            <h2 class="underline font-bold text-main-light text-2xl mb-2"><?=$film[1]['film_name']?></h2>
                                         </div>
                                         <div class="flex justify-start">
                                             <p class="font-normal"><?=substr($film[1]['film_description'],0,200),'...';?></p>
@@ -88,7 +89,7 @@ $film=$request->fetchAll();
                                 </div>
                             </div>
                                 <!-- IMAGE -->
-                            <img src="/portfolio/allosimplon/build/upload/film/<?=$film[1]['film_photo']?>" class="h-full mx-auto">
+                            <img src="/portfolio/allosimplon/build/upload/film/<?=$film[1]['film_photo']?>" class="h-[400px] mx-auto">
                             </a>
                         </div>
                         <div class="h-full relative group">
@@ -103,7 +104,7 @@ $film=$request->fetchAll();
                         ?>
                                     <div>
                                         <div class="flex justify-start">
-                                            <a href="/portfolio/allosimplon/build/content/film.php?page=<?=$film[2]['ID_film']?>"><h2 class="underline font-bold text-main-light text-2xl mb-2"><?=$film[2]['film_name']?></h2></a>
+                                            <h2 class="underline font-bold text-main-light text-2xl mb-2"><?=$film[2]['film_name']?></h2>
                                         </div>
                                         <div class="flex justify-start">
                                             <p class="font-normal"><?=substr($film[2]['film_description'],0,200),'...';?></p>
@@ -120,7 +121,7 @@ $film=$request->fetchAll();
                                 </div>
                             </div>
                                 <!-- IMAGE -->
-                            <img src="/portfolio/allosimplon/build/upload/film/<?=$film[2]['film_photo']?>" class="h-full mx-auto">
+                            <img src="/portfolio/allosimplon/build/upload/film/<?=$film[2]['film_photo']?>" class="h-[400px] mx-auto">
                             </a>
                         </div>
                         <div class="h-full relative group">
@@ -135,7 +136,7 @@ $film=$request->fetchAll();
                         ?>
                                     <div>
                                         <div class="flex justify-start">
-                                            <a href="/portfolio/allosimplon/build/content/film.php?page=<?=$film[3]['ID_film']?>"><h2 class="underline font-bold text-main-light text-2xl mb-2"><?=$film[3]['film_name']?></h2></a>
+                                            <h2 class="underline font-bold text-main-light text-2xl mb-2"><?=$film[3]['film_name']?></h2>
                                         </div>
                                         <div class="flex justify-start">
                                             <p class="font-normal"><?=substr($film[3]['film_description'],0,200),'...';?></p>
@@ -152,7 +153,7 @@ $film=$request->fetchAll();
                                 </div>
                             </div>
                                 <!-- IMAGE -->
-                            <img src="/portfolio/allosimplon/build/upload/film/<?=$film[3]['film_photo']?>" class="h-full mx-auto">
+                            <img src="/portfolio/allosimplon/build/upload/film/<?=$film[3]['film_photo']?>" class="h-[400px] mx-auto">
                             </a>
                         </div>
                         <div class="h-full relative group">
@@ -168,7 +169,7 @@ $film=$request->fetchAll();
                         ?>
                                     <div>
                                         <div class="flex justify-start">
-                                            <a href="/portfolio/allosimplon/build/content/film.php?page=<?=$film[4]['ID_film']?>"><h2 class="underline font-bold text-main-light text-2xl mb-2"><?=$film[4]['film_name']?></h2></a>
+                                            <h2 class="underline font-bold text-main-light text-2xl mb-2"><?=$film[4]['film_name']?></h2>
                                         </div>
                                         <div class="flex justify-start">
                                             <p class="font-normal"><?=substr($film[4]['film_description'],0,200),'...';?></p>
@@ -185,7 +186,7 @@ $film=$request->fetchAll();
                                 </div>
                             </div>
                                 <!-- IMAGE -->
-                            <img src="/portfolio/allosimplon/build/upload/film/<?=$film[4]['film_photo']?>" class="h-full mx-auto">
+                            <img src="/portfolio/allosimplon/build/upload/film/<?=$film[4]['film_photo']?>" class="h-[400px] mx-auto">
                             </a>
                         </div>
                     </div>
@@ -205,7 +206,7 @@ $film=$request->fetchAll();
                         ?>
                                     <div>
                                         <div class="flex justify-start">
-                                            <a href="/portfolio/allosimplon/build/content/film.php?page=<?=$film[5]['ID_film']?>"><h2 class="underline font-bold text-main-light text-2xl mb-2"><?=$film[5]['film_name']?></h2></a>
+                                            <h2 class="underline font-bold text-main-light text-2xl mb-2"><?=$film[5]['film_name']?></h2>
                                         </div>
                                         <div class="flex justify-start">
                                             <p class="font-normal"><?=substr($film[5]['film_description'],0,200),'...';?></p>
@@ -222,7 +223,7 @@ $film=$request->fetchAll();
                                 </div>
                             </div>
                                 <!-- IMAGE -->
-                            <img src="/portfolio/allosimplon/build/upload/film/<?=$film[5]['film_photo']?>" class="h-full mx-auto">
+                            <img src="/portfolio/allosimplon/build/upload/film/<?=$film[5]['film_photo']?>" class="h-[400px] mx-auto">
                             </a>
                         </div>
                         <div class="h-full relative group">
@@ -238,7 +239,7 @@ $film=$request->fetchAll();
                         ?>
                                     <div>
                                         <div class="flex justify-start">
-                                            <a href="/portfolio/allosimplon/build/content/film.php?page=<?=$film[6]['ID_film']?>"><h2 class="underline font-bold text-main-light text-2xl mb-2"><?=$film[6]['film_name']?></h2></a>
+                                            <h2 class="underline font-bold text-main-light text-2xl mb-2"><?=$film[6]['film_name']?></h2>
                                         </div>
                                         <div class="flex justify-start">
                                             <p class="font-normal"><?=substr($film[6]['film_description'],0,200),'...';?></p>
@@ -255,7 +256,7 @@ $film=$request->fetchAll();
                                 </div>
                             </div>
                                 <!-- IMAGE -->
-                            <img src="/portfolio/allosimplon/build/upload/film/<?=$film[6]['film_photo']?>" class="h-full mx-auto">
+                            <img src="/portfolio/allosimplon/build/upload/film/<?=$film[6]['film_photo']?>" class="h-[400px] mx-auto">
                             </a>
                         </div>
                         <div class="h-full relative group">
@@ -271,7 +272,7 @@ $film=$request->fetchAll();
                         ?>
                                     <div>
                                         <div class="flex justify-start">
-                                            <a href="/portfolio/allosimplon/build/content/film.php?page=<?=$film[7]['ID_film']?>"><h2 class="underline font-bold text-main-light text-2xl mb-2"><?=$film[7]['film_name']?></h2></a>
+                                            <h2 class="underline font-bold text-main-light text-2xl mb-2"><?=$film[7]['film_name']?></h2>
                                         </div>
                                         <div class="flex justify-start">
                                             <p class="font-normal"><?=substr($film[7]['film_description'],0,200),'...';?></p>
@@ -288,7 +289,7 @@ $film=$request->fetchAll();
                                 </div>
                             </div>
                                 <!-- IMAGE -->
-                            <img src="/portfolio/allosimplon/build/upload/film/<?=$film[7]['film_photo']?>" class="h-full mx-auto">
+                            <img src="/portfolio/allosimplon/build/upload/film/<?=$film[7]['film_photo']?>" class="h-[400px] mx-auto">
                             </a>
                         </div>
                         <div class="h-full relative group">
@@ -304,7 +305,7 @@ $film=$request->fetchAll();
                         ?>
                                     <div>
                                         <div class="flex justify-start">
-                                            <a href="/portfolio/allosimplon/build/content/film.php?page=<?=$film[8]['ID_film']?>"><h2 class="underline font-bold text-main-light text-2xl mb-2"><?=$film[8]['film_name']?></h2></a>
+                                            <h2 class="underline font-bold text-main-light text-2xl mb-2"><?=$film[8]['film_name']?></h2>
                                         </div>
                                         <div class="flex justify-start">
                                             <p class="font-normal"><?=substr($film[8]['film_description'],0,200),'...';?></p>
@@ -321,7 +322,7 @@ $film=$request->fetchAll();
                                 </div>
                             </div>
                                 <!-- IMAGE -->
-                            <img src="/portfolio/allosimplon/build/upload/film/<?=$film[8]['film_photo']?>" class="h-full mx-auto">
+                            <img src="/portfolio/allosimplon/build/upload/film/<?=$film[8]['film_photo']?>" class="h-[400px] mx-auto">
                             </a>
                         </div>
                         <div class="h-full relative group">
@@ -337,7 +338,7 @@ $film=$request->fetchAll();
                         ?>
                                     <div>
                                         <div class="flex justify-start">
-                                            <a href="/portfolio/allosimplon/build/content/film.php?page=<?=$film[9]['ID_film']?>"><h2 class="underline font-bold text-main-light text-2xl mb-2"><?=$film[9]['film_name']?></h2></a>
+                                            <h2 class="underline font-bold text-main-light text-2xl mb-2"><?=$film[9]['film_name']?></h2>
                                         </div>
                                         <div class="flex justify-start">
                                             <p class="font-normal"><?=substr($film[9]['film_description'],0,200),'...';?></p>
@@ -354,7 +355,7 @@ $film=$request->fetchAll();
                                 </div>
                             </div>
                                 <!-- IMAGE -->
-                            <img src="/portfolio/allosimplon/build/upload/film/<?=$film[9]['film_photo']?>" class="h-full mx-auto">
+                            <img src="/portfolio/allosimplon/build/upload/film/<?=$film[9]['film_photo']?>" class="h-[400px] mx-auto">
                             </a>
                         </div>
                     </div>
@@ -375,7 +376,7 @@ $film=$request->fetchAll();
                         ?>
                                     <div>
                                         <div class="flex justify-start">
-                                            <a href="/portfolio/allosimplon/build/content/film.php?page=<?=$film[10]['ID_film']?>"><h2 class="underline font-bold text-main-light text-2xl mb-2"><?=$film[10]['film_name']?></h2></a>
+                                            ><h2 class="underline font-bold text-main-light text-2xl mb-2"><?=$film[10]['film_name']?></h2>
                                         </div>
                                         <div class="flex justify-start">
                                             <p class="font-normal"><?=substr($film[10]['film_description'],0,200),'...';?></p>
@@ -392,7 +393,7 @@ $film=$request->fetchAll();
                                 </div>
                             </div>
                                 <!-- IMAGE -->
-                            <img src="/portfolio/allosimplon/build/upload/film/<?=$film[10]['film_photo']?>" class="h-full mx-auto">
+                            <img src="/portfolio/allosimplon/build/upload/film/<?=$film[10]['film_photo']?>" class="h-[400px] mx-auto">
                             </a>
                         </div>
                         <div class="h-full relative group">
@@ -408,7 +409,7 @@ $film=$request->fetchAll();
                         ?>
                                     <div>
                                         <div class="flex justify-start">
-                                            <a href="/portfolio/allosimplon/build/content/film.php?page=<?=$film[11]['ID_film']?>"><h2 class="underline font-bold text-main-light text-2xl mb-2"><?=$film[11]['film_name']?></h2></a>
+                                            ><h2 class="underline font-bold text-main-light text-2xl mb-2"><?=$film[11]['film_name']?></h2>
                                         </div>
                                         <div class="flex justify-start">
                                             <p class="font-normal"><?=substr($film[11]['film_description'],0,200),'...';?></p>
@@ -425,7 +426,7 @@ $film=$request->fetchAll();
                                 </div>
                             </div>
                                 <!-- IMAGE -->
-                            <img src="/portfolio/allosimplon/build/upload/film/<?=$film[11]['film_photo']?>" class="h-full mx-auto">
+                            <img src="/portfolio/allosimplon/build/upload/film/<?=$film[11]['film_photo']?>" class="h-[400px] mx-auto">
                             </a>
                         </div>
                         <div class="h-full relative group">
@@ -441,7 +442,7 @@ $film=$request->fetchAll();
                         ?>
                                     <div>
                                         <div class="flex justify-start">
-                                            <a href="/portfolio/allosimplon/build/content/film.php?page=<?=$film[12]['ID_film']?>"><h2 class="underline font-bold text-main-light text-2xl mb-2"><?=$film[12]['film_name']?></h2></a>
+                                            ><h2 class="underline font-bold text-main-light text-2xl mb-2"><?=$film[12]['film_name']?></h2>
                                         </div>
                                         <div class="flex justify-start">
                                             <p class="font-normal"><?=substr($film[12]['film_description'],0,200),'...';?></p>
@@ -458,7 +459,7 @@ $film=$request->fetchAll();
                                 </div>
                             </div>
                                 <!-- IMAGE -->
-                            <img src="/portfolio/allosimplon/build/upload/film/<?=$film[12]['film_photo']?>" class="h-full mx-auto">
+                            <img src="/portfolio/allosimplon/build/upload/film/<?=$film[12]['film_photo']?>" class="h-[400px] mx-auto">
                             </a>
                         </div>
                         <div class="h-full relative group">
@@ -474,7 +475,7 @@ $film=$request->fetchAll();
                         ?>
                                     <div>
                                         <div class="flex justify-start">
-                                            <a href="/portfolio/allosimplon/build/content/film.php?page=<?=$film[13]['ID_film']?>"><h2 class="underline font-bold text-main-light text-2xl mb-2"><?=$film[13]['film_name']?></h2></a>
+                                            ><h2 class="underline font-bold text-main-light text-2xl mb-2"><?=$film[13]['film_name']?></h2>
                                         </div>
                                         <div class="flex justify-start">
                                             <p class="font-normal"><?=substr($film[13]['film_description'],0,200),'...';?></p>
@@ -491,7 +492,7 @@ $film=$request->fetchAll();
                                 </div>
                             </div>
                                 <!-- IMAGE -->
-                            <img src="/portfolio/allosimplon/build/upload/film/<?=$film[13]['film_photo']?>" class="h-full mx-auto">
+                            <img src="/portfolio/allosimplon/build/upload/film/<?=$film[13]['film_photo']?>" class="h-[400px] mx-auto">
                             </a>
                         </div>
                         <div class="h-full relative group">
@@ -507,7 +508,7 @@ $film=$request->fetchAll();
                         ?>
                                     <div>
                                         <div class="flex justify-start">
-                                            <a href="/portfolio/allosimplon/build/content/film.php?page=<?=$film[14]['ID_film']?>"><h2 class="underline font-bold text-main-light text-2xl mb-2"><?=$film[14]['film_name']?></h2></a>
+                                            ><h2 class="underline font-bold text-main-light text-2xl mb-2"><?=$film[14]['film_name']?></h2>
                                         </div>
                                         <div class="flex justify-start">
                                             <p class="font-normal"><?=substr($film[14]['film_description'],0,200),'...';?></p>
@@ -524,7 +525,7 @@ $film=$request->fetchAll();
                                 </div>
                             </div>
                                 <!-- IMAGE -->
-                            <img src="/portfolio/allosimplon/build/upload/film/<?=$film[14]['film_photo']?>" class="h-full mx-auto">
+                            <img src="/portfolio/allosimplon/build/upload/film/<?=$film[14]['film_photo']?>" class="h-[400px] mx-auto">
                             </a>
                         </div>
                     </div>
@@ -545,7 +546,7 @@ $film=$request->fetchAll();
                         ?>
                                     <div>
                                         <div class="flex justify-start">
-                                            <a href="/portfolio/allosimplon/build/content/film.php?page=<?=$film[15]['ID_film']?>"><h2 class="underline font-bold text-main-light text-2xl mb-2"><?=$film[15]['film_name']?></h2></a>
+                                            ><h2 class="underline font-bold text-main-light text-2xl mb-2"><?=$film[15]['film_name']?></h2>
                                         </div>
                                         <div class="flex justify-start">
                                             <p class="font-normal"><?=substr($film[15]['film_description'],0,200),'...';?></p>
@@ -562,7 +563,7 @@ $film=$request->fetchAll();
                                 </div>
                             </div>
                                 <!-- IMAGE -->
-                            <img src="/portfolio/allosimplon/build/upload/film/<?=$film[15]['film_photo']?>" class="h-full mx-auto">
+                            <img src="/portfolio/allosimplon/build/upload/film/<?=$film[15]['film_photo']?>" class="h-[400px] mx-auto">
                             </a>
                         </div>
                         <div class="h-full relative group">
@@ -578,7 +579,7 @@ $film=$request->fetchAll();
                         ?>
                                     <div>
                                         <div class="flex justify-start">
-                                            <a href="/portfolio/allosimplon/build/content/film.php?page=<?=$film[16]['ID_film']?>"><h2 class="underline font-bold text-main-light text-2xl mb-2"><?=$film[16]['film_name']?></h2></a>
+                                            ><h2 class="underline font-bold text-main-light text-2xl mb-2"><?=$film[16]['film_name']?></h2>
                                         </div>
                                         <div class="flex justify-start">
                                             <p class="font-normal"><?=substr($film[16]['film_description'],0,200),'...';?></p>
@@ -595,7 +596,7 @@ $film=$request->fetchAll();
                                 </div>
                             </div>
                                 <!-- IMAGE -->
-                            <img src="/portfolio/allosimplon/build/upload/film/<?=$film[16]['film_photo']?>" class="h-full mx-auto">
+                            <img src="/portfolio/allosimplon/build/upload/film/<?=$film[16]['film_photo']?>" class="h-[400px] mx-auto">
                             </a>
                         </div>
                         <div class="h-full relative group">
@@ -611,7 +612,7 @@ $film=$request->fetchAll();
                         ?>
                                     <div>
                                         <div class="flex justify-start">
-                                            <a href="/portfolio/allosimplon/build/content/film.php?page=<?=$film[17]['ID_film']?>"><h2 class="underline font-bold text-main-light text-2xl mb-2"><?=$film[17]['film_name']?></h2></a>
+                                            ><h2 class="underline font-bold text-main-light text-2xl mb-2"><?=$film[17]['film_name']?></h2>
                                         </div>
                                         <div class="flex justify-start">
                                             <p class="font-normal"><?=substr($film[17]['film_description'],0,200),'...';?></p>
@@ -628,7 +629,7 @@ $film=$request->fetchAll();
                                 </div>
                             </div>
                                 <!-- IMAGE -->
-                            <img src="/portfolio/allosimplon/build/upload/film/<?=$film[17]['film_photo']?>" class="h-full mx-auto">
+                            <img src="/portfolio/allosimplon/build/upload/film/<?=$film[17]['film_photo']?>" class="h-[400px] mx-auto">
                             </a>
                         </div>
                         <div class="h-full relative group">
@@ -644,7 +645,7 @@ $film=$request->fetchAll();
                         ?>
                                     <div>
                                         <div class="flex justify-start">
-                                            <a href="/portfolio/allosimplon/build/content/film.php?page=<?=$film[18]['ID_film']?>"><h2 class="underline font-bold text-main-light text-2xl mb-2"><?=$film[18]['film_name']?></h2></a>
+                                            ><h2 class="underline font-bold text-main-light text-2xl mb-2"><?=$film[18]['film_name']?></h2>
                                         </div>
                                         <div class="flex justify-start">
                                             <p class="font-normal"><?=substr($film[18]['film_description'],0,200),'...';?></p>
@@ -661,7 +662,7 @@ $film=$request->fetchAll();
                                 </div>
                             </div>
                                 <!-- IMAGE -->
-                            <img src="/portfolio/allosimplon/build/upload/film/<?=$film[18]['film_photo']?>" class="h-full mx-auto">
+                            <img src="/portfolio/allosimplon/build/upload/film/<?=$film[18]['film_photo']?>" class="h-[400px] mx-auto">
                             </a>
                         </div>
                         <div class="h-full relative group">
@@ -677,7 +678,7 @@ $film=$request->fetchAll();
                         ?>
                                     <div>
                                         <div class="flex justify-start">
-                                            <a href="/portfolio/allosimplon/build/content/film.php?page=<?=$film[19]['ID_film']?>"><h2 class="underline font-bold text-main-light text-2xl mb-2"><?=$film[19]['film_name']?></h2></a>
+                                            ><h2 class="underline font-bold text-main-light text-2xl mb-2"><?=$film[19]['film_name']?></h2>
                                         </div>
                                         <div class="flex justify-start">
                                             <p class="font-normal"><?=substr($film[19]['film_description'],0,200),'...';?></p>
@@ -694,7 +695,7 @@ $film=$request->fetchAll();
                                 </div>
                             </div>
                                 <!-- IMAGE -->
-                            <img src="/portfolio/allosimplon/build/upload/film/<?=$film[19]['film_photo']?>" class="h-full mx-auto">
+                            <img src="/portfolio/allosimplon/build/upload/film/<?=$film[19]['film_photo']?>" class="h-[400px] mx-auto">
                             </a>
                         </div>
                     </div>
@@ -715,7 +716,7 @@ $film=$request->fetchAll();
                         ?>
                                     <div>
                                         <div class="flex justify-start">
-                                            <a href="/portfolio/allosimplon/build/content/film.php?page=<?=$film[20]['ID_film']?>"><h2 class="underline font-bold text-main-light text-2xl mb-2"><?=$film[20]['film_name']?></h2></a>
+                                            ><h2 class="underline font-bold text-main-light text-2xl mb-2"><?=$film[20]['film_name']?></h2>
                                         </div>
                                         <div class="flex justify-start">
                                             <p class="font-normal"><?=substr($film[20]['film_description'],0,200),'...';?></p>
@@ -732,7 +733,7 @@ $film=$request->fetchAll();
                                 </div>
                             </div>
                                 <!-- IMAGE -->
-                            <img src="/portfolio/allosimplon/build/upload/film/<?=$film[20]['film_photo']?>" class="h-full mx-auto">
+                            <img src="/portfolio/allosimplon/build/upload/film/<?=$film[20]['film_photo']?>" class="h-[400px] mx-auto">
                             </a>
                         </div>
                         <div class="h-full relative group">
@@ -748,7 +749,7 @@ $film=$request->fetchAll();
                         ?>
                                     <div>
                                         <div class="flex justify-start">
-                                            <a href="/portfolio/allosimplon/build/content/film.php?page=<?=$film[21]['ID_film']?>"><h2 class="underline font-bold text-main-light text-2xl mb-2"><?=$film[21]['film_name']?></h2></a>
+                                            ><h2 class="underline font-bold text-main-light text-2xl mb-2"><?=$film[21]['film_name']?></h2>
                                         </div>
                                         <div class="flex justify-start">
                                             <p class="font-normal"><?=substr($film[21]['film_description'],0,200),'...';?></p>
@@ -765,7 +766,7 @@ $film=$request->fetchAll();
                                 </div>
                             </div>
                                 <!-- IMAGE -->
-                            <img src="/portfolio/allosimplon/build/upload/film/<?=$film[21]['film_photo']?>" class="h-full mx-auto">
+                            <img src="/portfolio/allosimplon/build/upload/film/<?=$film[21]['film_photo']?>" class="h-[400px] mx-auto">
                             </a>
                         </div>
                         <div class="h-full relative group">
@@ -781,7 +782,7 @@ $film=$request->fetchAll();
                         ?>
                                     <div>
                                         <div class="flex justify-start">
-                                            <a href="/portfolio/allosimplon/build/content/film.php?page=<?=$film[22]['ID_film']?>"><h2 class="underline font-bold text-main-light text-2xl mb-2"><?=$film[22]['film_name']?></h2></a>
+                                            ><h2 class="underline font-bold text-main-light text-2xl mb-2"><?=$film[22]['film_name']?></h2>
                                         </div>
                                         <div class="flex justify-start">
                                             <p class="font-normal"><?=substr($film[22]['film_description'],0,200),'...';?></p>
@@ -798,7 +799,7 @@ $film=$request->fetchAll();
                                 </div>
                             </div>
                                 <!-- IMAGE -->
-                            <img src="/portfolio/allosimplon/build/upload/film/<?=$film[22]['film_photo']?>" class="h-full mx-auto">
+                            <img src="/portfolio/allosimplon/build/upload/film/<?=$film[22]['film_photo']?>" class="h-[400px] mx-auto">
                             </a>
                         </div>
                         <div class="h-full relative group">
@@ -814,7 +815,7 @@ $film=$request->fetchAll();
                         ?>
                                     <div>
                                         <div class="flex justify-start">
-                                            <a href="/portfolio/allosimplon/build/content/film.php?page=<?=$film[23]['ID_film']?>"><h2 class="underline font-bold text-main-light text-2xl mb-2"><?=$film[23]['film_name']?></h2></a>
+                                            ><h2 class="underline font-bold text-main-light text-2xl mb-2"><?=$film[23]['film_name']?></h2>
                                         </div>
                                         <div class="flex justify-start">
                                             <p class="font-normal"><?=substr($film[23]['film_description'],0,200),'...';?></p>
@@ -831,7 +832,7 @@ $film=$request->fetchAll();
                                 </div>
                             </div>
                                 <!-- IMAGE -->
-                            <img src="/portfolio/allosimplon/build/upload/film/<?=$film[23]['film_photo']?>" class="h-full mx-auto">
+                            <img src="/portfolio/allosimplon/build/upload/film/<?=$film[23]['film_photo']?>" class="h-[400px] mx-auto">
                             </a>
                         </div>
                         <div class="h-full relative group">
@@ -847,7 +848,7 @@ $film=$request->fetchAll();
                         ?>
                                     <div>
                                         <div class="flex justify-start">
-                                            <a href="/portfolio/allosimplon/build/content/film.php?page=<?=$film[24]['ID_film']?>"><h2 class="underline font-bold text-main-light text-2xl mb-2"><?=$film[24]['film_name']?></h2></a>
+                                            ><h2 class="underline font-bold text-main-light text-2xl mb-2"><?=$film[24]['film_name']?></h2>
                                         </div>
                                         <div class="flex justify-start">
                                             <p class="font-normal"><?=substr($film[24]['film_description'],0,200),'...';?></p>
@@ -864,7 +865,7 @@ $film=$request->fetchAll();
                                 </div>
                             </div>
                                 <!-- IMAGE -->
-                            <img src="/portfolio/allosimplon/build/upload/film/<?=$film[24]['film_photo']?>" class="h-full mx-auto">
+                            <img src="/portfolio/allosimplon/build/upload/film/<?=$film[24]['film_photo']?>" class="h-[400px] mx-auto">
                             </a>
                         </div>
                     </div>

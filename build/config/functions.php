@@ -646,16 +646,14 @@ function IsFilmFav($ID_film,$ID_user,$likes){
 
 function ShowFakeFav($likes){
     if(require("connexion.php")){?>
-    <a class="group/fav">
     <button data-modal-target="login" data-modal-toggle="login" class="group/fav z-50">
-      <i class=" fa-regular fa-heart cursor-pointer absolute flex text-main-light right-0 top-0 text-2xl">
-        <p class="text-lg justify-center flex pl-2"><?=$likes?></p>
+      <i class=" fa-regular fa-heart animate-pulse cursor-pointer absolute flex text-main-light right-0 top-0 text-2xl">
+        <p class="text-lg justify-center flex pl-2 font-bold"><?=$likes?></p>
         <i class="fa-solid fa-heart cursor-pointer absolute right-0 top-0 text-2xl text-main-light hidden group-hover/fav:flex">
             <p class="text-lg justify-center flex pl-2"><?=$likes?></p>
         </i>
       </i>
     </button>
-    </a>
     <?php }
 }
 

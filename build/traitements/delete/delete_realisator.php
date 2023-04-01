@@ -3,6 +3,7 @@ require_once '../../config/connexion.php';
 
 if(empty($_POST['ID'])){
     echo "Il manque l'ID du réalisateur que vous souhaitez supprimer !";
+    echo "<script>alert('ID du réalisateur a supprimer manquant!'); window.location.replace(document.referrer);</script>";
     die();
 }else{
 // DEFINITIONS DES VARIABLES
@@ -20,6 +21,7 @@ $delete_realisator->execute([$ID_realisator]);
 
 echo "Le réalisateur a bien été supprimé ! ", "<br> var_dump post en bas là ! "; 
 var_dump($_POST);
+echo "<script>alert('Le réalisateur a bien été supprimé!'); window.location.replace(document.referrer);</script>";
 
 }
 
