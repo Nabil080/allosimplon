@@ -32,7 +32,7 @@ if(empty($password) || $password!=$password_verif
     echo "<script>alert('Les mots de passes ne sont pas assez forts ou ne correspondent pas!'); window.location.replace(document.referrer);</script>";
 }
 
-if(empty($pseudo) || strlen($pseudo) > 16){
+if(empty($pseudo) || strlen($pseudo) > 10){
     $errors['pseudo']="Pseudo trop long ou invalide (16 charactères maximum)";
     echo "<script>alert('Pseudo trop long ou invalide'); window.location.replace(document.referrer);</script>";
 }

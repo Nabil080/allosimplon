@@ -2,9 +2,9 @@
 ?>
 
 <nav id="navbar" class="text-main-light bg-main-dark fixed top-0 w-full z-40 ease-out duration-300">
-<div id="nav-contain" class="flex p-4 gap-4  w-full h-20 md:px-[10%]">
+<div id="nav-contain" class="flex p-4 md:gap-4  w-full h-20 md:px-[10%]">
     <img src="/portfolio/allosimplon/build/upload/site/popcorn.png" class="basis-auto" alt="logo"><a class="self-center" href="/portfolio/allosimplon/build/index.php">
-        <span class="text-gray-100 uppercase self-center text-xl ">SimplonFilm</span></a>
+        <span class="text-gray-100 uppercase self-center text-base md:text-xl ">SimplonFilm</span></a>
     <form action="/portfolio/allosimplon/build/traitements/search.php" method="get" class="grow flex relative">
         <input minlength="2" <?php if(isset($_GET['search'])){echo 'value="'.$_GET['search'].'"';} ?> type="search" name="search" class="bg-main-dark placeholder:italic pl-4 hidden md:block border border-solid  basis-full text-gray-100  focus:ring-0" placeholder="Cherchez un film!" >
         <button type="submit"><i class="fa fa-search absolute top-2 right-3 text-2xl hidden md:block"></i></button>
@@ -12,7 +12,7 @@
     <div class="items-center flex basis-auto text-4xl gap-6">
         <!-- Modal toggle -->
         <?php if(isset($_SESSION['ID_user'])){ ?>
-            <h2 class="text-gray-50 text-base sm:text-2xl block">Bonjour,<button class="pl-2 text-main-light underline hover:text-main-hover" data-modal-target="profil" data-modal-toggle="profil"><?=$_SESSION['user_pseudo']?></button></h2>
+            <h2 class="text-gray-50 text-base sm:text-2xl block ml-2">Bonjour,<button class="pl-2 text-main-light underline hover:text-main-hover" data-modal-target="profil" data-modal-toggle="profil"><?=$_SESSION['user_pseudo']?></button></h2>
             <?php }else{?>
             <button class="rounded-lg hover:bg-main-hover" data-modal-target="login" data-modal-toggle="login" ><i class="fa fa-user w-full h-full p-2"></i></button>
         <?php }?>

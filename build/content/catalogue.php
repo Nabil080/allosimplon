@@ -283,7 +283,7 @@ if(empty($_SESSION['filters'])){
 
 <?php if(isset($_GET['sort'])){
   if($_GET['sort']=="a-z"||$_GET['sort']=="z-a"){?>
-<div class="flex text-lg justify-center gap-6 mb-2 [&>a]:text-main-light">
+<div class="hidden text-lg justify-center gap-5 mb-2 lg:flex [&>a]:text-main-light">
   <a class="hover:text-main-hover hover:underline decoration-main-light <?php if(isset($_GET['letter']) && $_GET['letter']=="A"){echo 'underline text-main-hover';} ?>" href="<?=$url?>letter=A">A</a>
   <a class="hover:text-main-hover hover:underline decoration-main-light <?php if(isset($_GET['letter']) && $_GET['letter']=="B"){echo 'underline text-main-hover';} ?>" href="<?=$url?>letter=B">B</a>
   <a class="hover:text-main-hover hover:underline decoration-main-light <?php if(isset($_GET['letter']) && $_GET['letter']=="C"){echo 'underline text-main-hover';} ?>" href="<?=$url?>letter=c">C</a>

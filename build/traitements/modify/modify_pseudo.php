@@ -13,7 +13,10 @@ $ID = $_SESSION['ID_user'];
 // var_dump($email);
 // var_dump($email_verif);
 // var_dump($password);
-
+if(empty($pseudo) || strlen($pseudo) > 10){
+    $errors['pseudo']="Pseudo trop long ou invalide (16 charactères maximum)";
+    echo "<script>alert('Pseudo trop long ou invalide'); window.location.replace(document.referrer);</script>";
+}else{
 if(password_verify($password,$_SESSION['user_password'])){
         $request=$con->prepare("UPDATE user SET user_pseudo = ? WHERE ID_user = $ID");
         $request->execute([$pseudo]);
@@ -22,7 +25,7 @@ if(password_verify($password,$_SESSION['user_password'])){
 }else{
     $errors['password']="Mot de passe incorrect";
 }
-
+}
 echo '<pre>'.print_r($errors,true).'<pre>';
 
 ?>
