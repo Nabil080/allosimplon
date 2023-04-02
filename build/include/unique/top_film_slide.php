@@ -23,9 +23,9 @@
             <!-- Item 1 -->
 <?php $request = GetFilm("ORDER BY film_grade DESC ","LIMIT 0,5");// var_dump($film);?>
             <div class="hidden duration-3000 ease-in-out h-full" data-carousel-item>
-                <div class="absolute block sm:gap-2 sm:grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 justify-items-center  h-full w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
+                <div class="absolute block md:gap-2 md:grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 justify-items-center  h-full w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
                     <?php while($film=$request->fetch()){ ?>
-                        <div class="h-full relative">
+                        <div class="h-full relative group">
                             <a href="/portfolio/allosimplon/build/content/film.php?page=<?=$film['ID_film']?>" class="h-full cursor-pointer overflow-hidden">
                             <div class="absolute top-1 left-1 text-md p-1 rounded-lg font-bold text-gray-50 group-hover:hidden bg-main-light "><?=$film['film_date']?></div>
                             <div class="absolute top-1 right-1 text-md p-1 rounded-lg font-bold text-gray-50 group-hover:hidden"><?php if(isset($_SESSION['ID_user'])){isFilmFav($film['ID_film'],$_SESSION['ID_user'],$film['likes']);}else{ShowFakeFav($film['likes']);}?></div>
@@ -67,7 +67,7 @@
             <div class="hidden duration-3000 ease-in-out h-full" data-carousel-item>
                 <div class="absolute block md:gap-2 md:grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 justify-items-center  h-full w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
                     <?php while($film=$request->fetch()){ ?>
-                        <div class="h-full relative">
+                        <div class="h-full relative group">
                             <a href="/portfolio/allosimplon/build/content/film.php?page=<?=$film['ID_film']?>" class="h-full cursor-pointer overflow-hidden">
                             <div class="absolute top-1 left-1 text-md p-1 rounded-lg font-bold text-gray-50 group-hover:hidden bg-main-light "><?=$film['film_date']?></div>
                             <div class="absolute top-1 right-1 text-md p-1 rounded-lg font-bold text-gray-50 group-hover:hidden"><?php if(isset($_SESSION['ID_user'])){isFilmFav($film['ID_film'],$_SESSION['ID_user'],$film['likes']);}else{ShowFakeFav($film['likes']);}?></div>
@@ -109,7 +109,7 @@
             <div class="hidden duration-3000 ease-in-out h-full" data-carousel-item>
                 <div class="absolute block md:gap-2 md:grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 justify-items-center  h-full w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
                     <?php while($film=$request->fetch()){ ?>
-                        <div class="h-full relative">
+                        <div class="h-full relative group">
                             <a href="/portfolio/allosimplon/build/content/film.php?page=<?=$film['ID_film']?>" class="h-full cursor-pointer overflow-hidden">
                             <div class="absolute top-1 left-1 text-md p-1 rounded-lg font-bold text-gray-50 group-hover:hidden bg-main-light "><?=$film['film_date']?></div>
                             <div class="absolute top-1 right-1 text-md p-1 rounded-lg font-bold text-gray-50 group-hover:hidden"><?php if(isset($_SESSION['ID_user'])){isFilmFav($film['ID_film'],$_SESSION['ID_user'],$film['likes']);}else{ShowFakeFav($film['likes']);}?></div>
@@ -151,7 +151,7 @@
             <div class="hidden duration-3000 ease-in-out h-full" data-carousel-item>
                 <div class="absolute block md:gap-2 md:grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 justify-items-center  h-full w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
                     <?php while($film=$request->fetch()){ ?>
-                        <div class="h-full relative">
+                        <div class="h-full relative group">
                             <a href="/portfolio/allosimplon/build/content/film.php?page=<?=$film['ID_film']?>" class="h-full cursor-pointer overflow-hidden">
                             <div class="absolute top-1 left-1 text-md p-1 rounded-lg font-bold text-gray-50 group-hover:hidden bg-main-light "><?=$film['film_date']?></div>
                             <div class="absolute top-1 right-1 text-md p-1 rounded-lg font-bold text-gray-50 group-hover:hidden"><?php if(isset($_SESSION['ID_user'])){isFilmFav($film['ID_film'],$_SESSION['ID_user'],$film['likes']);}else{ShowFakeFav($film['likes']);}?></div>
@@ -193,7 +193,7 @@
             <div class="hidden duration-3000 ease-in-out h-full" data-carousel-item>
                 <div class="absolute block md:gap-2 md:grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 justify-items-center  h-full w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
                     <?php while($film=$request->fetch()){ ?>
-                        <div class="h-full relative">
+                        <div class="h-full relative group">
                             <a href="/portfolio/allosimplon/build/content/film.php?page=<?=$film['ID_film']?>" class="h-full cursor-pointer overflow-hidden">
                             <div class="absolute top-1 left-1 text-md p-1 rounded-lg font-bold text-gray-50 group-hover:hidden bg-main-light "><?=$film['film_date']?></div>
                             <div class="absolute top-1 right-1 text-md p-1 rounded-lg font-bold text-gray-50 group-hover:hidden"><?php if(isset($_SESSION['ID_user'])){isFilmFav($film['ID_film'],$_SESSION['ID_user'],$film['likes']);}else{ShowFakeFav($film['likes']);}?></div>

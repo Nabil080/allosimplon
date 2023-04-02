@@ -70,7 +70,7 @@ $film=$request->fetch();
         <div class="[&>*]:my-4 my-8 relative">
             <div class="font-bold text-xl flex flex-wrap gap-y-4 gap-x-2"><p class="underline ">Nom d'origine : </p><span class="font-normal"><?=$film['film_name']?></span></div>
             <div class="font-bold text-xl flex flex-wrap gap-y-4 gap-x-2"><p class="underline ">Date de sortie : </p><span class="font-normal"><?=$film['film_date']?></span></div>
-            <div class="font-bold text-xl flex flex-wrap gap-y-4 gap-x-2"><p class="underline ">Durée du film : </p><span class="font-normal"><?=$film['film_time']?></span></div>
+            <div class="font-bold text-xl flex flex-wrap gap-y-4 gap-x-2"><p class="underline ">Durée du film : </p><span class="font-normal"><?=$film['film_time']?> minutes</span></div>
             <div class="font-bold text-xl flex flex-wrap gap-y-4 gap-x-2"><p class="underline ">Genres : </p>
                 <?php $request=GetOneGenre($ID_film);
                 while($genres=$request->fetch()){
@@ -95,7 +95,7 @@ $film=$request->fetch();
                             <img class="w-full h-auto" src="/portfolio/allosimplon/build/upload/actor/<?=$actor['actor_photo']?>">
                         </div>
     
-                        <?=$actor['actor_name']?>
+                        <?=$actor['actor_name'].','?>
                     </a>
                 <?php }
                 } ?>
@@ -111,7 +111,7 @@ $film=$request->fetch();
                         <div class="opacity-0 pointer-events-none group-hover:opacity-100 -translate-y-20 group-hover:-translate-y-0  group-hover:linear duration-500 absolute bottom-10 w-24 aspect-square object-cover">
                             <img class="w-full h-auto" src="/portfolio/allosimplon/build/upload/realisator/<?=$realisator['realisator_photo']?>">
                         </div>
-                    <?=$realisator['realisator_name']?>
+                    <?=$realisator['realisator_name'].','?>
                     </a>
                 <?php }
                 } ?>
@@ -128,7 +128,7 @@ $film=$request->fetch();
                             <img class="w-full h-auto" src="/portfolio/allosimplon/build/upload/scenarist/<?=$scenarist['scenarist_photo']?>">
                         </div>
                     
-                    <?=$scenarist['scenarist_name']?>
+                    <?=$scenarist['scenarist_name'].','?>
                 </a>
                 <?php }
                 } ?>
@@ -140,7 +140,7 @@ $film=$request->fetch();
                 </span></div>
         </div>
     </div>
-<div class="px-8 font-bold text-xl space-x-6"><p class="underline float-left">Synopsis : </p><span class="font-normal"><?=$film['film_description']?></span></div>
+<div class="px-8 font-bold text-xl space-x-6"><p class="underline float-left">Synopsis :</p><span class="font-normal"><?=$film['film_description']?></span></div>
 <!-- IFRAME -->
 <div class="p-8 flex place-content-center">
     <iframe class="w-full aspect-video" src="<?=$film['film_video']?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
