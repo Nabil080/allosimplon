@@ -187,9 +187,18 @@ if(empty($_SESSION['filters'])){
 
 
 <!-- SECTION CATALOGUE -->
+<button class="px-4 py-2 rounded-lg uppercase flex mx-auto bg-main-light text-gray-50 md:hidden" onclick="toggleFilters(filtres)">
+  Parcourir les filtres
+</button>
+
+<script>
+      function toggleFilters(menu) {
+    menu.classList.toggle('hidden')
+    }
+</script>
 
 <section class="flex justify-center">
-<div class="w-[1500px] mx-12 flex gap-4">
+<div class="w-[1500px] mx-12 md:flex gap-4">
     <!-- FILTRES -->
     <?php include('../include/general/filtre.php')?>
     <!-- PAGE -->
@@ -235,10 +244,41 @@ if(empty($_SESSION['filters'])){
           <?php } ?>
         </ul>
       </nav>
-    </div>
+</div>
 
+<?php if(isset($_GET['sort'])){
+  if($_GET['sort']=="a-z"||$_GET['sort']=="z-a"){?>
+<div class="flex text-lg justify-center gap-6 mb-2 [&>a]:text-main-light">
+  <a class="hover:text-main-hover hover:underline decoration-main-light <?php if(isset($_GET['letter']) && $_GET['letter']=="A"){echo 'underline text-main-hover';} ?>" href="<?=$url?>letter=A">A</a>
+  <a class="hover:text-main-hover hover:underline decoration-main-light <?php if(isset($_GET['letter']) && $_GET['letter']=="B"){echo 'underline text-main-hover';} ?>" href="<?=$url?>letter=B">B</a>
+  <a class="hover:text-main-hover hover:underline decoration-main-light <?php if(isset($_GET['letter']) && $_GET['letter']=="C"){echo 'underline text-main-hover';} ?>" href="<?=$url?>letter=c">C</a>
+  <a class="hover:text-main-hover hover:underline decoration-main-light <?php if(isset($_GET['letter']) && $_GET['letter']=="D"){echo 'underline text-main-hover';} ?>" href="<?=$url?>letter=D">D</a>
+  <a class="hover:text-main-hover hover:underline decoration-main-light <?php if(isset($_GET['letter']) && $_GET['letter']=="E"){echo 'underline text-main-hover';} ?>" href="<?=$url?>letter=E">E</a>
+  <a class="hover:text-main-hover hover:underline decoration-main-light <?php if(isset($_GET['letter']) && $_GET['letter']=="F"){echo 'underline text-main-hover';} ?>" href="<?=$url?>letter=F">F</a>
+  <a class="hover:text-main-hover hover:underline decoration-main-light <?php if(isset($_GET['letter']) && $_GET['letter']=="G"){echo 'underline text-main-hover';} ?>" href="<?=$url?>letter=G">G</a>
+  <a class="hover:text-main-hover hover:underline decoration-main-light <?php if(isset($_GET['letter']) && $_GET['letter']=="H"){echo 'underline text-main-hover';} ?>" href="<?=$url?>letter=H">H</a>
+  <a class="hover:text-main-hover hover:underline decoration-main-light <?php if(isset($_GET['letter']) && $_GET['letter']=="I"){echo 'underline text-main-hover';} ?>" href="<?=$url?>letter=I">I</a>
+  <a class="hover:text-main-hover hover:underline decoration-main-light <?php if(isset($_GET['letter']) && $_GET['letter']=="J"){echo 'underline text-main-hover';} ?>" href="<?=$url?>letter=J">J</a>
+  <a class="hover:text-main-hover hover:underline decoration-main-light <?php if(isset($_GET['letter']) && $_GET['letter']=="K"){echo 'underline text-main-hover';} ?>" href="<?=$url?>letter=K">K</a>
+  <a class="hover:text-main-hover hover:underline decoration-main-light <?php if(isset($_GET['letter']) && $_GET['letter']=="L"){echo 'underline text-main-hover';} ?>" href="<?=$url?>letter=L">L</a>
+  <a class="hover:text-main-hover hover:underline decoration-main-light <?php if(isset($_GET['letter']) && $_GET['letter']=="M"){echo 'underline text-main-hover';} ?>" href="<?=$url?>letter=M">M</a>
+  <a class="hover:text-main-hover hover:underline decoration-main-light <?php if(isset($_GET['letter']) && $_GET['letter']=="N"){echo 'underline text-main-hover';} ?>" href="<?=$url?>letter=N">N</a>
+  <a class="hover:text-main-hover hover:underline decoration-main-light <?php if(isset($_GET['letter']) && $_GET['letter']=="O"){echo 'underline text-main-hover';} ?>" href="<?=$url?>letter=O">O</a>
+  <a class="hover:text-main-hover hover:underline decoration-main-light <?php if(isset($_GET['letter']) && $_GET['letter']=="P"){echo 'underline text-main-hover';} ?>" href="<?=$url?>letter=P">P</a>
+  <a class="hover:text-main-hover hover:underline decoration-main-light <?php if(isset($_GET['letter']) && $_GET['letter']=="Q"){echo 'underline text-main-hover';} ?>" href="<?=$url?>letter=Q">Q</a>
+  <a class="hover:text-main-hover hover:underline decoration-main-light <?php if(isset($_GET['letter']) && $_GET['letter']=="R"){echo 'underline text-main-hover';} ?>" href="<?=$url?>letter=R">R</a>
+  <a class="hover:text-main-hover hover:underline decoration-main-light <?php if(isset($_GET['letter']) && $_GET['letter']=="S"){echo 'underline text-main-hover';} ?>" href="<?=$url?>letter=S">S</a>
+  <a class="hover:text-main-hover hover:underline decoration-main-light <?php if(isset($_GET['letter']) && $_GET['letter']=="T"){echo 'underline text-main-hover';} ?>" href="<?=$url?>letter=T">T</a>
+  <a class="hover:text-main-hover hover:underline decoration-main-light <?php if(isset($_GET['letter']) && $_GET['letter']=="U"){echo 'underline text-main-hover';} ?>" href="<?=$url?>letter=U">U</a>
+  <a class="hover:text-main-hover hover:underline decoration-main-light <?php if(isset($_GET['letter']) && $_GET['letter']=="V"){echo 'underline text-main-hover';} ?>" href="<?=$url?>letter=V">V</a>
+  <a class="hover:text-main-hover hover:underline decoration-main-light <?php if(isset($_GET['letter']) && $_GET['letter']=="W"){echo 'underline text-main-hover';} ?>" href="<?=$url?>letter=W">W</a>
+  <a class="hover:text-main-hover hover:underline decoration-main-light <?php if(isset($_GET['letter']) && $_GET['letter']=="X"){echo 'underline text-main-hover';} ?>" href="<?=$url?>letter=X">X</a>
+  <a class="hover:text-main-hover hover:underline decoration-main-light <?php if(isset($_GET['letter']) && $_GET['letter']=="Y"){echo 'underline text-main-hover';} ?>" href="<?=$url?>letter=Y">Y</a>
+  <a class="hover:text-main-hover hover:underline decoration-main-light <?php if(isset($_GET['letter']) && $_GET['letter']=="Z"){echo 'underline text-main-hover';} ?>" href="<?=$url?>letter=Z">Z</a>
+</div>
+<?php }} ?>
     <!-- CATALOGUE -->
-    <div class="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:-grid-cols-5 [&_img]:w-full [&_img]:h-full object-cover ">
+        <div class="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:-grid-cols-5 [&_img]:w-full [&_img]:h-full object-cover ">
             <?php
                 while($film=$film_request->fetch()){
                     $photo=$film['film_photo'];
@@ -249,19 +289,23 @@ if(empty($_SESSION['filters'])){
                     $note=$film['film_grade'];
                     $likes=$film['likes'];
                     $description=$film['film_description'];
-                    $ID_user=$_SESSION['ID_user'];
+                    if(isset($_SESSION['ID_user'])){$ID_user=$_SESSION['ID_user'];}
                 ?>
             <div class="group relative">
             <a href="/portfolio/allosimplon/build/content/film.php?page=<?=$ID?>"   class="cursor-pointer h-full">
-                <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
+            <div class="absolute top-1 left-1 text-md p-1 rounded-lg font-bold text-gray-50 md:group-hover:hidden bg-main-light "><?=$film['film_date']?></div>
+            <div class="absolute top-1 right-1 text-md p-1 rounded-lg font-bold text-gray-50 md:group-hover:hidden"><?php if(isset($_SESSION['ID_user'])){isFilmFav($film['ID_film'],$_SESSION['ID_user'],$film['likes']);}else{ShowFakeFav($film['likes']);}?></div>
+            <div class="absolute bottom-2 text-md p-1 rounded-lg font-bold text-gray-50 w-full mx-auto md:group-hover:hidden"><?php Stars($film['film_grade']);?></div>
+                <!-- overlay -->
+              <div class="hidden lg:block absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
                     <div class="relative w-full h-full flex flex-col justify-between">
                         <p class="font-bold text-xl cursor-dark"><?=$date?></p>
                         <?php
-                            isFilmFav($ID,$ID_user,$likes);
+                            if(isset($_SESSION['ID_user'])){isFilmFav($ID,$ID_user,$likes);}else{ShowFakeFav($likes);}
                         ?>
                         <div>
                             <div class="flex justify-start">
-                                <h2 class="underline font-bold text-main-light text-2xl mb-2"><?=$name?></h2>
+                            <h2 class="underline font-bold text-main-light text-2xl mb-2"><?=$name?></h2>
                             </div>
                             <div class="flex justify-start">
                                 <p class="font-normal cursor-dark"><?php echo substr($description,0,200),'...' ?>
@@ -284,48 +328,49 @@ if(empty($_SESSION['filters'])){
             <?php } ?>
         </div>
     <!-- pagination -->
-    <div class="flex justify-center my-4  ">
-<nav aria-label="Page navigation example">
-    <ul class="inline-flex items-center -space-x-px">
-      <?php if($page_number > 1){?>
-      <li>
-        <a href="/portfolio/allosimplon/build/content/catalogue.php?page=1" class="block px-3 py-2 ml-0 leading-tight text-gray-400 hover:text-main-light hover:font-bold">
-          <svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path d="M18.75 19.5l-7.5-7.5 7.5-7.5m-6 15L5.25 12l7.5-7.5" stroke-linecap="round" stroke-linejoin="round"></path>
-        </svg>
-        </a>
-      </li>
-      <li>
-        <a href="/portfolio/allosimplon/build/content/catalogue.php?page=<?=$page_number-1?>" class="block px-3 py-2 ml-0 leading-tight text-gray-400 hover:text-main-light hover:font-bold ">
-          <span class="sr-only">Previous</span>
-          <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-        </a>
-      </li>
-        <?php } ?>
-      <?php for($pagination_number = 1; $pagination_number<=$page_count; $pagination_number++){
-        if($pagination_number > $page_number-3 && $pagination_number < $page_number+3){?>
-      <li>
-        <a href="/portfolio/allosimplon/build/content/catalogue.php?page=<?=$pagination_number?>" class="<?php if($pagination_number==$page_number){echo'text-main-light font-bold';}else{echo 'text-gray-400';} ?> px-3 py-2 leading-tight text-gray-400 hover:text-main-light hover:font-bold "><?=$pagination_number?></a>
-      </li>
-      <?php }} ?>
-      <?php if($page_number < $page_count){ ?>
-      <li>
-        <a href="/portfolio/allosimplon/build/content/catalogue.php?page=<?=$page_number+1?>" class="block px-3 py-2 leading-tight text-gray-400 hover:text-main-light hover:font-bold ">
-          <span class="sr-only">Next</span>
-          <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg>
-        </a>
-      </li>
-      <li>
-        <a href="/portfolio/allosimplon/build/content/catalogue.php?page=<?=$page_count?>" class="block px-3 py-2 leading-tight text-gray-400 hover:text-main-light hover:font-bold ">
-          <span class="sr-only">Last</span>
-          <svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M11.25 4.5l7.5 7.5-7.5 7.5m-6-15l7.5 7.5-7.5 7.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-        </a>
-      </li>
-      <?php } ?>
-    </ul>
-  </nav>
+<div class="flex justify-center my-4  ">
+    <nav aria-label="Page navigation example">
+        <ul class="inline-flex items-center -space-x-px">
+          <?php if($page_number > 1){?>
+          <li>
+            <a href="<?=$url?>page=1" class="block px-3 py-2 ml-0 leading-tight text-gray-400 hover:text-main-light hover:font-bold">
+              <svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M18.75 19.5l-7.5-7.5 7.5-7.5m-6 15L5.25 12l7.5-7.5" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+            </a>
+          </li>
+          <li>
+            <a href="<?=$url?>page=<?=$page_number-1?>" class="block px-3 py-2 ml-0 leading-tight text-gray-400 hover:text-main-light hover:font-bold ">
+              <span class="sr-only">Previous</span>
+              <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+            </a>
+          </li>
+            <?php } ?>
+          <?php for($pagination_number = 1; $pagination_number<=$page_count; $pagination_number++){
+            if($pagination_number > $page_number-3 && $pagination_number < $page_number+3){?>
+          <li>
+            <a href="<?=$url?>page=<?=$pagination_number?>" class="<?php if($pagination_number==$page_number){echo'text-main-light font-bold';}else{echo 'text-gray-400';} ?> px-3 py-2 leading-tight text-gray-400 hover:text-main-light hover:font-bold "><?=$pagination_number?></a>
+          </li>
+          <?php }} ?>
+          <?php if($page_number < $page_count){ ?>
+          <li>
+            <a href="<?=$url?>page=<?=$page_number+1?>" class="block px-3 py-2 leading-tight text-gray-400 hover:text-main-light hover:font-bold ">
+              <span class="sr-only">Next</span>
+              <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg>
+            </a>
+          </li>
+          <li>
+            <a href="/portfolio/allosimplon/build/content/catalogue.php?page=<?=$page_count?>" class="block px-3 py-2 leading-tight text-gray-400 hover:text-main-light hover:font-bold ">
+              <span class="sr-only">Last</span>
+              <svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M11.25 4.5l7.5 7.5-7.5 7.5m-6-15l7.5 7.5-7.5 7.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            </a>
+          </li>
+          <?php } ?>
+        </ul>
+      </nav>
 </div>
 
+</section>
 </section>
 
 
