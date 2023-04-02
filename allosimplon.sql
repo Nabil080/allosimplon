@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : ven. 31 mars 2023 à 12:23
+-- Généré le : dim. 02 avr. 2023 à 14:24
 -- Version du serveur : 8.0.31
 -- Version de PHP : 8.0.26
 
@@ -30,12 +30,12 @@ SET time_zone = "+00:00";
 DROP TABLE IF EXISTS `actor`;
 CREATE TABLE IF NOT EXISTS `actor` (
   `ID_actor` int NOT NULL AUTO_INCREMENT,
-  `actor_name` varchar(255) NOT NULL,
-  `actor_photo` varchar(255) NOT NULL,
+  `actor_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `actor_photo` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`ID_actor`),
   UNIQUE KEY `actor_name` (`actor_name`),
   KEY `actor_name_2` (`actor_name`)
-) ENGINE=InnoDB AUTO_INCREMENT=82 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=97 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `actor`
@@ -116,7 +116,40 @@ INSERT INTO `actor` (`ID_actor`, `actor_name`, `actor_photo`) VALUES
 (78, 'Tyrese Gibson', '6422a08684b5f.jpg'),
 (79, 'Jordana Brewster', '6422a09180606.jpg'),
 (80, 'John Cena', '6422a09cc52f0.jpg'),
-(81, 'Vin Diesel', '6422a0a6aed2a.png');
+(81, 'Vin Diesel', '6422a0a6aed2a.png'),
+(85, 'ziadz', '6427eacf2c683.jpg'),
+(86, 'zd', '6427eb037392d.jpg'),
+(88, 'ziadzzzzz', '6427ebcdc2518.jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `comment`
+--
+
+DROP TABLE IF EXISTS `comment`;
+CREATE TABLE IF NOT EXISTS `comment` (
+  `ID_comment` int NOT NULL AUTO_INCREMENT,
+  `comment_message` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `ID_user` int NOT NULL,
+  `comment_date` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `ID_film` int NOT NULL,
+  `comment_pseudo` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `comment_reports` int DEFAULT '0',
+  PRIMARY KEY (`ID_comment`)
+) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Déchargement des données de la table `comment`
+--
+
+INSERT INTO `comment` (`ID_comment`, `comment_message`, `ID_user`, `comment_date`, `ID_film`, `comment_pseudo`, `comment_reports`) VALUES
+(1, 'Salut c&#039;est mon commentaire\r\n', 7, '2023-04-02 13:47:14', 1, '', 0),
+(3, 'amdin\r\n', 7, '2023-04-02 13:56:11', 42, 'nabilnabil', 0),
+(4, 'Inception c&#039;est sympa\r\n', 7, '2023-04-02 14:00:45', 49, 'nabilnabil', 1),
+(5, 'en vrai ouais\r\n', 7, '2023-04-02 14:01:00', 49, 'nabilnabil', 0),
+(6, 'miam commentaire', 7, '2023-04-02 14:01:49', 49, 'nabilnabil', 0),
+(7, 'cool avatar!\r\n', 7, '2023-04-02 14:23:02', 42, 'nabilnabil', 0);
 
 -- --------------------------------------------------------
 
@@ -127,23 +160,23 @@ INSERT INTO `actor` (`ID_actor`, `actor_name`, `actor_photo`) VALUES
 DROP TABLE IF EXISTS `film`;
 CREATE TABLE IF NOT EXISTS `film` (
   `ID_film` int NOT NULL AUTO_INCREMENT,
-  `film_name` varchar(255) NOT NULL,
+  `film_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `film_date` int NOT NULL,
-  `film_photo` varchar(255) NOT NULL,
-  `film_video` varchar(255) NOT NULL,
+  `film_photo` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `film_video` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `film_grade` decimal(3,1) NOT NULL,
-  `film_description` varchar(999) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `film_description` varchar(999) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `film_time` int NOT NULL,
-  `film_background` varchar(255) NOT NULL,
+  `film_background` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `admin_id` int NOT NULL,
-  `admin_pseudo` varchar(255) NOT NULL,
+  `admin_pseudo` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `likes` int DEFAULT '0',
   PRIMARY KEY (`ID_film`),
   UNIQUE KEY `film_name_2` (`film_name`),
   UNIQUE KEY `film_name_3` (`film_name`),
   UNIQUE KEY `film_name_4` (`film_name`),
   KEY `film_name` (`film_name`)
-) ENGINE=InnoDB AUTO_INCREMENT=65 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=65 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `film`
@@ -152,12 +185,12 @@ CREATE TABLE IF NOT EXISTS `film` (
 INSERT INTO `film` (`ID_film`, `film_name`, `film_date`, `film_photo`, `film_video`, `film_grade`, `film_description`, `film_time`, `film_background`, `admin_id`, `admin_pseudo`, `likes`) VALUES
 (1, 'Blade runner', 2017, '642151d0ac6c2.jpg', 'https://www.youtube.com/embed/FfRPKYwsFNg', '8.1', 'L&#039;action du film se situe à Los Angeles en 2019 et met en scène Rick Deckard (interprété par Harrison Ford), un ancien policier qui reprend du service pour traquer un groupe de réplicants, des androïdes créés à l&#039;image de l&#039;Homme, menés par l&#039;énigmatique Roy Batty (interprété par Rutger Hauer).', 163, '642151d0ad388.jpg', 0, '', 2),
 (2, 'Interstellar', 2014, '642166c90aaee.jpg', 'https://www.youtube.com/embed/VaOijhK3CRU', '8.6', 'Dans un proche futur, la Terre est devenue hostile pour l&#039;homme. Les tempêtes de sable sont fréquentes et il n&#039;y a plus que le maïs qui peut être cultivé, en raison d&#039;un sol trop aride. Cooper est un pilote, recyclé en agriculteur, qui vit avec son fils et sa fille dans la ferme familiale. Lorsqu&#039;une force qu&#039;il ne peut expliquer lui indique les coordonnées d&#039;une division secrète de la NASA, il est alors embarqué dans une expédition pour sauver l&#039;humanité.', 169, '642151dcebc26.jpg', 0, '', 3),
-(39, 'The Dark Knight', 2008, '64215744b7d9e.jpg', 'https://www.youtube.com/embed/EXeTwQWrcwY', '9.0', 'Batman est plus que jamais déterminé à éradiquer le crime organisé qui sème la terreur en ville. Epaulé par le lieutenant Jim Gordon et par le procureur de Gotham City, Harvey Dent, Batman voit son champ d&#039;action s&#039;élargir. La collaboration des trois hommes s&#039;avère très efficace et ne tarde pas à porter ses fruits jusqu&#039;à ce qu&#039;un criminel redoutable vienne plonger la ville de Gotham City dans le chaos.', 152, '64215744b7fed.jpg', 0, '', 2),
+(39, 'The Dark Knight', 2008, '64215744b7d9e.jpg', 'https://www.youtube.com/embed/EXeTwQWrcwY', '9.0', 'Batman est plus que jamais déterminé à éradiquer le crime organisé qui sème la terreur en ville. Epaulé par le lieutenant Jim Gordon et par le procureur de Gotham City, Harvey Dent, Batman voit son champ d&#039;action s&#039;élargir. La collaboration des trois hommes s&#039;avère très efficace et ne tarde pas à porter ses fruits jusqu&#039;à ce qu&#039;un criminel redoutable vienne plonger la ville de Gotham City dans le chaos.', 152, '64215744b7fed.jpg', 0, '', 3),
 (40, 'Avengers: Endgame', 2019, '64215a62c8bb8.jpg', 'https://www.youtube.com/embed/TcMBFSGVi1c', '8.4', 'Le Titan Thanos, ayant réussi à s&#039;approprier les six Pierres d&#039;Infinité et à les réunir sur le Gantelet doré, a pu réaliser son objectif de pulvériser la moitié de la population de l&#039;Univers. Cinq ans plus tard, Scott Lang, alias Ant-Man, parvient à s&#039;échapper de la dimension subatomique où il était coincé. Il propose aux Avengers une solution pour faire revenir à la vie tous les êtres disparus, dont leurs alliés et coéquipiers : récupérer les Pierres d&#039;Infinité dans le passé.', 181, '6421926e8a7c8.jpg', 0, '', 1),
 (41, 'Titanic', 1997, '64215ce7a9f98.jpg', 'https://www.youtube.com/embed/cIJ8ma0kKtY', '7.9', 'En 1997, l&#039;épave du Titanic est l&#039;objet d&#039;une exploration fiévreuse, menée par des chercheurs de trésor en quête d&#039;un diamant bleu qui se trouvait à bord. Frappée par un reportage télévisé, l&#039;une des rescapées du naufrage, âgée de 102 ans, Rose DeWitt, se rend sur place et évoque ses souvenirs. 1912. Fiancée à un industriel arrogant, Rose croise sur le bateau un artiste sans le sou.', 195, '64215ce7aa53e.jpg', 0, '', 1),
 (42, 'Avatar', 2009, '64219f6300cae.jpg', 'https://www.youtube.com/embed/5PSNL1qE6VY', '7.9', 'Sur le monde extraterrestre luxuriant de Pandora vivent les Na&#039;vi, des êtres qui semblent primitifs, mais qui sont très évolués. Jake Sully, un ancien Marine paralysé, redevient mobile grâce à un tel Avatar et tombe amoureux d&#039;une femme Na&#039;vi. Alors qu&#039;un lien avec elle grandit, il est entraîné dans une bataille pour la survie de son monde.', 162, '64219f630106d.jpg', 0, '', 1),
 (43, 'Harry Potter à l&#039;école des sorcieres', 2001, '6421a3051cfb8.jpg', 'https://www.youtube.com/embed/P1BGgqhVGAI', '7.0', 'Harry Potter, un jeune orphelin, est élevé par son oncle et sa tante qui le détestent. Alors qu&#039;il était haut comme trois pommes, ces derniers lui ont raconté que ses parents étaient morts dans un accident de voiture. Le jour de son onzième anniversaire, Harry reçoit la visite inattendue d&#039;un homme gigantesque se nommant Rubeus Hagrid, et celui-ci lui révèle qu&#039;il est en fait le fils de deux puissants magiciens et qu&#039;il possède lui aussi d&#039;extraordinaires pouvoirs', 152, '6421a3051d3c4.jpg', 0, '', 2),
-(44, 'Harry Potter et la Chambre des Secrets', 2002, '6421a5290671b.jpg', 'https://www.youtube.com/embed/Z3T8PuWuoL0', '7.4', 'Alors que l&#039;oncle Vernon, la tante Pétunia et son cousin Dudley reçoivent d&#039;importants invités à dîner, Harry Potter est contraint de passer la soirée dans sa chambre. Dobby, un elfe, fait alors son apparition. Il lui annonce que de terribles dangers menacent l&#039;école de Poudlard et qu&#039;il ne doit pas y retourner en septembre. Harry refuse de le croire. Mais sitôt la rentrée des classes effectuée, ce dernier entend une voix malveillante.', 161, '6421a52906ae6.jpg', 0, '', 1),
+(44, 'Harry Potter et la Chambre des Secrets', 2002, '6421a5290671b.jpg', 'https://www.youtube.com/embed/Z3T8PuWuoL0', '7.4', 'Alors que l&#039;oncle Vernon, la tante Pétunia et son cousin Dudley reçoivent d&#039;importants invités à dîner, Harry Potter est contraint de passer la soirée dans sa chambre. Dobby, un elfe, fait alors son apparition. Il lui annonce que de terribles dangers menacent l&#039;école de Poudlard et qu&#039;il ne doit pas y retourner en septembre. Harry refuse de le croire. Mais sitôt la rentrée des classes effectuée, ce dernier entend une voix malveillante.', 161, '6421a52906ae6.jpg', 0, '', 2),
 (45, 'Harry Potter et le Prisonnier d&#039;Azkaban', 2004, '64228bbac0bfa.jpg', 'https://www.youtube.com/embed/CLncEeVf4ks', '7.9', 'Sirius Black, un dangereux sorcier criminel, s&#039;échappe de la sombre prison d&#039;Azkaban avec un seul et unique but : se venger d&#039;Harry Potter, entré avec ses amis Ron et Hermione en troisième année à l&#039;école de sorcellerie de Poudlard, où ils auront aussi à faire avec les terrifiants Détraqueurs.', 142, '64228bbac0ef0.jpg', 0, '', 1),
 (46, 'Harry Potter et la Coupe de feu', 2005, '64228d83b593e.jpg', 'https://www.youtube.com/embed/XO9rqIgzDL0', '7.7', 'La quatrième année à l&#039;école de Poudlard est marquée par le Tournoi des trois sorciers. Les participants sont choisis par la fameuse coupe de feu, qui est à l&#039;origine d&#039;un scandale. Elle sélectionne Harry Potter tandis qu&#039;il n&#039;a pas l&#039;âge légal requis. Après avoir surmonté une série d&#039;épreuves physiques de plus en plus difficiles, il est enfin confronté à Celui-Dont-On-Ne-Doit-Pas-Prononcer-Le-Nom.', 157, '64228d83b5c33.jpg', 0, '', 1),
 (47, 'Megamind', 2010, '64228f99bb7aa.jpg', 'https://www.youtube.com/embed/ead9HCX9fe4', '10.0', 'Megamind est le plus grand adversaire de Metroman, le superhéros chargé de protéger les citoyens de Metro City. Megamind réussit un jour, à sa plus grande surprise, à tuer Metroman. Après avoir terrorisé la ville entière, il réalise bien vite qu&#039;un méchant sans héros pour le combattre, c&#039;est risible et inutile. Il décide donc d&#039;insuffler les dons de Metroman à un jeune garçon ordinaire afin qu&#039;il devienne le nouveau défenseur de Metro City.', 96, '64228f99bbbd3.jpg', 0, '', 2),
@@ -188,7 +221,7 @@ CREATE TABLE IF NOT EXISTS `film_actor` (
   `ID_actor` int NOT NULL,
   PRIMARY KEY (`ID_film`,`ID_actor`),
   KEY `film_actor_actor0_FK` (`ID_actor`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `film_actor`
@@ -328,7 +361,7 @@ CREATE TABLE IF NOT EXISTS `film_genre` (
   `ID_film` int NOT NULL,
   PRIMARY KEY (`ID_genre`,`ID_film`),
   KEY `film_genre_film0_FK` (`ID_film`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `film_genre`
@@ -385,7 +418,7 @@ CREATE TABLE IF NOT EXISTS `film_realisator` (
   `ID_realisator` int NOT NULL,
   PRIMARY KEY (`ID_film`,`ID_realisator`),
   KEY `film_realisator_realisator0_FK` (`ID_realisator`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `film_realisator`
@@ -430,7 +463,7 @@ CREATE TABLE IF NOT EXISTS `film_scenarist` (
   `ID_scenarist` int NOT NULL,
   PRIMARY KEY (`ID_film`,`ID_scenarist`),
   KEY `film_scenarist_scenarist0_FK` (`ID_scenarist`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `film_scenarist`
@@ -480,10 +513,10 @@ INSERT INTO `film_scenarist` (`ID_film`, `ID_scenarist`) VALUES
 DROP TABLE IF EXISTS `genre`;
 CREATE TABLE IF NOT EXISTS `genre` (
   `ID_genre` int NOT NULL AUTO_INCREMENT,
-  `genre_name` varchar(255) NOT NULL,
+  `genre_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`ID_genre`),
   UNIQUE KEY `genre_name` (`genre_name`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `genre`
@@ -516,11 +549,11 @@ INSERT INTO `genre` (`ID_genre`, `genre_name`) VALUES
 DROP TABLE IF EXISTS `realisator`;
 CREATE TABLE IF NOT EXISTS `realisator` (
   `ID_realisator` int NOT NULL AUTO_INCREMENT,
-  `realisator_name` varchar(255) NOT NULL,
-  `realisator_photo` varchar(255) NOT NULL,
+  `realisator_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `realisator_photo` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`ID_realisator`),
   UNIQUE KEY `realisator_name` (`realisator_name`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `realisator`
@@ -554,10 +587,10 @@ INSERT INTO `realisator` (`ID_realisator`, `realisator_name`, `realisator_photo`
 DROP TABLE IF EXISTS `role`;
 CREATE TABLE IF NOT EXISTS `role` (
   `ID_role` int NOT NULL AUTO_INCREMENT,
-  `role_name` varchar(255) NOT NULL,
+  `role_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`ID_role`),
   UNIQUE KEY `role_name` (`role_name`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `role`
@@ -576,11 +609,11 @@ INSERT INTO `role` (`ID_role`, `role_name`) VALUES
 DROP TABLE IF EXISTS `scenarist`;
 CREATE TABLE IF NOT EXISTS `scenarist` (
   `ID_scenarist` int NOT NULL AUTO_INCREMENT,
-  `scenarist_name` varchar(255) NOT NULL,
-  `scenarist_photo` varchar(255) NOT NULL,
+  `scenarist_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `scenarist_photo` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`ID_scenarist`),
   UNIQUE KEY `scenarist_name` (`scenarist_name`)
-) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `scenarist`
@@ -620,14 +653,14 @@ INSERT INTO `scenarist` (`ID_scenarist`, `scenarist_name`, `scenarist_photo`) VA
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE IF NOT EXISTS `user` (
   `ID_user` int NOT NULL AUTO_INCREMENT,
-  `user_pseudo` varchar(16) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `user_email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `user_password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `user_pseudo` varchar(16) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `user_email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `user_password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `ID_role` int NOT NULL,
   PRIMARY KEY (`ID_user`),
   UNIQUE KEY `user_email` (`user_email`),
   KEY `user_role_FK` (`ID_role`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `user`
@@ -637,7 +670,10 @@ INSERT INTO `user` (`ID_user`, `user_pseudo`, `user_email`, `user_password`, `ID
 (7, 'admin', 'admin@admin.admin', '$2y$10$QPODPiXHEDI0RNq6UEDjqOgZ2xMwVVZis0K0luXrF4oRNG4zR2Pdy', 1),
 (9, 'test', 'test@test.test', '$2y$10$shqhZSHjV0qzi5yL0/Yk2uFSK.a/Lvm/KDf3uPeaTAcLpKfKlv8Aa', 2),
 (10, 'Nabil', 'nabil@nabil.nabil', '$2y$10$H3.GZRp8SqL2c59v2IIbu.7V0aDlGP0my3yTMq40b8ff78sNwck2K', 1),
-(14, 'Zoro', 'zoro@zoro.zoro', '$2y$10$OXRFCqvqtWDTUOaQ4HB3BeVzVd3GorqL82dLaxYeNrGXlNpglYO/O', 2);
+(14, 'Zoro', 'zoro@zoro.zoro', '$2y$10$OXRFCqvqtWDTUOaQ4HB3BeVzVd3GorqL82dLaxYeNrGXlNpglYO/O', 2),
+(15, 'ayoub', 'ayoub@ayoub.ayoub', '$2y$10$kdy46I9gIgkYA9/tnGIKXenp8Csdo2jlfktyWxZlxejHxR0D.dcJy', 2),
+(16, 'shaula', 'shaula@shaula.shaula', '$2y$10$R5KzV9XQ8fvjTaHjlbxQAeo.c589i.EzBpJ8133WD8W1f/vlnSp7W', 2),
+(17, 'nabil@nabil.com', 'nabil@nabil.com', '$2y$10$cozQWFEnPMNv1s0DYjAaWuxAzaLOPU/XalEtbzLBvqOQ9ao9KVJnm', 2);
 
 -- --------------------------------------------------------
 
@@ -651,7 +687,7 @@ CREATE TABLE IF NOT EXISTS `user_fav` (
   `ID_film` int NOT NULL,
   PRIMARY KEY (`ID_user`,`ID_film`),
   KEY `user_fav_film0_FK` (`ID_film`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `user_fav`
@@ -663,6 +699,7 @@ INSERT INTO `user_fav` (`ID_user`, `ID_film`) VALUES
 (7, 2),
 (9, 2),
 (10, 2),
+(7, 39),
 (9, 39),
 (14, 39),
 (14, 40),
@@ -670,6 +707,7 @@ INSERT INTO `user_fav` (`ID_user`, `ID_film`) VALUES
 (9, 42),
 (7, 43),
 (10, 43),
+(7, 44),
 (10, 44),
 (10, 45),
 (10, 46),
@@ -683,7 +721,8 @@ INSERT INTO `user_fav` (`ID_user`, `ID_film`) VALUES
 (7, 57),
 (7, 58),
 (7, 59),
-(14, 59);
+(14, 59),
+(7, 60);
 
 --
 -- Contraintes pour les tables déchargées
