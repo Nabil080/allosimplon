@@ -34,7 +34,9 @@ require_once '../config/functions.php';
     <title>Cinemet</title>
 </head>
 
-<?php $ID_film = $_GET['page'];
+<?php 
+if(!isset($_GET['page'])){$_GET['page']=1;}
+$ID_film = $_GET['page'];
 $request=GetOneFilm($ID_film);
 $film=$request->fetch();
 // var_dump($film);
@@ -47,13 +49,13 @@ $film=$request->fetch();
 
 
 
-<div class="flex justify-center mt-28 mb-6">
-<h1 class="font-bold text-4xl drop-shadow-lg "><?=$film['film_name']?></h1>
+<div class="flex justify-center mt-20 lg:mt-28 mb-6">
+<h1 class="font-bold text-xl lg:text-4xl drop-shadow-lg "><?=$film['film_name']?></h1>
 </div>
 
 
 <!-- PAGE FILM -->
-<section class="mx-auto w-[60%]  border relative bg-main-dark">
+<section class="mx-auto w-full lg:w-[90%] xl:w-[80%] 2xl:w-[60%] border relative bg-main-dark">
 <!-- AJOUTER/RETIRER FAVORIS -->
 <div class="absolute top-2 right-4 text-main-light text-lg flex text-center gap-8 w-fit">
     <div>
@@ -63,15 +65,15 @@ $film=$request->fetch();
     </div>
 </div>
 <!-- GRILLE -->
-    <div class="block md:grid md:grid-cols-2 gap-8  ">
-        <div class="p-8">
-            <img src="/portfolio/allosimplon/build/upload/film/<?=$film['film_photo']?>" class="" alt="">
+    <div class="block md:grid md:grid-cols-2 lg:gap-8  ">
+        <div class="p-2 sm:p-4 lg:p-8">
+            <img src="/portfolio/allosimplon/build/upload/film/<?=$film['film_photo']?>" class=" w-full sm:w-[75vw] mx-auto md:w-full" alt="">
         </div>
         <div class="[&>*]:my-4 my-8 relative">
-            <div class="font-bold text-xl flex flex-wrap gap-y-4 gap-x-2"><p class="underline ">Nom d'origine : </p><span class="font-normal"><?=$film['film_name']?></span></div>
-            <div class="font-bold text-xl flex flex-wrap gap-y-4 gap-x-2"><p class="underline ">Date de sortie : </p><span class="font-normal"><?=$film['film_date']?></span></div>
-            <div class="font-bold text-xl flex flex-wrap gap-y-4 gap-x-2"><p class="underline ">Durée du film : </p><span class="font-normal"><?=$film['film_time']?> minutes</span></div>
-            <div class="font-bold text-xl flex flex-wrap gap-y-4 gap-x-2"><p class="underline ">Genres : </p>
+            <div class="px-8 font-bold text-sm sm:text-base lg:text-xl flex flex-wrap gap-y-4 gap-x-2"><p class="underline ">Nom d'origine : </p><span class="font-normal"><?=$film['film_name']?></span></div>
+            <div class="px-8 font-bold text-sm sm:text-base lg:text-xl flex flex-wrap gap-y-4 gap-x-2"><p class="underline ">Date de sortie : </p><span class="font-normal"><?=$film['film_date']?></span></div>
+            <div class="px-8 font-bold text-sm sm:text-base lg:text-xl flex flex-wrap gap-y-4 gap-x-2"><p class="underline ">Durée du film : </p><span class="font-normal"><?=$film['film_time']?> minutes</span></div>
+            <div class="px-8 font-bold text-sm sm:text-base lg:text-xl flex flex-wrap gap-y-4 gap-x-2"><p class="underline ">Genres : </p>
                 <?php $request=GetOneGenre($ID_film);
                 while($genres=$request->fetch()){
                     $genre_info=$con->prepare("SELECT * from genre WHERE ID_genre = ?");
@@ -81,7 +83,7 @@ $film=$request->fetch();
                 <?php }
                 } ?>
             </div>
-            <div class="font-bold text-xl flex flex-wrap gap-y-4 gap-x-3"><p class="underline ">Acteurs principaux : </p>
+            <div class="px-8 font-bold text-sm sm:text-base lg:text-xl flex flex-wrap gap-y-4 gap-x-3"><p class="underline ">Acteurs principaux : </p>
 
 
                 <?php $request=GetOneActor($ID_film);
@@ -100,7 +102,7 @@ $film=$request->fetch();
                 <?php }
                 } ?>
             </div>
-        <div class="font-bold text-xl flex flex-wrap gap-y-4 gap-x-2"><p class="underline ">Réalisateurs : </p><span class="font-normal">
+        <div class="px-8 font-bold text-sm sm:text-base lg:text-xl flex flex-wrap gap-y-4 gap-x-2"><p class="underline ">Réalisateurs : </p><span class="font-normal">
         <?php $request=GetOneRealisator($ID_film);
                 while($realisators=$request->fetch()){
                     $realisator_info=$con->prepare("SELECT * from realisator WHERE ID_realisator = ?");
@@ -116,7 +118,7 @@ $film=$request->fetch();
                 <?php }
                 } ?>
             </div>
-            <div class="font-bold text-xl flex flex-wrap gap-y-4 gap-x-2"><p class="underline ">Scénaristes : </p><span class="font-normal">
+            <div class="px-8 font-bold text-sm sm:text-base lg:text-xl flex flex-wrap gap-y-4 gap-x-2"><p class="underline ">Scénaristes : </p><span class="font-normal">
         <?php $request=GetOneScenarist($ID_film);
                 while($scenarists=$request->fetch()){
                     $scenarist_info=$con->prepare("SELECT * from scenarist WHERE ID_scenarist = ?");
@@ -133,14 +135,14 @@ $film=$request->fetch();
                 <?php }
                 } ?>
             </div>
-            <div class="font-bold text-xl flex flex-wrap gap-y-4 gap-x-2 absolute bottom-0"><p class="underline ">Note : </p>
+            <div class="px-8 font-bold text-sm sm:text-base lg:text-xl flex flex-wrap gap-y-4 gap-x-2 md:absolute bottom-0"><p class="underline ">Note : </p>
             <?php Stars($film['film_grade'])?>
                 <span class="font-normal text-gray-50 text-center">
                     <?=$film['film_grade'];?>
                 </span></div>
         </div>
     </div>
-<div class="px-8 font-bold text-xl space-x-6"><p class="underline float-left">Synopsis :</p><span class="font-normal"><?=$film['film_description']?></span></div>
+<div class="px-8 font-bold text-sm sm:text-base lg:text-xl space-x-2"><p class="underline float-left">Synopsis :</p><span class="font-normal"><?=$film['film_description']?></span></div>
 <!-- IFRAME -->
 <div class="p-8 flex place-content-center">
     <iframe class="w-full aspect-video" src="<?=$film['film_video']?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
@@ -148,7 +150,7 @@ $film=$request->fetch();
 </section>
 
 <?php if(isset($_SESSION['ID_role'])&&($_SESSION['ID_role']==1)){ ?>
-<div class="fixed right-36 top-[48%]">
+<div class="mx-auto w-fit mt-6">
     <button class="p-4 bg-main-light rounded-xl hover:bg-main-hover hover:border" data-modal-target="modifyfilm<?=$ID_film?>" data-modal-toggle="modifyfilm<?=$ID_film?>"> MODIFIER CE FILM </button>
 </div>
 <!-- Modal ModifyFilm -->
@@ -238,8 +240,8 @@ $film=$request->fetch();
 <?php } ?>
 
 
-<div class="flex justify-center mt-28 mb-6">
-<h1 class="font-bold text-4xl">Films Similaires</h1>
+<div class="flex justify-center mt-6 mb-6">
+<h1 class="font-bold text-xl md:text-4xl">Films Similaires</h1>
 </div>
 
 
@@ -274,11 +276,11 @@ $similar_films=GetFilmByGenre($film['ID_film']);
                 <?php for($i=0;$i<5;$i++){?>
                                             <div class="h-full relative group">
                             <a href="/portfolio/allosimplon/build/content/film.php?page=<?=$similar_films[$i]['ID_film']?>" class="h-full cursor-pointer overflow-hidden">
-                            <div class="absolute top-1 left-1 text-md p-1 rounded-lg font-bold text-gray-50 group-hover:hidden bg-main-light "><?=$similar_films[$i]['film_date']?></div>
-                            <div class="absolute top-1 right-1 text-md p-1 rounded-lg font-bold text-gray-50 group-hover:hidden"><?php if(isset($_SESSION['ID_user'])){isFilmFav($similar_films[$i]['ID_film'],$_SESSION['ID_user'],$similar_films[$i]['likes']);}else{ShowFakeFav($similar_films[$i]['likes']);}?></div>
-                            <div class="absolute bottom-2 text-md p-1 rounded-lg font-bold text-gray-50 w-full mx-auto group-hover:hidden"><?php Stars($similar_films[$i]['film_grade']);?></div>
+                            <div class="hidden lg:block absolute top-1 left-1 text-md p-1 rounded-lg font-bold text-gray-50 group-hover:hidden bg-main-light "><?=$similar_films[$i]['film_date']?></div>
+                            <div class="hidden lg:block absolute top-1 right-1 text-md p-1 rounded-lg font-bold text-gray-50 group-hover:hidden"><?php if(isset($_SESSION['ID_user'])){isFilmFav($similar_films[$i]['ID_film'],$_SESSION['ID_user'],$similar_films[$i]['likes']);}else{ShowFakeFav($similar_films[$i]['likes']);}?></div>
+                            <div class="hidden lg:block absolute bottom-2 text-md p-1 rounded-lg font-bold text-gray-50 w-full mx-auto group-hover:hidden"><?php Stars($similar_films[$i]['film_grade']);?></div>
                             <!-- OVERLAY!!! -->
-                            <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
+                            <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 lg:group-hover:opacity-100 group p-4">
                                 <div class="relative w-full h-full flex flex-col justify-between">
                                     <p class="font-bold text-xl cursor-dark"><?=$similar_films[$i]['film_date']?></p>
                             <?php
@@ -303,7 +305,12 @@ $similar_films=GetFilmByGenre($film['ID_film']);
                                 </div>
                             </div>
                                     <!-- IMAGE -->
-                                <img src="/portfolio/allosimplon/build/upload/film/<?=$similar_films[$i]['film_photo']?>" class="h-[400px] mx-auto">
+                                <div class="relative w-fit h-96 md:h-[400px] mx-auto">
+                                    <div class="block lg:hidden absolute top-1 left-1 text-md p-1 rounded-lg font-bold text-gray-50 bg-main-light "><?=$similar_films[$i]['film_date']?></div>
+                                    <div class="block lg:hidden absolute top-1 right-1 text-md p-1 rounded-lg font-bold text-gray-50"><?php if(isset($_SESSION['ID_user'])){isFilmFav($similar_films[$i]['ID_film'],$_SESSION['ID_user'],$similar_films[$i]['likes']);}else{ShowFakeFav($similar_films[$i]['likes']);}?></div>
+                                    <div class="block lg:hidden absolute bottom-2 text-md p-1 rounded-lg font-bold text-gray-50 w-full mx-auto"><?php Stars($similar_films[$i]['film_grade']);?></div>
+                                    <img src="/portfolio/allosimplon/build/upload/film/<?=$similar_films[$i]['film_photo']?>" class="h-full">
+                                </div>
                             </a>
                         </div> <?php } ?>
                 </div>
@@ -313,13 +320,13 @@ $similar_films=GetFilmByGenre($film['ID_film']);
             <div class="hidden duration-3000 ease-in-out h-full" data-carousel-item>
                     <div class="absolute block md:gap-2 md:grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 justify-items-center  h-full w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
                     <?php for($i=5;$i<9;$i++){?>
-                                            <div class="h-full relative group">
+                        <div class="h-full relative group">
                             <a href="/portfolio/allosimplon/build/content/film.php?page=<?=$similar_films[$i]['ID_film']?>" class="h-full cursor-pointer overflow-hidden">
-                            <div class="absolute top-1 left-1 text-md p-1 rounded-lg font-bold text-gray-50 group-hover:hidden bg-main-light "><?=$similar_films[$i]['film_date']?></div>
-                            <div class="absolute top-1 right-1 text-md p-1 rounded-lg font-bold text-gray-50 group-hover:hidden"><?php if(isset($_SESSION['ID_user'])){isFilmFav($similar_films[$i]['ID_film'],$_SESSION['ID_user'],$similar_films[$i]['likes']);}else{ShowFakeFav($similar_films[$i]['likes']);}?></div>
-                            <div class="absolute bottom-2 text-md p-1 rounded-lg font-bold text-gray-50 w-full mx-auto group-hover:hidden"><?php Stars($similar_films[$i]['film_grade']);?></div>
+                            <div class="hidden lg:block absolute top-1 left-1 text-md p-1 rounded-lg font-bold text-gray-50 group-hover:hidden bg-main-light "><?=$similar_films[$i]['film_date']?></div>
+                            <div class="hidden lg:block absolute top-1 right-1 text-md p-1 rounded-lg font-bold text-gray-50 group-hover:hidden"><?php if(isset($_SESSION['ID_user'])){isFilmFav($similar_films[$i]['ID_film'],$_SESSION['ID_user'],$similar_films[$i]['likes']);}else{ShowFakeFav($similar_films[$i]['likes']);}?></div>
+                            <div class="hidden lg:block absolute bottom-2 text-md p-1 rounded-lg font-bold text-gray-50 w-full mx-auto group-hover:hidden"><?php Stars($similar_films[$i]['film_grade']);?></div>
                             <!-- OVERLAY!!! -->
-                            <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
+                            <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 lg:group-hover:opacity-100 group p-4">
                                 <div class="relative w-full h-full flex flex-col justify-between">
                                     <p class="font-bold text-xl cursor-dark"><?=$similar_films[$i]['film_date']?></p>
                             <?php
@@ -344,7 +351,12 @@ $similar_films=GetFilmByGenre($film['ID_film']);
                                 </div>
                             </div>
                                     <!-- IMAGE -->
-                                <img src="/portfolio/allosimplon/build/upload/film/<?=$similar_films[$i]['film_photo']?>" class="h-[400px] mx-auto">
+                                <div class="relative w-fit h-96 md:h-[400px] mx-auto">
+                                    <div class="block lg:hidden absolute top-1 left-1 text-md p-1 rounded-lg font-bold text-gray-50 bg-main-light "><?=$similar_films[$i]['film_date']?></div>
+                                    <div class="block lg:hidden absolute top-1 right-1 text-md p-1 rounded-lg font-bold text-gray-50"><?php if(isset($_SESSION['ID_user'])){isFilmFav($similar_films[$i]['ID_film'],$_SESSION['ID_user'],$similar_films[$i]['likes']);}else{ShowFakeFav($similar_films[$i]['likes']);}?></div>
+                                    <div class="block lg:hidden absolute bottom-2 text-md p-1 rounded-lg font-bold text-gray-50 w-full mx-auto"><?php Stars($similar_films[$i]['film_grade']);?></div>
+                                    <img src="/portfolio/allosimplon/build/upload/film/<?=$similar_films[$i]['film_photo']?>" class="h-full">
+                                </div>
                             </a>
                         </div> <?php } ?>
                 </div>
@@ -356,13 +368,13 @@ $similar_films=GetFilmByGenre($film['ID_film']);
             <div class="hidden duration-3000 ease-in-out h-full" data-carousel-item>
                     <div class="absolute block md:gap-2 md:grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 justify-items-center  h-full w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
                     <?php for($i=10;$i<5;$i++){?>
-                                            <div class="h-full relative group">
+                        <div class="h-full relative group">
                             <a href="/portfolio/allosimplon/build/content/film.php?page=<?=$similar_films[$i]['ID_film']?>" class="h-full cursor-pointer overflow-hidden">
-                            <div class="absolute top-1 left-1 text-md p-1 rounded-lg font-bold text-gray-50 group-hover:hidden bg-main-light "><?=$similar_films[$i]['film_date']?></div>
-                            <div class="absolute top-1 right-1 text-md p-1 rounded-lg font-bold text-gray-50 group-hover:hidden"><?php if(isset($_SESSION['ID_user'])){isFilmFav($similar_films[$i]['ID_film'],$_SESSION['ID_user'],$similar_films[$i]['likes']);}else{ShowFakeFav($similar_films[$i]['likes']);}?></div>
-                            <div class="absolute bottom-2 text-md p-1 rounded-lg font-bold text-gray-50 w-full mx-auto group-hover:hidden"><?php Stars($similar_films[$i]['film_grade']);?></div>
+                            <div class="hidden lg:block absolute top-1 left-1 text-md p-1 rounded-lg font-bold text-gray-50 group-hover:hidden bg-main-light "><?=$similar_films[$i]['film_date']?></div>
+                            <div class="hidden lg:block absolute top-1 right-1 text-md p-1 rounded-lg font-bold text-gray-50 group-hover:hidden"><?php if(isset($_SESSION['ID_user'])){isFilmFav($similar_films[$i]['ID_film'],$_SESSION['ID_user'],$similar_films[$i]['likes']);}else{ShowFakeFav($similar_films[$i]['likes']);}?></div>
+                            <div class="hidden lg:block absolute bottom-2 text-md p-1 rounded-lg font-bold text-gray-50 w-full mx-auto group-hover:hidden"><?php Stars($similar_films[$i]['film_grade']);?></div>
                             <!-- OVERLAY!!! -->
-                            <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
+                            <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 lg:group-hover:opacity-100 group p-4">
                                 <div class="relative w-full h-full flex flex-col justify-between">
                                     <p class="font-bold text-xl cursor-dark"><?=$similar_films[$i]['film_date']?></p>
                             <?php
@@ -387,7 +399,12 @@ $similar_films=GetFilmByGenre($film['ID_film']);
                                 </div>
                             </div>
                                     <!-- IMAGE -->
-                                <img src="/portfolio/allosimplon/build/upload/film/<?=$similar_films[$i]['film_photo']?>" class="h-[400px] mx-auto">
+                                <div class="relative w-fit h-96 md:h-[400px] mx-auto">
+                                    <div class="block lg:hidden absolute top-1 left-1 text-md p-1 rounded-lg font-bold text-gray-50 bg-main-light "><?=$similar_films[$i]['film_date']?></div>
+                                    <div class="block lg:hidden absolute top-1 right-1 text-md p-1 rounded-lg font-bold text-gray-50"><?php if(isset($_SESSION['ID_user'])){isFilmFav($similar_films[$i]['ID_film'],$_SESSION['ID_user'],$similar_films[$i]['likes']);}else{ShowFakeFav($similar_films[$i]['likes']);}?></div>
+                                    <div class="block lg:hidden absolute bottom-2 text-md p-1 rounded-lg font-bold text-gray-50 w-full mx-auto"><?php Stars($similar_films[$i]['film_grade']);?></div>
+                                    <img src="/portfolio/allosimplon/build/upload/film/<?=$similar_films[$i]['film_photo']?>" class="h-full">
+                                </div>
                             </a>
                         </div> <?php } ?>
                 </div>
@@ -399,13 +416,13 @@ $similar_films=GetFilmByGenre($film['ID_film']);
             <div class="hidden duration-3000 ease-in-out h-full" data-carousel-item>
                     <div class="absolute block md:gap-2 md:grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 justify-items-center  h-full w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
                     <?php for($i=15;$i<20;$i++){?>
-                                            <div class="h-full relative group">
+                        <div class="h-full relative group">
                             <a href="/portfolio/allosimplon/build/content/film.php?page=<?=$similar_films[$i]['ID_film']?>" class="h-full cursor-pointer overflow-hidden">
-                            <div class="absolute top-1 left-1 text-md p-1 rounded-lg font-bold text-gray-50 group-hover:hidden bg-main-light "><?=$similar_films[$i]['film_date']?></div>
-                            <div class="absolute top-1 right-1 text-md p-1 rounded-lg font-bold text-gray-50 group-hover:hidden"><?php if(isset($_SESSION['ID_user'])){isFilmFav($similar_films[$i]['ID_film'],$_SESSION['ID_user'],$similar_films[$i]['likes']);}else{ShowFakeFav($similar_films[$i]['likes']);}?></div>
-                            <div class="absolute bottom-2 text-md p-1 rounded-lg font-bold text-gray-50 w-full mx-auto group-hover:hidden"><?php Stars($similar_films[$i]['film_grade']);?></div>
+                            <div class="hidden lg:block absolute top-1 left-1 text-md p-1 rounded-lg font-bold text-gray-50 group-hover:hidden bg-main-light "><?=$similar_films[$i]['film_date']?></div>
+                            <div class="hidden lg:block absolute top-1 right-1 text-md p-1 rounded-lg font-bold text-gray-50 group-hover:hidden"><?php if(isset($_SESSION['ID_user'])){isFilmFav($similar_films[$i]['ID_film'],$_SESSION['ID_user'],$similar_films[$i]['likes']);}else{ShowFakeFav($similar_films[$i]['likes']);}?></div>
+                            <div class="hidden lg:block absolute bottom-2 text-md p-1 rounded-lg font-bold text-gray-50 w-full mx-auto group-hover:hidden"><?php Stars($similar_films[$i]['film_grade']);?></div>
                             <!-- OVERLAY!!! -->
-                            <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
+                            <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 lg:group-hover:opacity-100 group p-4">
                                 <div class="relative w-full h-full flex flex-col justify-between">
                                     <p class="font-bold text-xl cursor-dark"><?=$similar_films[$i]['film_date']?></p>
                             <?php
@@ -430,7 +447,12 @@ $similar_films=GetFilmByGenre($film['ID_film']);
                                 </div>
                             </div>
                                     <!-- IMAGE -->
-                                <img src="/portfolio/allosimplon/build/upload/film/<?=$similar_films[$i]['film_photo']?>" class="h-[400px] mx-auto">
+                                <div class="relative w-fit h-96 md:h-[400px] mx-auto">
+                                    <div class="block lg:hidden absolute top-1 left-1 text-md p-1 rounded-lg font-bold text-gray-50 bg-main-light "><?=$similar_films[$i]['film_date']?></div>
+                                    <div class="block lg:hidden absolute top-1 right-1 text-md p-1 rounded-lg font-bold text-gray-50"><?php if(isset($_SESSION['ID_user'])){isFilmFav($similar_films[$i]['ID_film'],$_SESSION['ID_user'],$similar_films[$i]['likes']);}else{ShowFakeFav($similar_films[$i]['likes']);}?></div>
+                                    <div class="block lg:hidden absolute bottom-2 text-md p-1 rounded-lg font-bold text-gray-50 w-full mx-auto"><?php Stars($similar_films[$i]['film_grade']);?></div>
+                                    <img src="/portfolio/allosimplon/build/upload/film/<?=$similar_films[$i]['film_photo']?>" class="h-full">
+                                </div>
                             </a>
                         </div> <?php } ?>
                 </div>
@@ -442,13 +464,13 @@ $similar_films=GetFilmByGenre($film['ID_film']);
             <div class="hidden duration-3000 ease-in-out h-full" data-carousel-item >
                 <div class="absolute block md:gap-2 md:grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 justify-items-center  h-full w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
                     <?php for($i=20;$i<20;$i++){ ?>
-                                            <div class="h-full relative group">
+                        <div class="h-full relative group">
                             <a href="/portfolio/allosimplon/build/content/film.php?page=<?=$similar_films[$i]['ID_film']?>" class="h-full cursor-pointer overflow-hidden">
-                            <div class="absolute top-1 left-1 text-md p-1 rounded-lg font-bold text-gray-50 group-hover:hidden bg-main-light "><?=$similar_films[$i]['film_date']?></div>
-                            <div class="absolute top-1 right-1 text-md p-1 rounded-lg font-bold text-gray-50 group-hover:hidden"><?php if(isset($_SESSION['ID_user'])){isFilmFav($similar_films[$i]['ID_film'],$_SESSION['ID_user'],$similar_films[$i]['likes']);}else{ShowFakeFav($similar_films[$i]['likes']);}?></div>
-                            <div class="absolute bottom-2 text-md p-1 rounded-lg font-bold text-gray-50 w-full mx-auto group-hover:hidden"><?php Stars($similar_films[$i]['film_grade']);?></div>
+                            <div class="hidden lg:block absolute top-1 left-1 text-md p-1 rounded-lg font-bold text-gray-50 group-hover:hidden bg-main-light "><?=$similar_films[$i]['film_date']?></div>
+                            <div class="hidden lg:block absolute top-1 right-1 text-md p-1 rounded-lg font-bold text-gray-50 group-hover:hidden"><?php if(isset($_SESSION['ID_user'])){isFilmFav($similar_films[$i]['ID_film'],$_SESSION['ID_user'],$similar_films[$i]['likes']);}else{ShowFakeFav($similar_films[$i]['likes']);}?></div>
+                            <div class="hidden lg:block absolute bottom-2 text-md p-1 rounded-lg font-bold text-gray-50 w-full mx-auto group-hover:hidden"><?php Stars($similar_films[$i]['film_grade']);?></div>
                             <!-- OVERLAY!!! -->
-                            <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
+                            <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 lg:group-hover:opacity-100 group p-4">
                                 <div class="relative w-full h-full flex flex-col justify-between">
                                     <p class="font-bold text-xl cursor-dark"><?=$similar_films[$i]['film_date']?></p>
                             <?php
@@ -473,7 +495,12 @@ $similar_films=GetFilmByGenre($film['ID_film']);
                                 </div>
                             </div>
                                     <!-- IMAGE -->
-                                <img src="/portfolio/allosimplon/build/upload/film/<?=$similar_films[$i]['film_photo']?>" class="h-[400px] mx-auto">
+                                <div class="relative w-fit h-96 md:h-[400px] mx-auto">
+                                    <div class="block lg:hidden absolute top-1 left-1 text-md p-1 rounded-lg font-bold text-gray-50 bg-main-light "><?=$similar_films[$i]['film_date']?></div>
+                                    <div class="block lg:hidden absolute top-1 right-1 text-md p-1 rounded-lg font-bold text-gray-50"><?php if(isset($_SESSION['ID_user'])){isFilmFav($similar_films[$i]['ID_film'],$_SESSION['ID_user'],$similar_films[$i]['likes']);}else{ShowFakeFav($similar_films[$i]['likes']);}?></div>
+                                    <div class="block lg:hidden absolute bottom-2 text-md p-1 rounded-lg font-bold text-gray-50 w-full mx-auto"><?php Stars($similar_films[$i]['film_grade']);?></div>
+                                    <img src="/portfolio/allosimplon/build/upload/film/<?=$similar_films[$i]['film_photo']?>" class="h-full">
+                                </div>
                             </a>
                         </div> <?php } ?>
                 </div>
@@ -505,11 +532,11 @@ $similar_films=GetFilmByGenre($film['ID_film']);
         <?php for($i=0;$i<5;$i++){?>
                                             <div class="h-full relative group">
                             <a href="/portfolio/allosimplon/build/content/film.php?page=<?=$similar_films[$i]['ID_film']?>" class="h-full cursor-pointer overflow-hidden">
-                            <div class="absolute top-1 left-1 text-md p-1 rounded-lg font-bold text-gray-50 group-hover:hidden bg-main-light "><?=$similar_films[$i]['film_date']?></div>
-                            <div class="absolute top-1 right-1 text-md p-1 rounded-lg font-bold text-gray-50 group-hover:hidden"><?php if(isset($_SESSION['ID_user'])){isFilmFav($similar_films[$i]['ID_film'],$_SESSION['ID_user'],$similar_films[$i]['likes']);}else{ShowFakeFav($similar_films[$i]['likes']);}?></div>
-                            <div class="absolute bottom-2 text-md p-1 rounded-lg font-bold text-gray-50 w-full mx-auto group-hover:hidden"><?php Stars($similar_films[$i]['film_grade']);?></div>
+                            <div class="hidden lg:block absolute top-1 left-1 text-md p-1 rounded-lg font-bold text-gray-50 md:group-hover:hidden bg-main-light "><?=$similar_films[$i]['film_date']?></div>
+                            <div class="hidden lg:block absolute top-1 right-1 text-md p-1 rounded-lg font-bold text-gray-50 md:group-hover:hidden"><?php if(isset($_SESSION['ID_user'])){isFilmFav($similar_films[$i]['ID_film'],$_SESSION['ID_user'],$similar_films[$i]['likes']);}else{ShowFakeFav($similar_films[$i]['likes']);}?></div>
+                            <div class="hidden lg:block absolute bottom-2 text-md p-1 rounded-lg font-bold text-gray-50 w-full mx-auto md:group-hover:hidden"><?php Stars($similar_films[$i]['film_grade']);?></div>
                             <!-- OVERLAY!!! -->
-                            <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
+                            <div class="absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 md:group-hover:opacity-100 group p-4">
                                 <div class="relative w-full h-full flex flex-col justify-between">
                                     <p class="font-bold text-xl cursor-dark"><?=$similar_films[$i]['film_date']?></p>
                             <?php
@@ -534,7 +561,12 @@ $similar_films=GetFilmByGenre($film['ID_film']);
                                 </div>
                             </div>
                                     <!-- IMAGE -->
-                                <img src="/portfolio/allosimplon/build/upload/film/<?=$similar_films[$i]['film_photo']?>" class="h-[400px] mx-auto">
+                                <div class="relative h-96 md:h-[400px] mx-auto w-fit">
+                                    <div class="block lg:hidden absolute top-1 left-1 text-md p-1 rounded-lg font-bold text-gray-50 md:group-hover:hidden bg-main-light "><?=$similar_films[$i]['film_date']?></div>
+                                    <div class="block lg:hidden absolute top-1 right-1 text-md p-1 rounded-lg font-bold text-gray-50 md:group-hover:hidden"><?php if(isset($_SESSION['ID_user'])){isFilmFav($similar_films[$i]['ID_film'],$_SESSION['ID_user'],$similar_films[$i]['likes']);}else{ShowFakeFav($similar_films[$i]['likes']);}?></div>
+                                    <div class="block lg:hidden absolute bottom-2 text-md p-1 rounded-lg font-bold text-gray-50 w-full mx-auto md:group-hover:hidden"><?php Stars($similar_films[$i]['film_grade']);?></div>
+                                    <img src="/portfolio/allosimplon/build/upload/film/<?=$similar_films[$i]['film_photo']?>" class="h-full">
+                                </div>
                             </a>
                         </div> <?php } ?></div>
     </div>
