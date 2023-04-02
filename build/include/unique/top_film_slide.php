@@ -18,7 +18,7 @@
 
         </div>
         <!-- Carousel wrapper -->
-        <div class="relative h-96 w-full md:w-[80%] mx-auto overflow-hidden rounded-lg  md:h-[400px]">
+        <div class="relative h-96 w-full md:w-[80%] mx-auto overflow-hidden rounded-lg md:h-[400px]">
 
             <!-- Item 1 -->
 <?php $request = GetFilm("ORDER BY likes DESC ","LIMIT 0,5");// var_dump($film);?>
