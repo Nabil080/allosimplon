@@ -42,18 +42,7 @@
                 <a href="/portfolio/allosimplon/build/content/catalogue.php?page=1&genre[]=<?=$genre_list['ID_genre']?>"class=""><li class="text-xl text-main-light hover:text-main-hover  underline "> <?=$genre_list['genre_name']?> </li></a>
             <?php } ?>
             </ul></div>
-        <button data-modal-target="profil" data-modal-toggle="profil" class="underline text-main-light " >Profil</button>
-        <ul class="text-lg font-normal text-main-light">
-            <?php if(isset($_SESSION['ID_user'])){ ?>
-                <!-- <a href="/portfolio/allosimplon/build/content/favoris.php"><li class="hover:underline">Favoris</li></a>
-                <button data-modal-target="profil" data-modal-toggle="profil"><li class="hover:underline">Informations</li></button>
-                <a href="/portfolio/allosimplon/build/traitements/connexion/logout.php"><li class="hover:underline">Se déconnecter</li></a> -->
-            <?php }else{ ?>
-                <!-- <li><button data-modal-targ="login" data-modal-toggle="login" class="hover:underline">Favoris</button></li>
-                <li><button data-modal-targ="login" data-modal-toggle="login" class="hover:underline">Informations</button></li>
-                <li><button data-modal-targ="login" data-modal-toggle="login" class="hover:underline">Se connecter</button></li> -->
-            <?php } ?>
-        </ul>
+        <button <?php if(isset($_SESSION['ID_user'])){ ?>data-modal-target="profil" data-modal-toggle="profil"<?php }else{ ?> data-modal-target="login" data-modal-toggle="login" <?php } ?> class="underline text-main-light " >Profil</button>
     </div>
     </div>
 
