@@ -34,9 +34,9 @@
                             <div class="hidden lg:block z-50 absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
                                 <div class="relative w-full h-full flex flex-col justify-between">
                                     <p class="font-bold text-xl cursor-dark"><?=$film['film_date']?></p>
-                            <?php
-                                if(isset($_SESSION['ID_user'])){isFilmFav($film['ID_film'],$_SESSION['ID_user'],$film['likes']);}else{ShowFakeFav($film['likes']);}
-                            ?>
+                                    <?php
+                                        if(isset($_SESSION['ID_user'])){isFilmFav($film['ID_film'],$_SESSION['ID_user'],$film['likes']);}else{ShowFakeFav($film['likes']);}
+                                    ?>
                                     <div>
                                         <div class="flex justify-start">
                                             <h2 class="underline font-bold text-main-light text-2xl mb-2"><?=$film['film_name']?></h2>
