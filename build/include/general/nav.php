@@ -7,46 +7,55 @@
         <span class="text-gray-100 uppercase self-center text-xl ">SimplonFilm</span></a>
     <form action="/portfolio/allosimplon/build/traitements/search.php" method="get" class="grow flex relative">
         <input minlength="2" <?php if(isset($_GET['search'])){echo 'value="'.$_GET['search'].'"';} ?> type="search" name="search" class="bg-main-dark placeholder:italic pl-4 hidden md:block border border-solid  basis-full text-gray-100  focus:ring-0" placeholder="Cherchez un film!" >
-        <button type="submit"><i class="fa fa-search absolute top-2 right-3 text-2xl"></i></button>
+        <button type="submit"><i class="fa fa-search absolute top-2 right-3 text-2xl hidden md:block"></i></button>
     </form>
     <div class="items-center flex basis-auto text-4xl gap-6">
         <!-- Modal toggle -->
         <?php if(isset($_SESSION['ID_user'])){ ?>
-            <h2 class="text-gray-50 text-2xl hidden sm:block">Bonjour,<button class="pl-2 text-main-light" data-modal-target="profil" data-modal-toggle="profil"><?=$_SESSION['user_pseudo']?></button></h2>
+            <h2 class="text-gray-50 text-base sm:text-2xl block">Bonjour,<button class="pl-2 text-main-light underline hover:text-main-hover" data-modal-target="profil" data-modal-toggle="profil"><?=$_SESSION['user_pseudo']?></button></h2>
             <?php }else{?>
             <button class="rounded-lg hover:bg-main-hover" data-modal-target="login" data-modal-toggle="login" ><i class="fa fa-user w-full h-full p-2"></i></button>
         <?php }?>
         <button class="rounded-lg hover:bg-main-hover" onclick="toggleMobileMenu(burgermenu)"><i class="fa fa-bars w-full h-full p-2"></i></button>
     </div>
 </div>
-<div id="burgermenu" class="hidden text-gray-100 h-screen md:h-96 lg:h-56 flex p-4 text-3xl gap-8  font-bold px-[15%]">
-<div id="leftmenu" class="basis-auto flex-col flex justify-between underline">
-    <a href="/portfolio/allosimplon/build/index.php">Accueil</a>
-    <a href="/portfolio/allosimplon/build/content/catalogue.php?page=1">Catalogue</a>
-    <a href="/portfolio/allosimplon/build/content/actor.php">Acteurs</a>
-</div>
-    <ul class="text-lg grow font-normal text-main-light flex-wrap flex flex-col w-6">
-            <a href="/portfolio/allosimplon/build/content/catalogue.php" class="underline text-3xl text-gray-100 font-bold">Genres</a>
-        <?php $genre_list_request=$con->prepare("SELECT * FROM genre");$genre_list_request->execute();while($genre_list=$genre_list_request->fetch()){?>
-            <a href="/portfolio/allosimplon/build/content/catalogue.php?page=1&genre[]=<?=$genre_list['ID_genre']?>"class=""><li class="hover:underline decoration-main-light "> <?=$genre_list['genre_name']?> </li></a>
-        <?php } ?>
-    </ul>
-
-<div id="rightmenu" class="">
-    <button data-modal-target="profil" data-modal-toggle="profil">Profil</button>
-    <ul class="text-lg font-normal text-main-light">
-        <?php if(isset($_SESSION['ID_user'])){ ?>
-            <a href="/portfolio/allosimplon/build/content/favoris.php"><li>Favoris</li></a>
-            <button data-modal-target="profil" data-modal-toggle="profil"><li>Informations</li></button>
-            <a href="/portfolio/allosimplon/build/traitements/connexion/logout.php"><li>Se déconnecter</li></a>
-        <?php }else{ ?>
-            <li><button data-modal-targ="login" data-modal-toggle="login">Favoris</button></li>
-            <li><button data-modal-targ="login" data-modal-toggle="login">Informations</button></li>
-            <li><button data-modal-targ="login" data-modal-toggle="login">Se connecter</button></li>
-        <?php } ?>
-    </ul>
-</div>
-</div>
+    <div id="burgermenu" class="hidden text-gray-100 flex flex-col md:flex-row justify-center mb-4 text-xl gap-8 [&>a]:underline [&>button]:underline [&>button]:text-gray-50 [&>a]:text-gray-50 font-bold px-[10%]">
+    <form action="/portfolio/allosimplon/build/traitements/search.php" method="get" class="grow flex relative md:hidden">
+        <input minlength="2" <?php if(isset($_GET['search'])){echo 'value="'.$_GET['search'].'"';} ?> type="search" name="search" class="bg-main-dark placeholder:italic pl-4 border border-solid  basis-full text-gray-100  focus:ring-0" placeholder="Cherchez un film!" >
+        <button type="submit"><i class="fa fa-search absolute top-2 right-3 text-2xl"></i></button>
+    </form>
+    <button><a class="hover:text-gray-300" href="/portfolio/allosimplon/build/index.php">Accueil</a>
+        <button data-dropdown-delay="100" data-dropdown-trigger="hover" data-dropdown-toggle="CatalogueDropdown" class="hidden md:block"><a class="hover:text-gray-300 no-underline" href="/portfolio/allosimplon/build/content/catalogue.php?page=1">Catalogue<i class="fa-solid fa-chevron-down pl-1 text-lg"></i></a></button>
+        <button class="block md:hidden"><a class="hover:text-gray-300 no-underline" href="/portfolio/allosimplon/build/content/catalogue.php?page=1">Catalogue</a></button>
+            <div id="CatalogueDropdown" class="hidden bg-main-dark border-t-main-default px-[10%]"><ul class="flex gap-4 flex-wrap mb-4 justify-center [&_li]:text-xl [&_li]:text-main-light [&_li]:underline">
+                <a href="/portfolio/allosimplon/build/content/catalogue?page=1&sort=a-z"><li class="hover:text-main-hover">Par ordre alphabétique</li></a>
+                <a href="/portfolio/allosimplon/build/content/catalogue?page=1&sort=fav"><li class="hover:text-main-hover">Par nombre de likes</li></a>
+                <a href="/portfolio/allosimplon/build/content/catalogue?page=1&sort=grade"><li class="hover:text-main-hover">Par note IMDb</li></a>
+                <a href="/portfolio/allosimplon/build/content/catalogue?page=1&sort=date"><li class="hover:text-main-hover">Par ordre de sortie</li></a>
+                <a href="/portfolio/allosimplon/build/content/catalogue?page=1&sort=asc"><li class="hover:text-main-hover">Par ordre d'ajout</li></a>
+                <a href="/portfolio/allosimplon/build/content/catalogue?page=1&sort=rand"><li class="hover:text-main-hover">Par ordre aléatoire</li></a>
+            </ul></div>
+        <button><a class="hover:text-gray-300" href="/portfolio/allosimplon/build/content/actor.php">Acteurs</a></button>
+        <button class=" no-underline"  data-dropdown-delay="100" data-dropdown-trigger="hover" data-dropdown-toggle="GenresDropdown">Genres<i class="fa-solid fa-chevron-down pl-1 text-lg"> </i></button>
+            <div id="GenresDropdown" class="hidden bg-main-dark border-t-main-default px-[10%]"><ul class=" flex gap-4 flex-wrap mb-4 justify-center">
+            <?php $genre_list_request=$con->prepare("SELECT * FROM genre");$genre_list_request->execute();while($genre_list=$genre_list_request->fetch()){?>
+                <a href="/portfolio/allosimplon/build/content/catalogue.php?page=1&genre[]=<?=$genre_list['ID_genre']?>"class=""><li class="text-xl text-main-light hover:text-main-hover  underline "> <?=$genre_list['genre_name']?> </li></a>
+            <?php } ?>
+            </ul></div>
+        <button data-modal-target="profil" data-modal-toggle="profil" class="underline text-main-light " >Profil</button>
+        <ul class="text-lg font-normal text-main-light">
+            <?php if(isset($_SESSION['ID_user'])){ ?>
+                <!-- <a href="/portfolio/allosimplon/build/content/favoris.php"><li class="hover:underline">Favoris</li></a>
+                <button data-modal-target="profil" data-modal-toggle="profil"><li class="hover:underline">Informations</li></button>
+                <a href="/portfolio/allosimplon/build/traitements/connexion/logout.php"><li class="hover:underline">Se déconnecter</li></a> -->
+            <?php }else{ ?>
+                <!-- <li><button data-modal-targ="login" data-modal-toggle="login" class="hover:underline">Favoris</button></li>
+                <li><button data-modal-targ="login" data-modal-toggle="login" class="hover:underline">Informations</button></li>
+                <li><button data-modal-targ="login" data-modal-toggle="login" class="hover:underline">Se connecter</button></li> -->
+            <?php } ?>
+        </ul>
+    </div>
+    </div>
 
 
 
@@ -157,7 +166,7 @@ function switchDiv() {
             </button>
             <!-- CONTENU PROFIL -->
             <div id="profil_card" class="px-6 py-6 lg:px-8">
-                <h3 class="text-2xl font-medium text-gray-100">Bonjour,<span class="pl-1 decoration-main-light underline font-bold"><?=$_SESSION['user_pseudo']?></span></h3>
+                <h3 class="text-2xl font-medium text-gray-100">Bonjour,<span class="pl-1 decoration-main-light underline font-bold "><?=$_SESSION['user_pseudo']?></span></h3>
                 <a class="mb-4 text-main-light cursor-pointer" onclick="switchPseudo()">Modifier le pseudo</a>
                 <div class="flex text-main-light justify-center">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-48 h-48">
