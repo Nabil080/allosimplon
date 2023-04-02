@@ -11,7 +11,8 @@ if(isset($_POST['message'])){
     }else{
     $add_comment_request=$con->prepare("INSERT INTO comment (ID_user, ID_film, comment_message, comment_pseudo) VALUES (? ,? ,? ,? )");
     $add_comment_request->execute([$_SESSION['ID_user'], $film , $message, $_SESSION['user_pseudo']]);
-    echo'Commentaire posté avec succès';
+    echo "<script> alert( 'Commentaire posté avec succès' ) ; window.location.replace(document.referrer) ; </script>";
+
     }
 }
 ?>

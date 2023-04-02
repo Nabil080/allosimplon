@@ -21,7 +21,8 @@ if(isset($_POST['modify_comment'])){
     $ID_comment = $_POST['ID_comment'];
     $delete_comment_request=$con->prepare("DELETE FROM comment WHERE ID_comment = ?");
     $delete_comment_request->execute([$ID_comment]);
-    echo 'Commentaire supprimé avec succès';
+    echo "<script> alert( 'Commentaire supprimé avec succès' ) ; window.location.replace(document.referrer) ; </script>";
+
 
 } elseif(isset($_POST['report_comment'])){
     // handle report comment action
@@ -29,7 +30,7 @@ if(isset($_POST['modify_comment'])){
     // perform necessary actions for reporting comment
     $report_comment_request=$con->prepare("UPDATE comment SET comment_reports = comment_reportsgi + 1 WHERE ID_comment = ?");
     $report_comment_request->execute([$ID_comment]);
-    echo 'Commentaire signalé avec succès';
+    echo "<script> alert( 'Commentaire signalé avec succès' ) ; window.location.replace(document.referrer) ; </script>";
 
 } else {
     // no valid action was specified

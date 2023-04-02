@@ -239,6 +239,92 @@ $film=$request->fetch();
 </div>
 <?php } ?>
 
+<?php $comment_request=$con->prepare("SELECT * FROM comment WHERE ID_film = ?");$comment_request->execute([$film['ID_film']]);
+$comment_count= $comment_request->rowCount() ?>
+<section class=" bg-transparent py-8 lg:py-16">
+  <div class="max-w-2xl mx-auto px-4">
+      <div class="flex justify-between items-center mb-6">
+        <h2 class="text-lg lg:text-2xl font-bold  text-gray-50">Commentaires (<?=$comment_count?>)</h2>
+    </div>
+    <form class="mb-6" method="post" action="/portfolio/allosimplon/build/traitements/add/add_comment.php">
+        <input class="hidden" name="ID_film" value="<?=$film['ID_film']?>">
+        <div class="py-2 px-4 mb-4  rounded-lg rounded-t-lg border  bg-main-dark border-main-light">
+            <label for="comment" class="sr-only">Votre commentaire :</label>
+            <textarea id="comment" rows="6" name="message"
+                class="px-0 w-full text-sm  border-0 focus:ring-0 focus:outline-none text-white placeholder-gray-400 bg-main-dark"
+                placeholder="Écrivez un commentaire..." required></textarea>
+        </div>
+        <button type="submit"
+            class="inline-flex items-center py-2.5 px-4 text-xs font-medium text-center text-white bg-main-light rounded-lg focus:ring-4 focus:ring-primary-200 focus:ring-primary-900 hover:bg-primary-800">
+            Envoyer le commentaire
+        </button>
+    </form>
+    <?php
+    while($comment=$comment_request->fetch()){
+        setlocale(LC_TIME, 'fr_FR.utf8');
+        $date = new DateTime($comment['comment_date']); ?>
+    <article class="p-6 text-base mb-6 border-t  border-main-light bg-main-dark">
+        <footer class="flex justify-between items-center mb-2">
+            <div class="flex items-center">
+                <p class="inline-flex items-center capitalize text-sm  text-gray-50"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="mr-3 w-8 h-8">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z" />
+                    </svg><?=$comment['comment_pseudo']?></p>
+                <p class="text-sm ml-3 text-gray-400"><time pubdate datetime="2022-06-23"
+                        title="June 23rd, 2022"><?=$date->format('d.M.Y H:i')?></time></p>
+            </div>
+            <button id="dropdownCommentButton" data-dropdown-toggle="dropdownComment"
+                class="inline-flex items-center p-2 text-sm font-medium text-center text-gray-50  rounded-lg  focus:ring-4 focus:outline-none  bg-main-light hover:bg-main-hover focus:ring-main-hover"
+                type="button">
+                <svg class="w-5 h-5" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M6 10a2 2 0 11-4 0 2 2 0 014 0zM12 10a2 2 0 11-4 0 2 2 0 014 0zM16 12a2 2 0 100-4 2 2 0 000 4z">
+                    </path>
+                </svg>
+            </button>
+            <!-- Dropdown menu -->
+            <div id="dropdownComment"
+            class="hidden z-10 w-36  rounded divide-y  shadow bg-main-dark divide-gray-600">
+            <form method="post" action="/portfolio/allosimplon/build/traitements/manage_comment.php">
+                <ul class="py-1 text-sm  text-gray-200"
+                    aria-labelledby="dropdownMenuIconHorizontalButton">
+                    <?php if($comment['ID_user']==$_SESSION['ID_user']){?>
+                    <li>
+                        <button type="submit" name="modify_comment"
+                            class="block py-2 px-4  hover:bg-gray-600 hover:text-white">Modifier</a>
+                    </li>
+                    <li>
+                        <button type="submit" name="delete_comment"
+                            class="block py-2 px-4  hover:bg-gray-600 hover:text-white">Supprimer</a>
+                    </li>
+                    <?php } ?>
+                    <li>
+                        <button type="submit" name="report_comment"
+                            class="block py-2 px-4  hover:bg-gray-600 hover:text-white">Signaler</a>
+                    </li>
+                </ul>
+                <input class="hidden" name="ID_comment" value="<?=$comment['ID_comment']?>">
+            </form>
+        </div>
+        </footer>
+        <p class=" text-gray-400"><?=$comment['comment_message']?></p>
+    </article>
+    <?php } ?>
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <div class="flex justify-center mt-6 mb-6">
 <h1 class="font-bold text-xl md:text-4xl">Films Similaires</h1>
@@ -523,83 +609,6 @@ $similar_films=GetFilmByGenre($film['ID_film']);
 
 </div>
 </section>
-
-<?php $comment_request=$con->prepare("SELECT * FROM comment WHERE ID_film = ?");$comment_request->execute([$film['ID_film']]);
-$comment_count= $comment_request->rowCount() ?>
-<section class=" bg-transparent py-8 lg:py-16">
-  <div class="max-w-2xl mx-auto px-4">
-      <div class="flex justify-between items-center mb-6">
-        <h2 class="text-lg lg:text-2xl font-bold  text-gray-50">Commentaires (<?=$comment_count?>)</h2>
-    </div>
-    <form class="mb-6" method="post" action="/portfolio/allosimplon/build/traitements/add/add_comment.php">
-        <input class="hidden" name="ID_film" value="<?=$film['ID_film']?>">
-        <div class="py-2 px-4 mb-4  rounded-lg rounded-t-lg border  bg-main-dark border-main-light">
-            <label for="comment" class="sr-only">Votre commentaire :</label>
-            <textarea id="comment" rows="6" name="message"
-                class="px-0 w-full text-sm  border-0 focus:ring-0 focus:outline-none text-white placeholder-gray-400 bg-main-dark"
-                placeholder="Écrivez un commentaire..." required></textarea>
-        </div>
-        <button type="submit"
-            class="inline-flex items-center py-2.5 px-4 text-xs font-medium text-center text-white bg-main-light rounded-lg focus:ring-4 focus:ring-primary-200 focus:ring-primary-900 hover:bg-primary-800">
-            Envoyer le commentaire
-        </button>
-    </form>
-    <?php
-    while($comment=$comment_request->fetch()){
-        setlocale(LC_TIME, 'fr_FR.utf8');
-        $date = new DateTime($comment['comment_date']); ?>
-    <article class="p-6 text-base mb-6 border-t  border-main-light bg-main-dark">
-        <footer class="flex justify-between items-center mb-2">
-            <div class="flex items-center">
-                <p class="inline-flex items-center capitalize text-sm  text-gray-50"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="mr-3 w-8 h-8">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z" />
-                    </svg><?=$comment['comment_pseudo']?></p>
-                <p class="text-sm ml-3 text-gray-400"><time pubdate datetime="2022-06-23"
-                        title="June 23rd, 2022"><?=$date->format('d.M.Y H:i')?></time></p>
-            </div>
-            <button id="dropdownCommentButton" data-dropdown-toggle="dropdownComment"
-                class="inline-flex items-center p-2 text-sm font-medium text-center text-gray-50  rounded-lg  focus:ring-4 focus:outline-none  bg-main-light hover:bg-main-hover focus:ring-main-hover"
-                type="button">
-                <svg class="w-5 h-5" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path
-                        d="M6 10a2 2 0 11-4 0 2 2 0 014 0zM12 10a2 2 0 11-4 0 2 2 0 014 0zM16 12a2 2 0 100-4 2 2 0 000 4z">
-                    </path>
-                </svg>
-            </button>
-            <!-- Dropdown menu -->
-            <div id="dropdownComment"
-            class="hidden z-10 w-36  rounded divide-y  shadow bg-main-dark divide-gray-600">
-            <form method="post" action="/portfolio/allosimplon/build/traitements/manage_comment.php">
-                <ul class="py-1 text-sm  text-gray-200"
-                    aria-labelledby="dropdownMenuIconHorizontalButton">
-                    <?php if($comment['ID_user']==$_SESSION['ID_user']){?>
-                    <li>
-                        <button type="submit" name="modify_comment"
-                            class="block py-2 px-4  hover:bg-gray-600 hover:text-white">Modifier</a>
-                    </li>
-                    <li>
-                        <button type="submit" name="delete_comment"
-                            class="block py-2 px-4  hover:bg-gray-600 hover:text-white">Supprimer</a>
-                    </li>
-                    <?php } ?>
-                    <li>
-                        <button type="submit" name="report_comment"
-                            class="block py-2 px-4  hover:bg-gray-600 hover:text-white">Signaler</a>
-                    </li>
-                </ul>
-                <input class="hidden" name="ID_comment" value="<?=$comment['ID_comment']?>">
-            </form>
-        </div>
-        </footer>
-        <p class=" text-gray-400"><?=$comment['comment_message']?></p>
-    </article>
-    <?php } ?>
-    </div>
-</section>
-
-
-
 
 
 
