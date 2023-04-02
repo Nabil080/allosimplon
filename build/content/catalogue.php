@@ -8,8 +8,8 @@ require_once '../config/functions.php';
 <?php include('../include/general/nav.php')?>
 
 
-<div class="flex justify-center mt-28 mb-6">
-<h1 class="font-bold text-4xl">Tous les films</h1>
+<div class="flex justify-center mt-20 mb-6">
+<h1 class="font-bold text-2xl lg:text-4xl">Tous les films</h1>
 </div>
 
 <!-- PAGINATION -->

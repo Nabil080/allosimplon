@@ -1,5 +1,5 @@
-<div class="flex justify-center mt-28 mb-6">
-<h1 class="font-bold text-4xl">Les plus appréciés</h1>
+<div class="flex justify-center mt-20 lg:mt-28 mb-6">
+<h1 class="font-bold text-2xl lg:text-4xl">Les plus appréciés</h1>
 </div>
 
 
