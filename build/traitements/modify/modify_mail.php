@@ -1,10 +1,6 @@
-
-
 <?php session_start();
 require_once '../../config/connexion.php';
-?>
 
-<?php
 // Variables + sécurisation
 $errors = array();
 $ID = $_SESSION['ID_user'];
@@ -21,17 +17,17 @@ if(password_verify($password,$_SESSION['user_password'])){
     if($email == $email_verif){
         $request=$con->prepare("UPDATE user SET user_email = ? WHERE ID_user = $ID");
         $request->execute([$email]);
-        var_dump($email);
-
         $_SESSION['user_email']=$email;
+        header('Location: ' . $_SERVER['HTTP_REFERER']. "?message=update_mail");
     }else{
         $errors['email']="Les emails ne correspondent pas";
+        header('Location: ' . $_SERVER['HTTP_REFERER']. "?message=mail_verif_error");
     }
 }else{
     $errors['password']="Mot de passe incorrect";
+    header('Location: ' . $_SERVER['HTTP_REFERER']. "?message=password_error");
 }
 
-echo '<pre>'.print_r($errors,true).'<pre>';
 
 ?>
 

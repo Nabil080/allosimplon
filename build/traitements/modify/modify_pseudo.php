@@ -1,8 +1,6 @@
 <?php session_start();
 require_once '../../config/connexion.php';
-?>
 
-<?php
 // Variables + sécurisation
 $errors = array();
 $ID = $_SESSION['ID_user'];
@@ -15,18 +13,18 @@ $ID = $_SESSION['ID_user'];
 // var_dump($password);
 if(empty($pseudo) || strlen($pseudo) > 10){
     $errors['pseudo']="Pseudo trop long ou invalide (16 charactères maximum)";
-    echo "<script>alert('Pseudo trop long ou invalide'); window.location.replace(document.referrer);</script>";
+    header('Location: ' . $_SERVER['HTTP_REFERER']. "?message=error_pseudo");
+
 }else{
 if(password_verify($password,$_SESSION['user_password'])){
         $request=$con->prepare("UPDATE user SET user_pseudo = ? WHERE ID_user = $ID");
         $request->execute([$pseudo]);
-        var_dump($pseudo);
         $_SESSION['user_pseudo']=$pseudo;
+    header('Location: ' . $_SERVER['HTTP_REFERER']. "?message=update_pseudo");
 }else{
     $errors['password']="Mot de passe incorrect";
+    header('Location: ' . $_SERVER['HTTP_REFERER']. "?message=wrong_password");
 }
 }
-echo '<pre>'.print_r($errors,true).'<pre>';
-
 ?>
 

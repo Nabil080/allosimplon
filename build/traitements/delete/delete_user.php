@@ -18,7 +18,7 @@ $delete_user_film->execute([$ID_user]);
 $delete_user=$con->prepare("DELETE FROM user WHERE ID_user = ?");
 $delete_user->execute([$ID_user]);
 
-echo "L'utilisateur a bien été supprimé ! ", "<br> var_dump post en bas là ! "; 
+echo "L'utilisateur a bien été supprimé ! ", "<br> var_dump post en bas là ! ";
 var_dump($_POST);
 echo "<script>alert('L'utilisateur a bien été supprimé!'); window.location.replace(document.referrer);</script>";
 

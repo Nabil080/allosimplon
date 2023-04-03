@@ -1,8 +1,6 @@
 <?php session_start();
 require_once '../../config/connexion.php';
-?>
 
-<?php
 // Variables + sécurisation
 $errors = array();
     $email = htmlspecialchars(strip_tags($_POST['email']), ENT_QUOTES );
@@ -11,7 +9,7 @@ $errors = array();
 // Verif email valide
 if(empty($email) || !filter_var($email,FILTER_VALIDATE_EMAIL)){
     $errors['email']= "Email invalide";
-    echo "<script> alert('Email invalide!'); window.location.replace(document.referrer);</script>";
+    header('Location: ' . $_SERVER['HTTP_REFERER']. "?message=mail_invalid");
 }else{
 // Verif email présent en BDD
 
@@ -24,7 +22,7 @@ if(empty($email) || !filter_var($email,FILTER_VALIDATE_EMAIL)){
         $ID = $email_row['ID_user'];
     }else{
         $errors['email']="L'email n'existe pas dans nos serveurs";
-        echo "<script> alert(' Aucun compte avec cet e-mail n'existe! ') ; window.location.replace(document.referrer);</script>";
+        header('Location: ' . $_SERVER['HTTP_REFERER']. "?message=wrong_mail");
     }
 }
 
@@ -34,24 +32,19 @@ if($bool=="true"){
     $user_row=$request->fetch();
     if(password_verify($password,$user_row['user_password'])){
         $_SESSION['ETAT'] = "connected";
-        echo 'Connexion réussie <br> <a href="/portfolio/allosimplon/build/index.php">accueil</a>';
         $_SESSION['ID_user'] = $user_row['ID_user'];
         $_SESSION['user_pseudo'] = $user_row['user_pseudo'];
         $_SESSION['user_email'] = $user_row['user_email'];
         $_SESSION['user_password'] = $user_row['user_password'];
         $_SESSION['ID_role'] = $user_row['ID_role'];
-        header('Location:/portfolio/allosimplon/build/index.php');
+        header('Location: ' . $_SERVER['HTTP_REFERER']. "?message=connected");
         $connected = "true";
 
     }else{
         $_SESSION['ETAT'] = "not connected";
-        echo 'Connexion échouée'; echo '<br> mdp incorrect';
-        var_dump($password);
-        echo "<script> alert(' Mot de passe incorrect ') ; window.location.replace(document.referrer);</script>";
-        echo '<a href="/portfolio/allosimplon/build/index.php">accueil</a>';
+        header('Location: ' . $_SERVER['HTTP_REFERER']. "?message=wrong_password");
     }
 }
-    echo '<pre>'.print_r($errors,true).'<pre>';
 
 ?>
 
