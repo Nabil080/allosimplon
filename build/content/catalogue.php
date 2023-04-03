@@ -355,7 +355,7 @@ if(empty($_SESSION['filters'])){
                                     <div class="block absolute top-1 left-1 text-md p-1 rounded-lg font-bold text-gray-50 lg:group-hover:hidden bg-main-light "><?=$date?></div>
                                     <div class="block absolute top-1 right-1 text-md p-1 rounded-lg font-bold text-gray-50 lg:group-hover:hidden"><?php if(isset($_SESSION['ID_user'])){isFilmFav($ID,$_SESSION['ID_user'],$likes);}else{ShowFakeFav($likes);}?></div>
                                     <div class="block absolute bottom-2 text-md p-1 rounded-lg font-bold text-gray-50 w-full mx-auto lg:group-hover:hidden"><?php Stars($note,$ID);?></div>
-                                    <img src="/portfolio/allosimplon/build/upload/film/<?=$photo?>" class="h-full">
+                                    <img src="/portfolio/allosimplon/build/upload/film/<?=$photogi?>" class="h-full">
                                 </div>
                             </a>
             </div>
