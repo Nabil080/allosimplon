@@ -3,7 +3,7 @@ require_once '../../config/connexion.php';
 
 // Variables + sécurisation
 if(!isset($_POST['submit'])){
-    echo "venez depuis le formulaire de modification du scénariste";
+    header('Location: ' . $_SERVER['HTTP_REFERER']. "?message=no_form");
 }else{
 $scenarist_name = htmlspecialchars(strip_tags($_POST['name']), ENT_QUOTES );
 $ID_scenarist = htmlspecialchars(strip_tags($_POST['ID']),ENT_QUOTES);
@@ -13,7 +13,7 @@ $ID_film_array = ($_POST['film']);
 if(
     empty($scenarist_name)
     ){
-    echo 'un élément est manquant';
+    header('Location: ' . $_SERVER['HTTP_REFERER']. "?message=missing_element");
     }else{
 
         $add_scenarist_request=$con->prepare(
@@ -40,9 +40,7 @@ if(isset($_POST['film'])){
         $add_scenarist_request->execute([ $ID_film, $ID_scenarist]);
     }
 }
-        echo "Le scénariste a été modifié.";
-        echo'<br> ID scénariste : <br>';
-        var_dump($ID_scenarist);
+    header('Location: ' . $_SERVER['HTTP_REFERER']. "?message=update_scenarist");
 
             // VERIFICATION PHOTO AFFICHE
             if (isset($_FILES['photo']['name']) && $_FILES['photo']['error'] == 0) {
@@ -56,44 +54,34 @@ if(isset($_POST['film'])){
                 $extensions = ['png', 'jpg', 'jpeg', 'gif', 'jiff'];
         
                 if ($sizeFile > $max_size) {
-                    echo "Taille de l'affiche trop importante";
+                    header('Location: ' . $_SERVER['HTTP_REFERER']. "?message=size_error");
                     die();
                 }
             
                 $allowed_types = array('jpg', 'jpeg', 'png', 'gif');
                 $file_type = pathinfo($_FILES['photo']['name'], PATHINFO_EXTENSION);
                 if(!in_array($file_type, $allowed_types)) {
-                    echo 'format image invalide';
+                    header('Location: ' . $_SERVER['HTTP_REFERER']. "?message=format_error");
                     die();
                 }
         
                 $extension = explode('.', $nameFile);
                 if(!count($extension) <=2 && !in_array(strtolower(end($extension)), $extensions)) {
-                    echo 'format image incorrect';
+                    header('Location: ' . $_SERVER['HTTP_REFERER']. "?message=format_error");
                 }
         
                 $scenarist_name_photo = uniqid() . '.' . $file_type;
             
                 $upload_dir = '../../upload/scenarist/';
                 if(move_uploaded_file($_FILES['photo']['tmp_name'], $upload_dir . $scenarist_name_photo)) {
-                    echo 'le fichier est dans le serveur';// Le fichier a été correctement déplacé
-
-
+                    header('Location: ' . $_SERVER['HTTP_REFERER']. "?message=move_file");
+                    
                     $update_photo=$con->prepare("UPDATE scenarist SET scenarist_photo = ? WHERE ID_scenarist = ?");
                     $update_photo->execute([$scenarist_name_photo, $ID_scenarist]);
                 }else{
-                    echo "problème lors du déplacement de l'image dans le serveur";
+                    header('Location: ' . $_SERVER['HTTP_REFERER']. "?message=move_file_error");
                 }
-            }else{
-                echo "image non modifiée";
             }
-            
-
-
-        
-
-
-
     }
 }
 

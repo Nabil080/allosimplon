@@ -16,11 +16,9 @@ if(isset($_POST['message'])){
         $email_body = join(PHP_EOL, $bodyParagraphs);
         $headers = ['From' => $email, 'Reply-To' => $email, 'Content-type' => 'text/html; charset=utf-8'];
         if (mail($to, $email_subject, $email_body, $headers)){
-            echo 'mail envoyé';
-            echo "<script> alert( 'Le mail a bien été envoyé' ) ; window.location.replace(document.referrer) ; </script>";
+            header('Location: ' . $_SERVER['HTTP_REFERER']. "?message=mail_sent");
             } else {
-            echo "<script> alert( 'Le mail n'a pas pu être envoyé' ) ; window.location.replace(document.referrer) ; </script>";
-                echo 'Oops, c\'est pas envoyé :/';
+                header('Location: ' . $_SERVER['HTTP_REFERER']. "?message=mail_not_sent");
             }
     }
 

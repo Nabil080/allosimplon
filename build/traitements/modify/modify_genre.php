@@ -3,7 +3,7 @@ require_once '../../config/connexion.php';
 
 // Variables + sécurisation
 if(!isset($_POST['submit'])){
-    echo "venez depuis le formulaire de modification du genre";
+    header('Location: ' . $_SERVER['HTTP_REFERER']. "?message=no_form");
 }else{
 $genre_name = htmlspecialchars(strip_tags($_POST['name']), ENT_QUOTES );
 $ID_genre = htmlspecialchars(strip_tags($_POST['ID']),ENT_QUOTES);
@@ -12,9 +12,7 @@ if(isset($_POST['film'])){$ID_film_array = ($_POST['film']);}
 if(
     empty($genre_name)
     ){
-    echo 'un élément est manquant';
-    var_dump($genre_name);
-    var_dump($ID_genre);
+    header('Location: ' . $_SERVER['HTTP_REFERER']. "?message=missing_element");
     }else{
 
         $add_genre_request=$con->prepare(
@@ -41,16 +39,7 @@ if(
             $add_genre_request->execute([ $ID_film, $ID_genre]);
         }
     }
-        echo "Le genre a été modifié.";
-        echo'<br> ID genre : <br>';
-        var_dump($ID_genre);
-        echo'<br> nom du genre : <br>';
-        var_dump($genre_name);
-        echo'<br> ID des films : <br>';
-        var_dump($ID_film_array);
-
-
-
+    header('Location: ' . $_SERVER['HTTP_REFERER']. "?message=update_genre");
     }
 }
 

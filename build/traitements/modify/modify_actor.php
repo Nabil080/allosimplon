@@ -3,17 +3,16 @@ require_once '../../config/connexion.php';
 
 // Variables + sécurisation
 if(!isset($_POST['submit'])){
-    echo "venez depuis le formulaire de modification de l'acteur";
+    header('Location: ' . $_SERVER['HTTP_REFERER']. "?message=no_form");
 }else{
 $actor_name = htmlspecialchars(strip_tags($_POST['name']), ENT_QUOTES );
 $ID_actor = htmlspecialchars(strip_tags($_POST['ID']),ENT_QUOTES);
 $ID_film_array = ($_POST['film']);
-
 if(
     empty($actor_name) ||
     empty($ID_film_array)
     ){
-    echo 'un élément est manquant';
+        header('Location: ' . $_SERVER['HTTP_REFERER']. "?message=missing_element");
     }else{
 
         $add_actor_request=$con->prepare(
@@ -55,44 +54,35 @@ if(
                 $extensions = ['png', 'jpg', 'jpeg', 'gif', 'jiff'];
         
                 if ($sizeFile > $max_size) {
-                    echo "Taille de l'affiche trop importante";
+                    header('Location: ' . $_SERVER['HTTP_REFERER']. "?message=size_error");
                     die();
                 }
             
                 $allowed_types = array('jpg', 'jpeg', 'png', 'gif');
                 $file_type = pathinfo($_FILES['photo']['name'], PATHINFO_EXTENSION);
                 if(!in_array($file_type, $allowed_types)) {
-                    echo 'format image invalide';
+header('Location: ' . $_SERVER['HTTP_REFERER']. "?message=format_error");
                     die();
                 }
         
                 $extension = explode('.', $nameFile);
                 if(!count($extension) <=2 && !in_array(strtolower(end($extension)), $extensions)) {
-                    echo 'format image incorrect';
+header('Location: ' . $_SERVER['HTTP_REFERER']. "?message=format_error");
                 }
         
                 $actor_name_photo = uniqid() . '.' . $file_type;
             
                 $upload_dir = '../../upload/actor/';
                 if(move_uploaded_file($_FILES['photo']['tmp_name'], $upload_dir . $actor_name_photo)) {
-                    echo 'le fichier est dans le serveur';// Le fichier a été correctement déplacé
+                    header('Location: ' . $_SERVER['HTTP_REFERER']. "?message=move_file");
 
 
                     $update_photo=$con->prepare("UPDATE actor SET actor_photo = ? WHERE ID_actor = ?");
                     $update_photo->execute([$actor_name_photo, $ID_actor]);
                 }else{
-                    echo "problème lors du déplacement de l'image dans le serveur";
+                    header('Location: ' . $_SERVER['HTTP_REFERER']. "?message=move_file_error");
                 }
-            }else{
-                echo "image non modifiée";
             }
-            
-
-
-        
-
-
-
     }
 }
 
