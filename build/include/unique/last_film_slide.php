@@ -27,9 +27,6 @@
                     <?php while($film=$request->fetch()){ ?>
                         <div class="h-full relative group">
                             <a href="/portfolio/allosimplon/build/content/film.php?page=<?=$film['ID_film']?>" class="h-full cursor-pointer overflow-hidden">
-                            <div class="hidden lg:block absolute top-1 left-1 text-md p-1 rounded-lg font-bold text-gray-50 lg:group-hover:hidden bg-main-light "><?=$film['film_date']?></div>
-                            <div class="hidden lg:block absolute top-1 right-1 text-md p-1 rounded-lg font-bold text-gray-50 lg:group-hover:hidden"><?php if(isset($_SESSION['ID_user'])){isFilmFav($film['ID_film'],$_SESSION['ID_user'],$film['likes']);}else{ShowFakeFav($film['likes']);}?></div>
-                            <div class="hidden lg:block absolute bottom-2 text-md p-1 rounded-lg font-bold text-gray-50 w-full mx-auto lg:group-hover:hidden"><?php Stars($film['film_grade']);?></div>
                             <!-- OVERLAY!!! -->
                             <div class="hidden lg:block z-50 absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
                                 <div class="relative w-full h-full flex flex-col justify-between">
@@ -57,9 +54,9 @@
                             </div>
                                     <!-- IMAGE -->
                                 <div class="h-96 md:h-[400px] mx-auto w-fit relative">
-                                    <div class="lg:hidden block absolute top-1 left-1 text-md p-1 rounded-lg font-bold text-gray-50 lg:group-hover:hidden bg-main-light "><?=$film['film_date']?></div>
-                                    <div class="lg:hidden block absolute top-1 right-1 text-md p-1 rounded-lg font-bold text-gray-50 lg:group-hover:hidden"><?php if(isset($_SESSION['ID_user'])){isFilmFav($film['ID_film'],$_SESSION['ID_user'],$film['likes']);}else{ShowFakeFav($film['likes']);}?></div>
-                                    <div class="lg:hidden block absolute bottom-2 text-md p-1 rounded-lg font-bold text-gray-50 w-full mx-auto lg:group-hover:hidden"><?php Stars($film['film_grade']);?></div>
+                                    <div class=" block absolute top-1 left-1 text-md p-1 rounded-lg font-bold text-gray-50 lg:group-hover:hidden bg-main-light "><?=$film['film_date']?></div>
+                                    <div class=" block absolute top-1 right-1 text-md p-1 rounded-lg font-bold text-gray-50 lg:group-hover:hidden"><?php if(isset($_SESSION['ID_user'])){isFilmFav($film['ID_film'],$_SESSION['ID_user'],$film['likes']);}else{ShowFakeFav($film['likes']);}?></div>
+                                    <div class=" block absolute bottom-2 text-md p-1 rounded-lg font-bold text-gray-50 w-full mx-auto lg:group-hover:hidden"><?php Stars($film['film_grade']);?></div>
                                     <img src="/portfolio/allosimplon/build/upload/film/<?=$film['film_photo']?>" class="h-full">
                                 </div>
                             </a>
@@ -74,9 +71,6 @@
                     <?php while($film=$request->fetch()){ ?>
                         <div class="h-full relative group">
                             <a href="/portfolio/allosimplon/build/content/film.php?page=<?=$film['ID_film']?>" class="h-full cursor-pointer overflow-hidden">
-                            <div class="hidden lg:block absolute top-1 left-1 text-md p-1 rounded-lg font-bold text-gray-50 lg:group-hover:hidden bg-main-light "><?=$film['film_date']?></div>
-                            <div class="hidden lg:block absolute top-1 right-1 text-md p-1 rounded-lg font-bold text-gray-50 lg:group-hover:hidden"><?php if(isset($_SESSION['ID_user'])){isFilmFav($film['ID_film'],$_SESSION['ID_user'],$film['likes']);}else{ShowFakeFav($film['likes']);}?></div>
-                            <div class="hidden lg:block absolute bottom-2 text-md p-1 rounded-lg font-bold text-gray-50 w-full mx-auto lg:group-hover:hidden"><?php Stars($film['film_grade']);?></div>
                             <!-- OVERLAY!!! -->
                             <div class="hidden lg:block z-50 absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
                                 <div class="relative w-full h-full flex flex-col justify-between">
@@ -104,9 +98,9 @@
                             </div>
                                     <!-- IMAGE -->
                                 <div class="h-96 md:h-[400px] mx-auto w-fit relative">
-                                    <div class="lg:hidden block absolute top-1 left-1 text-md p-1 rounded-lg font-bold text-gray-50 lg:group-hover:hidden bg-main-light "><?=$film['film_date']?></div>
-                                    <div class="lg:hidden block absolute top-1 right-1 text-md p-1 rounded-lg font-bold text-gray-50 lg:group-hover:hidden"><?php if(isset($_SESSION['ID_user'])){isFilmFav($film['ID_film'],$_SESSION['ID_user'],$film['likes']);}else{ShowFakeFav($film['likes']);}?></div>
-                                    <div class="lg:hidden block absolute bottom-2 text-md p-1 rounded-lg font-bold text-gray-50 w-full mx-auto lg:group-hover:hidden"><?php Stars($film['film_grade']);?></div>
+                                    <div class=" block absolute top-1 left-1 text-md p-1 rounded-lg font-bold text-gray-50 lg:group-hover:hidden bg-main-light "><?=$film['film_date']?></div>
+                                    <div class=" block absolute top-1 right-1 text-md p-1 rounded-lg font-bold text-gray-50 lg:group-hover:hidden"><?php if(isset($_SESSION['ID_user'])){isFilmFav($film['ID_film'],$_SESSION['ID_user'],$film['likes']);}else{ShowFakeFav($film['likes']);}?></div>
+                                    <div class=" block absolute bottom-2 text-md p-1 rounded-lg font-bold text-gray-50 w-full mx-auto lg:group-hover:hidden"><?php Stars($film['film_grade']);?></div>
                                     <img src="/portfolio/allosimplon/build/upload/film/<?=$film['film_photo']?>" class="h-full">
                                 </div>
                             </a>
@@ -121,9 +115,6 @@
                     <?php while($film=$request->fetch()){ ?>
                         <div class="h-full relative group">
                             <a href="/portfolio/allosimplon/build/content/film.php?page=<?=$film['ID_film']?>" class="h-full cursor-pointer overflow-hidden">
-                            <div class="hidden lg:block absolute top-1 left-1 text-md p-1 rounded-lg font-bold text-gray-50 lg:group-hover:hidden bg-main-light "><?=$film['film_date']?></div>
-                            <div class="hidden lg:block absolute top-1 right-1 text-md p-1 rounded-lg font-bold text-gray-50 lg:group-hover:hidden"><?php if(isset($_SESSION['ID_user'])){isFilmFav($film['ID_film'],$_SESSION['ID_user'],$film['likes']);}else{ShowFakeFav($film['likes']);}?></div>
-                            <div class="hidden lg:block absolute bottom-2 text-md p-1 rounded-lg font-bold text-gray-50 w-full mx-auto lg:group-hover:hidden"><?php Stars($film['film_grade']);?></div>
                             <!-- OVERLAY!!! -->
                             <div class="hidden lg:block z-50 absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
                                 <div class="relative w-full h-full flex flex-col justify-between">
@@ -151,9 +142,9 @@
                             </div>
                                     <!-- IMAGE -->
                                 <div class="h-96 md:h-[400px] mx-auto w-fit relative">
-                                    <div class="lg:hidden block absolute top-1 left-1 text-md p-1 rounded-lg font-bold text-gray-50 lg:group-hover:hidden bg-main-light "><?=$film['film_date']?></div>
-                                    <div class="lg:hidden block absolute top-1 right-1 text-md p-1 rounded-lg font-bold text-gray-50 lg:group-hover:hidden"><?php if(isset($_SESSION['ID_user'])){isFilmFav($film['ID_film'],$_SESSION['ID_user'],$film['likes']);}else{ShowFakeFav($film['likes']);}?></div>
-                                    <div class="lg:hidden block absolute bottom-2 text-md p-1 rounded-lg font-bold text-gray-50 w-full mx-auto lg:group-hover:hidden"><?php Stars($film['film_grade']);?></div>
+                                    <div class=" block absolute top-1 left-1 text-md p-1 rounded-lg font-bold text-gray-50 lg:group-hover:hidden bg-main-light "><?=$film['film_date']?></div>
+                                    <div class=" block absolute top-1 right-1 text-md p-1 rounded-lg font-bold text-gray-50 lg:group-hover:hidden"><?php if(isset($_SESSION['ID_user'])){isFilmFav($film['ID_film'],$_SESSION['ID_user'],$film['likes']);}else{ShowFakeFav($film['likes']);}?></div>
+                                    <div class=" block absolute bottom-2 text-md p-1 rounded-lg font-bold text-gray-50 w-full mx-auto lg:group-hover:hidden"><?php Stars($film['film_grade']);?></div>
                                     <img src="/portfolio/allosimplon/build/upload/film/<?=$film['film_photo']?>" class="h-full">
                                 </div>
                             </a>
@@ -168,9 +159,6 @@
                     <?php while($film=$request->fetch()){ ?>
                         <div class="h-full relative group">
                             <a href="/portfolio/allosimplon/build/content/film.php?page=<?=$film['ID_film']?>" class="h-full cursor-pointer overflow-hidden">
-                            <div class="hidden lg:block absolute top-1 left-1 text-md p-1 rounded-lg font-bold text-gray-50 lg:group-hover:hidden bg-main-light "><?=$film['film_date']?></div>
-                            <div class="hidden lg:block absolute top-1 right-1 text-md p-1 rounded-lg font-bold text-gray-50 lg:group-hover:hidden"><?php if(isset($_SESSION['ID_user'])){isFilmFav($film['ID_film'],$_SESSION['ID_user'],$film['likes']);}else{ShowFakeFav($film['likes']);}?></div>
-                            <div class="hidden lg:block absolute bottom-2 text-md p-1 rounded-lg font-bold text-gray-50 w-full mx-auto lg:group-hover:hidden"><?php Stars($film['film_grade']);?></div>
                             <!-- OVERLAY!!! -->
                             <div class="hidden lg:block z-50 absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
                                 <div class="relative w-full h-full flex flex-col justify-between">
@@ -198,9 +186,9 @@
                             </div>
                                     <!-- IMAGE -->
                                 <div class="h-96 md:h-[400px] mx-auto w-fit relative">
-                                    <div class="lg:hidden block absolute top-1 left-1 text-md p-1 rounded-lg font-bold text-gray-50 lg:group-hover:hidden bg-main-light "><?=$film['film_date']?></div>
-                                    <div class="lg:hidden block absolute top-1 right-1 text-md p-1 rounded-lg font-bold text-gray-50 lg:group-hover:hidden"><?php if(isset($_SESSION['ID_user'])){isFilmFav($film['ID_film'],$_SESSION['ID_user'],$film['likes']);}else{ShowFakeFav($film['likes']);}?></div>
-                                    <div class="lg:hidden block absolute bottom-2 text-md p-1 rounded-lg font-bold text-gray-50 w-full mx-auto lg:group-hover:hidden"><?php Stars($film['film_grade']);?></div>
+                                    <div class=" block absolute top-1 left-1 text-md p-1 rounded-lg font-bold text-gray-50 lg:group-hover:hidden bg-main-light "><?=$film['film_date']?></div>
+                                    <div class=" block absolute top-1 right-1 text-md p-1 rounded-lg font-bold text-gray-50 lg:group-hover:hidden"><?php if(isset($_SESSION['ID_user'])){isFilmFav($film['ID_film'],$_SESSION['ID_user'],$film['likes']);}else{ShowFakeFav($film['likes']);}?></div>
+                                    <div class=" block absolute bottom-2 text-md p-1 rounded-lg font-bold text-gray-50 w-full mx-auto lg:group-hover:hidden"><?php Stars($film['film_grade']);?></div>
                                     <img src="/portfolio/allosimplon/build/upload/film/<?=$film['film_photo']?>" class="h-full">
                                 </div>
                             </a>
@@ -215,9 +203,6 @@
                     <?php while($film=$request->fetch()){ ?>
                         <div class="h-full relative group">
                             <a href="/portfolio/allosimplon/build/content/film.php?page=<?=$film['ID_film']?>" class="h-full cursor-pointer overflow-hidden">
-                            <div class="hidden lg:block absolute top-1 left-1 text-md p-1 rounded-lg font-bold text-gray-50 lg:group-hover:hidden bg-main-light "><?=$film['film_date']?></div>
-                            <div class="hidden lg:block absolute top-1 right-1 text-md p-1 rounded-lg font-bold text-gray-50 lg:group-hover:hidden"><?php if(isset($_SESSION['ID_user'])){isFilmFav($film['ID_film'],$_SESSION['ID_user'],$film['likes']);}else{ShowFakeFav($film['likes']);}?></div>
-                            <div class="hidden lg:block absolute bottom-2 text-md p-1 rounded-lg font-bold text-gray-50 w-full mx-auto lg:group-hover:hidden"><?php Stars($film['film_grade']);?></div>
                             <!-- OVERLAY!!! -->
                             <div class="hidden lg:block z-50 absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
                                 <div class="relative w-full h-full flex flex-col justify-between">
@@ -245,9 +230,9 @@
                             </div>
                                     <!-- IMAGE -->
                                 <div class="h-96 md:h-[400px] mx-auto w-fit relative">
-                                    <div class="lg:hidden block absolute top-1 left-1 text-md p-1 rounded-lg font-bold text-gray-50 lg:group-hover:hidden bg-main-light "><?=$film['film_date']?></div>
-                                    <div class="lg:hidden block absolute top-1 right-1 text-md p-1 rounded-lg font-bold text-gray-50 lg:group-hover:hidden"><?php if(isset($_SESSION['ID_user'])){isFilmFav($film['ID_film'],$_SESSION['ID_user'],$film['likes']);}else{ShowFakeFav($film['likes']);}?></div>
-                                    <div class="lg:hidden block absolute bottom-2 text-md p-1 rounded-lg font-bold text-gray-50 w-full mx-auto lg:group-hover:hidden"><?php Stars($film['film_grade']);?></div>
+                                    <div class=" block absolute top-1 left-1 text-md p-1 rounded-lg font-bold text-gray-50 lg:group-hover:hidden bg-main-light "><?=$film['film_date']?></div>
+                                    <div class=" block absolute top-1 right-1 text-md p-1 rounded-lg font-bold text-gray-50 lg:group-hover:hidden"><?php if(isset($_SESSION['ID_user'])){isFilmFav($film['ID_film'],$_SESSION['ID_user'],$film['likes']);}else{ShowFakeFav($film['likes']);}?></div>
+                                    <div class=" block absolute bottom-2 text-md p-1 rounded-lg font-bold text-gray-50 w-full mx-auto lg:group-hover:hidden"><?php Stars($film['film_grade']);?></div>
                                     <img src="/portfolio/allosimplon/build/upload/film/<?=$film['film_photo']?>" class="h-full">
                                 </div>
                             </a>
