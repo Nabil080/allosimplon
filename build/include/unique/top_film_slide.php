@@ -46,7 +46,7 @@
                                                 <?=$film['film_time']?>min
                                             </div>
                                             <div class="flex justify-end">
-                                                <?php Stars($film['film_grade'],$film['ID_film']) ?>
+                                                <?php Stars($film['film_grade'],$film['ID_film']);?>
                                             </div>
                                         </div>
                                     </div>
@@ -90,7 +90,7 @@
                                                 <?=$film['film_time']?>min
                                             </div>
                                             <div class="flex justify-end">
-                                                <?php Stars($film['film_grade'],$film['ID_film']) ?>
+                                                <?php Stars($film['film_grade'],$film['ID_film']);?>
                                             </div>
                                         </div>
                                     </div>
@@ -134,7 +134,7 @@
                                                 <?=$film['film_time']?>min
                                             </div>
                                             <div class="flex justify-end">
-                                                <?php Stars($film['film_grade'],$film['ID_film']) ?>
+                                                <?php Stars($film['film_grade'],$film['ID_film']);?>
                                             </div>
                                         </div>
                                     </div>
@@ -178,7 +178,7 @@
                                                 <?=$film['film_time']?>min
                                             </div>
                                             <div class="flex justify-end">
-                                                <?php Stars($film['film_grade'],$film['ID_film']) ?>
+                                                <?php Stars($film['film_grade'],$film['ID_film']);?>
                                             </div>
                                         </div>
                                     </div>
@@ -222,7 +222,7 @@
                                                 <?=$film['film_time']?>min
                                             </div>
                                             <div class="flex justify-end">
-                                                <?php Stars($film['film_grade'],$film['ID_film']) ?>
+                                                <?php Stars($film['film_grade'],$film['ID_film']);?>
                                             </div>
                                         </div>
                                     </div>
@@ -297,7 +297,7 @@
                                                 <?=$film['film_time']?>min
                                             </div>
                                             <div class="flex justify-end">
-                                                <?php Stars($film['film_grade'],$film['ID_film']) ?>
+                                                <?php Stars($film['film_grade'],$film['ID_film']);?>
                                             </div>
                                         </div>
                                     </div>

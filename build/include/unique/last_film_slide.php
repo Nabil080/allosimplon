@@ -46,7 +46,7 @@
                                                 <?=$film['film_time']?>min
                                             </div>
                                             <div class="flex justify-end">
-                                                <?php Stars($film['film_grade']) ?>
+                                                <?php Stars($film['film_grade'],$film['ID_film']);?>
                                             </div>
                                         </div>
                                     </div>
@@ -56,7 +56,7 @@
                                 <div class="h-96 md:h-[400px] md:max-h-[50vh] mx-auto w-fit relative">
                                     <div class=" block absolute top-1 left-1 text-md p-1 rounded-lg font-bold text-gray-50 lg:group-hover:hidden bg-main-light "><?=$film['film_date']?></div>
                                     <div class=" block absolute top-1 right-1 text-md p-1 rounded-lg font-bold text-gray-50 lg:group-hover:hidden"><?php if(isset($_SESSION['ID_user'])){isFilmFav($film['ID_film'],$_SESSION['ID_user'],$film['likes']);}else{ShowFakeFav($film['likes']);}?></div>
-                                    <div class=" block absolute bottom-2 text-md p-1 rounded-lg font-bold text-gray-50 w-full mx-auto lg:group-hover:hidden"><?php Stars($film['film_grade']);?></div>
+                                    <div class=" block absolute bottom-2 text-md p-1 rounded-lg font-bold text-gray-50 w-full mx-auto lg:group-hover:hidden"><?php Stars($film['film_grade'],$film['ID_film']);?></div>
                                     <img src="/portfolio/allosimplon/build/upload/film/<?=$film['film_photo']?>" class="h-full">
                                 </div>
                             </a>
@@ -90,7 +90,7 @@
                                                 <?=$film['film_time']?>min
                                             </div>
                                             <div class="flex justify-end">
-                                                <?php Stars($film['film_grade']) ?>
+                                                <?php Stars($film['film_grade'],$film['ID_film']);?>
                                             </div>
                                         </div>
                                     </div>
@@ -100,7 +100,7 @@
                                 <div class="h-96 md:h-[400px] md:max-h-[50vh] mx-auto w-fit relative">
                                     <div class=" block absolute top-1 left-1 text-md p-1 rounded-lg font-bold text-gray-50 lg:group-hover:hidden bg-main-light "><?=$film['film_date']?></div>
                                     <div class=" block absolute top-1 right-1 text-md p-1 rounded-lg font-bold text-gray-50 lg:group-hover:hidden"><?php if(isset($_SESSION['ID_user'])){isFilmFav($film['ID_film'],$_SESSION['ID_user'],$film['likes']);}else{ShowFakeFav($film['likes']);}?></div>
-                                    <div class=" block absolute bottom-2 text-md p-1 rounded-lg font-bold text-gray-50 w-full mx-auto lg:group-hover:hidden"><?php Stars($film['film_grade']);?></div>
+                                    <div class=" block absolute bottom-2 text-md p-1 rounded-lg font-bold text-gray-50 w-full mx-auto lg:group-hover:hidden"><?php Stars($film['film_grade'],$film['ID_film']);?></div>
                                     <img src="/portfolio/allosimplon/build/upload/film/<?=$film['film_photo']?>" class="h-full">
                                 </div>
                             </a>
@@ -134,7 +134,7 @@
                                                 <?=$film['film_time']?>min
                                             </div>
                                             <div class="flex justify-end">
-                                                <?php Stars($film['film_grade']) ?>
+                                                <?php Stars($film['film_grade'],$film['ID_film']);?>
                                             </div>
                                         </div>
                                     </div>
@@ -144,7 +144,7 @@
                                 <div class="h-96 md:h-[400px] md:max-h-[50vh] mx-auto w-fit relative">
                                     <div class=" block absolute top-1 left-1 text-md p-1 rounded-lg font-bold text-gray-50 lg:group-hover:hidden bg-main-light "><?=$film['film_date']?></div>
                                     <div class=" block absolute top-1 right-1 text-md p-1 rounded-lg font-bold text-gray-50 lg:group-hover:hidden"><?php if(isset($_SESSION['ID_user'])){isFilmFav($film['ID_film'],$_SESSION['ID_user'],$film['likes']);}else{ShowFakeFav($film['likes']);}?></div>
-                                    <div class=" block absolute bottom-2 text-md p-1 rounded-lg font-bold text-gray-50 w-full mx-auto lg:group-hover:hidden"><?php Stars($film['film_grade']);?></div>
+                                    <div class=" block absolute bottom-2 text-md p-1 rounded-lg font-bold text-gray-50 w-full mx-auto lg:group-hover:hidden"><?php Stars($film['film_grade'],$film['ID_film']);?></div>
                                     <img src="/portfolio/allosimplon/build/upload/film/<?=$film['film_photo']?>" class="h-full">
                                 </div>
                             </a>
@@ -178,7 +178,7 @@
                                                 <?=$film['film_time']?>min
                                             </div>
                                             <div class="flex justify-end">
-                                                <?php Stars($film['film_grade']) ?>
+                                                <?php Stars($film['film_grade'],$film['ID_film']);?>
                                             </div>
                                         </div>
                                     </div>
@@ -188,7 +188,7 @@
                                 <div class="h-96 md:h-[400px] md:max-h-[50vh] mx-auto w-fit relative">
                                     <div class=" block absolute top-1 left-1 text-md p-1 rounded-lg font-bold text-gray-50 lg:group-hover:hidden bg-main-light "><?=$film['film_date']?></div>
                                     <div class=" block absolute top-1 right-1 text-md p-1 rounded-lg font-bold text-gray-50 lg:group-hover:hidden"><?php if(isset($_SESSION['ID_user'])){isFilmFav($film['ID_film'],$_SESSION['ID_user'],$film['likes']);}else{ShowFakeFav($film['likes']);}?></div>
-                                    <div class=" block absolute bottom-2 text-md p-1 rounded-lg font-bold text-gray-50 w-full mx-auto lg:group-hover:hidden"><?php Stars($film['film_grade']);?></div>
+                                    <div class=" block absolute bottom-2 text-md p-1 rounded-lg font-bold text-gray-50 w-full mx-auto lg:group-hover:hidden"><?php Stars($film['film_grade'],$film['ID_film']);?></div>
                                     <img src="/portfolio/allosimplon/build/upload/film/<?=$film['film_photo']?>" class="h-full">
                                 </div>
                             </a>
@@ -222,7 +222,7 @@
                                                 <?=$film['film_time']?>min
                                             </div>
                                             <div class="flex justify-end">
-                                                <?php Stars($film['film_grade']) ?>
+                                                <?php Stars($film['film_grade'],$film['ID_film']);?>
                                             </div>
                                         </div>
                                     </div>
@@ -232,7 +232,7 @@
                                 <div class="h-96 md:h-[400px] md:max-h-[50vh] mx-auto w-fit relative">
                                     <div class=" block absolute top-1 left-1 text-md p-1 rounded-lg font-bold text-gray-50 lg:group-hover:hidden bg-main-light "><?=$film['film_date']?></div>
                                     <div class=" block absolute top-1 right-1 text-md p-1 rounded-lg font-bold text-gray-50 lg:group-hover:hidden"><?php if(isset($_SESSION['ID_user'])){isFilmFav($film['ID_film'],$_SESSION['ID_user'],$film['likes']);}else{ShowFakeFav($film['likes']);}?></div>
-                                    <div class=" block absolute bottom-2 text-md p-1 rounded-lg font-bold text-gray-50 w-full mx-auto lg:group-hover:hidden"><?php Stars($film['film_grade']);?></div>
+                                    <div class=" block absolute bottom-2 text-md p-1 rounded-lg font-bold text-gray-50 w-full mx-auto lg:group-hover:hidden"><?php Stars($film['film_grade'],$film['ID_film']);?></div>
                                     <img src="/portfolio/allosimplon/build/upload/film/<?=$film['film_photo']?>" class="h-full">
                                 </div>
                             </a>
@@ -298,7 +298,7 @@
                                                 <?=$film['film_time']?>min
                                             </div>
                                             <div class="flex justify-end">
-                                                <?php Stars($film['film_grade']) ?>
+                                                <?php Stars($film['film_grade'],$film['ID_film']);?>
                                             </div>
                                         </div>
                                     </div>
@@ -308,7 +308,7 @@
                                 <div class="h-96 md:h-[400px] md:max-h-[50vh] mx-auto w-fit relative">
                                     <div class="block absolute top-1 left-1 text-md p-1 rounded-lg font-bold text-gray-50 lg:group-hover:hidden bg-main-light "><?=$film['film_date']?></div>
                                     <div class="block absolute top-1 right-1 text-md p-1 rounded-lg font-bold text-gray-50 lg:group-hover:hidden"><?php if(isset($_SESSION['ID_user'])){isFilmFav($film['ID_film'],$_SESSION['ID_user'],$film['likes']);}else{ShowFakeFav($film['likes']);}?></div>
-                                    <div class="block absolute bottom-2 text-md p-1 rounded-lg font-bold text-gray-50 w-full mx-auto lg:group-hover:hidden"><?php Stars($film['film_grade']);?></div>
+                                    <div class="block absolute bottom-2 text-md p-1 rounded-lg font-bold text-gray-50 w-full mx-auto lg:group-hover:hidden"><?php Stars($film['film_grade'],$film['ID_film']);?></div>
                                     <img src="/portfolio/allosimplon/build/upload/film/<?=$film['film_photo']?>" class="h-full">
                                 </div>
                             </a>
