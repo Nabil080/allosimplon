@@ -12,7 +12,11 @@ if(
     empty($actor_name) ||
     empty($ID_film_array)
     ){
-        header('Location: ' . $_SERVER['HTTP_REFERER']. "?&message=missing_element");
+        if(strpos($_SERVER['HTTP_REFERER'],"?")){
+            header('Location: ' . $_SERVER['HTTP_REFERER']. "&message=missing_element");
+            }else{
+            header('Location: ' . $_SERVER['HTTP_REFERER']. "?message=missing_element");
+            }
     }else{
 
         $add_actor_request=$con->prepare(

@@ -46,10 +46,13 @@
 
 
 </nav>
+<div class="mt-28">
+<?php var_dump($_SESSION)?>
+            </div>
 
 <?php
 if(!empty($_GET['message'])){?>
-<button id="message_box" class="fixed top-[10%] right-16 px-5 py-2 md:px-10 md:py-5 bg-main-light bg-opacity-80 z-50 animate-bounce rounded-lg hover:bg-main-hover" onclick="Delete(this)">
+<button id="message_box" class="duration-500 ease-linear fixed top-[10%] right-16 px-5 py-2 md:px-10 md:py-5 bg-main-light bg-opacity-80 z-50 animate-bounce rounded-lg hover:bg-main-hover" onclick="Delete(this)">
     <?php
     if($_GET['message']=="no_form"){echo'Venez depuis un formulaire !';}
     if($_GET['message']=="missing_element"){echo'Un élément est manquant !';}
@@ -77,9 +80,12 @@ if(!empty($_GET['message'])){?>
     menu.classList.toggle('hidden')
     }
     setTimeout(function() {
-    var message_box = document.getElementById("message_box");
+  var message_box = document.getElementById("message_box");
+  message_box.classList.add("opacity-0");
+  setTimeout(function() {
     message_box.remove();
-  }, 4000);
+  }, 500);
+}, 3000);
 
 </script>
 <?php }?>

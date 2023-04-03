@@ -13,17 +13,29 @@ $ID = $_SESSION['ID_user'];
 // var_dump($password);
 if(empty($pseudo) || strlen($pseudo) > 10){
     $errors['pseudo']="Pseudo trop long ou invalide (16 charactères maximum)";
-    header('Location: ' . $_SERVER['HTTP_REFERER']. "?&message=size_pseudo");
+    if(strpos($_SERVER['HTTP_REFERER'],"?")){
+        header('Location: ' . $_SERVER['HTTP_REFERER']. "&message=size_pseudo");
+        }else{
+        header('Location: ' . $_SERVER['HTTP_REFERER']. "?message=size_pseudo");
+        }
 
 }else{
 if(password_verify($password,$_SESSION['user_password'])){
         $request=$con->prepare("UPDATE user SET user_pseudo = ? WHERE ID_user = $ID");
         $request->execute([$pseudo]);
         $_SESSION['user_pseudo']=$pseudo;
-    header('Location: ' . $_SERVER['HTTP_REFERER']. "?&message=update_pseudo");
+        if(strpos($_SERVER['HTTP_REFERER'],"?")){
+            header('Location: ' . $_SERVER['HTTP_REFERER']. "&message=update_pseudo");
+            }else{
+            header('Location: ' . $_SERVER['HTTP_REFERER']. "?message=update_pseudo");
+            }
 }else{
     $errors['password']="Mot de passe incorrect";
-    header('Location: ' . $_SERVER['HTTP_REFERER']. "?&message=wrong_password");
+    if(strpos($_SERVER['HTTP_REFERER'],"?")){
+        header('Location: ' . $_SERVER['HTTP_REFERER']. "&message=wrong_password");
+        }else{
+        header('Location: ' . $_SERVER['HTTP_REFERER']. "?message=wrong_password");
+        }
 }
 }
 ?>
