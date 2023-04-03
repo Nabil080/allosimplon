@@ -46,9 +46,7 @@
 
 
 </nav>
-<div class="mt-28">
-<?php var_dump($_SESSION)?>
-            </div>
+
 
 <?php
 if(!empty($_GET['message'])){?>

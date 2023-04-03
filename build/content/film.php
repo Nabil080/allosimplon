@@ -19,19 +19,20 @@ require_once '../config/functions.php';
         tailwind.config = {
             theme: {
     extend: {
-      colors:{
-        'main': {
-          light: '#00A9A5',
-          default: '#0B5351',
-           dark: '#092327',
-          hover: '#1B7673',
-      },
-      }
+    colors:{
+    'main': {
+        light: '#00A9A5',
+        default: '#0B5351',
+        // dark: '#092327',
+        dark: '#051315',
+        hover: '#1B7673',
     },
-  },
-        }
-      </script>
-    <title>Cinemet</title>
+    }
+},
+},
+    }
+    </script>
+<title>Cinemet</title>
 </head>
 
 <?php 
@@ -284,36 +285,56 @@ $comment_count= $comment_request->rowCount() ?>
             </button>
             <!-- Dropdown menu -->
             <div id="dropdownComment"
-            class="hidden z-10 w-36  rounded divide-y  shadow bg-main-dark divide-gray-600">
-            <form method="post" action="/portfolio/allosimplon/build/traitements/manage_comment.php">
-                <ul class="py-1 text-sm  text-gray-200"
+            class="hidden z-10 w-fit  rounded divide-y  shadow bg-main-dark divide-gray-600">
+            
+                <ul class="py-1  text-sm  text-gray-200"
                     aria-labelledby="dropdownMenuIconHorizontalButton">
                     <?php if($comment['ID_user']==$_SESSION['ID_user']){?>
                     <li>
-                        <button type="submit" name="modify_comment"
-                            class="block py-2 px-4  hover:bg-gray-600 hover:text-white">Modifier</a>
+                        <button onclick="SwitchComment()"
+                            class="block py-2 px-8 w-full hover:bg-gray-600 hover:text-white">Modifier</a>
                     </li>
                     <?php } ?>
+            <form method="post" action="/portfolio/allosimplon/build/traitements/manage_comment.php">
                     <?php if($comment['ID_user']==$_SESSION['ID_user'] || $_SESSION['ID_role'] == 1){?>
                     <li>
                         <button type="submit" name="delete_comment"
-                            class="block py-2 px-4  hover:bg-gray-600 hover:text-white">Supprimer</a>
+                            class="block py-2 px-8 w-full  hover:bg-gray-600 hover:text-white">Supprimer</a>
                     </li>
                     <?php } ?>
                     <li>
                         <button type="submit" name="report_comment"
-                            class="block py-2 px-4  hover:bg-gray-600 hover:text-white">Signaler</a>
+                            class="block py-2 px-8 w-full hover:bg-gray-600 hover:text-white">Signaler</a>
                     </li>
                 </ul>
                 <input class="hidden" name="ID_comment" value="<?=$comment['ID_comment']?>">
             </form>
         </div>
         </footer>
-        <p class=" text-gray-400"><?=$comment['comment_message']?></p>
+        <p id="old_comment" class="text-gray-400"><?=$comment['comment_message']?></p>
+        <form id="new_comment" class="hidden" method="post" action="/portfolio/allosimplon/build/traitements/manage_comment.php">
+            <input class="hidden" name="ID_comment" value="<?=$comment['ID_comment']?>">
+            <textarea name="modified_comment" class=" text-gray-400 bg-transparent border-main-light rounded-lg p-2 w-full"><?=$comment['comment_message']?></textarea>
+            <button type="submit" name="modify_comment" class="inline-flex items-center py-2.5 px-4 mt-2 text-xs font-medium text-center text-white bg-main-light rounded-lg focus:ring-4 focus:ring-primary-200 focus:ring-primary-900 hover:bg-primary-800">Modifier le commentaire</button>
+        </form>
     </article>
     <?php } ?>
     </div>
 </section>
+
+<script>
+function SwitchComment() {
+    var div1 = document.getElementById("old_comment");
+    var div2 = document.getElementById("new_comment");
+    if (div1.style.display === "block") {
+    div1.style.display = "none";
+    div2.style.display = "block";
+    } else {
+    div1.style.display = "block";
+    div2.style.display = "none";
+    }
+}
+</script>
 
 
 

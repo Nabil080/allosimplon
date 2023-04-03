@@ -1,20 +1,20 @@
 <?php
 session_start();
 require_once '../config/connexion.php';
-if(isset($_POST['modify_comment'])){
+if(isset($_POST['modified_comment'])){
     // handle modify comment action
     $ID_comment = $_POST['ID_comment'];
-    $new_message = htmlspecialchars(strip_tags($_POST['new_message']), ENT_QUOTES);
-    if(empty($new_message)){
+    $modified_comment = trim(htmlspecialchars(strip_tags($_POST['modified_comment']), ENT_QUOTES));
+    if(empty($modified_comment)){
         if(strpos($_SERVER['HTTP_REFERER'],"?")){
-            header('Location: ' . $_SERVER['HTTP_REFERER']. "&message=delete_comment");
+            header('Location: ' . $_SERVER['HTTP_REFERER']. "&message=missing_element");
             }else{
-            header('Location: ' . $_SERVER['HTTP_REFERER']. "?message=delete_comment");
+            header('Location: ' . $_SERVER['HTTP_REFERER']. "?message=missing_element");
             }
         die();
     }else{
         $update_comment_request=$con->prepare("UPDATE comment SET comment_message = ? WHERE ID_comment = ?");
-        $update_comment_request->execute([$new_message, $ID_comment]);
+        $update_comment_request->execute([$modified_comment, $ID_comment]);
         if(strpos($_SERVER['HTTP_REFERER'],"?")){
             header('Location: ' . $_SERVER['HTTP_REFERER']. "&message=update_comment");
             }else{
