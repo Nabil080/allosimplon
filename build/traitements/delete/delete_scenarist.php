@@ -2,8 +2,7 @@
 require_once '../../config/connexion.php';
 
 if(empty($_POST['ID'])){
-    echo "Il manque l'ID du scénariste que vous souhaitez supprimer !";
-    echo "<script>alert('Le scénariste a bien été supprimé!'); window.location.replace(document.referrer);</script>";
+    header('Location: ' . $_SERVER['HTTP_REFERER']. "?&message=no_form");
     die();
 }else{
 // DEFINITIONS DES VARIABLES
@@ -19,9 +18,9 @@ $delete_scenarist_film->execute([$ID_scenarist]);
 $delete_scenarist=$con->prepare("DELETE FROM scenarist WHERE ID_scenarist = ?");
 $delete_scenarist->execute([$ID_scenarist]);
 
-echo "Le scénariste a bien été supprimé ! ", "<br> var_dump post en bas là ! "; 
 var_dump($_POST);
-echo "<script>alert('Le scénariste a bien été supprimé!'); window.location.replace(document.referrer);</script>";
+header('Location: ' . $_SERVER['HTTP_REFERER']. "?&message=delete_scenarist");
+
 
 }
 

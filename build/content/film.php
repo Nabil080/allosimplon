@@ -268,7 +268,7 @@ $comment_count= $comment_request->rowCount() ?>
             <div class="flex items-center">
                 <p class="inline-flex items-center capitalize text-sm  text-gray-50"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="mr-3 w-8 h-8">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z" />
-                    </svg><?=$comment['comment_pseudo']?></p>
+                    </svg><?php $ID_user = $comment['ID_user'];$comment_pseudo_request=$con->prepare("SELECT user_pseudo FROM user WHERE ID_user = $ID_user");$comment_pseudo_request->execute();$comment_pseudo=$comment_pseudo_request->fetch();?><?=$comment_pseudo[0]?></p>
                 <p class="text-sm ml-3 text-gray-400"><time pubdate datetime="2022-06-23"
                         title="June 23rd, 2022"><?=$date->format('d.M.Y H:i')?></time></p>
             </div>
@@ -293,6 +293,8 @@ $comment_count= $comment_request->rowCount() ?>
                         <button type="submit" name="modify_comment"
                             class="block py-2 px-4  hover:bg-gray-600 hover:text-white">Modifier</a>
                     </li>
+                    <?php } ?>
+                    <?php if($comment['ID_user']==$_SESSION['ID_user'] || $_SESSION['ID_role'] == 1){?>
                     <li>
                         <button type="submit" name="delete_comment"
                             class="block py-2 px-4  hover:bg-gray-600 hover:text-white">Supprimer</a>

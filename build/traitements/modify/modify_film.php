@@ -3,7 +3,7 @@ require_once '../../config/connexion.php';
 
 // Variables + sécurisation
 if(!isset($_POST['submit'])){
-    header('Location: ' . $_SERVER['HTTP_REFERER']. "?message=no_form");
+    header('Location: ' . $_SERVER['HTTP_REFERER']. "?&message=no_form");
 }else{
 $film_name = htmlspecialchars(strip_tags($_POST['name']), ENT_QUOTES );
 $film_date = htmlspecialchars(strip_tags($_POST['date']), ENT_QUOTES );
@@ -30,7 +30,7 @@ if(
     empty($ID_genre_array) ||
     empty($ID_scenarist_array)
     ){
-        header('Location: ' . $_SERVER['HTTP_REFERER']. "?message=missing_element");
+        header('Location: ' . $_SERVER['HTTP_REFERER']. "?&message=missing_element");
     }else{
 
         $add_film_request=$con->prepare(
@@ -98,7 +98,7 @@ if(
         ]);
     }
     
-    header('Location: ' . $_SERVER['HTTP_REFERER']. "?message=update_film");
+    header('Location: ' . $_SERVER['HTTP_REFERER']. "?&message=update_film");
             // VERIFICATION PHOTO AFFICHE
             if (isset($_FILES['photo']['name']) && $_FILES['photo']['error'] == 0) {
                 $nameFile = $_FILES['photo']['name'];
@@ -111,27 +111,27 @@ if(
                 $extensions = ['png', 'jpg', 'jpeg', 'gif', 'jiff'];
         
                 if ($sizeFile > $max_size) {
-header('Location: ' . $_SERVER['HTTP_REFERER']. "?message=size_error");
+header('Location: ' . $_SERVER['HTTP_REFERER']. "?&message=size_error");
                     die();
                 }
             
                 $allowed_types = array('jpg', 'jpeg', 'png', 'gif');
                 $file_type = pathinfo($_FILES['photo']['name'], PATHINFO_EXTENSION);
                 if(!in_array($file_type, $allowed_types)) {
-header('Location: ' . $_SERVER['HTTP_REFERER']. "?message=format_error");
+header('Location: ' . $_SERVER['HTTP_REFERER']. "?&message=format_error");
                     die();
                 }
         
                 $extension = explode('.', $nameFile);
                 if(!count($extension) <=2 && !in_array(strtolower(end($extension)), $extensions)) {
-header('Location: ' . $_SERVER['HTTP_REFERER']. "?message=format_error");
+header('Location: ' . $_SERVER['HTTP_REFERER']. "?&message=format_error");
                 }
         
                 $film_name_photo = uniqid() . '.' . $file_type;
             
                 $upload_dir = '../../upload/film/';
                 if(move_uploaded_file($_FILES['photo']['tmp_name'], $upload_dir . $film_name_photo)) {
-                    header('Location: ' . $_SERVER['HTTP_REFERER']. "?message=missing_element");
+                    header('Location: ' . $_SERVER['HTTP_REFERER']. "?&message=missing_element");
 // Le fichier a été correctement déplacé
 
 
@@ -151,27 +151,27 @@ header('Location: ' . $_SERVER['HTTP_REFERER']. "?message=format_error");
                 $extensions = ['png', 'jpg', 'jpeg', 'gif', 'jiff'];
         
                 if ($sizeFile > $max_size) {
-header('Location: ' . $_SERVER['HTTP_REFERER']. "?message=size_error");
+header('Location: ' . $_SERVER['HTTP_REFERER']. "?&message=size_error");
                     die();
                 }
             
                 $allowed_types = array('jpg', 'jpeg', 'png', 'gif');
                 $file_type = pathinfo($_FILES['background']['name'], PATHINFO_EXTENSION);
                 if(!in_array($file_type, $allowed_types)) {
-header('Location: ' . $_SERVER['HTTP_REFERER']. "?message=format_error");
+header('Location: ' . $_SERVER['HTTP_REFERER']. "?&message=format_error");
                     die();
                 }
         
                 $extension = explode('.', $nameFile);
                 if(!count($extension) <=2 && !in_array(strtolower(end($extension)), $extensions)) {
-header('Location: ' . $_SERVER['HTTP_REFERER']. "?message=format_error");
+header('Location: ' . $_SERVER['HTTP_REFERER']. "?&message=format_error");
                 }
         
                 $film_name_background = uniqid() . '.' . $file_type;
             
                 $upload_dir = '../../upload/film/';
                 if(move_uploaded_file($_FILES['background']['tmp_name'], $upload_dir . $film_name_background)) {
-                    header('Location: ' . $_SERVER['HTTP_REFERER']. "?message=move_file");
+                    header('Location: ' . $_SERVER['HTTP_REFERER']. "?&message=move_file");
                     $update_background=$con->prepare("UPDATE film SET film_background = ? WHERE ID_film = ?");
                     $update_background->execute([$film_name_background, $ID_film]);
                 }

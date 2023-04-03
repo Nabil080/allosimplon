@@ -3,7 +3,7 @@ require_once '../../config/connexion.php';
 
 // Variables + sécurisation
 if(!isset($_POST['submit'])){
-    header('Location: ' . $_SERVER['HTTP_REFERER']. "?message=no_form");
+    header('Location: ' . $_SERVER['HTTP_REFERER']. "?&message=no_form");
 }else{
 $user_pseudo = htmlspecialchars(strip_tags($_POST['pseudo']), ENT_QUOTES );
 $user_email = htmlspecialchars(strip_tags($_POST['email']), ENT_QUOTES );
@@ -17,7 +17,7 @@ if(
     empty($ID_role) ||
     empty($ID_film_array)
     ){
-    header('Location: ' . $_SERVER['HTTP_REFERER']. "?message=missing_element");
+    header('Location: ' . $_SERVER['HTTP_REFERER']. "?&message=missing_element");
     }else{
 
         $add_user_request=$con->prepare(
@@ -42,7 +42,7 @@ if(
             ID_film = ?, ID_user = ? ");
         $add_user_request->execute([ $ID_film, $ID_user]);
     }
-    header('Location: ' . $_SERVER['HTTP_REFERER']. "?message=update_user");
+    header('Location: ' . $_SERVER['HTTP_REFERER']. "?&message=update_user");
     }
 }
 

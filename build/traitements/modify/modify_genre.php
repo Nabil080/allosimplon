@@ -3,7 +3,7 @@ require_once '../../config/connexion.php';
 
 // Variables + sécurisation
 if(!isset($_POST['submit'])){
-    header('Location: ' . $_SERVER['HTTP_REFERER']. "?message=no_form");
+    header('Location: ' . $_SERVER['HTTP_REFERER']. "?&message=no_form");
 }else{
 $genre_name = htmlspecialchars(strip_tags($_POST['name']), ENT_QUOTES );
 $ID_genre = htmlspecialchars(strip_tags($_POST['ID']),ENT_QUOTES);
@@ -12,7 +12,7 @@ if(isset($_POST['film'])){$ID_film_array = ($_POST['film']);}
 if(
     empty($genre_name)
     ){
-    header('Location: ' . $_SERVER['HTTP_REFERER']. "?message=missing_element");
+    header('Location: ' . $_SERVER['HTTP_REFERER']. "?&message=missing_element");
     }else{
 
         $add_genre_request=$con->prepare(
@@ -39,7 +39,7 @@ if(
             $add_genre_request->execute([ $ID_film, $ID_genre]);
         }
     }
-    header('Location: ' . $_SERVER['HTTP_REFERER']. "?message=update_genre");
+    header('Location: ' . $_SERVER['HTTP_REFERER']. "?&message=update_genre");
     }
 }
 

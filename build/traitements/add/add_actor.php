@@ -59,7 +59,6 @@ if(empty($actor_name)){
         var_dump ($add_actor_request);
 
         header('Location: ../../content/crud.php');
-        
 
     }else{
         echo "Le fichier n'a pas pu être déplacé dans le serveur";

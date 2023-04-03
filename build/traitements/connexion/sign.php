@@ -12,7 +12,7 @@ $errors = array();
 // verif syntaxe email
 if(empty($email) || !filter_var($email,FILTER_VALIDATE_EMAIL)){
     $errors['email']="L'email est invalide";
-    header('Location: ' . $_SERVER['HTTP_REFERER']. "?message=mail_invalid");
+    header('Location: ' . $_SERVER['HTTP_REFERER']. "?&message=mail_invalid");
 }else{
     // verif email unique
     $verif_mail=$con->prepare("SELECT ID_user FROM user WHERE user_email = ? ");
@@ -20,19 +20,20 @@ if(empty($email) || !filter_var($email,FILTER_VALIDATE_EMAIL)){
     $email_row=$verif_mail->fetch();
     if($email_row){
         $errors['email']="L'adresse mail existe déjà";
-        header('Location: ' . $_SERVER['HTTP_REFERER']. "?message=mail_existing");
+        header('Location: ' . $_SERVER['HTTP_REFERER']. "?&message=mail_existing");
+        
     }
 }
 if(empty($password) || $password!=$password_verif
 // || !preg_match('/^(?=.{8,}$)(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\W).*$/',$password)
 ){
     $errors['mdp']="Les mots de passes ne sont pas assez forts ou ne correspondent pas.";
-    header('Location: ' . $_SERVER['HTTP_REFERER']. "?message=size_verif_password");
+    header('Location: ' . $_SERVER['HTTP_REFERER']. "?&message=size_verif_password");
 }
 
 if(empty($pseudo) || strlen($pseudo) > 10){
     $errors['pseudo']="Pseudo trop long ou invalide (16 charactères maximum)";
-    header('Location: ' . $_SERVER['HTTP_REFERER']. "?message=size_pseudo");
+    header('Location: ' . $_SERVER['HTTP_REFERER']. "?&message=size_pseudo");
 }
 
 if(empty($errors)){
@@ -40,7 +41,7 @@ if(empty($errors)){
     $request=$con->prepare("INSERT INTO user SET user_pseudo = ?, user_email = ?, user_password = ?, ID_role = ?");
     $password_hash=password_hash($password,PASSWORD_BCRYPT);
     $request->execute([$pseudo, $email, $password_hash, 2]);
-    header('Location: ' . $_SERVER['HTTP_REFERER']. "?message=inscrit");
+    header('Location: ' . $_SERVER['HTTP_REFERER']. "?&message=inscrit");
 }
 
 ?>
