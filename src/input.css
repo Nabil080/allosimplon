@@ -23,7 +23,7 @@
     justify-content: center;
     gap: 1rem;
 }
-.far {
+.fari {
     text-align: center;
     width: 60px;
     font-size:20px ;
@@ -33,7 +33,7 @@
     background: rgba(25, 25, 25, 0.8);
   }
 
-  .far:hover{
+  .fari:hover{
     background: rgb(11, 78, 78);
   }
 
@@ -49,4 +49,6 @@
     width: 100%;
     background:blur(8px);
 } */
+
+
 

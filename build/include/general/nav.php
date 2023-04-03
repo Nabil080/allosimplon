@@ -71,6 +71,8 @@ if(!empty($_GET['message'])){?>
     if($_GET['message']=="add_comment"){echo'Commentaire ajouté !';}
     if($_GET['message']=="update_comment"){echo'Commentaire modifié !';}
     if($_GET['message']=="report_comment"){echo'Commentaire signalé !';}
+    if($_GET['message']=="add_note"){echo'Note ajouté !';}
+    if($_GET['message']=="update_note"){echo'Note modifié !';}
     ?>
 </button>
 <script>
