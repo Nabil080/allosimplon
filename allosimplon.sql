@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : dim. 02 avr. 2023 à 14:24
+-- Généré le : lun. 03 avr. 2023 à 19:42
 -- Version du serveur : 8.0.31
 -- Version de PHP : 8.0.26
 
@@ -137,19 +137,30 @@ CREATE TABLE IF NOT EXISTS `comment` (
   `comment_pseudo` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `comment_reports` int DEFAULT '0',
   PRIMARY KEY (`ID_comment`)
-) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `comment`
 --
 
 INSERT INTO `comment` (`ID_comment`, `comment_message`, `ID_user`, `comment_date`, `ID_film`, `comment_pseudo`, `comment_reports`) VALUES
-(1, 'Salut c&#039;est mon commentaire\r\n', 7, '2023-04-02 13:47:14', 1, '', 0),
-(3, 'amdin\r\n', 7, '2023-04-02 13:56:11', 42, 'nabilnabil', 0),
+(1, 'commentaire modifié', 7, '2023-04-02 13:47:14', 1, '', 0),
+(19, 'dzadza', 25, '2023-04-03 11:10:31', 53, 'Papi', 0),
+(3, 'il est 54', 7, '2023-04-03 13:54:03', 42, 'nabilnabil', 0),
 (4, 'Inception c&#039;est sympa\r\n', 7, '2023-04-02 14:00:45', 49, 'nabilnabil', 1),
 (5, 'en vrai ouais\r\n', 7, '2023-04-02 14:01:00', 49, 'nabilnabil', 0),
 (6, 'miam commentaire', 7, '2023-04-02 14:01:49', 49, 'nabilnabil', 0),
-(7, 'cool avatar!\r\n', 7, '2023-04-02 14:23:02', 42, 'nabilnabil', 0);
+(7, 'cool avatar!\r\n', 7, '2023-04-02 14:23:02', 42, 'nabilnabil', 0),
+(18, ' ', 7, '2023-04-03 09:24:43', 49, 'admin', 0);
+
+--
+-- Déclencheurs `comment`
+--
+DROP TRIGGER IF EXISTS `update_timestamp`;
+DELIMITER $$
+CREATE TRIGGER `update_timestamp` BEFORE UPDATE ON `comment` FOR EACH ROW SET NEW.comment_date = CURRENT_TIMESTAMP
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -183,31 +194,31 @@ CREATE TABLE IF NOT EXISTS `film` (
 --
 
 INSERT INTO `film` (`ID_film`, `film_name`, `film_date`, `film_photo`, `film_video`, `film_grade`, `film_description`, `film_time`, `film_background`, `admin_id`, `admin_pseudo`, `likes`) VALUES
-(1, 'Blade runner', 2017, '642151d0ac6c2.jpg', 'https://www.youtube.com/embed/FfRPKYwsFNg', '8.1', 'L&#039;action du film se situe à Los Angeles en 2019 et met en scène Rick Deckard (interprété par Harrison Ford), un ancien policier qui reprend du service pour traquer un groupe de réplicants, des androïdes créés à l&#039;image de l&#039;Homme, menés par l&#039;énigmatique Roy Batty (interprété par Rutger Hauer).', 163, '642151d0ad388.jpg', 0, '', 2),
-(2, 'Interstellar', 2014, '642166c90aaee.jpg', 'https://www.youtube.com/embed/VaOijhK3CRU', '8.6', 'Dans un proche futur, la Terre est devenue hostile pour l&#039;homme. Les tempêtes de sable sont fréquentes et il n&#039;y a plus que le maïs qui peut être cultivé, en raison d&#039;un sol trop aride. Cooper est un pilote, recyclé en agriculteur, qui vit avec son fils et sa fille dans la ferme familiale. Lorsqu&#039;une force qu&#039;il ne peut expliquer lui indique les coordonnées d&#039;une division secrète de la NASA, il est alors embarqué dans une expédition pour sauver l&#039;humanité.', 169, '642151dcebc26.jpg', 0, '', 3),
-(39, 'The Dark Knight', 2008, '64215744b7d9e.jpg', 'https://www.youtube.com/embed/EXeTwQWrcwY', '9.0', 'Batman est plus que jamais déterminé à éradiquer le crime organisé qui sème la terreur en ville. Epaulé par le lieutenant Jim Gordon et par le procureur de Gotham City, Harvey Dent, Batman voit son champ d&#039;action s&#039;élargir. La collaboration des trois hommes s&#039;avère très efficace et ne tarde pas à porter ses fruits jusqu&#039;à ce qu&#039;un criminel redoutable vienne plonger la ville de Gotham City dans le chaos.', 152, '64215744b7fed.jpg', 0, '', 3),
-(40, 'Avengers: Endgame', 2019, '64215a62c8bb8.jpg', 'https://www.youtube.com/embed/TcMBFSGVi1c', '8.4', 'Le Titan Thanos, ayant réussi à s&#039;approprier les six Pierres d&#039;Infinité et à les réunir sur le Gantelet doré, a pu réaliser son objectif de pulvériser la moitié de la population de l&#039;Univers. Cinq ans plus tard, Scott Lang, alias Ant-Man, parvient à s&#039;échapper de la dimension subatomique où il était coincé. Il propose aux Avengers une solution pour faire revenir à la vie tous les êtres disparus, dont leurs alliés et coéquipiers : récupérer les Pierres d&#039;Infinité dans le passé.', 181, '6421926e8a7c8.jpg', 0, '', 1),
-(41, 'Titanic', 1997, '64215ce7a9f98.jpg', 'https://www.youtube.com/embed/cIJ8ma0kKtY', '7.9', 'En 1997, l&#039;épave du Titanic est l&#039;objet d&#039;une exploration fiévreuse, menée par des chercheurs de trésor en quête d&#039;un diamant bleu qui se trouvait à bord. Frappée par un reportage télévisé, l&#039;une des rescapées du naufrage, âgée de 102 ans, Rose DeWitt, se rend sur place et évoque ses souvenirs. 1912. Fiancée à un industriel arrogant, Rose croise sur le bateau un artiste sans le sou.', 195, '64215ce7aa53e.jpg', 0, '', 1),
-(42, 'Avatar', 2009, '64219f6300cae.jpg', 'https://www.youtube.com/embed/5PSNL1qE6VY', '7.9', 'Sur le monde extraterrestre luxuriant de Pandora vivent les Na&#039;vi, des êtres qui semblent primitifs, mais qui sont très évolués. Jake Sully, un ancien Marine paralysé, redevient mobile grâce à un tel Avatar et tombe amoureux d&#039;une femme Na&#039;vi. Alors qu&#039;un lien avec elle grandit, il est entraîné dans une bataille pour la survie de son monde.', 162, '64219f630106d.jpg', 0, '', 1),
-(43, 'Harry Potter à l&#039;école des sorcieres', 2001, '6421a3051cfb8.jpg', 'https://www.youtube.com/embed/P1BGgqhVGAI', '7.0', 'Harry Potter, un jeune orphelin, est élevé par son oncle et sa tante qui le détestent. Alors qu&#039;il était haut comme trois pommes, ces derniers lui ont raconté que ses parents étaient morts dans un accident de voiture. Le jour de son onzième anniversaire, Harry reçoit la visite inattendue d&#039;un homme gigantesque se nommant Rubeus Hagrid, et celui-ci lui révèle qu&#039;il est en fait le fils de deux puissants magiciens et qu&#039;il possède lui aussi d&#039;extraordinaires pouvoirs', 152, '6421a3051d3c4.jpg', 0, '', 2),
-(44, 'Harry Potter et la Chambre des Secrets', 2002, '6421a5290671b.jpg', 'https://www.youtube.com/embed/Z3T8PuWuoL0', '7.4', 'Alors que l&#039;oncle Vernon, la tante Pétunia et son cousin Dudley reçoivent d&#039;importants invités à dîner, Harry Potter est contraint de passer la soirée dans sa chambre. Dobby, un elfe, fait alors son apparition. Il lui annonce que de terribles dangers menacent l&#039;école de Poudlard et qu&#039;il ne doit pas y retourner en septembre. Harry refuse de le croire. Mais sitôt la rentrée des classes effectuée, ce dernier entend une voix malveillante.', 161, '6421a52906ae6.jpg', 0, '', 2),
-(45, 'Harry Potter et le Prisonnier d&#039;Azkaban', 2004, '64228bbac0bfa.jpg', 'https://www.youtube.com/embed/CLncEeVf4ks', '7.9', 'Sirius Black, un dangereux sorcier criminel, s&#039;échappe de la sombre prison d&#039;Azkaban avec un seul et unique but : se venger d&#039;Harry Potter, entré avec ses amis Ron et Hermione en troisième année à l&#039;école de sorcellerie de Poudlard, où ils auront aussi à faire avec les terrifiants Détraqueurs.', 142, '64228bbac0ef0.jpg', 0, '', 1),
-(46, 'Harry Potter et la Coupe de feu', 2005, '64228d83b593e.jpg', 'https://www.youtube.com/embed/XO9rqIgzDL0', '7.7', 'La quatrième année à l&#039;école de Poudlard est marquée par le Tournoi des trois sorciers. Les participants sont choisis par la fameuse coupe de feu, qui est à l&#039;origine d&#039;un scandale. Elle sélectionne Harry Potter tandis qu&#039;il n&#039;a pas l&#039;âge légal requis. Après avoir surmonté une série d&#039;épreuves physiques de plus en plus difficiles, il est enfin confronté à Celui-Dont-On-Ne-Doit-Pas-Prononcer-Le-Nom.', 157, '64228d83b5c33.jpg', 0, '', 1),
-(47, 'Megamind', 2010, '64228f99bb7aa.jpg', 'https://www.youtube.com/embed/ead9HCX9fe4', '10.0', 'Megamind est le plus grand adversaire de Metroman, le superhéros chargé de protéger les citoyens de Metro City. Megamind réussit un jour, à sa plus grande surprise, à tuer Metroman. Après avoir terrorisé la ville entière, il réalise bien vite qu&#039;un méchant sans héros pour le combattre, c&#039;est risible et inutile. Il décide donc d&#039;insuffler les dons de Metroman à un jeune garçon ordinaire afin qu&#039;il devienne le nouveau défenseur de Metro City.', 96, '64228f99bbbd3.jpg', 0, '', 2),
-(48, 'Star Wars: Episode III - La revanche des Sith', 2005, '64229181e5789.jpg', 'https://www.youtube.com/embed/t1qtvKYwTV0', '7.6', 'La Guerre des Clones fait rage. Une franche hostilité oppose désormais le Chancelier Palpatine au Conseil Jedi. Anakin Skywalker, jeune Chevalier Jedi pris entre deux feux, hésite sur la conduite à tenir. Séduit par la promesse d&#039;un pouvoir sans précédent, tenté par le côté obscur de la Force, il prête allégeance au maléfique Darth Sidious et devient Dark Vador.Les Seigneurs Sith s&#039;unissent alors pour préparer leur revanche, qui commence par l&#039;extermination des Jedi.', 140, '64229181e5e5f.jpg', 0, '', 1),
-(49, 'Inception', 2010, '6422929e43c79.jpg', 'https://www.youtube.com/embed/CPTIgILtna8', '8.6', 'Dom Cobb est un voleur expérimenté dans l&#039;art périlleux de `l&#039;extraction&#039; : sa spécialité consiste à s&#039;approprier les secrets les plus précieux d&#039;un individu, enfouis au plus profond de son subconscient, pendant qu&#039;il rêve et que son esprit est particulièrement vulnérable. Très recherché pour ses talents dans l&#039;univers trouble de l&#039;espionnage industriel, Cobb est aussi devenu un fugitif traqué dans le monde entier. Cependant, une ultime mission pourrait lui permettre de retrouver sa vie d&#039;avant.', 148, '6422929e44200.jpg', 0, '', 1),
-(50, 'Shutter Island', 2010, '64229382c3cbf.jpg', 'https://www.youtube.com/embed/v8yrZSkKxTA', '8.2', 'En 1954, une meurtrière, extrêmement dangereuse, placée en centre de détention psychiatrique disparaît sur l&#039;île de Shutter Island. Deux officiers du corps fédéral des marshals, Teddy Daniels et Chuck Aule, sont envoyés sur place pour enquêter. Très vite, Teddy Daniels comprend que le personnel de l&#039;établissement cache quelque chose. Seul indice dont il dispose : un bout de papier sur lequel est griffonnée une suite de chiffres entrecoupée de lettres.', 130, '64229382c414d.jpg', 0, '', 0),
-(51, 'Iron Man', 2008, '642295ada3029.jpg', 'https://www.youtube.com/embed/8ugaeA-nMTc', '7.9', 'Alors qu&#039;il fait l&#039;essai d&#039;une arme de son invention en Afghanistan, le milliardaire Tony Stark est capturé par des insurgés qui le forcent à travailler pour eux. Mais à leur insu, le scientifique crée pour lui-même une armure superpuissante au moyen de laquelle il s&#039;évade et rentre aux États-Unis. Transformé par son aventure, il décide de mettre son génie et sa fortune au service du Bien.', 126, '642295ada32e7.jpg', 0, '', 1),
-(53, 'Iron Man 2', 2010, '642296e41cd82.jpg', 'https://www.youtube.com/embed/BoohRoVA9WQ', '6.9', 'Le monde sait désormais que l&#039;inventeur milliardaire Tony Stark et le super-héros Iron Man ne font qu&#039;un. Cependant, malgré les pressions, Tony n&#039;est pas disposé à divulguer les secrets de son armure, redoutant que l&#039;information atterrisse dans de mauvaises mains. Avec Pepper Potts et James Rhodey Rhodes à ses côtés, Tony va forger de nouvelles alliances et affronter de nouvelles forces toutes-puissantes.', 124, '642296e41d205.jpg', 0, '', 2),
-(54, 'Iron Man 3', 2013, '642297ad303e0.jpg', 'https://www.youtube.com/embed/Ke1Y3P9D0Bc', '7.1', 'Tony Stark, alias Iron Man, mène une vie confortable aux côtés de sa compagne, Pepper. Cependant, il se retrouve confronté à Mandarin, chef d&#039;une organisation terroriste, qui détruit sa maison et tout son univers. Tony Stark part alors à la recherche de Pepper, disparue, et cherche à se venger. Démuni, il ne peut compter que sur son ingéniosité, ses multiples inventions et son instinct de survie pour protéger ses proches.', 130, '642297ad30879.jpg', 0, '', 0),
-(55, 'Avengers', 2012, '64229876d2cf2.jpg', 'https://www.youtube.com/embed/TcMBFSGVi1c', '8.0', 'Quand un ennemi inattendu fait surface pour menacer la sécurité et l&#039;équilibre mondial, Nick Fury, directeur de l&#039;agence internationale pour le maintien de la paix, connue sous le nom du S.H.I.E.L.D., doit former une équipe pour éviter une catastrophe mondiale imminente. Un effort de recrutement à l&#039;échelle mondiale est mis en place, pour finalement réunir l&#039;équipe de super héros de rêve, dont Iron Man, l&#039;incroyable Hulk, Thor, Captain America, Hawkeye et Black Widow.', 143, '64229876d30e8.jpeg', 0, '', 0),
-(56, 'Avengers: L&#039;ère d&#039;ultron', 2015, '642298fca7081.jpg', 'https://www.youtube.com/embed/tmeOjFno6Do', '7.3', 'Alors qu&#039;il tente de récupérer le sceptre de Loki avec l&#039;aide de ses camarades Avengers, Tony Stark découvre que Strucker avait mis au point une intelligence artificielle révolutionnaire, plus puissante encore que Jarvis. Strucker, mis hors d&#039;état de nuire, et le sceptre récupéré, Stark conçoit bientôt un projet insensé : relancer son programme de maintien de la paix, jusque-là en sommeil, grâce à cette conscience robotisée ultra-puissante.', 141, '642298fca7308.jpg', 0, '', 1),
-(57, 'Yes Man', 2008, '64229a38b1b1a.jpg', 'https://www.youtube.com/embed/dDh1l3qVNoY', '6.8', 'Après avoir assisté à un séminaire d&#039;auto-assistance, un homme négatif apporte un changement étonnant dans sa vie en disant oui à tout.', 104, '64229a38b2181.jpg', 0, '', 1),
-(58, 'Star Wars, épisode II : L&#039;Attaque des clones', 2002, '64229bb342f8d.jpg', 'https://www.youtube.com/embed/arGWLDOeoOw', '6.6', 'Depuis le blocus de la planète Naboo, la République, gouvernée par le Chancelier Palpatine, connaît une crise. Un groupe de dissidents, mené par le sombre Jedi comte Dooku, manifeste son mécontentement. Le Sénat et la population intergalactique se montrent pour leur part inquiets. Certains sénateurs demandent à ce que la République soit dotée d&#039;une armée pour empêcher que la situation ne se détériore. Padmé Amidala, devenue sénatrice, est menacée par les séparatistes et échappe à un attentat.', 142, '64229bb3433d4.jpg', 0, '', 1),
-(59, 'Avengers: Infinity War', 2018, '64229c4730e33.jpg', 'https://www.youtube.com/embed/6ZfuNTqbHE8', '8.4', 'Alors que les Avengers et leurs alliés ont continué de protéger le monde face à des menaces bien trop grandes pour être combattues par un héros seul, un nouveau danger est venu de l&#039;espace : Thanos. Despote craint dans tout l&#039;univers, Thanos a pour objectif de recueillir les six Pierres d&#039;Infinité, des artefacts parmi les plus puissants de l&#039;univers, et de les utiliser afin d&#039;imposer sa volonté sur toute la réalité. Tous les combats que les Avengers ont menés culminent dans cette bataille.', 149, '64229c473135a.jpg', 0, '', 2),
-(60, 'Avatar: La Voie de l&#039;eau', 2022, '64229ef91aed1.jpg', 'https://www.youtube.com/embed/d9MyW72ELq0', '7.8', 'Jake Sully et Ney&#039;tiri ont formé une famille et font tout pour rester aussi soudés que possible. Ils sont cependant contraints de quitter leur foyer et d&#039;explorer les différentes régions encore mystérieuses de Pandora. Lorsqu&#039;une ancienne menace refait surface, Jake va devoir mener une guerre difficile contre les humains.', 192, '64229ef91b3f5.jpg', 0, '', 1),
-(61, 'Beast', 2022, '6422a05c44e64.jpg', 'https://www.youtube.com/embed/oQMc7Sq36mI', '5.6', 'Le docteur Nate Samuels voyage avec ses deux filles adolescentes en Afrique du Sud. C&#039;est dans ce pays qu&#039;il avait autrefois rencontré sa femme, décédée il y a peu de temps. Nate, Meredith et Norah se rendent dans une réserve naturelle gérée par Martin Battles. La famille Samuels va alors être la cible d&#039;un lion. Cet animal, attaqué par des braconniers, qui a vu toute sa troupe tuée par ces derniers considère alors tous les humains comme une menace. Il va prendre en chasse Nate et les siens. ', 93, '6422a05c4528a.jpg', 0, '', 0),
-(62, 'Fast and Furious ', 2021, '6422a69004959.jpg', 'https://www.youtube.com/embed/hCPXYelJteM', '5.2', 'Dom Toretto mène une vie tranquille avec Letty et son fils, mais ils savent que le danger est toujours présent. Son équipe et lui tentent de mettre fin à un complot mondial ourdi par l&#039;assassin le plus doué et le pilote le plus performant qu&#039;ils aient jamais rencontré: le frère délaissé de Dom.', 143, '6422a15bebee9.jpg', 0, '', 0);
+(1, 'Blade runner', 2017, '642151d0ac6c2.jpg', 'https://www.youtube.com/embed/FfRPKYwsFNg', '6.0', 'L&#039;action du film se situe à Los Angeles en 2019 et met en scène Rick Deckard (interprété par Harrison Ford), un ancien policier qui reprend du service pour traquer un groupe de réplicants, des androïdes créés à l&#039;image de l&#039;Homme, menés par l&#039;énigmatique Roy Batty (interprété par Rutger Hauer).', 163, '642151d0ad388.jpg', 0, '', 1),
+(2, 'Interstellar', 2014, '642166c90aaee.jpg', 'https://www.youtube.com/embed/VaOijhK3CRU', '9.0', 'Dans un proche futur, la Terre est devenue hostile pour l&#039;homme. Les tempêtes de sable sont fréquentes et il n&#039;y a plus que le maïs qui peut être cultivé, en raison d&#039;un sol trop aride. Cooper est un pilote, recyclé en agriculteur, qui vit avec son fils et sa fille dans la ferme familiale. Lorsqu&#039;une force qu&#039;il ne peut expliquer lui indique les coordonnées d&#039;une division secrète de la NASA, il est alors embarqué dans une expédition pour sauver l&#039;humanité.', 169, '642151dcebc26.jpg', 0, '', 2),
+(39, 'The Dark Knight', 2008, '64215744b7d9e.jpg', 'https://www.youtube.com/embed/EXeTwQWrcwY', '6.0', 'Batman est plus que jamais déterminé à éradiquer le crime organisé qui sème la terreur en ville. Epaulé par le lieutenant Jim Gordon et par le procureur de Gotham City, Harvey Dent, Batman voit son champ d&#039;action s&#039;élargir. La collaboration des trois hommes s&#039;avère très efficace et ne tarde pas à porter ses fruits jusqu&#039;à ce qu&#039;un criminel redoutable vienne plonger la ville de Gotham City dans le chaos.', 152, '64215744b7fed.jpg', 0, '', 2),
+(40, 'Avengers: Endgame', 2019, '64215a62c8bb8.jpg', 'https://www.youtube.com/embed/TcMBFSGVi1c', '8.0', 'Le Titan Thanos, ayant réussi à s&#039;approprier les six Pierres d&#039;Infinité et à les réunir sur le Gantelet doré, a pu réaliser son objectif de pulvériser la moitié de la population de l&#039;Univers. Cinq ans plus tard, Scott Lang, alias Ant-Man, parvient à s&#039;échapper de la dimension subatomique où il était coincé. Il propose aux Avengers une solution pour faire revenir à la vie tous les êtres disparus, dont leurs alliés et coéquipiers : récupérer les Pierres d&#039;Infinité dans le passé.', 181, '6421926e8a7c8.jpg', 0, '', 2),
+(41, 'Titanic', 1997, '64215ce7a9f98.jpg', 'https://www.youtube.com/embed/cIJ8ma0kKtY', '0.0', 'En 1997, l&#039;épave du Titanic est l&#039;objet d&#039;une exploration fiévreuse, menée par des chercheurs de trésor en quête d&#039;un diamant bleu qui se trouvait à bord. Frappée par un reportage télévisé, l&#039;une des rescapées du naufrage, âgée de 102 ans, Rose DeWitt, se rend sur place et évoque ses souvenirs. 1912. Fiancée à un industriel arrogant, Rose croise sur le bateau un artiste sans le sou.', 195, '64215ce7aa53e.jpg', 0, '', 1),
+(42, 'Avatar', 2009, '64219f6300cae.jpg', 'https://www.youtube.com/embed/5PSNL1qE6VY', '6.0', 'Sur le monde extraterrestre luxuriant de Pandora vivent les Na&#039;vi, des êtres qui semblent primitifs, mais qui sont très évolués. Jake Sully, un ancien Marine paralysé, redevient mobile grâce à un tel Avatar et tombe amoureux d&#039;une femme Na&#039;vi. Alors qu&#039;un lien avec elle grandit, il est entraîné dans une bataille pour la survie de son monde.', 162, '64219f630106d.jpg', 0, '', 1),
+(43, 'Harry Potter à l&#039;école des sorcieres', 2001, '6421a3051cfb8.jpg', 'https://www.youtube.com/embed/P1BGgqhVGAI', '6.0', 'Harry Potter, un jeune orphelin, est élevé par son oncle et sa tante qui le détestent. Alors qu&#039;il était haut comme trois pommes, ces derniers lui ont raconté que ses parents étaient morts dans un accident de voiture. Le jour de son onzième anniversaire, Harry reçoit la visite inattendue d&#039;un homme gigantesque se nommant Rubeus Hagrid, et celui-ci lui révèle qu&#039;il est en fait le fils de deux puissants magiciens et qu&#039;il possède lui aussi d&#039;extraordinaires pouvoirs', 152, '6421a3051d3c4.jpg', 0, '', 2),
+(44, 'Harry Potter et la Chambre des Secrets', 2002, '6421a5290671b.jpg', 'https://www.youtube.com/embed/Z3T8PuWuoL0', '0.0', 'Alors que l&#039;oncle Vernon, la tante Pétunia et son cousin Dudley reçoivent d&#039;importants invités à dîner, Harry Potter est contraint de passer la soirée dans sa chambre. Dobby, un elfe, fait alors son apparition. Il lui annonce que de terribles dangers menacent l&#039;école de Poudlard et qu&#039;il ne doit pas y retourner en septembre. Harry refuse de le croire. Mais sitôt la rentrée des classes effectuée, ce dernier entend une voix malveillante.', 161, '6421a52906ae6.jpg', 0, '', 4),
+(45, 'Harry Potter et le Prisonnier d&#039;Azkaban', 2004, '64228bbac0bfa.jpg', 'https://www.youtube.com/embed/CLncEeVf4ks', '0.0', 'Sirius Black, un dangereux sorcier criminel, s&#039;échappe de la sombre prison d&#039;Azkaban avec un seul et unique but : se venger d&#039;Harry Potter, entré avec ses amis Ron et Hermione en troisième année à l&#039;école de sorcellerie de Poudlard, où ils auront aussi à faire avec les terrifiants Détraqueurs.', 142, '64228bbac0ef0.jpg', 0, '', 2),
+(46, 'Harry Potter et la Coupe de feu', 2005, '64228d83b593e.jpg', 'https://www.youtube.com/embed/XO9rqIgzDL0', '0.0', 'La quatrième année à l&#039;école de Poudlard est marquée par le Tournoi des trois sorciers. Les participants sont choisis par la fameuse coupe de feu, qui est à l&#039;origine d&#039;un scandale. Elle sélectionne Harry Potter tandis qu&#039;il n&#039;a pas l&#039;âge légal requis. Après avoir surmonté une série d&#039;épreuves physiques de plus en plus difficiles, il est enfin confronté à Celui-Dont-On-Ne-Doit-Pas-Prononcer-Le-Nom.', 157, '64228d83b5c33.jpg', 0, '', 2),
+(47, 'Megamind', 2010, '64228f99bb7aa.jpg', 'https://www.youtube.com/embed/ead9HCX9fe4', '6.0', 'Megamind est le plus grand adversaire de Metroman, le superhéros chargé de protéger les citoyens de Metro City. Megamind réussit un jour, à sa plus grande surprise, à tuer Metroman. Après avoir terrorisé la ville entière, il réalise bien vite qu&#039;un méchant sans héros pour le combattre, c&#039;est risible et inutile. Il décide donc d&#039;insuffler les dons de Metroman à un jeune garçon ordinaire afin qu&#039;il devienne le nouveau défenseur de Metro City.', 96, '64228f99bbbd3.jpg', 0, '', 4),
+(48, 'Star Wars: Episode III - La revanche des Sith', 2005, '64229181e5789.jpg', 'https://www.youtube.com/embed/t1qtvKYwTV0', '0.0', 'La Guerre des Clones fait rage. Une franche hostilité oppose désormais le Chancelier Palpatine au Conseil Jedi. Anakin Skywalker, jeune Chevalier Jedi pris entre deux feux, hésite sur la conduite à tenir. Séduit par la promesse d&#039;un pouvoir sans précédent, tenté par le côté obscur de la Force, il prête allégeance au maléfique Darth Sidious et devient Dark Vador.Les Seigneurs Sith s&#039;unissent alors pour préparer leur revanche, qui commence par l&#039;extermination des Jedi.', 140, '64229181e5e5f.jpg', 0, '', 1),
+(49, 'Inception', 2010, '6422929e43c79.jpg', 'https://www.youtube.com/embed/CPTIgILtna8', '0.0', 'Dom Cobb est un voleur expérimenté dans l&#039;art périlleux de `l&#039;extraction&#039; : sa spécialité consiste à s&#039;approprier les secrets les plus précieux d&#039;un individu, enfouis au plus profond de son subconscient, pendant qu&#039;il rêve et que son esprit est particulièrement vulnérable. Très recherché pour ses talents dans l&#039;univers trouble de l&#039;espionnage industriel, Cobb est aussi devenu un fugitif traqué dans le monde entier. Cependant, une ultime mission pourrait lui permettre de retrouver sa vie d&#039;avant.', 148, '6422929e44200.jpg', 0, '', 1),
+(50, 'Shutter Island', 2010, '64229382c3cbf.jpg', 'https://www.youtube.com/embed/v8yrZSkKxTA', '0.0', 'En 1954, une meurtrière, extrêmement dangereuse, placée en centre de détention psychiatrique disparaît sur l&#039;île de Shutter Island. Deux officiers du corps fédéral des marshals, Teddy Daniels et Chuck Aule, sont envoyés sur place pour enquêter. Très vite, Teddy Daniels comprend que le personnel de l&#039;établissement cache quelque chose. Seul indice dont il dispose : un bout de papier sur lequel est griffonnée une suite de chiffres entrecoupée de lettres.', 130, '64229382c414d.jpg', 0, '', 0),
+(51, 'Iron Man', 2008, '642295ada3029.jpg', 'https://www.youtube.com/embed/8ugaeA-nMTc', '0.0', 'Alors qu&#039;il fait l&#039;essai d&#039;une arme de son invention en Afghanistan, le milliardaire Tony Stark est capturé par des insurgés qui le forcent à travailler pour eux. Mais à leur insu, le scientifique crée pour lui-même une armure superpuissante au moyen de laquelle il s&#039;évade et rentre aux États-Unis. Transformé par son aventure, il décide de mettre son génie et sa fortune au service du Bien.', 126, '642295ada32e7.jpg', 0, '', 1),
+(53, 'Iron Man 2', 2010, '642296e41cd82.jpg', 'https://www.youtube.com/embed/BoohRoVA9WQ', '8.0', 'Le monde sait désormais que l&#039;inventeur milliardaire Tony Stark et le super-héros Iron Man ne font qu&#039;un. Cependant, malgré les pressions, Tony n&#039;est pas disposé à divulguer les secrets de son armure, redoutant que l&#039;information atterrisse dans de mauvaises mains. Avec Pepper Potts et James Rhodey Rhodes à ses côtés, Tony va forger de nouvelles alliances et affronter de nouvelles forces toutes-puissantes.', 124, '642296e41d205.jpg', 0, '', 4),
+(54, 'Iron Man 3', 2013, '642297ad303e0.jpg', 'https://www.youtube.com/embed/Ke1Y3P9D0Bc', '0.0', 'Tony Stark, alias Iron Man, mène une vie confortable aux côtés de sa compagne, Pepper. Cependant, il se retrouve confronté à Mandarin, chef d&#039;une organisation terroriste, qui détruit sa maison et tout son univers. Tony Stark part alors à la recherche de Pepper, disparue, et cherche à se venger. Démuni, il ne peut compter que sur son ingéniosité, ses multiples inventions et son instinct de survie pour protéger ses proches.', 130, '642297ad30879.jpg', 0, '', 1),
+(55, 'Avengers', 2012, '64229876d2cf2.jpg', 'https://www.youtube.com/embed/TcMBFSGVi1c', '6.0', 'Quand un ennemi inattendu fait surface pour menacer la sécurité et l&#039;équilibre mondial, Nick Fury, directeur de l&#039;agence internationale pour le maintien de la paix, connue sous le nom du S.H.I.E.L.D., doit former une équipe pour éviter une catastrophe mondiale imminente. Un effort de recrutement à l&#039;échelle mondiale est mis en place, pour finalement réunir l&#039;équipe de super héros de rêve, dont Iron Man, l&#039;incroyable Hulk, Thor, Captain America, Hawkeye et Black Widow.', 143, '64229876d30e8.jpeg', 0, '', 1),
+(56, 'Avengers: L&#039;ère d&#039;ultron', 2015, '642298fca7081.jpg', 'https://www.youtube.com/embed/tmeOjFno6Do', '0.0', 'Alors qu&#039;il tente de récupérer le sceptre de Loki avec l&#039;aide de ses camarades Avengers, Tony Stark découvre que Strucker avait mis au point une intelligence artificielle révolutionnaire, plus puissante encore que Jarvis. Strucker, mis hors d&#039;état de nuire, et le sceptre récupéré, Stark conçoit bientôt un projet insensé : relancer son programme de maintien de la paix, jusque-là en sommeil, grâce à cette conscience robotisée ultra-puissante.', 141, '642298fca7308.jpg', 0, '', 2),
+(57, 'Yes Man', 2008, '64229a38b1b1a.jpg', 'https://www.youtube.com/embed/dDh1l3qVNoY', '0.0', 'Après avoir assisté à un séminaire d&#039;auto-assistance, un homme négatif apporte un changement étonnant dans sa vie en disant oui à tout.', 104, '64229a38b2181.jpg', 0, '', 1),
+(58, 'Star Wars, épisode II : L&#039;Attaque des clones', 2002, '64229bb342f8d.jpg', 'https://www.youtube.com/embed/arGWLDOeoOw', '0.0', 'Depuis le blocus de la planète Naboo, la République, gouvernée par le Chancelier Palpatine, connaît une crise. Un groupe de dissidents, mené par le sombre Jedi comte Dooku, manifeste son mécontentement. Le Sénat et la population intergalactique se montrent pour leur part inquiets. Certains sénateurs demandent à ce que la République soit dotée d&#039;une armée pour empêcher que la situation ne se détériore. Padmé Amidala, devenue sénatrice, est menacée par les séparatistes et échappe à un attentat.', 142, '64229bb3433d4.jpg', 0, '', 1),
+(59, 'Avengers: Infinity War', 2018, '64229c4730e33.jpg', 'https://www.youtube.com/embed/6ZfuNTqbHE8', '0.0', 'Alors que les Avengers et leurs alliés ont continué de protéger le monde face à des menaces bien trop grandes pour être combattues par un héros seul, un nouveau danger est venu de l&#039;espace : Thanos. Despote craint dans tout l&#039;univers, Thanos a pour objectif de recueillir les six Pierres d&#039;Infinité, des artefacts parmi les plus puissants de l&#039;univers, et de les utiliser afin d&#039;imposer sa volonté sur toute la réalité. Tous les combats que les Avengers ont menés culminent dans cette bataille.', 149, '64229c473135a.jpg', 0, '', 2),
+(60, 'Avatar: La Voie de l&#039;eau', 2022, '64229ef91aed1.jpg', 'https://www.youtube.com/embed/d9MyW72ELq0', '4.0', 'Jake Sully et Ney&#039;tiri ont formé une famille et font tout pour rester aussi soudés que possible. Ils sont cependant contraints de quitter leur foyer et d&#039;explorer les différentes régions encore mystérieuses de Pandora. Lorsqu&#039;une ancienne menace refait surface, Jake va devoir mener une guerre difficile contre les humains.', 192, '64229ef91b3f5.jpg', 0, '', 2),
+(61, 'Beast', 2022, '6422a05c44e64.jpg', 'https://www.youtube.com/embed/oQMc7Sq36mI', '4.0', 'Le docteur Nate Samuels voyage avec ses deux filles adolescentes en Afrique du Sud. C&#039;est dans ce pays qu&#039;il avait autrefois rencontré sa femme, décédée il y a peu de temps. Nate, Meredith et Norah se rendent dans une réserve naturelle gérée par Martin Battles. La famille Samuels va alors être la cible d&#039;un lion. Cet animal, attaqué par des braconniers, qui a vu toute sa troupe tuée par ces derniers considère alors tous les humains comme une menace. Il va prendre en chasse Nate et les siens. ', 93, '6422a05c4528a.jpg', 0, '', 0),
+(62, 'Fast and Furious ', 2021, '6422a69004959.jpg', 'https://www.youtube.com/embed/hCPXYelJteM', '0.0', 'Dom Toretto mène une vie tranquille avec Letty et son fils, mais ils savent que le danger est toujours présent. Son équipe et lui tentent de mettre fin à un complot mondial ourdi par l&#039;assassin le plus doué et le pilote le plus performant qu&#039;ils aient jamais rencontré: le frère délaissé de Dom.', 143, '6422a15bebee9.jpg', 0, '', 1);
 
 -- --------------------------------------------------------
 
@@ -405,6 +416,76 @@ INSERT INTO `film_genre` (`ID_genre`, `ID_film`) VALUES
 (1, 60),
 (12, 61),
 (4, 62);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `film_note`
+--
+
+DROP TABLE IF EXISTS `film_note`;
+CREATE TABLE IF NOT EXISTS `film_note` (
+  `ID_note` int NOT NULL AUTO_INCREMENT,
+  `ID_user` int DEFAULT NULL,
+  `ID_film` int DEFAULT NULL,
+  `note` float DEFAULT NULL,
+  PRIMARY KEY (`ID_note`),
+  KEY `ID_user` (`ID_user`),
+  KEY `ID_film` (`ID_film`)
+) ENGINE=MyISAM AUTO_INCREMENT=34 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Déchargement des données de la table `film_note`
+--
+
+INSERT INTO `film_note` (`ID_note`, `ID_user`, `ID_film`, `note`) VALUES
+(33, 7, 47, 6),
+(32, 7, 61, 4),
+(31, 7, 43, 6),
+(30, 7, 42, 6),
+(29, 7, 39, 6),
+(28, 7, 53, 8),
+(27, 9, 1, 10),
+(26, 7, 1, 2),
+(25, 7, 2, 10),
+(24, NULL, 2, 8),
+(23, 9, 40, 8),
+(22, 9, 55, 6),
+(21, 9, 60, 4);
+
+--
+-- Déclencheurs `film_note`
+--
+DROP TRIGGER IF EXISTS `film_note_delete`;
+DELIMITER $$
+CREATE TRIGGER `film_note_delete` AFTER INSERT ON `film_note` FOR EACH ROW UPDATE film
+SET film_grade = (
+  SELECT AVG(note)
+  FROM film_note
+  WHERE film_note.ID_film = film.ID_film
+)
+$$
+DELIMITER ;
+DROP TRIGGER IF EXISTS `film_note_insert`;
+DELIMITER $$
+CREATE TRIGGER `film_note_insert` BEFORE INSERT ON `film_note` FOR EACH ROW UPDATE film
+SET film_grade = (
+  SELECT AVG(note)
+  FROM film_note
+  WHERE film_note.ID_film = film.ID_film
+)
+$$
+DELIMITER ;
+DROP TRIGGER IF EXISTS `film_note_update`;
+DELIMITER $$
+CREATE TRIGGER `film_note_update` AFTER UPDATE ON `film_note` FOR EACH ROW UPDATE film
+SET film_grade = (
+  SELECT AVG(note)
+  FROM film_note
+  WHERE film_note.ID_film = film.ID_film
+)
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -660,7 +741,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   PRIMARY KEY (`ID_user`),
   UNIQUE KEY `user_email` (`user_email`),
   KEY `user_role_FK` (`ID_role`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `user`
@@ -673,7 +754,15 @@ INSERT INTO `user` (`ID_user`, `user_pseudo`, `user_email`, `user_password`, `ID
 (14, 'Zoro', 'zoro@zoro.zoro', '$2y$10$OXRFCqvqtWDTUOaQ4HB3BeVzVd3GorqL82dLaxYeNrGXlNpglYO/O', 2),
 (15, 'ayoub', 'ayoub@ayoub.ayoub', '$2y$10$kdy46I9gIgkYA9/tnGIKXenp8Csdo2jlfktyWxZlxejHxR0D.dcJy', 2),
 (16, 'shaula', 'shaula@shaula.shaula', '$2y$10$R5KzV9XQ8fvjTaHjlbxQAeo.c589i.EzBpJ8133WD8W1f/vlnSp7W', 2),
-(17, 'nabil@nabil.com', 'nabil@nabil.com', '$2y$10$cozQWFEnPMNv1s0DYjAaWuxAzaLOPU/XalEtbzLBvqOQ9ao9KVJnm', 2);
+(17, 'nabil@nabil.com', 'nabil@nabil.com', '$2y$10$cozQWFEnPMNv1s0DYjAaWuxAzaLOPU/XalEtbzLBvqOQ9ao9KVJnm', 2),
+(18, 'box', 'box@box.box', '$2y$10$C.MYrCTsH2ZquFKqNTN6nuHbekiqXrs42QAKxLdmeihtEoXwfIeMa', 2),
+(19, 'ab', 'ab@ab.ab', '$2y$10$SogPrNBbhcpksM02Shsk7O9a5H58IbNqRjuZ5fo59c/8uqil.ENBi', 2),
+(20, 'aa', 'aa@aa.aa', '$2y$10$SnAFoKr5ESCmnrCtwKFOKO7lisu1A2Mqya9YXlT/Ik7BlUHNVd81e', 2),
+(21, 'bb', 'bb@bb.bb', '$2y$10$FkQfmRjqDzEABSHQV6CzvuiaUS9NlBTi5wbJfviBih4x7Q28q60r6', 2),
+(22, 'cc', 'cc@cc.cc', '$2y$10$KwaghdMIghWgNJf1SMZHAe1Jk7pnolJZugOt7RXQ6G.eeNRYaUi2C', 2),
+(23, 'dd', 'dd@dd.dd', '$2y$10$BNM9PkBSG8xeiILIWZhgWuKrl9lb3I0XjBqlv3B6DwS6cMElNQTnO', 2),
+(24, 'oo', 'oo@oo.oo', '$2y$10$arpqaPdxRSBgd0HNNDaoluhVqZQO9GeRxx0REZPBGd8FF/HF75Lyu', 2),
+(25, 'Papi', 'pp@pp.pp', '$2y$10$OhMSm7ue1n4E4rRjnJu5VeEn5Bw/cgTQwVRNcOeo5YAYrY08j0D4e', 2);
 
 -- --------------------------------------------------------
 
@@ -695,34 +784,45 @@ CREATE TABLE IF NOT EXISTS `user_fav` (
 
 INSERT INTO `user_fav` (`ID_user`, `ID_film`) VALUES
 (7, 1),
-(9, 1),
 (7, 2),
-(9, 2),
 (10, 2),
 (7, 39),
-(9, 39),
 (14, 39),
+(7, 40),
 (14, 40),
 (14, 41),
 (9, 42),
 (7, 43),
 (10, 43),
 (7, 44),
+(9, 44),
 (10, 44),
+(24, 44),
+(7, 45),
 (10, 45),
+(7, 46),
 (10, 46),
 (7, 47),
+(9, 47),
 (14, 47),
+(24, 47),
 (14, 48),
+(7, 49),
 (10, 51),
+(7, 53),
+(9, 53),
 (10, 53),
 (14, 53),
+(7, 55),
+(7, 56),
 (9, 56),
 (7, 57),
 (7, 58),
 (7, 59),
 (14, 59),
-(7, 60);
+(7, 60),
+(9, 60),
+(7, 62);
 
 --
 -- Contraintes pour les tables déchargées
