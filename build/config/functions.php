@@ -561,9 +561,9 @@ function ShowAddFav($ID_film,$likes){
     <input class="hidden" name="ID_user" value="<?=$_SESSION['ID_user']?>">
     <input class="hidden" name="ID_film" value="<?=$ID_film?>">
     <button type="submit" name="submit" value="submit" class="group/fav z-20 w-fit">
-      <i class=" fa-regular fa-heart animate-pulse cursor-pointer absolute flex text-main-light right-0 top-0 text-2xl"><p class="text-lg justify-center flex pl-2"><?=$likes?></p>
+    <i class=" fa-regular fa-heart animate-pulse cursor-pointer absolute flex text-main-light right-0 top-0 text-2xl"><p class="text-lg justify-center flex pl-2"><?=$likes?></p>
         <i type="submit" class="fa-solid fa-heart cursor-pointer absolute right-0 top-0 text-2xl text-main-light hidden group-hover/fav:flex"><p class="text-lg justify-center flex pl-2"><?=$likes?></p></i>
-      </i>
+    </i>
     </button>
     </form>
     <?php }
@@ -579,7 +579,7 @@ function ShowDeleteFav($ID_film,$likes){
         <i type="submit" class="fa-regular fa-heart cursor-pointer absolute right-0 top-0 text-2xl text-main-light hidden group-hover/fav:flex">
         <p class="text-lg justify-center flex pl-2"><?=$likes?></p>
         </i>
-      </i>
+    </i>
     </button>
     </form>
     <?php }
@@ -598,78 +598,141 @@ function IsFilmFav($ID_film,$ID_user,$likes){
 function ShowFakeFav($likes){
     if(require("connexion.php")){?>
     <button data-modal-target="login" data-modal-toggle="login" class="group/fav z-50">
-      <i class=" fa-regular fa-heart animate-pulse cursor-pointer absolute flex text-main-light right-0 top-0 text-2xl">
+    <i class=" fa-regular fa-heart animate-pulse cursor-pointer absolute flex text-main-light right-0 top-0 text-2xl">
         <p class="text-lg justify-center flex pl-2 font-bold"><?=$likes?></p>
         <i class="fa-solid fa-heart cursor-pointer absolute right-0 top-0 text-2xl text-main-light hidden group-hover/fav:flex">
             <p class="text-lg justify-center flex pl-2"><?=$likes?></p>
         </i>
-      </i>
+    </i>
     </button>
     <?php }
 }
 
 
-function Stars($note){
+function Stars($note,$ID_film){
+if(isset($_SESSION['ID_user'])){
     if($note >=0 && $note < 2){
-    echo'
+    ?>
         <div class="grade text-main-light text-2xl text-center">
-            <i class="fa-regular fa-star cursor-pointer"></i>
-            <i class="fa-regular fa-star cursor-pointer"></i>
-            <i class="fa-regular fa-star cursor-pointer"></i>
-            <i class="fa-regular fa-star cursor-pointer"></i>
-            <i class="fa-regular fa-star cursor-pointer"></i>
+            <a href="/portfolio/allosimplon/build/traitements/add/add_note.php?note=2&film=<?=$ID_film?>"><i class="fa-regular fa-star cursor-pointer"></i></a>
+            <a href="/portfolio/allosimplon/build/traitements/add/add_note.php?note=4&film=<?=$ID_film?>"><i class="fa-regular fa-star cursor-pointer"></i></a>
+            <a href="/portfolio/allosimplon/build/traitements/add/add_note.php?note=6&film=<?=$ID_film?>"><i class="fa-regular fa-star cursor-pointer"></i></a>
+            <a href="/portfolio/allosimplon/build/traitements/add/add_note.php?note=8&film=<?=$ID_film?>"><i class="fa-regular fa-star cursor-pointer"></i></a>
+            <a href="/portfolio/allosimplon/build/traitements/add/add_note.php?note=10&film=<?=$ID_film?>"><i class="fa-regular fa-star cursor-pointer"></i></a>
         </div>
-    '; }
+    <?php }
     if($note >=2 && $note < 4){
-    echo'
+    ?>
         <div class="grade text-main-light text-2xl text-center">
-            <i class="fa-solid fa-star cursor-pointer"></i>
-            <i class="fa-regular fa-star cursor-pointer"></i>
-            <i class="fa-regular fa-star cursor-pointer"></i>
-            <i class="fa-regular fa-star cursor-pointer"></i>
-            <i class="fa-regular fa-star cursor-pointer"></i>
+            <a href="/portfolio/allosimplon/build/traitements/add/add_note.php?note=2&film=<?=$ID_film?>"><i class="fa-solid fa-star cursor-pointer"></i></a>
+            <a href="/portfolio/allosimplon/build/traitements/add/add_note.php?note=4&film=<?=$ID_film?>"><i class="fa-regular fa-star cursor-pointer"></i></a>
+            <a href="/portfolio/allosimplon/build/traitements/add/add_note.php?note=6&film=<?=$ID_film?>"><i class="fa-regular fa-star cursor-pointer"></i></a>
+            <a href="/portfolio/allosimplon/build/traitements/add/add_note.php?note=8&film=<?=$ID_film?>"><i class="fa-regular fa-star cursor-pointer"></i></a>
+            <a href="/portfolio/allosimplon/build/traitements/add/add_note.php?note=10&film=<?=$ID_film?>"><i class="fa-regular fa-star cursor-pointer"></i></a>
         </div>
-    '; }
+    <?php }
     if($note >=4 && $note < 6){
-        echo'
+        ?>
         <div class="grade text-main-light text-2xl text-center">
-            <i class="fa-solid fa-star cursor-pointer"></i>
-            <i class="fa-solid fa-star cursor-pointer"></i>
-            <i class="fa-regular fa-star cursor-pointer"></i>
-            <i class="fa-regular fa-star cursor-pointer"></i>
-            <i class="fa-regular fa-star cursor-pointer"></i>
+            <a href="/portfolio/allosimplon/build/traitements/add/add_note.php?note=2&film=<?=$ID_film?>"><i class="fa-solid fa-star cursor-pointer"></i></a>
+            <a href="/portfolio/allosimplon/build/traitements/add/add_note.php?note=4&film=<?=$ID_film?>"><i class="fa-solid fa-star cursor-pointer"></i></a>
+            <a href="/portfolio/allosimplon/build/traitements/add/add_note.php?note=6&film=<?=$ID_film?>"><i class="fa-regular fa-star cursor-pointer"></i></a>
+            <a href="/portfolio/allosimplon/build/traitements/add/add_note.php?note=8&film=<?=$ID_film?>"><i class="fa-regular fa-star cursor-pointer"></i></a>
+            <a href="/portfolio/allosimplon/build/traitements/add/add_note.php?note=10&film=<?=$ID_film?>"><i class="fa-regular fa-star cursor-pointer"></i></a>
         </div>
-    '; }
+    <?php }
     if($note >= 6 && $note < 8){
-        echo'
+        ?>
         <div class="grade text-main-light text-2xl text-center">
-            <i class="fa-solid fa-star cursor-pointer"></i>
-            <i class="fa-solid fa-star cursor-pointer"></i>
-            <i class="fa-solid fa-star cursor-pointer"></i>
-            <i class="fa-regular fa-star cursor-pointer"></i>
-            <i class="fa-regular fa-star cursor-pointer"></i>
+            <a href="/portfolio/allosimplon/build/traitements/add/add_note.php?note=2&film=<?=$ID_film?>"><i class="fa-solid fa-star cursor-pointer"></i></a>
+            <a href="/portfolio/allosimplon/build/traitements/add/add_note.php?note=4&film=<?=$ID_film?>"><i class="fa-solid fa-star cursor-pointer"></i></a>
+            <a href="/portfolio/allosimplon/build/traitements/add/add_note.php?note=6&film=<?=$ID_film?>"><i class="fa-solid fa-star cursor-pointer"></i></a>
+            <a href="/portfolio/allosimplon/build/traitements/add/add_note.php?note=8&film=<?=$ID_film?>"><i class="fa-regular fa-star cursor-pointer"></i></a>
+            <a href="/portfolio/allosimplon/build/traitements/add/add_note.php?note=10&film=<?=$ID_film?>"><i class="fa-regular fa-star cursor-pointer"></i></a>
         </div>
-    '; }
+    <?php }
     if($note >=8 && $note <= 9 ){
-        echo'
+        ?>
         <div class="grade text-main-light text-2xl text-center">
-            <i class="fa-solid fa-star cursor-pointer"></i>
-            <i class="fa-solid fa-star cursor-pointer"></i>
-            <i class="fa-solid fa-star cursor-pointer"></i>
-            <i class="fa-solid fa-star cursor-pointer"></i>
-            <i class="fa-regular fa-star cursor-pointer"></i>
+            <a href="/portfolio/allosimplon/build/traitements/add/add_note.php?note=2&film=<?=$ID_film?>"><i class="fa-solid fa-star cursor-pointer"></i></a>
+            <a href="/portfolio/allosimplon/build/traitements/add/add_note.php?note=4&film=<?=$ID_film?>"><i class="fa-solid fa-star cursor-pointer"></i></a>
+            <a href="/portfolio/allosimplon/build/traitements/add/add_note.php?note=6&film=<?=$ID_film?>"><i class="fa-solid fa-star cursor-pointer"></i></a>
+            <a href="/portfolio/allosimplon/build/traitements/add/add_note.php?note=8&film=<?=$ID_film?>"><i class="fa-solid fa-star cursor-pointer"></i></a>
+            <a href="/portfolio/allosimplon/build/traitements/add/add_note.php?note=10&film=<?=$ID_film?>"><i class="fa-regular fa-star cursor-pointer"></i></a>
         </div>
-    '; }
+    <?php }
     if($note > 9 && $note <= 10){
-        echo'
+        ?>
         <div class="grade text-main-light text-2xl text-center">
-            <i class="fa-solid fa-star cursor-pointer"></i>
-            <i class="fa-solid fa-star cursor-pointer"></i>
-            <i class="fa-solid fa-star cursor-pointer"></i>
-            <i class="fa-solid fa-star cursor-pointer"></i>
-            <i class="fa-solid fa-star cursor-pointer"></i>
+            <a href="/portfolio/allosimplon/build/traitements/add/add_note.php?note=2&film=<?=$ID_film?>"><i class="fa-solid fa-star cursor-pointer"></i></a>
+            <a href="/portfolio/allosimplon/build/traitements/add/add_note.php?note=4&film=<?=$ID_film?>"><i class="fa-solid fa-star cursor-pointer"></i></a>
+            <a href="/portfolio/allosimplon/build/traitements/add/add_note.php?note=6&film=<?=$ID_film?>"><i class="fa-solid fa-star cursor-pointer"></i></a>
+            <a href="/portfolio/allosimplon/build/traitements/add/add_note.php?note=8&film=<?=$ID_film?>"><i class="fa-solid fa-star cursor-pointer"></i></a>
+            <a href="/portfolio/allosimplon/build/traitements/add/add_note.php?note=10&film=<?=$ID_film?>"><i class="fa-solid fa-star cursor-pointer"></i></a>
         </div>
-    '; }
+    <?php }
+}else{
+    if($note >=0 && $note < 2){
+        ?>
+            <div class="grade text-main-light text-2xl text-center">
+                <i class="fa-regular fa-star cursor-pointer"></i>
+                <i class="fa-regular fa-star cursor-pointer"></i>
+                <i class="fa-regular fa-star cursor-pointer"></i>
+                <i class="fa-regular fa-star cursor-pointer"></i>
+                <i class="fa-regular fa-star cursor-pointer"></i>
+            </div>
+        <?php }
+        if($note >=2 && $note < 4){
+        ?>
+            <div class="grade text-main-light text-2xl text-center">
+                <i class="fa-solid fa-star cursor-pointer"></i>
+                <i class="fa-regular fa-star cursor-pointer"></i>
+                <i class="fa-regular fa-star cursor-pointer"></i>
+                <i class="fa-regular fa-star cursor-pointer"></i>
+                <i class="fa-regular fa-star cursor-pointer"></i>
+            </div>
+        <?php }
+        if($note >=4 && $note < 6){
+            ?>
+            <div class="grade text-main-light text-2xl text-center">
+                <i class="fa-solid fa-star cursor-pointer"></i>
+                <i class="fa-solid fa-star cursor-pointer"></i>
+                <i class="fa-regular fa-star cursor-pointer"></i>
+                <i class="fa-regular fa-star cursor-pointer"></i>
+                <i class="fa-regular fa-star cursor-pointer"></i>
+            </div>
+        <?php }
+        if($note >= 6 && $note < 8){
+            ?>
+            <div class="grade text-main-light text-2xl text-center">
+                <i class="fa-solid fa-star cursor-pointer"></i>
+                <i class="fa-solid fa-star cursor-pointer"></i>
+                <i class="fa-solid fa-star cursor-pointer"></i>
+                <i class="fa-regular fa-star cursor-pointer"></i>
+                <i class="fa-regular fa-star cursor-pointer"></i>
+            </div>
+        <?php }
+        if($note >=8 && $note <= 9 ){
+            ?>
+            <div class="grade text-main-light text-2xl text-center">
+                <i class="fa-solid fa-star cursor-pointer"></i>
+                <i class="fa-solid fa-star cursor-pointer"></i>
+                <i class="fa-solid fa-star cursor-pointer"></i>
+                <i class="fa-solid fa-star cursor-pointer"></i>
+                <i class="fa-regular fa-star cursor-pointer"></i>
+            </div>
+        <?php }
+        if($note > 9 && $note <= 10){
+            ?>
+            <div class="grade text-main-light text-2xl text-center">
+                <i class="fa-solid fa-star cursor-pointer"></i>
+                <i class="fa-solid fa-star cursor-pointer"></i>
+                <i class="fa-solid fa-star cursor-pointer"></i>
+                <i class="fa-solid fa-star cursor-pointer"></i>
+                <i class="fa-solid fa-star cursor-pointer"></i>
+            </div>
+        <?php }
+}
 }
 
 function GetFilmByGenre($ID_film){
@@ -697,9 +760,13 @@ function GetFilmByGenre($ID_film){
 }
 
 
-
-
+function UserNote($ID_film,$ID_user){
+    if(require("connexion.php")){ 
+    $get_user_note_request=$con->prepare("SELECT note FROM film_note WHERE ID_film = ? AND ID_user = ?");
+    $get_user_note_request->execute([$ID_film, $ID_user]);
+    $user_note=$get_user_note_request->fetch();
+    if(empty($user_note)){}
+    else{echo ' Votre note : ',$user_note[0];}
+}
+}
 ?>
-
-
-

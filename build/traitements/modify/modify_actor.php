@@ -3,7 +3,7 @@ require_once '../../config/connexion.php';
 
 // Variables + sécurisation
 if(!isset($_POST['submit'])){
-    header('Location: ' . $_SERVER['HTTP_REFERER']. "?message=no_form");
+    header('Location: ' . $_SERVER['HTTP_REFERER']. "?&message=no_form");
 }else{
 $actor_name = htmlspecialchars(strip_tags($_POST['name']), ENT_QUOTES );
 $ID_actor = htmlspecialchars(strip_tags($_POST['ID']),ENT_QUOTES);
@@ -12,7 +12,11 @@ if(
     empty($actor_name) ||
     empty($ID_film_array)
     ){
-        header('Location: ' . $_SERVER['HTTP_REFERER']. "?message=missing_element");
+        if(strpos($_SERVER['HTTP_REFERER'],"?")){
+            header('Location: ' . $_SERVER['HTTP_REFERER']. "&message=missing_element");
+            }else{
+            header('Location: ' . $_SERVER['HTTP_REFERER']. "?message=missing_element");
+            }
     }else{
 
         $add_actor_request=$con->prepare(
@@ -54,33 +58,33 @@ if(
                 $extensions = ['png', 'jpg', 'jpeg', 'gif', 'jiff'];
         
                 if ($sizeFile > $max_size) {
-                    header('Location: ' . $_SERVER['HTTP_REFERER']. "?message=size_error");
+                    header('Location: ' . $_SERVER['HTTP_REFERER']. "?&message=size_error");
                     die();
                 }
             
                 $allowed_types = array('jpg', 'jpeg', 'png', 'gif');
                 $file_type = pathinfo($_FILES['photo']['name'], PATHINFO_EXTENSION);
                 if(!in_array($file_type, $allowed_types)) {
-header('Location: ' . $_SERVER['HTTP_REFERER']. "?message=format_error");
+header('Location: ' . $_SERVER['HTTP_REFERER']. "?&message=format_error");
                     die();
                 }
         
                 $extension = explode('.', $nameFile);
                 if(!count($extension) <=2 && !in_array(strtolower(end($extension)), $extensions)) {
-header('Location: ' . $_SERVER['HTTP_REFERER']. "?message=format_error");
+header('Location: ' . $_SERVER['HTTP_REFERER']. "?&message=format_error");
                 }
         
                 $actor_name_photo = uniqid() . '.' . $file_type;
             
                 $upload_dir = '../../upload/actor/';
                 if(move_uploaded_file($_FILES['photo']['tmp_name'], $upload_dir . $actor_name_photo)) {
-                    header('Location: ' . $_SERVER['HTTP_REFERER']. "?message=move_file");
+                    header('Location: ' . $_SERVER['HTTP_REFERER']. "?&message=move_file");
 
 
                     $update_photo=$con->prepare("UPDATE actor SET actor_photo = ? WHERE ID_actor = ?");
                     $update_photo->execute([$actor_name_photo, $ID_actor]);
                 }else{
-                    header('Location: ' . $_SERVER['HTTP_REFERER']. "?message=move_file_error");
+                    header('Location: ' . $_SERVER['HTTP_REFERER']. "?&message=move_file_error");
                 }
             }
     }

@@ -9,7 +9,11 @@ $errors = array();
 // Verif email valide
 if(empty($email) || !filter_var($email,FILTER_VALIDATE_EMAIL)){
     $errors['email']= "Email invalide";
-    header('Location: ' . $_SERVER['HTTP_REFERER']. "?message=mail_invalid");
+    if(strpos($_SERVER['HTTP_REFERER'],"?")){
+        header('Location: ' . $_SERVER['HTTP_REFERER']. "&message=mail_invalid");
+        }else{
+        header('Location: ' . $_SERVER['HTTP_REFERER']. "?message=mail_invalid");
+        }
 }else{
 // Verif email présent en BDD
 
@@ -22,7 +26,11 @@ if(empty($email) || !filter_var($email,FILTER_VALIDATE_EMAIL)){
         $ID = $email_row['ID_user'];
     }else{
         $errors['email']="L'email n'existe pas dans nos serveurs";
-        header('Location: ' . $_SERVER['HTTP_REFERER']. "?message=wrong_mail");
+        if(strpos($_SERVER['HTTP_REFERER'],"?")){
+            header('Location: ' . $_SERVER['HTTP_REFERER']. "&message=wrong_mail");
+            }else{
+            header('Location: ' . $_SERVER['HTTP_REFERER']. "?message=wrong_mail");
+            }
     }
 }
 
@@ -37,12 +45,20 @@ if($bool=="true"){
         $_SESSION['user_email'] = $user_row['user_email'];
         $_SESSION['user_password'] = $user_row['user_password'];
         $_SESSION['ID_role'] = $user_row['ID_role'];
-        header('Location: ' . $_SERVER['HTTP_REFERER']. "?message=connected");
+        if(strpos($_SERVER['HTTP_REFERER'],"?")){
+            header('Location: ' . $_SERVER['HTTP_REFERER']. "&message=connected");
+            }else{
+            header('Location: ' . $_SERVER['HTTP_REFERER']. "?message=connected");
+            }
         $connected = "true";
 
     }else{
         $_SESSION['ETAT'] = "not connected";
-        header('Location: ' . $_SERVER['HTTP_REFERER']. "?message=wrong_password");
+        if(strpos($_SERVER['HTTP_REFERER'],"?")){
+            header('Location: ' . $_SERVER['HTTP_REFERER']. "&message=wrong_password");
+            }else{
+            header('Location: ' . $_SERVER['HTTP_REFERER']. "?message=wrong_password");
+            }
     }
 }
 

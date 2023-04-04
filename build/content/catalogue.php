@@ -1,11 +1,8 @@
 <?php session_start();
 require_once '../config/connexion.php';
 require_once '../config/functions.php';
-?>
-
-<?php include('../include/general/head.php')?>
-
-<?php include('../include/general/nav.php')?>
+include('../include/general/head.php');
+include('../include/general/nav.php')?>
 
 
 <div class="flex justify-center mt-20 mb-6">
@@ -327,38 +324,40 @@ if(empty($_SESSION['filters'])){
                     if(isset($_SESSION['ID_user'])){$ID_user=$_SESSION['ID_user'];}
                 ?>
             <div class="group relative">
-            <a href="/portfolio/allosimplon/build/content/film.php?page=<?=$ID?>"   class="cursor-pointer h-full">
-            <div class="absolute top-1 left-1 text-md p-1 rounded-lg font-bold text-gray-50 md:group-hover:hidden bg-main-light "><?=$film['film_date']?></div>
-            <div class="absolute top-1 right-1 text-md p-1 rounded-lg font-bold text-gray-50 md:group-hover:hidden"><?php if(isset($_SESSION['ID_user'])){isFilmFav($film['ID_film'],$_SESSION['ID_user'],$film['likes']);}else{ShowFakeFav($film['likes']);}?></div>
-            <div class="absolute bottom-2 text-md p-1 rounded-lg font-bold text-gray-50 w-full mx-auto md:group-hover:hidden"><?php Stars($film['film_grade']);?></div>
-                <!-- overlay -->
-              <div class="hidden lg:block absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
-                    <div class="relative w-full h-full flex flex-col justify-between">
-                        <p class="font-bold text-xl cursor-dark"><?=$date?></p>
-                        <?php
-                            if(isset($_SESSION['ID_user'])){isFilmFav($ID,$ID_user,$likes);}else{ShowFakeFav($likes);}
-                        ?>
-                        <div>
-                            <div class="flex justify-start">
-                            <h2 class="underline font-bold text-main-light text-2xl mb-2"><?=$name?></h2>
-                            </div>
-                            <div class="flex justify-start">
-                                <p class="font-normal cursor-dark"><?php echo substr($description,0,200),'...' ?>
-                                </p>
-                            </div>
-                            <div class="flex justify-between h-auto mt-4 text-center">
-                                <div class="flex justify-start align-bottom">
-                                    <?=$time?>min
+            <a href="/portfolio/allosimplon/build/content/film.php?page=<?=$ID?>" class="h-full cursor-pointer overflow-hidden">
+                            <!-- OVERLAY!!! -->
+                            <div class="hidden lg:block z-50 absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
+                                <div class="relative w-full h-full flex flex-col justify-between">
+                                    <p class="font-bold text-xl cursor-dark"><?=$date?></p>
+                                    <?php
+                                        if(isset($_SESSION['ID_user'])){isFilmFav($ID,$_SESSION['ID_user'],$likes);}else{ShowFakeFav($likes);}
+                                    ?>
+                                    <div>
+                                        <div class="flex justify-start">
+                                            <h2 class="underline font-bold text-main-light text-xl mb-2"><?=substr($name,0,40)?></h2>
+                                        </div>
+                                        <div class="flex justify-start">
+                                            <p class="font-normal"><?=substr($description,0,150),'...';?></p>
+                                        </div>
+                                        <div class="flex flex-wrap justify-between h-auto mt-4 text-center">
+                                            <div class="flex justify-start align-bottom">
+                                                <?=$time?>min
+                                            </div>
+                                            <div class="flex justify-end">
+                                                <?php Stars($note,$ID);?>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="flex justify-end">
-                                    <?php Stars($note) ?>
-                                </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
-                <img class="" src="/portfolio/allosimplon/build/upload/film/<?=$photo?>" alt="<?=$name?>">
-                </a>
+                                    <!-- IMAGE -->
+                                <div class="h-96 md:h-[400px]  mx-auto w-fit relative">
+                                    <div class="block absolute top-1 left-1 text-md p-1 rounded-lg font-bold text-gray-50 lg:group-hover:hidden bg-main-light "><?=$date?></div>
+                                    <div class="block absolute top-1 right-1 text-md p-1 rounded-lg font-bold text-gray-50 lg:group-hover:hidden"><?php if(isset($_SESSION['ID_user'])){isFilmFav($ID,$_SESSION['ID_user'],$likes);}else{ShowFakeFav($likes);}?></div>
+                                    <div class="block absolute bottom-2 text-md p-1 rounded-lg font-bold text-gray-50 w-full mx-auto lg:group-hover:hidden"><?php Stars($note,$ID);?></div>
+                                    <img src="/portfolio/allosimplon/build/upload/film/<?=$photo?>" class="h-full">
+                                </div>
+                            </a>
             </div>
             <?php } ?>
         </div>

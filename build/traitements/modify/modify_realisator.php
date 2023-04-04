@@ -14,7 +14,7 @@ $ID_film_array = ($_POST['film']);
 if(
     empty($realisator_name)
     ){
-        header('Location: ' . $_SERVER['HTTP_REFERER']. "?message=missing_element");
+        header('Location: ' . $_SERVER['HTTP_REFERER']. "?&message=missing_element");
     }else{
 
         $add_realisator_request=$con->prepare(
@@ -41,7 +41,7 @@ if(
             $add_realisator_request->execute([ $ID_film, $ID_realisator]);
         }
 }
-header('Location: ' . $_SERVER['HTTP_REFERER']. "?message=update_actor");
+header('Location: ' . $_SERVER['HTTP_REFERER']. "?&message=update_actor");
 
             // VERIFICATION PHOTO AFFICHE
             if (isset($_FILES['photo']['name']) && $_FILES['photo']['error'] == 0) {
@@ -55,32 +55,32 @@ header('Location: ' . $_SERVER['HTTP_REFERER']. "?message=update_actor");
                 $extensions = ['png', 'jpg', 'jpeg', 'gif', 'jiff'];
         
                 if ($sizeFile > $max_size) {
-                    header('Location: ' . $_SERVER['HTTP_REFERER']. "?message=size_error");
+                    header('Location: ' . $_SERVER['HTTP_REFERER']. "?&message=size_error");
                     die();
                 }
             
                 $allowed_types = array('jpg', 'jpeg', 'png', 'gif');
                 $file_type = pathinfo($_FILES['photo']['name'], PATHINFO_EXTENSION);
                 if(!in_array($file_type, $allowed_types)) {
-                    header('Location: ' . $_SERVER['HTTP_REFERER']. "?message=format_error");
+                    header('Location: ' . $_SERVER['HTTP_REFERER']. "?&message=format_error");
                     die();
                 }
         
                 $extension = explode('.', $nameFile);
                 if(!count($extension) <=2 && !in_array(strtolower(end($extension)), $extensions)) {
-                    header('Location: ' . $_SERVER['HTTP_REFERER']. "?message=format_error");
+                    header('Location: ' . $_SERVER['HTTP_REFERER']. "?&message=format_error");
                 }
         
                 $realisator_name_photo = uniqid() . '.' . $file_type;
             
                 $upload_dir = '../../upload/realisator/';
                 if(move_uploaded_file($_FILES['photo']['tmp_name'], $upload_dir . $realisator_name_photo)) {
-                    header('Location: ' . $_SERVER['HTTP_REFERER']. "?message=move_file");
+                    header('Location: ' . $_SERVER['HTTP_REFERER']. "?&message=move_file");
 
                     $update_photo=$con->prepare("UPDATE realisator SET realisator_photo = ? WHERE ID_realisator = ?");
                     $update_photo->execute([$realisator_name_photo, $ID_realisator]);
                 }else{
-                    header('Location: ' . $_SERVER['HTTP_REFERER']. "?message=move_film_error");
+                    header('Location: ' . $_SERVER['HTTP_REFERER']. "?&message=move_film_error");
 
                 }
             }

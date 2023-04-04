@@ -16,9 +16,17 @@ if(isset($_POST['message'])){
         $email_body = join(PHP_EOL, $bodyParagraphs);
         $headers = ['From' => $email, 'Reply-To' => $email, 'Content-type' => 'text/html; charset=utf-8'];
         if (mail($to, $email_subject, $email_body, $headers)){
-            header('Location: ' . $_SERVER['HTTP_REFERER']. "?message=mail_sent");
+            if(strpos($_SERVER['HTTP_REFERER'],"?")){
+                header('Location: ' . $_SERVER['HTTP_REFERER']. "&message=mail_sent");
+                }else{
+                header('Location: ' . $_SERVER['HTTP_REFERER']. "?message=mail_sent");
+                }
             } else {
-                header('Location: ' . $_SERVER['HTTP_REFERER']. "?message=mail_not_sent");
+                if(strpos($_SERVER['HTTP_REFERER'],"?")){
+                    header('Location: ' . $_SERVER['HTTP_REFERER']. "&message=mail_not_sent");
+                    }else{
+                    header('Location: ' . $_SERVER['HTTP_REFERER']. "?message=mail_not_sent");
+                    }
             }
     }
 
