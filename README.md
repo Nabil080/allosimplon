@@ -1,4 +1,4 @@
-http://nabil.serveur-mw.fr/portfolio/allosimplon/build/index.php
+http://nabil.serveur-mw.fr/portfolio/allosimplon
 
 # AlloSimplon
 salutation voyageurs
