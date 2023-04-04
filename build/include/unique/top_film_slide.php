@@ -18,7 +18,7 @@
 
         </div>
         <!-- Carousel wrapper -->
-        <div class="relative h-96 w-full md:w-[80%] mx-auto overflow-hidden rounded-lg md:h-[400px] md:max-h-[50vh] ">
+        <div class="relative h-96 w-full md:w-[80%] mx-auto overflow-hidden rounded-lg md:h-[400px] md:max-h-[50vh] 2xl:max-h-[80vh] ">
 
             <!-- Item 1 -->
 <?php $request = GetFilm("ORDER BY likes DESC ","LIMIT 0,5");// var_dump($film);?>
@@ -53,7 +53,7 @@
                                 </div>
                             </div>
                                     <!-- IMAGE -->
-                                <div class="h-96 md:h-[400px] md:max-h-[50vh]  mx-auto w-fit relative">
+                                <div class="h-96 md:h-[400px] md:max-h-[50vh] xl:max-h-[80vh]  mx-auto w-fit relative">
                                     <div class="block absolute top-1 left-1 text-md p-1 rounded-lg font-bold text-gray-50 lg:group-hover:hidden bg-main-light "><?=$film['film_date']?></div>
                                     <div class="block absolute top-1 right-1 text-md p-1 rounded-lg font-bold text-gray-50 lg:group-hover:hidden"><?php if(isset($_SESSION['ID_user'])){isFilmFav($film['ID_film'],$_SESSION['ID_user'],$film['likes']);}else{ShowFakeFav($film['likes']);}?></div>
                                     <div class="block absolute bottom-2 text-md p-1 rounded-lg font-bold text-gray-50 w-full mx-auto lg:group-hover:hidden"><?php Stars($film['film_grade'],$film['ID_film']);?></div>
@@ -97,7 +97,7 @@
                                 </div>
                             </div>
                                     <!-- IMAGE -->
-                                <div class="h-96 md:h-[400px] md:max-h-[50vh]  mx-auto w-fit relative">
+                                <div class="h-96 md:h-[400px] md:max-h-[50vh] xl:max-h-[80vh]  mx-auto w-fit relative">
                                     <div class="block absolute top-1 left-1 text-md p-1 rounded-lg font-bold text-gray-50 lg:group-hover:hidden bg-main-light "><?=$film['film_date']?></div>
                                     <div class="block absolute top-1 right-1 text-md p-1 rounded-lg font-bold text-gray-50 lg:group-hover:hidden"><?php if(isset($_SESSION['ID_user'])){isFilmFav($film['ID_film'],$_SESSION['ID_user'],$film['likes']);}else{ShowFakeFav($film['likes']);}?></div>
                                     <div class="block absolute bottom-2 text-md p-1 rounded-lg font-bold text-gray-50 w-full mx-auto lg:group-hover:hidden"><?php Stars($film['film_grade'],$film['ID_film']);?></div>
@@ -141,7 +141,7 @@
                                 </div>
                             </div>
                                     <!-- IMAGE -->
-                                <div class="h-96 md:h-[400px] md:max-h-[50vh]  mx-auto w-fit relative">
+                                <div class="h-96 md:h-[400px] md:max-h-[50vh] xl:max-h-[80vh]  mx-auto w-fit relative">
                                     <div class="block absolute top-1 left-1 text-md p-1 rounded-lg font-bold text-gray-50 lg:group-hover:hidden bg-main-light "><?=$film['film_date']?></div>
                                     <div class="block absolute top-1 right-1 text-md p-1 rounded-lg font-bold text-gray-50 lg:group-hover:hidden"><?php if(isset($_SESSION['ID_user'])){isFilmFav($film['ID_film'],$_SESSION['ID_user'],$film['likes']);}else{ShowFakeFav($film['likes']);}?></div>
                                     <div class="block absolute bottom-2 text-md p-1 rounded-lg font-bold text-gray-50 w-full mx-auto lg:group-hover:hidden"><?php Stars($film['film_grade'],$film['ID_film']);?></div>
@@ -185,7 +185,7 @@
                                 </div>
                             </div>
                                     <!-- IMAGE -->
-                                <div class="h-96 md:h-[400px] md:max-h-[50vh]  mx-auto w-fit relative">
+                                <div class="h-96 md:h-[400px] md:max-h-[50vh] xl:max-h-[80vh]  mx-auto w-fit relative">
                                     <div class="block absolute top-1 left-1 text-md p-1 rounded-lg font-bold text-gray-50 lg:group-hover:hidden bg-main-light "><?=$film['film_date']?></div>
                                     <div class="block absolute top-1 right-1 text-md p-1 rounded-lg font-bold text-gray-50 lg:group-hover:hidden"><?php if(isset($_SESSION['ID_user'])){isFilmFav($film['ID_film'],$_SESSION['ID_user'],$film['likes']);}else{ShowFakeFav($film['likes']);}?></div>
                                     <div class="block absolute bottom-2 text-md p-1 rounded-lg font-bold text-gray-50 w-full mx-auto lg:group-hover:hidden"><?php Stars($film['film_grade'],$film['ID_film']);?></div>
@@ -229,7 +229,7 @@
                                 </div>
                             </div>
                                     <!-- IMAGE -->
-                                <div class="h-96 md:h-[400px] md:max-h-[50vh]  mx-auto w-fit relative">
+                                <div class="h-96 md:h-[400px] md:max-h-[50vh] xl:max-h-[80vh]  mx-auto w-fit relative">
                                     <div class="block absolute top-1 left-1 text-md p-1 rounded-lg font-bold text-gray-50 lg:group-hover:hidden bg-main-light "><?=$film['film_date']?></div>
                                     <div class="block absolute top-1 right-1 text-md p-1 rounded-lg font-bold text-gray-50 lg:group-hover:hidden"><?php if(isset($_SESSION['ID_user'])){isFilmFav($film['ID_film'],$_SESSION['ID_user'],$film['likes']);}else{ShowFakeFav($film['likes']);}?></div>
                                     <div class="block absolute bottom-2 text-md p-1 rounded-lg font-bold text-gray-50 w-full mx-auto lg:group-hover:hidden"><?php Stars($film['film_grade'],$film['ID_film']);?></div>
@@ -269,7 +269,7 @@
 
         </div>
         <!-- Carousel wrapper -->
-        <div class="relative h-96 w-full md:w-[80%] mx-auto overflow-hidden rounded-lg md:h-[400px] md:max-h-[50vh]">
+        <div class="relative h-96 w-full md:w-[80%] mx-auto overflow-hidden rounded-lg md:h-[400px] md:max-h-[50vh] xl:max-h-[80vh]">
 
             <!-- Item 1 -->
                 <?php $request = GetFilm("ORDER BY film_grade DESC ","LIMIT 25");// var_dump($film);?>
@@ -304,7 +304,7 @@
                                 </div>
                             </div>
                                     <!-- IMAGE -->
-                                <div class="h-96 md:h-[400px] md:max-h-[50vh] mx-auto w-fit relative">
+                                <div class="h-96 md:h-[400px] md:max-h-[50vh] xl:max-h-[80vh] mx-auto w-fit relative">
                                     <div class="block absolute top-1 left-1 text-md p-1 rounded-lg font-bold text-gray-50 lg:group-hover:hidden bg-main-light "><?=$film['film_date']?></div>
                                     <div class="block absolute top-1 right-1 text-md p-1 rounded-lg font-bold text-gray-50 lg:group-hover:hidden"><?php if(isset($_SESSION['ID_user'])){isFilmFav($film['ID_film'],$_SESSION['ID_user'],$film['likes']);}else{ShowFakeFav($film['likes']);}?></div>
                                     <div class="block absolute bottom-2 text-md p-1 rounded-lg font-bold text-gray-50 w-full mx-auto lg:group-hover:hidden"><?php Stars($film['film_grade'],$film['ID_film']);?></div>

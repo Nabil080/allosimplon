@@ -2,7 +2,11 @@
 require_once '../../config/connexion.php';
 
 if(empty($_POST['ID'])){
-    header('Location: ' . $_SERVER['HTTP_REFERER']. "?&message=no_form");
+    if(strpos($_SERVER['HTTP_REFERER'],"?")){
+        header('Location: ' . $_SERVER['HTTP_REFERER']. "&message=no_form");
+        }else{
+        header('Location: ' . $_SERVER['HTTP_REFERER']. "?message=no_form");
+        }
     die();
 }else{
 // DEFINITIONS DES VARIABLES
@@ -21,12 +25,19 @@ $delete_film_scenarist->execute([$ID_film]);
 $delete_film_genre=$con->prepare("DELETE FROM film_genre WHERE ID_film = ?");
 $delete_film_genre->execute([$ID_film]);
 
+$delete_film_comment=$con->prepare("DELETE FROM comment WHERE ID_film = ?");
+$delete_film_comment->execute([$ID_film]);
+
 // Suppression du film
 
 $delete_film=$con->prepare("DELETE FROM film WHERE ID_film = ?");
 $delete_film->execute([$ID_film]);
 
-header('Location: ' . $_SERVER['HTTP_REFERER']. "?&message=delete_film");
+if(strpos($_SERVER['HTTP_REFERER'],"?")){
+    header('Location: ' . $_SERVER['HTTP_REFERER']. "&message=delete_film");
+    }else{
+    header('Location: ' . $_SERVER['HTTP_REFERER']. "?message=delete_film");
+    }
 
 
 
