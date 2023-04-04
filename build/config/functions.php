@@ -273,6 +273,19 @@ function GetGenreFilm($ID_genre){
     }
     }
     }
+function GetCommentFilm($ID_film){
+    if(require("connexion.php")){
+        $film_request=$con->prepare(
+            "SELECT
+                *
+            FROM film
+            WHERE ID_film =  $ID_film"
+            );
+        $film_request->execute();
+        $film=$film_request->fetch();
+        return $film;
+    }
+}
 
 function GetScenaristFilm($ID_scenarist){
     if(require("connexion.php")){

@@ -12,7 +12,7 @@ if(isset($_GET)){
         $verify_user_note=$verify_user_note_request->fetch();
         if(!empty($verify_user_note)){
 
-            $update_note_request=$con->prepare("UPDATE film_note SET note = ? WHERE ID_film = ? AND ID_user = ?g");
+            $update_note_request=$con->prepare("UPDATE film_note SET note = ? WHERE ID_film = ? AND ID_user = ?");
             $update_note_request->execute([$note,$film,$user]);
             if(strpos($_SERVER['HTTP_REFERER'],"?")){
                 header('Location: ' . $_SERVER['HTTP_REFERER']. "&message=update_note");

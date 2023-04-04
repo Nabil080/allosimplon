@@ -50,41 +50,48 @@
 
 <?php
 if(!empty($_GET['message'])){?>
-<button id="message_box" class="duration-500 ease-linear fixed top-[10%] right-16 px-5 py-2 md:px-10 md:py-5 bg-main-light bg-opacity-80 z-50 animate-bounce rounded-lg hover:bg-main-hover" onclick="Delete(this)">
+<button id="message_box" class="duration-500 ease-linear fixed top-[10%] right-16 px-5 py-2 md:px-10 md:py-5 bg-main-light bg-opacity-80 z-50 animate-bounce rounded-lg hover:bg-main-hover">
     <?php
     if($_GET['message']=="no_form"){echo'Venez depuis un formulaire !';}
     if($_GET['message']=="missing_element"){echo'Un élément est manquant !';}
+
     if($_GET['message']=="mail_invalid"){echo'E-mail invalide!';}
     if($_GET['message']=="mail_existing"){echo'E-mail déjà existant!';}
-    if($_GET['message']=="wrong_mail"){echo'E-mail incorrect !';}
-    if($_GET['message']=="wrong_password"){echo'Mot-de-passe incorrect !';}
-    if($_GET['message']=="connected"){echo'Connecté avec succès !';}
     if($_GET['message']=="size_verif_password"){echo'Les mots de passes ne correspondent pas ou sont trop longs !';}
     if($_GET['message']=="size_pseudo"){echo'Le pseudo est trop long ou invalide !';}
     if($_GET['message']=="inscrit"){echo'Inscrit avec succès !';}
-    if($_GET['message']=="add_fav"){echo'Ajouté aux favoris !';}
-    if($_GET['message']=="delete_fav"){echo'Supprimé des favoris !';}
+
+    if($_GET['message']=="wrong_mail"){echo'E-mail incorrect !';}
+    if($_GET['message']=="wrong_password"){echo'Mot-de-passe incorrect !';}
+    if($_GET['message']=="connected"){echo'Connecté avec succès !';}
+    if($_GET['message']=="not_connected"){echo'Vous n\'êtes pas connecté !';}
+
+
     if($_GET['message']=="update_password"){echo'Mot-de-passe modifié !';}
     if($_GET['message']=="update_mail"){echo'E-mail modifié !';}
     if($_GET['message']=="update_pseudo"){echo'Pseudo modifié !';}
-    if($_GET['message']=="delete_comment"){echo'Commentaire supprimé !';}
+
     if($_GET['message']=="add_comment"){echo'Commentaire ajouté !';}
     if($_GET['message']=="update_comment"){echo'Commentaire modifié !';}
+    if($_GET['message']=="delete_comment"){echo'Commentaire supprimé !';}
     if($_GET['message']=="report_comment"){echo'Commentaire signalé !';}
+
     if($_GET['message']=="add_note"){echo'Note ajouté !';}
     if($_GET['message']=="update_note"){echo'Note modifié !';}
+
+    if($_GET['message']=="add_fav"){echo'Ajouté aux favoris !';}
+    if($_GET['message']=="delete_fav"){echo'Supprimé des favoris !';}
+
+
     ?>
 </button>
 <script>
-    function Delete(menu) {
-    menu.classList.toggle('hidden')
-    }
+setTimeout(function() {
+    var message_box = document.getElementById("message_box");
+    message_box.classList.add("opacity-0");
     setTimeout(function() {
-  var message_box = document.getElementById("message_box");
-  message_box.classList.add("opacity-0");
-  setTimeout(function() {
     message_box.remove();
-  }, 500);
+    }, 500);
 }, 3000);
 
 </script>

@@ -125,9 +125,6 @@
         </thead>
         <tbody class="[&_td]:text-center">
 
-
-
-
         <!-- REQUETE RECUP FILM + BOUCLE -->
 
 
