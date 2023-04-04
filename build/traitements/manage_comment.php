@@ -1,6 +1,7 @@
 <?php
 session_start();
 require_once '../config/connexion.php';
+if(isset($_SESSION['ID_user'])){
 if(isset($_POST['modified_comment'])){
     // handle modify comment action
     $ID_comment = $_POST['ID_comment'];
@@ -49,6 +50,13 @@ if(isset($_POST['modified_comment'])){
         header('Location: ' . $_SERVER['HTTP_REFERER']. "&message=invalid");
         }else{
         header('Location: ' . $_SERVER['HTTP_REFERER']. "?message=invalid");
+        }
+}
+}else{
+    if(strpos($_SERVER['HTTP_REFERER'],"?")){
+        header('Location: ' . $_SERVER['HTTP_REFERER']. "&message=not_connected");
+        }else{
+        header('Location: ' . $_SERVER['HTTP_REFERER']. "?message=not_connected");
         }
 }
 ?>

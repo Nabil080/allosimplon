@@ -64,6 +64,7 @@ if(!empty($_GET['message'])){?>
     if($_GET['message']=="wrong_mail"){echo'E-mail incorrect !';}
     if($_GET['message']=="wrong_password"){echo'Mot-de-passe incorrect !';}
     if($_GET['message']=="connected"){echo'Connecté avec succès !';}
+    if($_GET['message']=="not_connected"){echo'Vous n\'êtes pas connecté !';}
 
 
     if($_GET['message']=="update_password"){echo'Mot-de-passe modifié !';}

@@ -274,7 +274,7 @@ $comment_count= $comment_request->rowCount() ?>
                 <p class="text-sm ml-3 text-gray-400"><time pubdate datetime="2022-06-23"
                         title="June 23rd, 2022"><?=$date->format('d.M.Y H:i')?></time></p>
             </div>
-            <button id="dropdownCommentButton" data-dropdown-toggle="dropdownComment"
+            <button id="dropdownCommentButton<?=$comment['ID_comment']?>" data-dropdown-toggle="dropdownComment<?=$comment['ID_comment']?>"
                 class="inline-flex items-center p-2 text-sm font-medium text-center text-gray-50  rounded-lg  focus:ring-4 focus:outline-none  bg-main-light hover:bg-main-hover focus:ring-main-hover"
                 type="button">
                 <svg class="w-5 h-5" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
@@ -285,24 +285,24 @@ $comment_count= $comment_request->rowCount() ?>
                 </svg>
             </button>
             <!-- Dropdown menu -->
-            <div id="dropdownComment"
+            <div id="dropdownComment<?=$comment['ID_comment']?>"
             class="hidden z-10 w-fit  rounded divide-y  shadow bg-main-dark divide-gray-600">
             
                 <ul class="py-1  text-sm  text-gray-200"
                     aria-labelledby="dropdownMenuIconHorizontalButton">
-                    <?php if($comment['ID_user']==$_SESSION['ID_user']){?>
+                    <?php if(isset($_SESSION['ID_user'])){if($comment['ID_user'] == $_SESSION['ID_user']){?>
                     <li>
-                        <button onclick="SwitchComment()"
+                        <button onclick="SwitchComment<?=$comment['ID_comment']?>()"
                             class="block py-2 px-8 w-full hover:bg-gray-600 hover:text-white">Modifier</a>
                     </li>
-                    <?php } ?>
+                    <?php }?>
             <form method="post" action="/portfolio/allosimplon/build/traitements/manage_comment.php">
-                    <?php if($comment['ID_user']==$_SESSION['ID_user'] || $_SESSION['ID_role'] == 1){?>
+                    <?php if($comment['ID_user'] == $_SESSION['ID_user'] || $_SESSION['ID_role'] == 1){?>
                     <li>
                         <button type="submit" name="delete_comment"
                             class="block py-2 px-8 w-full  hover:bg-gray-600 hover:text-white">Supprimer</a>
                     </li>
-                    <?php } ?>
+                    <?php }} ?>
                     <li>
                         <button type="submit" name="report_comment"
                             class="block py-2 px-8 w-full hover:bg-gray-600 hover:text-white">Signaler</a>
@@ -312,21 +312,17 @@ $comment_count= $comment_request->rowCount() ?>
             </form>
         </div>
         </footer>
-        <p id="old_comment" class="text-gray-400"><?=$comment['comment_message']?></p>
-        <form id="new_comment" class="hidden" method="post" action="/portfolio/allosimplon/build/traitements/manage_comment.php">
+        <p id="old_comment<?=$comment['ID_comment']?>" class="text-gray-400"><?=$comment['comment_message']?></p>
+        <form id="new_comment<?=$comment['ID_comment']?>" class="hidden" method="post" action="/portfolio/allosimplon/build/traitements/manage_comment.php">
             <input class="hidden" name="ID_comment" value="<?=$comment['ID_comment']?>">
             <textarea name="modified_comment" class=" text-gray-400 bg-transparent border-main-light rounded-lg p-2 w-full"><?=$comment['comment_message']?></textarea>
             <button type="submit" name="modify_comment" class="inline-flex items-center py-2.5 px-4 mt-2 text-xs font-medium text-center text-white bg-main-light rounded-lg focus:ring-4 focus:ring-primary-200 focus:ring-primary-900 hover:bg-primary-800">Modifier le commentaire</button>
         </form>
     </article>
-    <?php } ?>
-    </div>
-</section>
-
-<script>
-function SwitchComment() {
-    var div1 = document.getElementById("old_comment");
-    var div2 = document.getElementById("new_comment");
+    <script>
+function SwitchComment<?=$comment['ID_comment']?>() {
+    var div1 = document.getElementById("old_comment<?=$comment['ID_comment']?>");
+    var div2 = document.getElementById("new_comment<?=$comment['ID_comment']?>");
     if (div1.style.display === "block") {
     div1.style.display = "none";
     div2.style.display = "block";
@@ -336,6 +332,11 @@ function SwitchComment() {
     }
 }
 </script>
+    <?php } ?>
+    </div>
+</section>
+
+
 
 
 
