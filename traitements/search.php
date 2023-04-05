@@ -1,6 +1,6 @@
 <?php session_start();
 require_once '../config/connexion.php';
-$search=$_GET['search'];
+$search=trim(htmlspecialchars(strip_tags($_GET['search'])),ENT_QUOTES);
 if(empty($_SESSION['filters'])){
     $url = "/portfolio/allosimplon/content/catalogue.php?";
   }else{

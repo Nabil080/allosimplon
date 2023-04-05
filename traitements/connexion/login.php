@@ -3,8 +3,8 @@ require_once '../../config/connexion.php';
 
 // Variables + sécurisation
 $errors = array();
-    $email = htmlspecialchars(strip_tags($_POST['email']), ENT_QUOTES );
-    $password = htmlspecialchars(strip_tags($_POST['password']), ENT_QUOTES );
+    $email = trim(htmlspecialchars(strip_tags($_POST['email']), ENT_QUOTES ));
+    $password = trim(htmlspecialchars(strip_tags($_POST['password']), ENT_QUOTES ));
 
 // Verif email valide
 if(empty($email) || !filter_var($email,FILTER_VALIDATE_EMAIL)){

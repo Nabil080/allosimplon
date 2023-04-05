@@ -3,10 +3,10 @@ require_once '../config/connexion.php';
 require_once '../config/functions.php';
 
 if(isset($_POST['message'])){
-    $name=htmlspecialchars(strip_tags(($_POST['name']),ENT_QUOTES));
-    $email=htmlspecialchars(strip_tags(($_POST['mail']),ENT_QUOTES));
-    $objet=htmlspecialchars(strip_tags(($_POST['objet']),ENT_QUOTES));
-    $message=htmlspecialchars(strip_tags(($_POST['message']),ENT_QUOTES));
+    $name=trim(htmlspecialchars(strip_tags($_POST['name']),ENT_QUOTES));
+    $email=trim(htmlspecialchars(strip_tags($_POST['mail']),ENT_QUOTES));
+    $objet=trim(htmlspecialchars(strip_tags($_POST['objet']),ENT_QUOTES));
+    $message=trim(htmlspecialchars(strip_tags($_POST['message']),ENT_QUOTES));
 
 
     if(!empty($name)&&!empty($email)&&!empty($objet)&&!empty($message)){
@@ -27,6 +27,12 @@ if(isset($_POST['message'])){
                     }else{
                     header('Location: ' . $_SERVER['HTTP_REFERER']. "?message=mail_not_sent");
                     }
+            }
+    }else{
+        if(strpos($_SERVER['HTTP_REFERER'],"?")){
+            header('Location: ' . $_SERVER['HTTP_REFERER']. "&message=missing_element");
+            }else{
+            header('Location: ' . $_SERVER['HTTP_REFERER']. "?message=missing_element");
             }
     }
 

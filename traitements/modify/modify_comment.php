@@ -9,7 +9,7 @@ if(!isset($_POST['submit'])){
         header('Location: ' . $_SERVER['HTTP_REFERER']. "?message=no_form");
         }
 }else{
-$message = htmlspecialchars(strip_tags($_POST['message']), ENT_QUOTES );
+$message = trim(htmlspecialchars(strip_tags($_POST['message']), ENT_QUOTES ));
 $ID = htmlspecialchars(strip_tags($_POST['ID']),ENT_QUOTES);
 
 if(empty($message)){

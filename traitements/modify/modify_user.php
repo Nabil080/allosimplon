@@ -3,12 +3,16 @@ require_once '../../config/connexion.php';
 
 // Variables + sécurisation
 if(!isset($_POST['submit'])){
-    header('Location: ' . $_SERVER['HTTP_REFERER']. "?&message=no_form");
+    if(strpos($_SERVER['HTTP_REFERER'],"?")){
+        header('Location: ' . $_SERVER['HTTP_REFERER']. "&message=no_form");
+        }else{
+        header('Location: ' . $_SERVER['HTTP_REFERER']. "?message=no_form");
+        }
 }else{
-$user_pseudo = htmlspecialchars(strip_tags($_POST['pseudo']), ENT_QUOTES );
-$user_email = htmlspecialchars(strip_tags($_POST['email']), ENT_QUOTES );
-$ID_role = htmlspecialchars(strip_tags($_POST['role']), ENT_QUOTES );
-$ID_user = htmlspecialchars(strip_tags($_POST['ID']),ENT_QUOTES);
+$user_pseudo = trim(htmlspecialchars(strip_tags($_POST['pseudo']),ENT_QUOTES));
+$user_email = trim(htmlspecialchars(strip_tags($_POST['email']),ENT_QUOTES));
+$ID_role = trim(htmlspecialchars(strip_tags($_POST['role']),ENT_QUOTES));
+$ID_user = trim(htmlspecialchars(strip_tags($_POST['ID']),ENT_QUOTES));
 $ID_film_array = ($_POST['film']);
 
 if(
@@ -17,7 +21,11 @@ if(
     empty($ID_role) ||
     empty($ID_film_array)
     ){
-    header('Location: ' . $_SERVER['HTTP_REFERER']. "?&message=missing_element");
+    if(strpos($_SERVER['HTTP_REFERER'],"?")){
+        header('Location: ' . $_SERVER['HTTP_REFERER']. "&message=missing_element");
+        }else{
+        header('Location: ' . $_SERVER['HTTP_REFERER']. "?message=missing_element");
+        }
     }else{
 
         $add_user_request=$con->prepare(
@@ -42,7 +50,11 @@ if(
             ID_film = ?, ID_user = ? ");
         $add_user_request->execute([ $ID_film, $ID_user]);
     }
-    header('Location: ' . $_SERVER['HTTP_REFERER']. "?&message=update_user");
+    if(strpos($_SERVER['HTTP_REFERER'],"?")){
+        header('Location: ' . $_SERVER['HTTP_REFERER']. "&message=update_user");
+        }else{
+        header('Location: ' . $_SERVER['HTTP_REFERER']. "?message=update_user");
+        }
     }
 }
 

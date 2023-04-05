@@ -14,9 +14,9 @@ $ID = $_SESSION['ID_user'];
 if(empty($pseudo) || strlen($pseudo) > 10){
     $errors['pseudo']="Pseudo trop long ou invalide (16 charactères maximum)";
     if(strpos($_SERVER['HTTP_REFERER'],"?")){
-        header('Location: ' . $_SERVER['HTTP_REFERER']. "&message=size_pseudo");
+        header('Location: ' . $_SERVER['HTTP_REFERER']. "&message=missing_element");
         }else{
-        header('Location: ' . $_SERVER['HTTP_REFERER']. "?message=size_pseudo");
+        header('Location: ' . $_SERVER['HTTP_REFERER']. "?message=missing_element");
         }
 
 }else{

@@ -3,8 +3,8 @@ require_once '../../config/connexion.php';
 
 // Variables + sécurisation
 if(isset($_GET)){
-    $note=htmlspecialchars($_GET['note'],ENT_QUOTES);
-    $film=htmlspecialchars($_GET['film'],ENT_QUOTES);
+    $note=trim(htmlspecialchars($_GET['note'],ENT_QUOTES));
+    $film=trim(htmlspecialchars($_GET['film'],ENT_QUOTES));
     $user=$_SESSION['ID_user'];
     if(!empty($note)&&!empty($film)){
         $verify_user_note_request=$con->prepare("SELECT ID_note FROM film_note WHERE ID_film = ? AND ID_user = ?");
@@ -30,5 +30,4 @@ if(isset($_GET)){
                         }
                 }
         }
-}else{
 }

@@ -3,11 +3,8 @@ require_once '../../config/connexion.php';
 
 // Variables + sécurisation
 if($_POST['submit']){
-$actor_name = htmlspecialchars(strip_tags($_POST['name']), ENT_QUOTES );
+$actor_name = trim(htmlspecialchars(strip_tags($_POST['name']), ENT_QUOTES) );
 if(empty($actor_name)){
-    echo "Des éléments sont manquants";
-    var_dump($actor_name);
-    var_dump($_POST);
     die();
 }else{
     if (isset($_FILES['photo']['name']) && $_FILES['photo']['error'] == 0) {
@@ -21,20 +18,32 @@ if(empty($actor_name)){
         $extensions = ['png', 'jpg', 'jpeg', 'gif', 'jiff'];
 
         if ($sizeFile > $max_size) {
-            echo "Taille de l'affiche trop importante";
+            if(strpos($_SERVER['HTTP_REFERER'],"?")){
+                header('Location: ' . $_SERVER['HTTP_REFERER']. "&message=size_error");
+                }else{
+                header('Location: ' . $_SERVER['HTTP_REFERER']. "?message=size_error");
+                }
             die();
         }
 
         $allowed_types = array('jpg', 'jpeg', 'png', 'gif');
         $file_type = pathinfo($_FILES['photo']['name'], PATHINFO_EXTENSION);
         if(!in_array($file_type, $allowed_types)) {
-            echo 'format image invalide';
+    if(strpos($_SERVER['HTTP_REFERER'],"?")){
+        header('Location: ' . $_SERVER['HTTP_REFERER']. "&message=format_error");
+        }else{
+        header('Location: ' . $_SERVER['HTTP_REFERER']. "?message=format_error");
+        }
             die();
         }
 
         $extension = explode('.', $nameFile);
         if(!count($extension) <=2 && !in_array(strtolower(end($extension)), $extensions)) {
-            echo 'format image incorrect';
+    if(strpos($_SERVER['HTTP_REFERER'],"?")){
+        header('Location: ' . $_SERVER['HTTP_REFERER']. "&message=format_error");
+        }else{
+        header('Location: ' . $_SERVER['HTTP_REFERER']. "?message=format_error");
+        }
         }
 
         $actor_name_photo = uniqid() . '.' . $file_type;
@@ -43,7 +52,11 @@ if(empty($actor_name)){
         if(move_uploaded_file($_FILES['photo']['tmp_name'], $upload_dir . $actor_name_photo)) {
             echo 'le fichier est dans le serveur <br>';// Le fichier a été correctement déplacé
 
-        echo "L'acteur a bien été ajouté <br>";
+            if(strpos($_SERVER['HTTP_REFERER'],"?")){
+                header('Location: ' . $_SERVER['HTTP_REFERER']. "&message=move_file");
+                }else{
+                header('Location: ' . $_SERVER['HTTP_REFERER']. "?message=move_file");
+                }
         
 
         // Redirect to previous page
@@ -56,26 +69,35 @@ if(empty($actor_name)){
                 actor_name = ?, actor_photo = ?");
         $add_actor_request->execute([ $actor_name, $actor_name_photo]);
 
-        var_dump ($add_actor_request);
-
-        header('Location: ../../content/crud.php');
-
+        if(strpos($_SERVER['HTTP_REFERER'],"?")){
+            header('Location: ' . $_SERVER['HTTP_REFERER']. "&message=add_actor");
+            }else{
+            header('Location: ' . $_SERVER['HTTP_REFERER']. "?message=add_actor");
+            }
     }else{
-        echo "Le fichier n'a pas pu être déplacé dans le serveur";
+        if(strpos($_SERVER['HTTP_REFERER'],"?")){
+            header('Location: ' . $_SERVER['HTTP_REFERER']. "&message=move_file_error");
+            }else{
+            header('Location: ' . $_SERVER['HTTP_REFERER']. "?message=move_file_error");
+            }
         die();
     }
 }else{
-    echo "erreur avec l'image";
-    var_dump($_FILES);
-    die();
+    if(strpos($_SERVER['HTTP_REFERER'],"?")){
+        header('Location: ' . $_SERVER['HTTP_REFERER']. "&message=file_error");
+        }else{
+        header('Location: ' . $_SERVER['HTTP_REFERER']. "?message=file_error");
+        }
 }
 
 
 }
 }else{
-    echo "venez depuis le formulaire d'ajout de film";
-    var_dump($_POST);
-    die();
+    if(strpos($_SERVER['HTTP_REFERER'],"?")){
+        header('Location: ' . $_SERVER['HTTP_REFERER']. "&message=no_form");
+        }else{
+        header('Location: ' . $_SERVER['HTTP_REFERER']. "?message=no_form");
+        }
 }
 
 

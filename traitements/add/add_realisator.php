@@ -3,9 +3,13 @@ require_once '../../config/connexion.php';
 
 // Variables + sécurisation
 if($_POST['submit']){
-$realisator_name = htmlspecialchars(strip_tags($_POST['name']), ENT_QUOTES );
+$realisator_name = trim(htmlspecialchars(strip_tags($_POST['name']), ENT_QUOTES));
 if(empty($realisator_name)){
-    header('Location: ' . $_SERVER['HTTP_REFERER']. "?&message=missing_elemnt");
+    if(strpos($_SERVER['HTTP_REFERER'],"?")){
+        header('Location: ' . $_SERVER['HTTP_REFERER']. "&message=missing_element");
+        }else{
+        header('Location: ' . $_SERVER['HTTP_REFERER']. "?message=missing_element");
+        }
     die();
 }else{
     if (isset($_FILES['photo']['name']) && $_FILES['photo']['error'] == 0) {
@@ -19,7 +23,11 @@ if(empty($realisator_name)){
         $extensions = ['png', 'jpg', 'jpeg', 'gif', 'jiff'];
 
         if ($sizeFile > $max_size) {
-            header('Location: ' . $_SERVER['HTTP_REFERER']. "?&message=size_error");
+            if(strpos($_SERVER['HTTP_REFERER'],"?")){
+                header('Location: ' . $_SERVER['HTTP_REFERER']. "&message=size_erro");
+                }else{
+                header('Location: ' . $_SERVER['HTTP_REFERER']. "?message=size_erro");
+                }
 
             die();
         }
@@ -27,13 +35,21 @@ if(empty($realisator_name)){
         $allowed_types = array('jpg', 'jpeg', 'png', 'gif');
         $file_type = pathinfo($_FILES['photo']['name'], PATHINFO_EXTENSION);
         if(!in_array($file_type, $allowed_types)) {
-            header('Location: ' . $_SERVER['HTTP_REFERER']. "?&message=format_error");
+            if(strpos($_SERVER['HTTP_REFERER'],"?")){
+                header('Location: ' . $_SERVER['HTTP_REFERER']. "&message=format_error");
+                }else{
+                header('Location: ' . $_SERVER['HTTP_REFERER']. "?message=format_error");
+                }
             die();
         }
 
         $extension = explode('.', $nameFile);
         if(!count($extension) <=2 && !in_array(strtolower(end($extension)), $extensions)) {
-            header('Location: ' . $_SERVER['HTTP_REFERER']. "?&message=format_error");
+            if(strpos($_SERVER['HTTP_REFERER'],"?")){
+                header('Location: ' . $_SERVER['HTTP_REFERER']. "&message=format_error");
+                }else{
+                header('Location: ' . $_SERVER['HTTP_REFERER']. "?message=format_error");
+                }
         }
 
         $realisator_name_photo = uniqid() . '.' . $file_type;
@@ -48,20 +64,35 @@ if(empty($realisator_name)){
                 realisator_name = ?, realisator_photo = ?");
         $add_realisator_request->execute([ $realisator_name, $realisator_name_photo]);
 
-        header('Location: ' . $_SERVER['HTTP_REFERER']. "?&message=ad_realisator");
-
+        if(strpos($_SERVER['HTTP_REFERER'],"?")){
+            header('Location: ' . $_SERVER['HTTP_REFERER']. "&message=add_realisator");
+            }else{
+            header('Location: ' . $_SERVER['HTTP_REFERER']. "?message=add_realisator");
+            }
     }else{
-        header('Location: ' . $_SERVER['HTTP_REFERER']. "?&message=move_file_error");
+        if(strpos($_SERVER['HTTP_REFERER'],"?")){
+            header('Location: ' . $_SERVER['HTTP_REFERER']. "&message=move_file_error");
+            }else{
+            header('Location: ' . $_SERVER['HTTP_REFERER']. "?message=move_file_error");
+            }
         die();
     }
 }else{
-    header('Location: ' . $_SERVER['HTTP_REFERER']. "?&message=error_file");
+    if(strpos($_SERVER['HTTP_REFERER'],"?")){
+        header('Location: ' . $_SERVER['HTTP_REFERER']. "&message=error_file");
+        }else{
+        header('Location: ' . $_SERVER['HTTP_REFERER']. "?message=error_file");
+        }
     die();
 }
 
 }
 }else{
-    header('Location: ' . $_SERVER['HTTP_REFERER']. "?&message=no_form");
+    if(strpos($_SERVER['HTTP_REFERER'],"?")){
+        header('Location: ' . $_SERVER['HTTP_REFERER']. "&message=no_form");
+        }else{
+        header('Location: ' . $_SERVER['HTTP_REFERER']. "?message=no_form");
+        }
     die();
 }
 

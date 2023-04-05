@@ -3,16 +3,20 @@ require_once '../../config/connexion.php';
 
 // Variables + sécurisation
 if(!isset($_POST['submit'])){
-    echo "venez depuis le formulaire d'ajout de film";
+    if(strpos($_SERVER['HTTP_REFERER'],"?")){
+        header('Location: ' . $_SERVER['HTTP_REFERER']. "&message=no_form");
+        }else{
+        header('Location: ' . $_SERVER['HTTP_REFERER']. "?message=no_form");
+        }
 }else{
-$film_name = htmlspecialchars(strip_tags($_POST['name']), ENT_QUOTES );
-$film_date = htmlspecialchars(strip_tags($_POST['date']), ENT_QUOTES );
-$film_video = htmlspecialchars(strip_tags($_POST['video']), ENT_QUOTES );
-$film_grade = htmlspecialchars(strip_tags($_POST['grade']), ENT_QUOTES );
-$film_description = htmlspecialchars(strip_tags($_POST['description']), ENT_QUOTES );
-$film_time = htmlspecialchars(strip_tags($_POST['time']), ENT_QUOTES );
-$film_admin_id = htmlspecialchars(strip_tags($_POST['admin_id']), ENT_QUOTES );
-$film_admin_pseudo = htmlspecialchars(strip_tags($_POST['admin_pseudo']), ENT_QUOTES );
+$film_name = trim(htmlspecialchars(strip_tags($_POST['name']), ENT_QUOTES ));
+$film_date = trim(htmlspecialchars(strip_tags($_POST['date']), ENT_QUOTES ));
+$film_video = trim(htmlspecialchars(strip_tags($_POST['video']), ENT_QUOTES ));
+$film_grade = trim(htmlspecialchars(strip_tags($_POST['grade']), ENT_QUOTES ));
+$film_description = trim(htmlspecialchars(strip_tags($_POST['description']), ENT_QUOTES ));
+$film_time = trim(htmlspecialchars(strip_tags($_POST['time']), ENT_QUOTES ));
+$film_admin_id = trim(htmlspecialchars(strip_tags($_POST['admin_id']), ENT_QUOTES ));
+$film_admin_pseudo = trim(htmlspecialchars(strip_tags($_POST['admin_pseudo']), ENT_QUOTES ));
 $ID_actor_array = ($_POST['actor']);
 $ID_realisator_array = ($_POST['realisator']);
 $ID_genre_array = ($_POST['genre']);
@@ -33,7 +37,11 @@ if(
     empty($ID_genre_array) ||
     empty($ID_scenarist_array)
     ){
-    echo 'un élément est manquant';
+        if(strpos($_SERVER['HTTP_REFERER'],"?")){
+            header('Location: ' . $_SERVER['HTTP_REFERER']. "&message=missing_element");
+            }else{
+            header('Location: ' . $_SERVER['HTTP_REFERER']. "?message=missing_element");
+            }
     }else{
     
         if(isset($_FILES['photo']['name']) && isset($_FILES['background']['name'])) {
@@ -49,28 +57,40 @@ if(
                 $extensions = ['png', 'jpg', 'jpeg', 'gif', 'jiff'];
         
                 if ($sizeFile > $max_size) {
-                    echo "Taille de l'affiche trop importante";
-                    die();
+                    if(strpos($_SERVER['HTTP_REFERER'],"?")){
+                        header('Location: ' . $_SERVER['HTTP_REFERER']. "&message=file_size");
+                        }else{
+                        header('Location: ' . $_SERVER['HTTP_REFERER']. "?message=file_size");
+                        }                    die();
                 }
             
                 $allowed_types = array('jpg', 'jpeg', 'png', 'gif');
                 $file_type = pathinfo($_FILES['photo']['name'], PATHINFO_EXTENSION);
                 if(!in_array($file_type, $allowed_types)) {
-                    echo 'format image invalide';
-                    die();
+                    if(strpos($_SERVER['HTTP_REFERER'],"?")){
+                        header('Location: ' . $_SERVER['HTTP_REFERER']. "&message=format_error");
+                        }else{
+                        header('Location: ' . $_SERVER['HTTP_REFERER']. "?message=format_error");
+                        }                    die();
                 }
         
                 $extension = explode('.', $nameFile);
                 if(!count($extension) <=2 && !in_array(strtolower(end($extension)), $extensions)) {
-                    echo 'format image incorrect';
-                }
+                    if(strpos($_SERVER['HTTP_REFERER'],"?")){
+                        header('Location: ' . $_SERVER['HTTP_REFERER']. "&message=format_error");
+                        }else{
+                        header('Location: ' . $_SERVER['HTTP_REFERER']. "?message=format_error");
+                        }                }
         
                 $film_name_photo = uniqid() . '.' . $file_type;
             
                 $upload_dir = '../../upload/film/';
                 if(move_uploaded_file($_FILES['photo']['tmp_name'], $upload_dir . $film_name_photo)) {
-                    echo 'le fichier est dans le serveur';// Le fichier a été correctement déplacé
-                    
+                    if(strpos($_SERVER['HTTP_REFERER'],"?")){
+                        header('Location: ' . $_SERVER['HTTP_REFERER']. "&message=move_file");
+                        }else{
+                        header('Location: ' . $_SERVER['HTTP_REFERER']. "?message=move_file");
+                        }
                                 // VERIFICATION BACKGROUND PHOTO
             if (isset($_FILES['background']['name']) && $_FILES['background']['error'] == 0) {
                 $nameFile = $_FILES['background']['name'];
@@ -83,21 +103,32 @@ if(
                 $extensions = ['png', 'jpg', 'jpeg', 'gif', 'jiff'];
         
                 if ($sizeFile > $max_size) {
-                    echo "Taille de l'affiche trop importante";
+                    if(strpos($_SERVER['HTTP_REFERER'],"?")){
+                        header('Location: ' . $_SERVER['HTTP_REFERER']. "&message=size_error");
+                        }else{
+                        header('Location: ' . $_SERVER['HTTP_REFERER']. "?message=size_error");
+                        }
                     die();
                 }
             
                 $allowed_types = array('jpg', 'jpeg', 'png', 'gif');
                 $file_type = pathinfo($_FILES['background']['name'], PATHINFO_EXTENSION);
                 if(!in_array($file_type, $allowed_types)) {
-                    echo 'format image invalide';
-                    die();
+                    if(strpos($_SERVER['HTTP_REFERER'],"?")){
+                        header('Location: ' . $_SERVER['HTTP_REFERER']. "&message=format_error");
+                        }else{
+                        header('Location: ' . $_SERVER['HTTP_REFERER']. "?message=format_error");
+                        }
+                die();
                 }
         
                 $extension = explode('.', $nameFile);
                 if(!count($extension) <=2 && !in_array(strtolower(end($extension)), $extensions)) {
-                    echo 'format image incorrect';
-                }
+                    if(strpos($_SERVER['HTTP_REFERER'],"?")){
+                        header('Location: ' . $_SERVER['HTTP_REFERER']. "&message=format_error");
+                        }else{
+                        header('Location: ' . $_SERVER['HTTP_REFERER']. "?message=format_error");
+                        }                }
         
                 $film_name_background = uniqid() . '.' . $file_type;
             
@@ -164,17 +195,11 @@ if(
                     ]);
                 }
                 
-                    echo 'Le film a été ajouté.';
-                    echo'<br> ID acteurs : <br>';
-                    var_dump($ID_actor_array);
-                    echo'<br> ID realisator : <br>';
-                    var_dump($ID_realisator_array);
-                    echo'<br> ID genre : <br>';
-                    var_dump($ID_genre_array);
-                    echo'<br> ID scenarist : <br>';
-                    var_dump($ID_scenarist_array);
-
-                    header('Location: ../../content/crud.php');
+                if(strpos($_SERVER['HTTP_REFERER'],"?")){
+                    header('Location: ' . $_SERVER['HTTP_REFERER']. "&message=add_film");
+                    }else{
+                    header('Location: ' . $_SERVER['HTTP_REFERER']. "?message=add_film");
+                    }
                     
                 }
 
@@ -189,21 +214,31 @@ if(
                 }
         
             } else {
-                echo "erreur avec l'image";
+                if(strpos($_SERVER['HTTP_REFERER'],"?")){
+                    header('Location: ' . $_SERVER['HTTP_REFERER']. "&message=file_error");
+                    }else{
+                    header('Location: ' . $_SERVER['HTTP_REFERER']. "?message=file_error");
+                    }
                 die();
             }
                 
         
                 } else {
-                    echo 'la photo d affiche n a pas pu etre upload';
+                    if(strpos($_SERVER['HTTP_REFERER'],"?")){
+                        header('Location: ' . $_SERVER['HTTP_REFERER']. "&message=move_file_error");
+                        }else{
+                        header('Location: ' . $_SERVER['HTTP_REFERER']. "?message=move_file_error");
+                        }
                     die(); // Il y a eu une erreur lors du déplacement du fichier
 
                 }
         
             } else {
-                echo "erreur avec l'image";
-                var_dump($_FILES);
-                echo 'slt';
+                if(strpos($_SERVER['HTTP_REFERER'],"?")){
+                    header('Location: ' . $_SERVER['HTTP_REFERER']. "&message=file_error");
+                    }else{
+                    header('Location: ' . $_SERVER['HTTP_REFERER']. "?message=file_error");
+                    }
                 die();
             }
 

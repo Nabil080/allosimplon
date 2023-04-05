@@ -25,6 +25,9 @@ $delete_film_scenarist->execute([$ID_film]);
 $delete_film_genre=$con->prepare("DELETE FROM film_genre WHERE ID_film = ?");
 $delete_film_genre->execute([$ID_film]);
 
+$delete_film_user=$con->prepare("DELETE FROM user_fav WHERE ID_film = ?");
+$delete_film_user->execute([$ID_film]);
+
 $delete_film_comment=$con->prepare("DELETE FROM comment WHERE ID_film = ?");
 $delete_film_comment->execute([$ID_film]);
 

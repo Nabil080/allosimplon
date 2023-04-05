@@ -66,9 +66,9 @@ if(!empty($_GET['message'])){?>
     if($_GET['message']=="connected"){echo'Connecté avec succès !';}
     if($_GET['message']=="not_connected"){echo'Vous n\'êtes pas connecté !';}
 
-
     if($_GET['message']=="update_password"){echo'Mot-de-passe modifié !';}
     if($_GET['message']=="update_mail"){echo'E-mail modifié !';}
+    if($_GET['message']=="mail_verif_error"){echo'Les e-mails ne correspondent pas !';}
     if($_GET['message']=="update_pseudo"){echo'Pseudo modifié !';}
 
     if($_GET['message']=="add_comment"){echo'Commentaire ajouté !';}
@@ -81,6 +81,38 @@ if(!empty($_GET['message'])){?>
 
     if($_GET['message']=="add_fav"){echo'Ajouté aux favoris !';}
     if($_GET['message']=="delete_fav"){echo'Supprimé des favoris !';}
+
+    if($_GET['message']=="add_film"){echo'Film ajouté !';}
+    if($_GET['message']=="update_film"){echo'Film modifié !';}
+    if($_GET['message']=="delete_film"){echo'Film supprimé !';}
+
+    if($_GET['message']=="add_user"){echo'Utilisateur ajouté !';}
+    if($_GET['message']=="update_user"){echo'Utilisateur modifié !';}
+    if($_GET['message']=="delete_user"){echo'Utilisateur supprimé !';}
+
+    if($_GET['message']=="add_actor"){echo'Acteur ajouté !';}
+    if($_GET['message']=="update_actor"){echo'Acteur modifié !';}
+    if($_GET['message']=="delete_actor"){echo'Acteur supprimé !';}
+
+    if($_GET['message']=="add_realisator"){echo'Réalisateur ajouté !';}
+    if($_GET['message']=="update_realisator"){echo'Réalisateur modifié !';}
+    if($_GET['message']=="delete_realisator"){echo'Réalisateur supprimé !';}
+
+    if($_GET['message']=="add_scenarist"){echo'Scénariste ajouté !';}
+    if($_GET['message']=="update_scenarist"){echo'Scénariste modifié !';}
+    if($_GET['message']=="delete_scenarist"){echo'Scénariste supprimé !';}
+
+    if($_GET['message']=="add_genre"){echo'Genre ajouté !';}
+    if($_GET['message']=="update_genre"){echo'Genre modifié !';}
+    if($_GET['message']=="delete_genre"){echo'Genre supprimé !';}
+
+    if($_GET['message']=="size_error"){echo'Fichier trop volumnieux !';}
+    if($_GET['message']=="format_error"){echo'Format du fichier incorrect !';}
+    if($_GET['message']=="move_file"){echo'Le fichier a été déplace dans le serveur !';}
+    if($_GET['message']=="move_file_error"){echo'Le fichier n\'a pas été déplacé dans le serveur !';}
+    if($_GET['message']=="file_error"){echo'Erreur avec le fichier !';}
+
+
 
 
     ?>
