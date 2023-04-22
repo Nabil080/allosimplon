@@ -151,10 +151,10 @@ function filterFunction() {
 
 function clearSearchBar(){
     let div = document.getElementById("searchResult");
-    div.style.display = "none";
+    if (!div.contains(event.relatedTarget)) {
+        div.style.display = "none";
+    }
 }
-
-alert('hello');
 
 </script>
 
