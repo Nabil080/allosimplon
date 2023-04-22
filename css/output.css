@@ -544,7 +544,7 @@ video {
   font-size:20px ;
   padding: 1rem;
   border-radius: 50%;
-  border: rgb(23, 156, 156) solid 2px;
+  border: rgb(42, 98, 98) solid 2px;
   background: rgba(25, 25, 25, 0.8);
 }
 
@@ -565,3 +565,14 @@ video {
     background:blur(8px);
 } */
 
+.reveal{
+  position: relative;
+  transform: translateY(50px);
+  opacity: 0;
+  transition: 2s all ease;
+}
+
+.reveal.active{
+  transform: translateY(0);
+  opacity: 1;
+}

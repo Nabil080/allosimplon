@@ -242,7 +242,7 @@ $film=$request->fetch();
 
 <?php $comment_request=$con->prepare("SELECT * FROM comment WHERE ID_film = ?");$comment_request->execute([$film['ID_film']]);
 $comment_count= $comment_request->rowCount() ?>
-<section class=" bg-transparent py-8 lg:py-16">
+<section class="bg-transparent py-8 lg:py-16">
   <div class="max-w-2xl mx-auto px-4">
       <div class="flex justify-between items-center mb-6">
         <h2 class="text-lg lg:text-2xl font-bold  text-gray-50">Commentaires (<?=$comment_count?>)</h2>
@@ -264,7 +264,7 @@ $comment_count= $comment_request->rowCount() ?>
     while($comment=$comment_request->fetch()){
         setlocale(LC_TIME, 'fr_FR.utf8');
         $date = new DateTime($comment['comment_date']); ?>
-    <article class="p-6 text-base mb-6 border-t  border-main-light bg-main-dark">
+    <article class="reveal p-6 text-base mb-6 border-t  border-main-light bg-main-dark">
         <footer class="flex justify-between items-center mb-2">
             <div class="flex items-center">
                 <p class="inline-flex items-center capitalize text-sm  text-gray-50"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="mr-3 w-8 h-8">
@@ -334,20 +334,6 @@ function SwitchComment<?=$comment['ID_comment']?>() {
     <?php } ?>
     </div>
 </section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 <div class="flex justify-center mt-6 mb-6">

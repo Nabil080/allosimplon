@@ -25,7 +25,7 @@
             <div class="hidden duration-3000 ease-in-out h-full" data-carousel-item>
                 <div class="absolute block md:gap-2 sm:grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 justify-items-center  h-full w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
                     <?php while($film=$request->fetch()){ ?>
-                        <div class="h-full relative group">
+                        <div class="h-full relative group reveal">
                             <a href="/portfolio/allosimplon/content/film.php?page=<?=$film['ID_film']?>" class="h-full cursor-pointer overflow-hidden">
                             <!-- OVERLAY!!! -->
                             <div class="hidden lg:block z-50 absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">

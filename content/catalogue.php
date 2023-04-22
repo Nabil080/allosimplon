@@ -17,7 +17,7 @@ if (!isset ($_GET['page']) ){$page_number_temp = 1; $_GET['page']= 1;
 $page_number=$page_number_temp;
 $pagination_number = $page_number;
 // Limite de lignes par page
-$limit = 8;
+$limit = 16;
           // echo 'limite par page :'; var_dump($limit);
 $initial_page = ($page_number-1)*$limit;
 $limit_request=$initial_page.",".$limit;
@@ -323,7 +323,7 @@ if(empty($_SESSION['filters'])){
                     $description=$film['film_description'];
                     if(isset($_SESSION['ID_user'])){$ID_user=$_SESSION['ID_user'];}
                 ?>
-            <div class="group relative">
+            <div class="group relative reveal">
             <a href="/portfolio/allosimplon/content/film.php?page=<?=$ID?>" class="h-full cursor-pointer overflow-hidden">
                             <!-- OVERLAY!!! -->
                             <div class="hidden lg:block z-20 absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">

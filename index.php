@@ -20,10 +20,10 @@ require_once 'config/functions.php';
 
 <?php include('include/unique/random_film_slide.php')?>
 
-<div class="flex justify-center mt-5 lg:mt-10 mb-6">
+<div class="flex justify-center mt-5 lg:mt-10 mb-6 reveal">
 <h1 class="font-bold text-xl lg:text-2xl">Et bien d'autres !</h1>
 </div>
-<div class="flex justify-center mt-2">
+<div class="flex justify-center mt-2 reveal">
 <a href="/portfolio/allosimplon/content/catalogue.php"><button class="p-4 bg-main-light rounded-xl hover:bg-main-hover hover:border">Parcourez notre catalogue</button></a>
 </div>
 

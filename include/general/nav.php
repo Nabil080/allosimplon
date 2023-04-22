@@ -5,7 +5,7 @@
         <form action="/portfolio/allosimplon/traitements/search.php" method="get" class="grow flex relative">
             <input id="searchBar" onkeyup="filterFunction()" onfocusout="clearSearchBar()" minlength="2" <?php if(isset($_GET['search'])){echo 'value="'.$_GET['search'].'"';} ?> type="text" name="search" class="bg-main-dark placeholder:italic pl-4 hidden md:block border border-solid  basis-full text-gray-100  focus:ring-0" placeholder="Cherchez un film!" >
             <button type="submit"><i class="fa fa-search absolute top-2 right-3 text-2xl hidden md:block"></i></button>
-            <div id="searchResult" style="display:none;"  class="absolute top-12 flex flex-col w-full bg-main-dark gap-2 [&>*]:px-4 [&>*]:py-2 border border-t-transparent ">
+            <div id="searchResult" style="display:none;"  class="overflow-scroll max-h-screen absolute top-12 flex flex-col w-full bg-main-dark gap-2 [&>*]:px-4 [&>*]:py-2 border border-t-transparent ">
                 <?php
                 $film_req = getFilm("","");
                 $all_film = $film_req->fetchAll(PDO::FETCH_ASSOC);
@@ -27,8 +27,17 @@
     </div>
     <div id="burgermenu" class="hidden text-gray-100 flex flex-col md:flex-row justify-center mb-4 text-xl gap-8 [&>a]:underline [&>button]:underline [&>button]:text-gray-50 [&>a]:text-gray-50 font-bold px-[10%]">
     <form action="/portfolio/allosimplon/traitements/search.php" method="get" class="grow flex relative md:hidden">
-        <input minlength="2" <?php if(isset($_GET['search'])){echo 'value="'.$_GET['search'].'"';} ?> type="search" name="search" class="bg-main-dark placeholder:italic pl-4 border border-solid  basis-full text-gray-100  focus:ring-0" placeholder="Cherchez un film!" >
+        <input id="searchBarMobile" onkeyup="filterFunctionMobile()" onfocusout="clearSearchBarMobile()" minlength="2" <?php if(isset($_GET['search'])){echo 'value="'.$_GET['search'].'"';} ?> type="search" name="search" class="bg-main-dark placeholder:italic pl-4 border border-solid  basis-full text-gray-100  focus:ring-0" placeholder="Cherchez un film!" >
         <button type="submit"><i class="fa fa-search absolute top-2 right-3 text-2xl"></i></button>
+        <div id="searchResultMobile" style="display:none;"  class="overflow-scroll max-h-screen absolute top-12 flex flex-col w-full bg-main-dark gap-2 [&>*]:px-4 [&>*]:py-2 border border-t-transparent ">
+                <?php
+                $film_req = getFilm("","");
+                $all_film = $film_req->fetchAll(PDO::FETCH_ASSOC);
+                foreach($all_film as $film_search){
+                    $url = "/portfolio/allosimplon/content/catalogue.php?page=1&search=".$film_search['film_name'];?>
+                    <a href="<?=$url?>" class="hover:text-gray-300 text-lg w-full hover:bg-gray-100 hover:bg-opacity-20 "><?=$film_search['film_name']?></a>
+                <?php }?>
+            </div>
     </form>
     <button><a class="hover:text-gray-300" href="/portfolio/allosimplon/index.php">Accueil</a>
         <button data-dropdown-delay="100" data-dropdown-trigger="hover" data-dropdown-toggle="CatalogueDropdown" class="hidden md:block"><a class="hover:text-gray-300 no-underline" href="/portfolio/allosimplon/content/catalogue.php?page=1">Catalogue<i class="fa-solid fa-chevron-down pl-1 text-lg"></i></a></button>
@@ -153,6 +162,32 @@ function clearSearchBar(){
     let div = document.getElementById("searchResult");
     if (!div.contains(event.relatedTarget)) {
         div.style.display = "none";
+    }
+}
+
+function clearSearchBarMobile(){
+    let div = document.getElementById("searchResultMobile");
+    if (!div.contains(event.relatedTarget)) {
+        div.style.display = "none";
+    }
+}
+
+function filterFunctionMobile() {
+    var input, filter, a, i;
+    input = document.getElementById("searchBarMobile");
+    filter = input.value.toUpperCase();
+    div = document.getElementById("searchResultMobile");
+    div.style.display = "block";
+    a = div.getElementsByTagName("a");
+    for (i = 0; i < a.length; i++) {
+        txtValue = a[i].textContent || a[i].innerText;
+
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            a[i].style.display = "block";
+            console.log(txtValue);
+        } else {
+            a[i].style.display = "none";
+        }
     }
 }
 

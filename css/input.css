@@ -50,5 +50,14 @@
     background:blur(8px);
 } */
 
+.reveal{
+    position: relative;
+    transform: translateY(50px);
+    opacity: 0;
+    transition: 2s all ease;
+}
 
-
+.reveal.active{
+    transform: translateY(0);
+    opacity: 1;
+}
