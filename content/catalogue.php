@@ -326,7 +326,7 @@ if(empty($_SESSION['filters'])){
             <div class="group relative">
             <a href="/portfolio/allosimplon/content/film.php?page=<?=$ID?>" class="h-full cursor-pointer overflow-hidden">
                             <!-- OVERLAY!!! -->
-                            <div class="hidden lg:block z-50 absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
+                            <div class="hidden lg:block z-20 absolute w-full h-full bg-main-dark bg-opacity-80 opacity-0 group-hover:opacity-100 group p-4">
                                 <div class="relative w-full h-full flex flex-col justify-between">
                                     <p class="font-bold text-xl cursor-dark"><?=$date?></p>
                                     <?php

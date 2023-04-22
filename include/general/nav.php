@@ -1,21 +1,30 @@
 <nav id="navbar" class="text-main-light bg-main-dark fixed top-0 w-full z-40 ease-out duration-300">
-<div id="nav-contain" class="flex p-4 md:gap-4  w-full h-20 md:px-[10%]">
-    <img src="/portfolio/allosimplon/upload/site/popcorn.png" class="basis-auto" alt="logo"><a class="self-center" href="/portfolio/allosimplon/index.php">
-        <span class="text-gray-100 uppercase self-center text-base md:text-xl ">SimplonFilm</span></a>
-    <form action="/portfolio/allosimplon/traitements/search.php" method="get" class="grow flex relative">
-        <input minlength="2" <?php if(isset($_GET['search'])){echo 'value="'.$_GET['search'].'"';} ?> type="search" name="search" class="bg-main-dark placeholder:italic pl-4 hidden md:block border border-solid  basis-full text-gray-100  focus:ring-0" placeholder="Cherchez un film!" >
-        <button type="submit"><i class="fa fa-search absolute top-2 right-3 text-2xl hidden md:block"></i></button>
-    </form>
-    <div class="items-center flex basis-auto text-4xl gap-6">
-        <!-- Modal toggle -->
-        <?php if(isset($_SESSION['ID_user'])){ ?>
-            <h2 class="text-gray-50 text-base sm:text-2xl block ml-2">Bonjour,<button class="pl-2 text-main-light underline hover:text-main-hover" data-modal-target="profil" data-modal-toggle="profil"><?=$_SESSION['user_pseudo']?></button></h2>
-            <?php }else{?>
-            <button class="rounded-lg hover:bg-main-hover" data-modal-target="login" data-modal-toggle="login" ><i class="fa fa-user w-full h-full p-2"></i></button>
-        <?php }?>
-        <button class="rounded-lg hover:bg-main-hover" onclick="toggleMobileMenu(burgermenu)"><i class="fa fa-bars w-full h-full p-2"></i></button>
+    <div id="nav-contain" class="flex p-4 md:gap-4  w-full h-20 md:px-[10%]">
+        <img src="/portfolio/allosimplon/upload/site/popcorn.png" class="basis-auto" alt="logo"><a class="self-center" href="/portfolio/allosimplon/index.php">
+            <span class="text-gray-100 uppercase self-center text-base md:text-xl ">SimplonFilm</span></a>
+        <form action="/portfolio/allosimplon/traitements/search.php" method="get" class="grow flex relative">
+            <input id="searchBar" onkeyup="filterFunction()" onfocusout="clearSearchBar()" minlength="2" <?php if(isset($_GET['search'])){echo 'value="'.$_GET['search'].'"';} ?> type="text" name="search" class="bg-main-dark placeholder:italic pl-4 hidden md:block border border-solid  basis-full text-gray-100  focus:ring-0" placeholder="Cherchez un film!" >
+            <button type="submit"><i class="fa fa-search absolute top-2 right-3 text-2xl hidden md:block"></i></button>
+            <div id="searchResult" style="display:none;"  class="absolute top-12 flex flex-col w-full bg-main-dark gap-2 [&>*]:px-4 [&>*]:py-2 border border-t-transparent ">
+                <?php
+                $film_req = getFilm("","");
+                $all_film = $film_req->fetchAll(PDO::FETCH_ASSOC);
+                foreach($all_film as $film_search){
+                    $url = "/portfolio/allosimplon/content/catalogue.php?page=1&search=".$film_search['film_name'];?>
+                    <a href="<?=$url?>" class="hover:text-gray-300 text-lg w-full hover:bg-gray-100 hover:bg-opacity-20 "><?=$film_search['film_name']?></a>
+                <?php }?>
+            </div>
+        </form>
+        <div class="items-center flex basis-auto text-4xl gap-6">
+            <!-- Modal toggle -->
+            <?php if(isset($_SESSION['ID_user'])){ ?>
+                <h2 class="text-gray-50 text-base sm:text-2xl block ml-2">Bonjour,<button class="pl-2 text-main-light underline hover:text-main-hover" data-modal-target="profil" data-modal-toggle="profil"><?=$_SESSION['user_pseudo']?></button></h2>
+                <?php }else{?>
+                <button class="rounded-lg hover:bg-main-hover" data-modal-target="login" data-modal-toggle="login" ><i class="fa fa-user w-full h-full p-2"></i></button>
+            <?php }?>
+            <button class="rounded-lg hover:bg-main-hover" onclick="toggleMobileMenu(burgermenu)"><i class="fa fa-bars w-full h-full p-2"></i></button>
+        </div>
     </div>
-</div>
     <div id="burgermenu" class="hidden text-gray-100 flex flex-col md:flex-row justify-center mb-4 text-xl gap-8 [&>a]:underline [&>button]:underline [&>button]:text-gray-50 [&>a]:text-gray-50 font-bold px-[10%]">
     <form action="/portfolio/allosimplon/traitements/search.php" method="get" class="grow flex relative md:hidden">
         <input minlength="2" <?php if(isset($_GET['search'])){echo 'value="'.$_GET['search'].'"';} ?> type="search" name="search" class="bg-main-dark placeholder:italic pl-4 border border-solid  basis-full text-gray-100  focus:ring-0" placeholder="Cherchez un film!" >
@@ -42,11 +51,7 @@
         <button <?php if(isset($_SESSION['ID_user'])){ ?>data-modal-target="profil" data-modal-toggle="profil"<?php }else{ ?> data-modal-target="login" data-modal-toggle="login" <?php } ?> class="underline text-main-light " >Profil</button>
     </div>
     </div>
-
-
-
 </nav>
-
 
 <?php
 if(!empty($_GET['message'])){?>
@@ -111,9 +116,7 @@ if(!empty($_GET['message'])){?>
     if($_GET['message']=="move_file"){echo'Le fichier a été déplace dans le serveur !';}
     if($_GET['message']=="move_file_error"){echo'Le fichier n\'a pas été déplacé dans le serveur !';}
     if($_GET['message']=="file_error"){echo'Erreur avec le fichier !';}
-
-
-
+}
 
     ?>
 </button>
@@ -126,37 +129,34 @@ setTimeout(function() {
     }, 500);
 }, 3000);
 
+
+function filterFunction() {
+    var input, filter, a, i;
+    input = document.getElementById("searchBar");
+    filter = input.value.toUpperCase();
+    div = document.getElementById("searchResult");
+    div.style.display = "block";
+    a = div.getElementsByTagName("a");
+    for (i = 0; i < a.length; i++) {
+        txtValue = a[i].textContent || a[i].innerText;
+
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            a[i].style.display = "block";
+            console.log(txtValue);
+        } else {
+            a[i].style.display = "none";
+        }
+    }
+}
+
+function clearSearchBar(){
+    let div = document.getElementById("searchResult");
+    div.style.display = "none";
+}
+
+alert('hello');
+
 </script>
-<?php }?>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 <?php if(!isset($_SESSION['ID_user'])){ ?>
 <!-- Login modal -->
@@ -223,11 +223,11 @@ function switchDiv() {
     var div1 = document.getElementById("co");
     var div2 = document.getElementById("paco");
     if (div1.style.display === "none") {
-    div1.style.display = "block";
-    div2.style.display = "none";
+        div1.style.display = "block";
+        div2.style.display = "none";
     } else {
-    div1.style.display = "none";
-    div2.style.display = "block";
+        div1.style.display = "none";
+        div2.style.display = "block";
     }
 }
 </script>

@@ -35,12 +35,11 @@ require_once '../config/functions.php';
 <title>Cinemet</title>
 </head>
 
-<?php 
+<?php
 if(!isset($_GET['page'])){$_GET['page']=1;}
 $ID_film = $_GET['page'];
 $request=GetOneFilm($ID_film);
 $film=$request->fetch();
-// var_dump($film);
 
 ?>
 
