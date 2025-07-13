@@ -36,6 +36,7 @@ New notions :
 - Tailwind css
 - SQL queries (and sql injections)
 - Backend form validation
+- Multi Filtering / sorting
 
 Strenghtening notions :
 
