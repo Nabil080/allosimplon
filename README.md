@@ -1,56 +1,62 @@
 # AlloSimplon
 
-My first fullstack dynamic website :
-A movie catalogue, featuring user authentification, searching/sorting/filtering, notes, likes, discussions and a CRUD for administrative stuff.
+My first fullstack dynamic website:
+A movie catalog featuring user authentication, search/sort/filter options, user ratings, likes, discussions, and a full admin CRUD system.
 
-# Functionalities
+## Usage
 
-Global :
+I updated the project to use Docker since it was hard to replicate my old environment.
 
-- A database driven movie catalog with the ability to search / sort or filter through.
-- Each movie has a like count and a note which are both dynamically updated based on users interactions.
-- When viewing a movie, similar movies are suggested.
+```bash
+docker compose up --build
+```
 
-User specific :
+Then visit: [http://localhost:8000](http://localhost:8000)
 
-- User authentification, with sessions keeping you logged in.
-- Ability to update your infos (username, email, password).
-- Grade / Like a movie.
-- Access your likes.
-- Post / Edit / Delete your comment
-- Report another comment
+### Admin account
 
-Admin specific :
+- **Email**: [admin@admin.admin](mailto:admin@admin.admin)
+- **Password**: admin
 
-- Update a movie directly from the it's page.
-- Delete any comment directly.
-- Access to the CRUD : Create/Read/Update/Delete Movies, Actors, Realisators, Scenarists, Genres, Users, Comments
+This account gives access to the administrator interface and full CRUD: managing accounts, movies, comments...
 
-# Notions
+## Functionalities
 
-New notions :
+### Global
+
+- A database-driven movie catalog with pagination, search, sort, and filter capabilities.
+- Each movie has a like count and a rating, both dynamically updated by user interactions.
+- Suggested similar movies when viewing a movie page.
+
+### User-specific
+
+- User authentication with persistent login via sessions.
+- Ability to update your info (username, email, password).
+- Rate and like movies.
+- Access your liked movies.
+- Post, edit, and delete your comments.
+- Report other users’ comments.
+
+### Admin-specific
+
+- Update a movie directly from its page.
+- Delete any comment.
+- Full CRUD access for Movies, Actors, Directors, Screenwriters, Genres, Users, and Comments.
+
+## Notions
+
+### New concepts learned
 
 - Git usage
-- Full website creation process (Sketching, organization tool, database design...)
-- Database design (conceptual/logical data model) and creation (sql script)
-- Tailwind css
-- SQL queries (and sql injections)
+- Full website creation workflow (sketching, planning tools, database design, etc.)
+- Database modeling (conceptual/logical) and creation (SQL scripts)
+- Tailwind CSS
+- Responsive
+- SQL queries (and awareness of SQL injections)
+- File uploads
 - Backend form validation
-- Multi Filtering / sorting
+- Multi-filtering and sorting
 
-Strenghtening notions :
+### Strengthened skills
 
-- UI experience
-
-# Usage
-
-I updated this project to use docker since it was annoying to run otherwise
-
-`docker compose up --build`
-Visit `http://localhost:8000`
-
-Admin account :
-mail: admin@admin.admin
-password : admin
-
-Allows you to navigate the administrateur interface and CRUD. Managing accounts, movies, comments...
+- UI/UX experience
